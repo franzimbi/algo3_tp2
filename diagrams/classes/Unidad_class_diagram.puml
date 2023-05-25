@@ -2,38 +2,38 @@
 'https://plantuml.com/class-diagram
 
 class Score {
-    +sumar(Unidad unidad): void
+    +sumar(Enemigo : enemigo): void
 }
 
-abstract class Unidad {
-    +recibirAtaque(Defensa defensa): void
+abstract class Enemigo {
+    +recibirAtaque(Defensa : defensa): void
     +destruirse(): void
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Hormiga {
     +destruirse(): void
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Araña {
     +destruirse(): void
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Daño {
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Velocidad {
     +moverse(): void
 }
 
-Unidad <|-- Hormiga
-Unidad <|-- Araña
-Unidad *--> Daño
-Unidad *--> Velocidad
-Unidad "0..*" <--  Score
-Unidad *--> Vida
+Enemigo <|-- Hormiga
+Enemigo <|-- Araña
+Enemigo *--> Daño
+Enemigo *--> Velocidad
+Enemigo "0..*" <--  Score
+Enemigo *--> Vida
 
 @enduml
