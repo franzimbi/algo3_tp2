@@ -1,0 +1,117 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Jugador {
+    +recibirAtaque(unidad: Unidad): void
+    +sumarCreditos(int cantidad): void
+    +atacar(): void
+}
+
+class Creditos {
+    -valor: int
+    +modificar(int Valor): void
+}
+
+class Nombre {
+    +Nombre(String string)
+}
+
+class Vida {
+    -valor: int
+    +modificar(int Valor): void
+}
+
+class Score {
+    +sumar(Unidad unidad): void
+}
+
+abstract class Defensa {
+    +Defensa(Parcela lugar)
+    +atacar(Unidad enemigo)
+}
+
+class TorreBlanca{
+    +atacar(Unidad enemigo): void
+}
+
+class TorrePlateada{
+    +atacar(Unidad enemigo): void
+}
+
+interface Parcela {
+    +ubicar(Defensa defensa): void
+}
+
+class InterfazGrafica {}
+
+class Tierra {
+    +ubicar(Defensa defensa): void
+}
+
+class Rocoso {
+    +ubicar(Defensa defensa): void
+}
+
+abstract class Pasarela {
+    +ubicar(Defensa defensa): void
+}
+
+class Meta {}
+class Largada {}
+
+abstract class Unidad {
+    +recibirAtaque(Defensa defensa): void
+    +destruirse(): void
+    +atacar(Jugador jugador): void
+}
+
+class Hormiga {
+    +destruirse(): void
+    +atacar(Jugador jugador): void
+}
+
+class Araña {
+    +destruirse(): void
+    +atacar(Jugador jugador): void
+}
+
+class Daño {
+    +atacar(Jugador jugador): void
+}
+
+class Velocidad {
+    +moverse(): void
+}
+
+Jugador "1" *-- "1" Creditos
+Jugador "1" *-- "1" Nombre
+Jugador "1" *-- "1" Vida
+Jugador "1" *-- "1..*" Defensa
+Score "1" o-- "1" Jugador
+
+Defensa <|-- TorreBlanca
+Defensa <|-- TorrePlateada
+Defensa <..> Unidad
+
+Parcela o-- Defensa
+Parcela "1..*" --* "1" InterfazGrafica
+Parcela <|.. Tierra
+Parcela <|.. Rocoso
+Parcela <|.. Pasarela
+
+Pasarela <|-- Meta
+Pasarela <|-- Largada
+
+Unidad <|-- Hormiga
+Unidad <|-- Araña
+Unidad *-- Daño
+Unidad *-- Velocidad
+Unidad "0..*" <-- "1" Score
+Unidad ..> Jugador
+Unidad *-- Vida
+Unidad --o Parcela
+
+
+
+
+@enduml
