@@ -4,15 +4,15 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {3}
 
-* **Integrante 1** - [Garcia Sanchez GluGlu](https://github.com/JulianGarciaSan)
+* **Integrante 1** - [Garcia Sanchez Julian](https://github.com/JulianGarciaSan)
 * **Integrante 2** - [Lozano Martina Victoria](https://github.com/MLozano01)
 * **Integrante 3** - [Peralta Manuel Federico](https://github.com/FedericoMPeralta)
 * **Integrante 4** - [Natale Nicolas Marcelo](https://github.com/Igris-1)
 * **Integrante 5** - [Zimbimbakis Francisco Manuel](https://github.com/franzimbi)
 
-Corrector: **{Corrector}**
+Corrector: **{Joaquin Gomez}**
 
 ## Aplicación
 

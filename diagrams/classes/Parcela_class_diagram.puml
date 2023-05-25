@@ -2,40 +2,40 @@
 'https://plantuml.com/class-diagram
 
 interface Parcela {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 class InterfazGrafica {}
 
 class Tierra {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 class Rocoso {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 abstract class Pasarela {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 class Meta {}
 class Largada {}
 
-abstract class Unidad {
-    +recibirAtaque(Defensa defensa): void
+abstract class Enemigo {
+    +recibirAtaque(Defensa : defensa): void
     +destruirse(): void
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
-Parcela "1..*" --* "1" InterfazGrafica
+Parcela "1..*" <--*  InterfazGrafica
 Parcela <|.. Tierra
 Parcela <|.. Rocoso
 Parcela <|.. Pasarela
 
 Pasarela <|-- Meta
 Pasarela <|-- Largada
-Unidad --o Parcela
+Enemigo <--o Parcela
 
 
 @enduml

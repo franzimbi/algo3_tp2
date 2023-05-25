@@ -2,99 +2,109 @@
 'https://plantuml.com/class-diagram
 
 class Jugador {
-    +recibirAtaque(unidad: Unidad): void
-    +sumarCreditos(int cantidad): void
+    +recibirAtaque(Enemigo: enemigo): void
+    +sumarCreditos(int : cantidad): void
     +atacar(): void
+    +VidaObtener() : int
 }
 
 class Creditos {
     -valor: int
-    +modificar(int Valor): void
+    +modificar(int : Valor): void
 }
 
 class Nombre {
-    +Nombre(String string)
+    -nombre : String
+    +Nombre(String : string)
 }
 
 class Vida {
     -valor: int
-    +modificar(int Valor): void
+    +modificar(int : Valor): void
+    +cantidad() : int
 }
 
 class Score {
-    +sumar(Unidad unidad): void
+    +sumar(Enemigo: enemigo): void
 }
 
 abstract class Defensa {
-    +Defensa(Parcela lugar)
-    +atacar(Unidad enemigo)
+    +Defensa(Parcela : lugar)
+    +atacar(Enemigo : enemigo)
 }
 
 class TorreBlanca{
-    +atacar(Unidad enemigo): void
+    +atacar(Enemigo : enemigo): void
 }
 
 class TorrePlateada{
-    +atacar(Unidad enemigo): void
+    +atacar(Enemigo: enemigo): void
+}
+
+class DefensaEnConstruccion{
+    -turnosRestantes : int
+    +DefensaEnConstruccion(int : turnos, Defensa : defensa)
+    +atacar(Enemigo : enemigo) : Defensa
 }
 
 interface Parcela {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 class InterfazGrafica {}
 
 class Tierra {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 class Rocoso {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 abstract class Pasarela {
-    +ubicar(Defensa defensa): void
+    +ubicar(Defensa : defensa): void
 }
 
 class Meta {}
 class Largada {}
 
-abstract class Unidad {
-    +recibirAtaque(Defensa defensa): void
+abstract class Enemigo {
+    +recibirAtaque(Defensa : defensa): void
     +destruirse(): void
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Hormiga {
     +destruirse(): void
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Araña {
     +destruirse(): void
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Daño {
-    +atacar(Jugador jugador): void
+    +atacar(Jugador : jugador): void
 }
 
 class Velocidad {
     +moverse(): void
 }
 
-Jugador "1" *-- "1" Creditos
-Jugador "1" *-- "1" Nombre
-Jugador "1" *-- "1" Vida
-Jugador "1" *-- "1..*" Defensa
-Score "1" o-- "1" Jugador
+Jugador  *-->  Creditos
+Jugador  *-->  Nombre
+Jugador  *-->  Vida
+Jugador  *--> "0..*" Defensa
+Score  o-->  Jugador
 
-Defensa <|-- TorreBlanca
-Defensa <|-- TorrePlateada
-Defensa <..> Unidad
+Defensa <|--- TorreBlanca
+Defensa <|--- TorrePlateada
+Defensa <|--- DefensaEnConstruccion
+Defensa <..> Enemigo
 
-Parcela o-- Defensa
-Parcela "1..*" --* "1" InterfazGrafica
+Parcela o--> Defensa
+Parcela "1..*" <--*  InterfazGrafica
 Parcela <|.. Tierra
 Parcela <|.. Rocoso
 Parcela <|.. Pasarela
@@ -102,14 +112,14 @@ Parcela <|.. Pasarela
 Pasarela <|-- Meta
 Pasarela <|-- Largada
 
-Unidad <|-- Hormiga
-Unidad <|-- Araña
-Unidad *-- Daño
-Unidad *-- Velocidad
-Unidad "0..*" <-- "1" Score
-Unidad ..> Jugador
-Unidad *-- Vida
-Unidad --o Parcela
+Enemigo <|-- Hormiga
+Enemigo <|-- Araña
+Enemigo *--> Daño
+Enemigo *--> Velocidad
+Enemigo "0..*" <--  Score
+Enemigo ..> Jugador
+Enemigo *--> Vida
+Enemigo <--o Parcela
 
 
 
