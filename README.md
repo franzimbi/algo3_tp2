@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {3}
 
 * **Integrante 1** - [Garcia Sanchez Julian](https://github.com/JulianGarciaSan)
 * **Integrante 2** - [Lozano Martina Victoria](https://github.com/MLozano01)
