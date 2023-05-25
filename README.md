@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Natale Nicolas Marcelo](https://github.com/Igris-1)
 * **Integrante 5** - [Zimbimbakis Francisco Manuel](https://github.com/franzimbi)
 
-Corrector: **{Corrector}**
+Corrector: **{Joaquin Gomez}**
 
 ## Aplicación
 
