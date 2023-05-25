@@ -5,6 +5,7 @@ class Jugador {
     +recibirAtaque(unidad: Unidad): void
     +sumarCreditos(int cantidad): void
     +atacar(): void
+    +VidaObtener() : int
 }
 
 class Creditos {
@@ -19,6 +20,7 @@ class Nombre {
 class Vida {
     -valor: int
     +modificar(int Valor): void
+    +cantidad() : int
 }
 
 class Score {
@@ -83,18 +85,18 @@ class Velocidad {
     +moverse(): void
 }
 
-Jugador "1" *-- "1" Creditos
-Jugador "1" *-- "1" Nombre
-Jugador "1" *-- "1" Vida
-Jugador "1" *-- "1..*" Defensa
-Score "1" o-- "1" Jugador
+Jugador  *-->  Creditos
+Jugador  *-->  Nombre
+Jugador  *-->  Vida
+Jugador  *--> "1..*" Defensa
+Score  o-->  Jugador
 
 Defensa <|-- TorreBlanca
 Defensa <|-- TorrePlateada
 Defensa <..> Unidad
 
-Parcela o-- Defensa
-Parcela "1..*" --* "1" InterfazGrafica
+Parcela o--> Defensa
+Parcela "1..*" <--*  InterfazGrafica
 Parcela <|.. Tierra
 Parcela <|.. Rocoso
 Parcela <|.. Pasarela
@@ -104,12 +106,12 @@ Pasarela <|-- Largada
 
 Unidad <|-- Hormiga
 Unidad <|-- Araña
-Unidad *-- Daño
-Unidad *-- Velocidad
-Unidad "0..*" <-- "1" Score
+Unidad *--> Daño
+Unidad *--> Velocidad
+Unidad "0..*" <--  Score
 Unidad ..> Jugador
-Unidad *-- Vida
-Unidad --o Parcela
+Unidad *--> Vida
+Unidad <--o Parcela
 
 
 

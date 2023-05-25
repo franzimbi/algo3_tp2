@@ -31,9 +31,9 @@ class Velocidad {
 
 Unidad <|-- Hormiga
 Unidad <|-- Araña
-Unidad *-- Daño
-Unidad *-- Velocidad
-Unidad "0..*" <-- "1" Score
-Unidad *-- Vida
+Unidad *--> Daño
+Unidad *--> Velocidad
+Unidad "0..*" <--  Score
+Unidad *--> Vida
 
 @enduml

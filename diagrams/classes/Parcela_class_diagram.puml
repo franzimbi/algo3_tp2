@@ -28,14 +28,14 @@ abstract class Unidad {
     +atacar(Jugador jugador): void
 }
 
-Parcela "1..*" --* "1" InterfazGrafica
+Parcela "1..*" <--*  InterfazGrafica
 Parcela <|.. Tierra
 Parcela <|.. Rocoso
 Parcela <|.. Pasarela
 
 Pasarela <|-- Meta
 Pasarela <|-- Largada
-Unidad --o Parcela
+Unidad <--o Parcela
 
 
 @enduml

@@ -28,13 +28,14 @@ class Jugador {
     +recibirAtaque(unidad: Unidad): void
     +sumarCreditos(int cantidad): void
     +atacar(): void
+    +VidaObtener() : int
 }
 
 Defensa <|-- TorreBlanca
 Defensa <|-- TorrePlateada
 Defensa <..> Unidad
-Parcela o-- Defensa
-Jugador "1" *-- "1..*" Defensa
+Parcela o--> Defensa
+Jugador  *--> "1..*" Defensa
 
 
 @enduml

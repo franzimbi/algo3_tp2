@@ -5,6 +5,7 @@ class Jugador {
     +recibirAtaque(unidad: Unidad): void
     +sumarCreditos(int cantidad): void
     +atacar(): void
+    +VidaObtener() : int
 }
 
 class Creditos {
@@ -19,6 +20,7 @@ class Nombre {
 class Vida {
     -valor: int
     +modificar(int Valor): void
+    +cantidad() : int
 }
 
 class Score {
@@ -32,9 +34,9 @@ abstract class Unidad {
 }
 
 Unidad ..> Jugador
-Jugador "1" *-- "1" Creditos
-Jugador "1" *-- "1" Nombre
-Jugador "1" *-- "1" Vida
-Score "1" o-- "1" Jugador
+Jugador  *--> Creditos
+Jugador  *-->  Nombre
+Jugador  *--> Vida
+Score  o-->  Jugador
 
 @enduml
