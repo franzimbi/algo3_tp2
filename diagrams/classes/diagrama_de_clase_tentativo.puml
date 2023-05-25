@@ -41,6 +41,12 @@ class TorrePlateada{
     +atacar(Enemigo: enemigo): void
 }
 
+class DefensaEnConstruccion{
+    -turnosRestantes : int
+    +DefensaEnConstruccion(int : turnos, Defensa : defensa)
+    +atacar(Enemigo : enemigo) : Defensa
+}
+
 interface Parcela {
     +ubicar(Defensa : defensa): void
 }
@@ -94,6 +100,7 @@ Score  o-->  Jugador
 
 Defensa <|--- TorreBlanca
 Defensa <|--- TorrePlateada
+Defensa <|--- DefensaEnConstruccion
 Defensa <..> Enemigo
 
 Parcela o--> Defensa

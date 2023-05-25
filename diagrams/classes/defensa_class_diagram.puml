@@ -18,6 +18,12 @@ interface Parcela {
     +ubicar(Defensa : defensa): void
 }
 
+class DefensaEnConstruccion{
+    -turnosRestantes : int
+    +DefensaEnConstruccion(int : turnos, Defensa : defensa)
+    +atacar(Enemigo : enemigo) : Defensa
+}
+
 abstract class Enemigo {
     +recibirAtaque(Defensa : defensa): void
     +destruirse(): void
@@ -36,6 +42,7 @@ Defensa <|-- TorrePlateada
 Defensa <..> Enemigo
 Parcela o--> Defensa
 Jugador  *--> "1..*" Defensa
+Defensa <|-- DefensaEnConstruccion
 
 
 @enduml
