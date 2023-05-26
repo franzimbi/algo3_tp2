@@ -6,6 +6,7 @@ class Jugador {
     +sumarCreditos(int : cantidad): void
     +atacar(): void
     +VidaObtener() : int
+    +restarCreditos(int creditos)
 }
 
 class Creditos {
@@ -29,6 +30,7 @@ class Score {
 }
 
 abstract class Defensa {
+    -coste: int
     +Defensa(Parcela : lugar)
     +atacar(Enemigo : enemigo)
     +construir()

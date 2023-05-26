@@ -1,14 +1,27 @@
 package edu.fiuba.algo3.modelo;
 
 public abstract class Defensa {
+
+    protected int coste; //podria ser un objeto?
     protected SistemaDeAtaque sistemaDeAtaque;
     protected TurnosNecesarios turnosNecesarios;
 
-    public static Defensa construirDefensa(String nombre){
+    public static Defensa construirDefensa(String nombre, Jugador jugador){
+        Defensa torre;
         if (nombre.equals("torre blanca")){
-            return new TorreBlanca();
+            torre = new TorreBlanca();
+
+            jugador.restarCreditos(torre.coste());
+            return torre;
         }
-        return new TorrePlateada();
+        torre = new TorrePlateada();
+
+        jugador.restarCreditos(torre.coste());
+        return torre;
+    }
+
+    public int coste(){
+        return this.coste;
     }
 
     public boolean estaOperativa(){

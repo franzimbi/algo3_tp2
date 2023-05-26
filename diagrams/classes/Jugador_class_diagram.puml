@@ -2,10 +2,11 @@
 'https://plantuml.com/class-diagram
 
 class Jugador {
-    +recibirAtaque(enemigo : Enemigo): void
+    +recibirAtaque(Enemigo: enemigo): void
     +sumarCreditos(int : cantidad): void
     +atacar(): void
     +VidaObtener() : int
+    +restarCreditos(int creditos)
 }
 
 class Creditos {

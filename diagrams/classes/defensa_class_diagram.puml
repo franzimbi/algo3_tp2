@@ -2,6 +2,7 @@
 'https://plantuml.com/class-diagram
 
 abstract class Defensa {
+    -coste: int
     +Defensa(Parcela : lugar)
     +atacar(Enemigo : enemigo)
     +construir()
@@ -36,6 +37,7 @@ class Jugador {
     +sumarCreditos(int : cantidad): void
     +atacar(): void
     +VidaObtener() : int
+    +restarCreditos(int creditos)
 }
 
 class sistemaDeAtaque{

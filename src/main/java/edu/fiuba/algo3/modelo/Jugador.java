@@ -16,4 +16,8 @@ public class Jugador {
     public int obtenerCreditos(){
         return this.creditos.cantidad();
     }
+
+    public void restarCreditos(int cantidad){
+        this.creditos.restarCredtios(cantidad);
+    }
 }
