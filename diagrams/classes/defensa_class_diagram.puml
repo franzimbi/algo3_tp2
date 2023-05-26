@@ -4,6 +4,7 @@
 abstract class Defensa {
     +Defensa(Parcela : lugar)
     +atacar(Enemigo : enemigo)
+    +construir()
 }
 
 class TorreBlanca{
@@ -37,12 +38,28 @@ class Jugador {
     +VidaObtener() : int
 }
 
+class sistemaDeAtaque{
+    -daño: int
+    -rango: int
+    +SistemaDeAtaque(int daño, int rango)
+    +atacar()
+}
+
+class turnosNecesarios{
+    -turnosFaltantes: int
+    +TurnosNecesarios(int turnos)
+    +estaOperativa(): Bool
+    +construir()
+}
+
 Defensa <|-- TorreBlanca
 Defensa <|-- TorrePlateada
 Defensa <..> Enemigo
 Parcela o--> Defensa
 Jugador  *--> "1..*" Defensa
 Defensa <|-- DefensaEnConstruccion
+Defensa *--> sistemaDeAtaque
+Defensa *--> turnosNecesarios
 
 
 @enduml
