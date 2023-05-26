@@ -31,6 +31,21 @@ class Score {
 abstract class Defensa {
     +Defensa(Parcela : lugar)
     +atacar(Enemigo : enemigo)
+    +construir()
+}
+
+class sistemaDeAtaque{
+    -daño: int
+    -rango: int
+    +SistemaDeAtaque(int daño, int rango)
+    +atacar()
+}
+
+class turnosNecesarios{
+    -turnosFaltantes: int
+    +TurnosNecesarios(int turnos)
+    +estaOperativa(): Bool
+    +construir()
 }
 
 class TorreBlanca{
@@ -41,11 +56,6 @@ class TorrePlateada{
     +atacar(Enemigo: enemigo): void
 }
 
-class DefensaEnConstruccion{
-    -turnosRestantes : int
-    +DefensaEnConstruccion(int : turnos, Defensa : defensa)
-    +atacar(Enemigo : enemigo) : Defensa
-}
 
 interface Parcela {
     +ubicar(Defensa : defensa): void
@@ -100,8 +110,9 @@ Score  o-->  Jugador
 
 Defensa <|--- TorreBlanca
 Defensa <|--- TorrePlateada
-Defensa <|--- DefensaEnConstruccion
 Defensa <..> Enemigo
+Defensa *--> sistemaDeAtaque
+Defensa *--> turnosNecesarios
 
 Parcela o--> Defensa
 Parcela "1..*" <--*  InterfazGrafica
