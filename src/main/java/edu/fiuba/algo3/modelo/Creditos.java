@@ -10,4 +10,11 @@ public class Creditos {
     public int cantidad(){
         return this.cantidad;
     }
+
+    public void restarCredtios(int cantidad){
+        if(cantidad > this.cantidad){
+            throw new CreditosInsuficientesError();
+        }
+        this.cantidad -= cantidad;
+    }
 }

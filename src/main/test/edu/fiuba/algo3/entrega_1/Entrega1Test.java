@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.entrega_1;
 
+import edu.fiuba.algo3.modelo.CreditosInsuficientesError;
 import edu.fiuba.algo3.modelo.Defensa;
 import edu.fiuba.algo3.modelo.Jugador;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega1Test {
     @Test
@@ -19,12 +19,24 @@ public class Entrega1Test {
 
     @Test
     public void Test02UnaDefensaSeConstruyeEnElTiempoCorrecto(){
-        Defensa defensa = Defensa.construirDefensa("torre blanca");
+        Jugador jugador = new Jugador(20,100);
+        Defensa defensa = Defensa.construirDefensa("torre blanca",jugador);
 
         assertFalse(defensa.estaOperativa());
 
         defensa.construir();
 
         assertTrue(defensa.estaOperativa());
+    }
+
+    @Test
+    public void Test03UnJugadorDebeTenerCreditosSuficientesParaConstruirUnaTorre(){
+        Jugador jugador = new Jugador(20,40);
+
+        assertDoesNotThrow(()->Defensa.construirDefensa("torre plateada",jugador));
+
+        Defensa defensa = Defensa.construirDefensa("torre plateada",jugador);
+
+        assertThrows(CreditosInsuficientesError.class,()->Defensa.construirDefensa("torre plateada",jugador));
     }
 }
