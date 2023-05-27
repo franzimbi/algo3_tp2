@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class Defensa {
 
     protected int coste; //podria ser un objeto?
@@ -8,16 +11,20 @@ public abstract class Defensa {
 
     public static Defensa construirDefensa(String nombre, Jugador jugador){
         Defensa torre;
-        if (nombre.equals("torre blanca")){
-            torre = new TorreBlanca();
 
-            jugador.restarCreditos(torre.coste());
-            return torre;
+        Map<String, Defensa> defensaPosibles = new HashMap<String, Defensa>(){{
+            put("torre blanca", (new TorreBlanca()));
+            put("torre plateada", (new TorrePlateada()));
         }
-        torre = new TorrePlateada();
+        };
+        Defensa defensaActual =  defensaPosibles.get(nombre);
+        if (defensaActual != null){
+            jugador.restarCreditos(defensaActual.coste());
+            return defensaActual;
+        }else{
+            throw new DefensaNoExisteError();
+        }
 
-        jugador.restarCreditos(torre.coste());
-        return torre;
     }
 
     public int coste(){

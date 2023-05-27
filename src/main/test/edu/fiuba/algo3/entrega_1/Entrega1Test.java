@@ -46,11 +46,53 @@ public class Entrega1Test {
 
         Tierra tierra = new Tierra();
         Rocoso rocoso = new Rocoso();
-        Pasarela pasarela = new Pasarela();
+        Camino camino = new Camino();
 
         assertFalse(rocoso.ubicar(defensa));
-        assertFalse(pasarela.ubicar(defensa));
+        assertFalse(camino.ubicar(defensa));
         assertTrue(tierra.ubicar(defensa));
 
     }
+
+    //TODO: Sin terminar, esta complejo
+    /*@Test
+    public void Test05LasDefensasAtaquenDentroDelRangoEsperado() {
+        Jugador jugador = new Jugador(20, 100);
+
+        Defensa defensa = Defensa.construirDefensa("torre blanca", jugador);
+        Enemigo enemigoHormiga = new Hormiga();
+
+        Camino camino = new Camino();
+        Tierra tierra = new Tierra();
+
+        camino.ubicar(enemigoHormiga);
+        tierra.ubicar(defensa);
+
+    }*/
+
+    @Test
+    public void Test06UnEnemigoRecibeElDañoCorrecto() {
+        Enemigo arania = new Arania();
+
+        arania.recibirDanio(1);
+        assertEquals(arania.Vida(), 1);
+    }
+
+    //TODO: Sin terminar
+    /*@Test
+    public void Test07(){
+    }*/
+
+    @Test
+    public void Test08(){
+        Jugador jugador = new Jugador(10,100);
+        Enemigo hormiga = new Hormiga();
+
+        hormiga.recibirDanio(1);
+
+        assertEquals(jugador.obtenerCreditos(),101);
+
+    }
 }
+
+
