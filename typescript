@@ -1,0 +1,1455 @@
+Script started on Sat May 27 16:27:12 2023
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m ..[39m[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[39ms[39m [90mmalltalk[39m[8D
+[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2Ccd s[90mmalltalk[39m[K[110C[1A[1B[0m[39m[118D[39mc[39m [39m [39m [39m [39m [39m [39m ripts[1m/[0m[0m [?1l>[?2004l
+[J]2;cd scripts]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D,,.,  ..[90m/PDF\ Expert[39m[12D.[39m/[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mPDF\ Expert[39m[11D[39mr[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10Dender_diagrams.sh[1m [0m[0m [?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)? [1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.6s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.6s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)? yfind: diagrams: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)? yfind: diagrams: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9Dc[39ml[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mear[39m[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dclear     clear[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mclear[K[117C[1A[1B[117D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mclear[K[117C[1A[1B[117D./render_diagrams.sh[20Dls                  [18D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\nyfind: diagrams: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m scripts[39m[8D[39m [39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[?1l>[?2004l
+]2;ls -G]1;lsLICENSE.md                 dependency-reduced-pom.xml [1m[36mdocs[39;49m[0m                       [1m[36msrc[39;49m[0m
+README.md                  [1m[36mdiagrams[39;49m[0m                   pom.xml                    [1m[36mtarget[39;49m[0m
+codecov.yml                [1m[36mdocker[39;49m[0m                     [1m[36mscripts[39;49m[0m                    typescript
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dlscd .../render_diagrams.sh[20Dclear               [15D./render_diagrams.sh[20Dls                  [18Dcd scripts[10Dscript    clear ls   cd ..ls   cd ..ls   rm *.png[8Dls      cleargit push[8Dclear   git push[8Dclear   ls   rm *.pngDDDD     [90mg[39m [39m [90mng[39m [39m [39m [90mpng[39m [39m [39m [39m [90m.png[39m [39m [39m [39m [39m [90m*.png[39m[39m [39m [39m [39m [39m [90m *.png[39mr [39m [39m [39m [39m [39m [39m r[90mm *.png[39m [39m [39m [39m [39m [39m [39m [39m [8Dpp[90mlantuml -tpng *.puml[39m[20Dp[39ml[39ma[39mn[39mt[39mu[39mm[39ml[39m [39m-[39mt[39mp[39mn[39mg[39m [39m*[39m.[39mp[39mu[39mm[39ml [90ml[39m [39m [90mml[39m [39m [39m [90muml[39m [39m [39m [39m [90mpuml[39m [39m [39m [39m [39m [90m.puml[39m [39m [39m [39m [39m [39m [90m*.puml[39m[39m [39m [39m [39m [39m [39m [90m *.puml[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mg *.puml[39m[8D [39m [39m [39m [39m [39m [39m [39m [39m [9D[90mng *.puml[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[90mpng *.puml[39m[10D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [11D[90mtpng *.puml[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90m-tpng *.puml[39m[12D[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[90m -tpng *.puml[39m[13D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [14D[90ml -tpng *.puml[39m[14D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90mml -tpng *.puml[39m[15D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [16D[90muml -tpng *.puml[39m[16D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90mtuml -tpng *.puml[39m[17D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90mntuml -tpng *.puml[39m[18D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[90mantuml -tpng *.puml[39m[19Dp [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [20Dp[90mlantuml -tpng *.puml[39m[20D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21Dcc[90md ..[39mc[39ml[39m [39m [39m [90mear[39m[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dccd[90m ..[39m[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[39m [39m [90m ..[39mc [39m [39m [39m c[90mlear[39m [39m [39m [39m [39m ll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;lsLICENSE.md                 dependency-reduced-pom.xml [1m[36mdocs[39;49m[0m                       [1m[36msrc[39;49m[0m
+README.md                  [1m[36mdiagrams[39;49m[0m                   pom.xml                    [1m[36mtarget[39;49m[0m
+codecov.yml                [1m[36mdocker[39;49m[0m                     [1m[36mscripts[39;49m[0m                    typescript
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90mlear[39m[K[117C[1A[1B[121Dc[39md[39m [39m [39m [90m ..[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[39m [39ms[39m [90mcripts[39m
+[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2Ccd s[90mcripts[39m[K[112C[1A[1B[0m[39m[118D[39mc[39mr[39mi[39mp[39mt[39ms[?1l>[?2004l
+[J]2;cd scripts]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\nyrm: *.png: No such file or directory
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.3s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.3s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.3s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.3s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.3s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\ny
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.8s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[?1l>[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9Dc[39ml[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mear[39m[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\nybuild.sh		package.sh		render_diagrams.sh	start_services.sh
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.0s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m3.0s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\nyJugador_class_diagram.puml		Unidad_class_diagram.puml		diagrama_de_clase_tentativo.puml
+Parcela_class_diagram.puml		defensa_class_diagram.puml
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.1s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.1s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.1s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.1s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.1s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\ny
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m4.7s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[?1l>[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\ny[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m4.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m4.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m4.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m4.6s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m4.6s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dccd[90m scripts[39m[8D[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90mscripts[39m[K[112C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90mscripts[39m[K[112C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90mscripts[39m[K[112C[1A[1B[119D[39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39md[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[39mD[39m [90mesktop/FIUBA/algoritmos3/algo3_tp2[39m[34D[39me [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [34D[90mesktop/FIUBA/algoritmos3/algo3_tp2[39m[34D[39mi[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [33Ddiagrams[1m/[0m[0m/classes[1m/[0m[0m [?1l>[?2004l
+]2;cd diagrams/classes]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39ml[90ms[39m[K[120C[1A[1B[121Dl[39ms[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[?1l>[?2004l
+]2;ls -G]1;lsJugador_class_diagram.png        Unidad_class_diagram.png         diagrama_de_clase_tentativo.png
+Jugador_class_diagram.puml       Unidad_class_diagram.puml        diagrama_de_clase_tentativo.puml
+Parcela_class_diagram.png        defensa_class_diagram.png
+Parcela_class_diagram.puml       defensa_class_diagram.puml
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Drr[90mm *.png[39mr[39mm[39m [39m*[39m.[39mp[39mn[39mg[?1l>[?2004l
+]2;rm *.png]1;rm[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;lsJugador_class_diagram.puml       Unidad_class_diagram.puml        diagrama_de_clase_tentativo.puml
+Parcela_class_diagram.puml       defensa_class_diagram.puml
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md diagrams/classes[39m[18Dc[39md[39m [39m.[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dccd[90m ..[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[39m [39ms[39m [90mcripts[39m
+[J[1;36msequences[0m/  [J[1;36mstates[0m/   [J[A[0m[27m[24m[0m[39m[2Ccd s[90mcripts[39m[K[112C[1A[1B[0m[39m[118D[39mc[39mr[39mi[39mp[39mt[39ms[?1l>[?2004l
+[J]2;cd scripts]1;cdcd: no such file or directory: scripts
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[1m[36mclasses[39;49m[0m       [1m[36mpackages[39;49m[0m      [1m[36msequences[39;49m[0m     [1m[36mstates[39;49m[0m        variables.txt
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90md scripts[39m[K[112C[1A[1B[121D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90md scripts[39m[K[112C[1A[1B[121Dc[39ml[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mear[39m[39me[39ma[39mr [90mr[39m [39m [90mar[39m [39m [39m [90mear[39mc [39m [39m [39m c[90md scripts[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[1m[36mclasses[39;49m[0m       [1m[36mpackages[39;49m[0m      [1m[36msequences[39;49m[0m     [1m[36mstates[39;49m[0m        variables.txt
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9Dc[39md[39m [39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39md[39m [39ms[39m [90mcripts[39m
+[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2Ccd s[90mcripts[39m[K[112C[1A[1B[0m[39m[118D[39mc[39mr[39mi[39mp[39mt[39ms[?1l>[?2004l
+[J]2;cd scripts]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dccl[90mear[39m[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dclearls   cd scripts[10Dls        [8Dclear     cc[90mlear[39mc[39ml[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m scripts[39m[8D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m scripts[39m[K[112C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m scripts[39m[K[112C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m scripts[39m[K[112C[1A[1B[120D[39m [39m [39m [39m [39m [39m [39m [39m [8D[90m scripts[39m[8Dc [39m [39m [39m [39m [39m [39m [39m [39m [9Dc[90mlear[39m [39m [39m [39m [39m ..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\nyrm: *png: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m scripts[39m[8D[39m [39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39md[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[39m [39md[39m [90miagrams/classes[39m[15D[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m/[39mc[39ml[39ma[39ms[39ms[39me[39ms[?1l>[?2004l
+]2;cd diagrams/classes]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;lsJugador_class_diagram.png        Unidad_class_diagram.png         diagrama_de_clase_tentativo.png
+Jugador_class_diagram.puml       Unidad_class_diagram.puml        diagrama_de_clase_tentativo.puml
+Parcela_class_diagram.png        defensa_class_diagram.png
+Parcela_class_diagram.puml       defensa_class_diagram.puml
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Drr[90mm *.png[39mr[39mm[39m [39m*[39m.[39mp[39mn[39mg[?1l>[?2004l
+]2;rm *.png]1;rm[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[?1l>[?2004l
+]2;ls -G]1;lsJugador_class_diagram.puml       Unidad_class_diagram.puml        diagrama_de_clase_tentativo.puml
+Parcela_class_diagram.puml       defensa_class_diagram.puml
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md diagrams/classes[39m[18Dc[39md[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m diagrams/classes[39m[K[103C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m diagrams/classes[39m[K[103C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m diagrams/classes[39m[K[103C[1A[1B[120D[39m [39m.[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dlls[?1l>[?2004l
+]2;ls -G]1;ls[1m[36mclasses[39;49m[0m       [1m[36mpackages[39;49m[0m      [1m[36msequences[39;49m[0m     [1m[36mstates[39;49m[0m        variables.txt
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39md[39m [39m.[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39ml[90ms[39m[K[120C[1A[1B[121Dl[39ms[90ms[39m[39m [?1l>[?2004l
+]2;ls -G]1;lsLICENSE.md                 dependency-reduced-pom.xml [1m[36mdocs[39;49m[0m                       [1m[36msrc[39;49m[0m
+README.md                  [1m[36mdiagrams[39;49m[0m                   pom.xml                    [1m[36mtarget[39;49m[0m
+codecov.yml                [1m[36mdocker[39;49m[0m                     [1m[36mscripts[39;49m[0m                    typescript
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dccd[90m ..[39m[39m [39ms[39m [90mcripts[39m
+[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2Ccd s[90mcripts[39m[K[112C[1A[1B[0m[39m[118D[39mc[39mr[39mi[39mp[39mt[39ms[1m/[0m[0m [?1l>[?2004l
+[J]2;cd scripts]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9Dc[39ml[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mear[39m[39me[39ma[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mclea[90mr[39m[K[117C[1A[1B[118D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mclea[90mr[39m[K[117C[1A[1B[118D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mclea[90mr[39m[K[117C[1A[1B[118D[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)?\nyrm: *png: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.2s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39ml[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dclear./render_diagrams.sh[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m./render_diagrams.sh[K[102C[1A[1B[102D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m./render_diagrams.sh[K[102C[1A[1B[102D[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N): yrm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m10.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m10.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m10.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m10.0s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m10.0s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+./render_diagrams.sh: line 11: //read: No such file or directory
+./render_diagrams.sh: line 12: //[: No such file or directory
+./render_diagrams.sh: line 14: //if: No such file or directory
+./render_diagrams.sh: line 15: //then: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+./render_diagrams.sh: line 33: //fi: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.8s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.8s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.8s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.8s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.8s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39ml[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39ml[90ms[39m[K[120C[1A[1B[121Dl[39ms[90ms[39m[39m [?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39m [39m [39m [39m [39m ..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+./render_diagrams.sh: line 46: if [ "$answer" == "y" ]
+then
+  cd ..
+  cd diagrams/classes
+  rm *png
+  plantuml -tpng *.puml
+  cd ..
+  cd sequences
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd packages
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd states
+  rm *png
+    plantuml -tpng *.puml
+
+fi: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.6s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.6s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.6s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90mlear[39m[K[117C[1A[1B[121Dc[39ml[90ml[90me[90ma[90mr[39m[39me[39m [39m [39m [90mar[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcle[90mar[39m[K[117C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcle[90mar[39m[K[117C[1A[1B[119D[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m scripts[39m[8D[39m [39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90md ..[39m[K[117C[1A[1B[121D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90md ..[39m[K[117C[1A[1B[121D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90md ..[39m[K[117C[1A[1B[121D [39m [39m [39m [39m cc[90md ..[39mc[39md[39m [39m [39m [90m ..[39mc [39m [39m [39m c[90md ..[39m [39m [39m [39m [39m cc[90md ..[39mc[39md[39m [39md[39m [90miagrams/classes[39m[15D
+[J[1;36mdiagrams[0m/  [J[1;36mdocker[0m/    [J[1;36mdocs[0m/    [J[A[0m[27m[24m[0m[39m[2Ccd d[90miagrams/classes[39m[K[103C[1A[1B[0m[39m[118D[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m/[39mc[39ml[39ma[39ms[39ms[39me[39ms[?1l>[?2004l
+[J]2;cd diagrams/classes]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Drr[90mm *.png[39mr[39mm[39m [39m*[39m.[39mp[39mn[39mg[?1l>[?2004l
+]2;rm *.png]1;rm[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;lsJugador_class_diagram.puml       Unidad_class_diagram.puml        diagrama_de_clase_tentativo.puml
+Parcela_class_diagram.puml       defensa_class_diagram.puml
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md diagrams/classes[39m[18Dc[39md[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m diagrams/classes[39m[K[103C[1A[1B[120D[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90mdiagrams/classes[39m[K[103C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90mdiagrams/classes[39m[K[103C[1A[1B[119D[39m.[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39md[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[39m [39ms[39m [90mcripts[39m
+[J[1;36msequences[0m/  [J[1;36mstates[0m/   [J[A[0m[27m[24m[0m[39m[2Ccd s[90mcripts[39m[K[112C[1A[1B[0m[39m[118D[39mc[39mr[39mi[39mp[39mt[39ms[?1l>[?2004l
+[J]2;cd scripts]1;cdcd: no such file or directory: scripts
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dlls[?1l>[?2004l
+]2;ls -G]1;ls[1m[36mclasses[39;49m[0m       [1m[36mpackages[39;49m[0m      [1m[36msequences[39;49m[0m     [1m[36mstates[39;49m[0m        variables.txt
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9Dc[39md[39m [39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mc[90md ..[39m[K[117C[1A[1B[121Dc[39md[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[39m [39ms[39m [90mcripts[39m[39mc[39mr[39mi[39mp[39mt[39ms[?1l>[?2004l
+]2;cd scripts]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39ml[90ms[39m[K[120C[1A[1B[121Dl[39ms[90ms[39m[39m [?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+rm: *png: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+./render_diagrams.sh: line 46: if [ "$answer" == "y" ]
+then
+  cd ..
+  cd diagrams/classes
+  rm *png
+  plantuml -tpng *.puml
+  cd ..
+  cd sequences
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd packages
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd states
+  rm *png
+    plantuml -tpng *.puml
+
+fi: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.5s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.5s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.5s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.5s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m8.5s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9Dc[39ml[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mear[39m[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D, ..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N): yrm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+./render_diagrams.sh: line 47: if [ "$answer" == "y" ]
+then
+  cd ..
+  cd diagrams/classes
+  rm *png
+  plantuml -tpng *.puml
+  cd ..
+  cd sequences
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd packages
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd states
+  rm *png
+    plantuml -tpng *.puml
+
+fi: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.5s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.5s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.5s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.5s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.5s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39ml[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m scripts[39m[8D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m scripts[39m[K[112C[1A[1B[120D[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90mscripts[39m[K[112C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90mscripts[39m[K[112C[1A[1B[119D[39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39md[39m [39md[39m [90miagrams/classes[39m[15D[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m/[39mc[39ml[39ma[39ms[39ms[39me[39ms[?1l>[?2004l
+]2;cd diagrams/classes]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120Dl l[90ms[39m [39m rr[90mm *.png[39mr[39mm[39m [39m*[39m.[39mp[39mn[39mg[?1l>[?2004l
+]2;rm *.png]1;rm[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md diagrams/classes[39m[18Dc[39md[39m.[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [16D[90m.[39m[39m.[?1l>[?2004l
+]2;cd..]1;cd..zsh: command not found: cd..
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes]1;..grams/classes]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams/classes[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90md..[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39mc[90md..[39m[K[118C[1A[1B[121Dc[39md[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39mcd[90m..[39m[K[118C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams/classes[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39mcd[90m..[39m[K[118C[1A[1B[120D[39m [39m [90mdiagrams/classes[39m[16D[39m.[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams]1;.._tp2/diagrams]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/diagrams[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dccd[90m ..[39m[39m [39m.[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd .[90m.[39m[K[117C[1A[1B[118D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd .[90m.[39m[K[117C[1A[1B[118D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/diagrams[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd .[90m.[39m[K[117C[1A[1B[118D[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[?1l>[?2004l
+]2;ls -G]1;lsLICENSE.md                 dependency-reduced-pom.xml [1m[36mdocs[39;49m[0m                       [1m[36msrc[39;49m[0m
+README.md                  [1m[36mdiagrams[39;49m[0m                   pom.xml                    [1m[36mtarget[39;49m[0m
+codecov.yml                [1m[36mdocker[39;49m[0m                     [1m[36mscripts[39;49m[0m                    typescript
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D..[90m/render_diagrams.sh[39m[19D.[39m/[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90mrender_diagrams.sh[39m[18D[39ms[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D
+[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2C./s[K[119C[1A[1B[0m[39m[119Dcripts[1m/[0m[0m/render_diagrams.sh[1m [0m[0m [?1l>[?2004l
+[J]2;./scripts/render_diagrams.sh]1;./scripts/render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N): y./scripts/render_diagrams.sh: line 17: cd: diagrams: No such file or directory
+./scripts/render_diagrams.sh: line 20: cd: classes: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+./scripts/render_diagrams.sh: line 20: cd: packages: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+./scripts/render_diagrams.sh: line 20: cd: sequences: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+./scripts/render_diagrams.sh: line 20: cd: states: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+./scripts/render_diagrams.sh: line 47: if [ "$answer" == "y" ]
+then
+  cd ..
+  cd diagrams/classes
+  rm *png
+  plantuml -tpng *.puml
+  cd ..
+  cd sequences
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd packages
+  rm *png
+    plantuml -tpng *.puml
+  cd ..
+  cd states
+  rm *png
+    plantuml -tpng *.puml
+
+fi: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.9s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.9s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.9s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.9s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m7.9s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39ml[39m [39m [39m [90mear[39m[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D,[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m,[K[121C[1A[1B[121D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m,[K[121C[1A[1B[121D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m,[K[121C[1A[1B[121D clear./scripts/render_diagrams.sh[?1l>[?2004l
+]2;./scripts/render_diagrams.sh]1;./scripts/render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)? y[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./scripts/render_diagrams.sh[?1l>[?2004l
+]2;./scripts/render_diagrams.sh]1;./scripts/render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N)? y[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./scripts/render_diagrams.sh[?1l>[?2004l
+]2;./scripts/render_diagrams.sh]1;./scripts/render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N):y[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D./scripts/render_diagrams.sh[?1l>[?2004l
+]2;./scripts/render_diagrams.sh]1;./scripts/render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N):y[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;lsLICENSE.md                 dependency-reduced-pom.xml [1m[36mdocs[39;49m[0m                       [1m[36msrc[39;49m[0m
+README.md                  [1m[36mdiagrams[39;49m[0m                   pom.xml                    [1m[36mtarget[39;49m[0m
+codecov.yml                [1m[36mdocker[39;49m[0m                     [1m[36mscripts[39;49m[0m                    typescript
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m ..[39m[39m [39m [39m [90m ..[39mc [39m [39m [39m c[90mlear[39m [39m [39m [39m [39m ls./scripts/render_diagrams.sh[?1l>[?2004l
+]2;./scripts/render_diagrams.sh]1;./scripts/render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N):y[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39ml[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m ..[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m ..[39m[K[117C[1A[1B[120D[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m..[39m[K[117C[1A[1B[119D[39ms[39m [90mcripts[39m[39mc[39mr[39mi[39mp[39mt[39ms[1m/[0m[0m [?1l>[?2004l
+]2;cd scripts]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dlls[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mls[K[120C[1A[1B[120D[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D..[90m/scripts/render_diagrams.sh[39m[27D.[39m/[39mr[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25D[90mender_diagrams.sh[39m[17D[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[1m [0m[0m [?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N):yfind: diagrams: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90md scripts[39m[9Dc[39ml[39m [39m [39m [39m [39m [39m [39m [39m [8D[90mear[39m[39me[39ma[39mr.  [90mr[39m [39m [90mar[39m [39m [39m [90mear[39mc [39m [39m [39m c[90md scripts[39m[9D [39m [39m [39m [39m [39m [39m [39m [39m [39m [10Dcc[90md scripts[39m[9Dc[39md[39m [39m.[39m [39m [39m [39m [39m [39m [90m.[39m[39m.[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dlls[?1l>[?2004l
+]2;ls -G]1;lsLICENSE.md                 dependency-reduced-pom.xml [1m[36mdocs[39;49m[0m                       [1m[36msrc[39;49m[0m
+README.md                  [1m[36mdiagrams[39;49m[0m                   pom.xml                    [1m[36mtarget[39;49m[0m
+codecov.yml                [1m[36mdocker[39;49m[0m                     [1m[36mscripts[39;49m[0m                    typescript
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dpp[90mlantuml -tpng *.puml[39m[20Dp[39mlp [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [20Dp[90mlantuml -tpng *.puml[39m[20D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D..[90m/render_diagrams.sh[39m[19D.[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shzsh: no such file or directory: ./render_diagrams.sh
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122Dcc[90md ..[39mc[39md[39m [39m.[39m [?1l>[?2004l
+]2;cd .]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;lsLICENSE.md                 dependency-reduced-pom.xml [1m[36mdocs[39;49m[0m                       [1m[36msrc[39;49m[0m
+README.md                  [1m[36mdiagrams[39;49m[0m                   pom.xml                    [1m[36mtarget[39;49m[0m
+codecov.yml                [1m[36mdocker[39;49m[0m                     [1m[36mscripts[39;49m[0m                    typescript
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md .[39mc[39md[39m [39ms[90mcripts[39m
+[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2Ccd s[90mcripts[39m[K[112C[1A[1B[0m[39m[118D[39mc[39mr[39mi[39mp[39mt[39ms/  [90ms[39m [39m [90mts[39m [39m [39m [90mpts[39m [39m [39m [39m [90mipts[39m [39m [39m [39m [39m [90mripts[39m [39m [39m [39m [39m [39m [90mcripts[39m [39m [39m [39m [39m [39m [39m [90m.[39m[39m [90m .[39mc [39m [39m c[90md .[39m [39m [39m [39m ..[90m/render_diagrams.sh[39m[19D.[39m/[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17Ds [90mrender_diagrams.sh[39m[18D[39ms[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17D[90mcripts/render_diagrams.sh[39m[25D
+[J[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2C./s[90mcripts/render_diagrams.sh[39m[K[94C[1A[1B[0m[39m[119D[39mc[39mr[39mi[39mp[39mt[39ms[39m/[39mr[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+[J]2;./scripts/render_diagrams.sh]1;./scripts/render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N):y[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.0s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.0s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m2.0s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90md .[39mc[39ml[39m [39m [90mear[39m[39me[39ma[39mr[?1l>[?2004l
+]2;clear]1;clear[H[2J[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2]1;..os3/algo3_tp2]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dcc[90mlear[39mc[39md[39m [39m [39m [90m .[39m[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd[90m .[39m[K[118C[1A[1B[120D[39m [A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m.[39m[K[118C[1A[1B[119D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39mcd [90m.[39m[K[118C[1A[1B[119D[39ms[90mcripts[39m
+[J[1;36mscripts[0m/  [J[1;36msrc[0m/    [J[A[0m[27m[24m[0m[39m[2Ccd s[90mcripts[39m[K[112C[1A[1B[0m[39m[118D[39mc[39mr[39mi[39mp[39mt[39ms[?1l>[?2004l
+[J]2;cd scripts]1;cd[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122Dll[90ms[39ml[39ms[?1l>[?2004l
+]2;ls -G]1;ls[31mbuild.sh[39;49m[0m           [31mpackage.sh[39;49m[0m         [31mrender_diagrams.sh[39;49m[0m [31mstart_services.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D..[90m/scripts/render_diagrams.sh[39m[27D.[39m/[39mr[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25D[90mender_diagrams.sh[39m[17D[39me[39mn[39md[39me[39mr[39m_[39md[39mi[39ma[39mg[39mr[39ma[39mm[39ms[39m.[39ms[39mh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N): y./render_diagrams.sh: line 24: syntax error: unexpected end of file
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [✘!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[31m➜ [0m[31m[39m[K[122C[1A[1B[122D./render_diagrams.sh[?1l>[?2004l
+]2;./render_diagrams.sh]1;./render_diagrams.shAVERTENCIA!!!
+
+Todos los archivos '*.png' dentro de "diagrams" serán borrados.
+Se regeneraran a partir de los archivos '*.plantuml'.
+
+Desea continuar (y/N): yrm: *png: No such file or directory
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+rm: *png: No such file or directory
+No diagram found
+[1m[7m%[27m[1m[0m                                                                                                                             ]2;francisco@MacBook-Pro-de-Francisco:~/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts]1;..3_tp2/scripts]7;file://MacBook-Pro-de-Francisco.local/Users/francisco/Desktop/FIUBA/algoritmos3/algo3_tp2/scripts[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.3s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[?1h=[?2004h[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.3s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.3s[0m[33m[39m[1m [0m[1m[39m…[0m[39m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.3s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D[A[A[0m[27m[24m[J
+[1m[36malgo3_tp2/scripts[0m[36m[39m[1m [0m[1mon [0m[1m[37m[1m[37m[35m master[0m[35m[39m[1m[31m [!?][0m[31m[39m[0m[39m[1m [0m[1mvia [0m[1m[36m☕ v19.0.2[0m[36m[39m[1m [0m[1mtook [0m[1m[33m9.3s[0m[33m[39m[1m [0m[1m[37m
+[0m[37m[39m[1m[32m➜ [0m[32m[39m[K[122C[1A[1B[122D
