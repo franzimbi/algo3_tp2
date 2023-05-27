@@ -10,4 +10,6 @@ public class Vida {
     public int cantidad(){
         return this.cantidad;
     }
+
+    public void quitar(int danio) { this.cantidad -= danio; }
 }
