@@ -14,11 +14,6 @@ class Creditos {
     +modificar(int : Valor): void
 }
 
-class Nombre {
-    -nombre : String
-    +Nombre(String : string)
-}
-
 class Vida {
     -valor: int
     +modificar(int : Valor): void
@@ -37,7 +32,6 @@ abstract class Enemigo {
 
 Enemigo ..> Jugador
 Jugador  *--> Creditos
-Jugador  *-->  Nombre
 Jugador  *--> Vida
 Score  o-->  Jugador
 

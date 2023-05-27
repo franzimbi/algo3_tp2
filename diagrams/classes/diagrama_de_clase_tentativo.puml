@@ -2,6 +2,7 @@
 'https://plantuml.com/class-diagram
 
 class Jugador {
+    -nombre: String
     +recibirAtaque(Enemigo: enemigo): void
     +sumarCreditos(int : cantidad): void
     +atacar(): void
@@ -12,11 +13,6 @@ class Jugador {
 class Creditos {
     -valor: int
     +modificar(int : Valor): void
-}
-
-class Nombre {
-    -nombre : String
-    +Nombre(String : string)
 }
 
 class Vida {
@@ -105,7 +101,6 @@ class Velocidad {
 }
 
 Jugador  *-->  Creditos
-Jugador  *-->  Nombre
 Jugador  *-->  Vida
 Jugador  *--> "0..*" Defensa
 Score  o-->  Jugador
