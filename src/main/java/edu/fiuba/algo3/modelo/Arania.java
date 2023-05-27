@@ -5,4 +5,8 @@ public class Arania extends Enemigo {
     public Arania(){
         this.vida = new Vida(2);
     }
+
+    protected void destruirse(Jugador jugador){
+        jugador.sumarCreditos(2);
+    }
 }

@@ -72,9 +72,11 @@ public class Entrega1Test {
 
     @Test
     public void Test06UnEnemigoRecibeElDanioCorrecto() {
+        Jugador jugador = new Jugador(20, 100);
+
         Enemigo arania = new Arania();
 
-        arania.recibirDanio(1);
+        arania.recibirDanio(1,jugador);
         assertEquals(arania.Vida(), 1);
     }
 
@@ -83,16 +85,26 @@ public class Entrega1Test {
     public void Test07(){
     }*/
 
+
     @Test
-    public void Test08DestruirUnEnemigoDaLosCreditosCorrectos(){
-        Jugador jugador = new Jugador(10,100);
+    public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
+        Jugador jugador = new Jugador(10, 100);
         Enemigo hormiga = new Hormiga();
-
-        hormiga.recibirDanio(1);
-
+        hormiga.recibirDanio(1, jugador);
         assertEquals(jugador.obtenerCreditos(),101);
 
+        Hormiga [] hormigas = new Hormiga[9];
+
+        for (int i = 0; i < hormigas.length; i++) {
+            hormigas[i] = new Hormiga();
+            hormigas[i].recibirDanio(1, jugador);
+        }
+
+
+        assertEquals(jugador.obtenerCreditos(),111);
     }
+
+
 }
 
 
