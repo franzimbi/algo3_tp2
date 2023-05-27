@@ -11,15 +11,10 @@ public class Creditos {
         return this.cantidad;
     }
 
-    public void restarCreditos(int cantidad){
+    public void restarCredtios(int cantidad){
         if(cantidad > this.cantidad){
             throw new CreditosInsuficientesError();
         }
         this.cantidad -= cantidad;
     }
-
-    public void sumarCreditos(int cantidad){
-        this.cantidad += cantidad;
-    }
-
 }
