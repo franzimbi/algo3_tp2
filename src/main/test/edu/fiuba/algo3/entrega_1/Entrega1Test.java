@@ -71,7 +71,7 @@ public class Entrega1Test {
     }*/
 
     @Test
-    public void Test06UnEnemigoRecibeElDañoCorrecto() {
+    public void Test06UnEnemigoRecibeElDanioCorrecto() {
         Enemigo arania = new Arania();
 
         arania.recibirDanio(1);
@@ -84,7 +84,7 @@ public class Entrega1Test {
     }*/
 
     @Test
-    public void Test08(){
+    public void Test08DestruirUnEnemigoDaLosCreditosCorrectos(){
         Jugador jugador = new Jugador(10,100);
         Enemigo hormiga = new Hormiga();
 
