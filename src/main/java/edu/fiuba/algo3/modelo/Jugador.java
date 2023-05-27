@@ -18,6 +18,10 @@ public class Jugador {
     }
 
     public void restarCreditos(int cantidad){
-        this.creditos.restarCredtios(cantidad);
+        this.creditos.restarCreditos(cantidad);
+    }
+
+    public void sumarCreditos(int cantidad){
+        this.creditos.sumarCreditos(cantidad);
     }
 }

@@ -17,7 +17,7 @@ public abstract class Enemigo {
         }
 
     }
-    public void recibirDanio(int danio){
+    public void recibirDanio(int danio,Jugador jugador){
         vida.quitar(danio);
     }
 
@@ -28,6 +28,8 @@ public abstract class Enemigo {
     public boolean estaMuerto(){
         return (vida.cantidad() == 0);
     }
+
+    protected abstract void destruirse(Jugador jugador);
 
 }
 
