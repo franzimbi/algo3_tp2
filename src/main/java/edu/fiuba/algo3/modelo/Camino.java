@@ -18,6 +18,9 @@ public class Camino extends Parcela    {
 
     public boolean ubicar(Enemigo enemigo){
         this.enemigo.add(enemigo);
+        enemigo.setParcela(this);
+        Mapa mapa = Mapa.getInstancia();
+        mapa.ubicarEnemigo(enemigo);
         return true;
     }
 

@@ -4,11 +4,12 @@ import edu.fiuba.algo3.modelo.Hormiga;
 import edu.fiuba.algo3.modelo.Jugador;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HormigaTest {
     //TODO: terminar los test de hormiga, esta rompiendo en global
-    /*
+
     @Test
     public void Test01HormigaAlRecibirDanioSeDestruye() {
         Hormiga hormiga = new Hormiga();
@@ -16,6 +17,7 @@ public class HormigaTest {
         hormiga.recibirDanio(1, jugador);
 
         assertTrue(hormiga.estaMuerto());
+        Hormiga.reiniciar();
     }
 
     @Test
@@ -24,7 +26,8 @@ public class HormigaTest {
         Jugador jugador = new Jugador(20, 100);
         hormiga.recibirDanio(1, jugador);
 
-        assertTrue(hormiga.estaMuerto());
+        assertEquals(0, hormiga.Vida());
+        Hormiga.reiniciar();
     }
-     */
+
 }

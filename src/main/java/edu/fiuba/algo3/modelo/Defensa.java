@@ -8,6 +8,7 @@ public abstract class Defensa {
     protected int coste; //podria ser un objeto?
     protected SistemaDeAtaque sistemaDeAtaque;
     protected TurnosNecesarios turnosNecesarios;
+    protected Parcela parcela;
 
     public static Defensa construirDefensa(String nombre, Jugador jugador){
         Defensa torre;
@@ -27,10 +28,11 @@ public abstract class Defensa {
 
     }
 
-    /*public boolean atacar(){
+    public boolean atacar(Jugador jugador){
         Mapa mapa = Mapa.getInstancia();
-        Parcela objetivo = mapa.getEnemigo
-    }*/
+        Enemigo objetivo = mapa.getObjetivo(this.parcela);
+        return sistemaDeAtaque.atacar(objetivo,jugador,this);
+    }
 
     public int coste(){
         return this.coste;
@@ -42,5 +44,13 @@ public abstract class Defensa {
 
     public void construir(){
         this.turnosNecesarios.construir();
+    }
+
+    public void setParcela(Parcela parcela) {
+        this.parcela = parcela;
+    }
+
+    public int distancia(Parcela parcela){
+        return this.parcela.distancia(parcela);
     }
 }
