@@ -26,4 +26,8 @@ public class Hormiga extends Enemigo {
         Hormiga.contador += 1;
         Hormiga.sumarCreditos(jugador);
     }
+
+    public static void reiniciar(){
+        contador=0;
+    }
 }

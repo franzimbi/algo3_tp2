@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.*;
 public abstract class Enemigo {
+    protected Parcela parcela;
     protected Vida vida;
     public static Enemigo crearEnemigo(String enemigo) {
         Map<String, Enemigo> enemigosPosibles = new HashMap<String, Enemigo>(){{
@@ -29,7 +30,19 @@ public abstract class Enemigo {
         return (vida.cantidad() == 0);
     }
 
+    public int distancia(Parcela parcela){
+        return this.parcela.distancia(parcela);
+    }
+
+    public int distancia(Defensa defensa){
+        return defensa.distancia(this.parcela);
+    }
+
     protected abstract void destruirse(Jugador jugador);
+
+    public void setParcela(Parcela parcela) {
+        this.parcela = parcela;
+    }
 
 }
 

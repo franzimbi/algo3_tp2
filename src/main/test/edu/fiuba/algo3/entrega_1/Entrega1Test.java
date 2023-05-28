@@ -43,7 +43,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100);
 
         Defensa defensa = Defensa.construirDefensa("torre blanca", jugador);
-        Coordenadas coordenadas = new Coordenadas(1,1);
+        Coordenadas coordenadas = new Coordenadas(1, 1);
         Tierra tierra = new Tierra(coordenadas);
         Rocoso rocoso = new Rocoso(coordenadas);
         Camino camino = new Camino(coordenadas);
@@ -60,23 +60,26 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100);
 
         Defensa defensa = Defensa.construirDefensa("torre blanca", jugador);
-        Coordenadas coordt = new Coordenadas(6,7);
+        Coordenadas coordt = new Coordenadas(6, 7);
         Tierra tierra = new Tierra(coordt);
-
-        Enemigo enemigoHormiga1 = new Hormiga();
-        Coordenadas coordc1 = new Coordenadas(7,9);
-        Camino camino1 = new Camino(coordc1);
-
-        //assertEquals();
-
-        Enemigo enemigoHormiga2 = new Hormiga();
-        Coordenadas coordc2 = new Coordenadas(9,8);
-        Camino camino2 = new Camino(coordc2);
-
-        //asertEquals();
-
         tierra.ubicar(defensa);
 
+        Enemigo enemigoHormiga1 = new Hormiga();
+        Coordenadas coordc1 = new Coordenadas(8, 9);
+        Camino camino1 = new Camino(coordc1);
+        camino1.ubicar(enemigoHormiga1);
+
+        assertFalse(defensa.atacar(jugador));
+
+        Enemigo enemigoHormiga2 = new Hormiga();
+        Coordenadas coordc2 = new Coordenadas(7, 9);
+        Camino camino2 = new Camino(coordc2);
+        camino2.ubicar(enemigoHormiga2);
+
+        assertTrue(defensa.atacar(jugador));
+
+        tierra.ubicar(defensa);
+        Mapa.getInstancia().reiniciar();
     }
 
     @Test
@@ -111,6 +114,7 @@ public class Entrega1Test {
         }
 
         assertEquals(111, jugador.obtenerCreditos());
+        Hormiga.reiniciar();
     }
 
 

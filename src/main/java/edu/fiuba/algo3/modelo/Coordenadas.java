@@ -10,20 +10,14 @@ public class Coordenadas {
     }
 
     public int distancia(Coordenadas other){
-        int aux = (this.x - other.x)*(this.x - other.x) + (this.y - other.y)*(this.y - other.y);
-        return (int)Math.sqrt(aux);
+        // Manhattan/fedex distance
+        // https://en.wikipedia.org/wiki/Taxicab_geometry
+        // los atributos de una instancias se pueden acceder desde otra instancia del mismo tipo
+        int aux = Math.abs(this.x - other.x) + Math.abs(this.y - other.y);
+        return aux;
     }
 
     public int distancia (Parcela parcela){
         return parcela.distancia(this);
     }
-
-    /*public int x(){
-        return this.x;
-    }
-
-    public int y(){
-        return this.y;
-    }
-    */
 }

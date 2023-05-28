@@ -9,6 +9,7 @@ public class Tierra extends Parcela {
     }
 
     public boolean ubicar(Defensa defensa) {
+        defensa.setParcela(this);
         return true;
     }
 
