@@ -54,7 +54,7 @@ public class Entrega1Test {
 
     }
 
-    //TODO: Sin terminar, esta complejo
+    //TODO: test05 sin terminar, esta complejo
     /*@Test
     public void Test05LasDefensasAtaquenDentroDelRangoEsperado() {
         Jugador jugador = new Jugador(20, 100);
@@ -76,32 +76,32 @@ public class Entrega1Test {
 
         Enemigo arania = new Arania();
 
-        arania.recibirDanio(1,jugador);
-        assertEquals(arania.Vida(), 1);
+        arania.recibirDanio(1, jugador);
+        assertEquals(1, arania.Vida());
     }
 
-    //TODO: Sin terminar
+    //TODO: test07 sin terminar
     /*@Test
     public void Test07(){
     }*/
 
-
     @Test
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
+        Hormiga test = new Hormiga();
+
         Jugador jugador = new Jugador(10, 100);
         Enemigo hormiga = new Hormiga();
         hormiga.recibirDanio(1, jugador);
-        assertEquals(jugador.obtenerCreditos(),101);
+        assertEquals(jugador.obtenerCreditos(), 101);
 
-        Hormiga [] hormigas = new Hormiga[9];
+        Hormiga[] hormigas = new Hormiga[9];
 
         for (int i = 0; i < hormigas.length; i++) {
             hormigas[i] = new Hormiga();
             hormigas[i].recibirDanio(1, jugador);
         }
 
-
-        assertEquals(jugador.obtenerCreditos(),111);
+        assertEquals(111, jugador.obtenerCreditos());
     }
 
 

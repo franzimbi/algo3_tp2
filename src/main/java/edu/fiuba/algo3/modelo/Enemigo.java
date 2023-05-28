@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.*;
 public abstract class Enemigo {
     protected Vida vida;
-    public Enemigo crearEnemigo(String enemigo) {
+    public static Enemigo crearEnemigo(String enemigo) {
         Map<String, Enemigo> enemigosPosibles = new HashMap<String, Enemigo>(){{
             put("Hormiga", (new Hormiga()));
             put("Arania", (new Arania()));
