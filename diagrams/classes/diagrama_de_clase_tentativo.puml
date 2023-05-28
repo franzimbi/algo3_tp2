@@ -87,7 +87,7 @@ class Hormiga {
     +atacar(Jugador : jugador): void
 }
 
-class Araña {
+class Arania {
     +destruirse(): void
     +atacar(Jugador : jugador): void
 }
@@ -121,7 +121,7 @@ Pasarela <|-- Meta
 Pasarela <|-- Largada
 
 Enemigo <|-- Hormiga
-Enemigo <|-- Araña
+Enemigo <|-- Arania
 Enemigo *--> Daño
 Enemigo *--> Velocidad
 Enemigo "0..*" <--  Score
