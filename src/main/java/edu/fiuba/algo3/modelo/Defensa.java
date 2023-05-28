@@ -27,6 +27,11 @@ public abstract class Defensa {
 
     }
 
+    /*public boolean atacar(){
+        Mapa mapa = Mapa.getInstancia();
+        Parcela objetivo = mapa.getEnemigo
+    }*/
+
     public int coste(){
         return this.coste;
     }

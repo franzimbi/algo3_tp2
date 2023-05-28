@@ -43,10 +43,10 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100);
 
         Defensa defensa = Defensa.construirDefensa("torre blanca", jugador);
-
-        Tierra tierra = new Tierra();
-        Rocoso rocoso = new Rocoso();
-        Camino camino = new Camino();
+        Coordenadas coordenadas = new Coordenadas(1,1);
+        Tierra tierra = new Tierra(coordenadas);
+        Rocoso rocoso = new Rocoso(coordenadas);
+        Camino camino = new Camino(coordenadas);
 
         assertFalse(rocoso.ubicar(defensa));
         assertFalse(camino.ubicar(defensa));
@@ -55,20 +55,29 @@ public class Entrega1Test {
     }
 
     //TODO: test05 sin terminar, esta complejo
-    /*@Test
-    public void Test05LasDefensasAtaquenDentroDelRangoEsperado() {
+    @Test
+    public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
         Jugador jugador = new Jugador(20, 100);
 
         Defensa defensa = Defensa.construirDefensa("torre blanca", jugador);
-        Enemigo enemigoHormiga = new Hormiga();
+        Coordenadas coordt = new Coordenadas(6,7);
+        Tierra tierra = new Tierra(coordt);
 
-        Camino camino = new Camino();
-        Tierra tierra = new Tierra();
+        Enemigo enemigoHormiga1 = new Hormiga();
+        Coordenadas coordc1 = new Coordenadas(7,9);
+        Camino camino1 = new Camino(coordc1);
 
-        camino.ubicar(enemigoHormiga);
+        //assertEquals();
+
+        Enemigo enemigoHormiga2 = new Hormiga();
+        Coordenadas coordc2 = new Coordenadas(9,8);
+        Camino camino2 = new Camino(coordc2);
+
+        //asertEquals();
+
         tierra.ubicar(defensa);
 
-    }*/
+    }
 
     @Test
     public void Test06UnEnemigoRecibeElDanioCorrecto() {
@@ -82,7 +91,7 @@ public class Entrega1Test {
 
     //TODO: test07 sin terminar
     /*@Test
-    public void Test07(){
+    public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelautorizada(){
     }*/
 
     @Test
