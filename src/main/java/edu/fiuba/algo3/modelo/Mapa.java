@@ -58,7 +58,7 @@ public class Mapa {
         }
     }
 
-    public void actualizarMapa() {
+    public void actualizar() {
         Iterator<Enemigo> it = enemigos.iterator();
         Enemigo enemigo;
         while(it.hasNext()){

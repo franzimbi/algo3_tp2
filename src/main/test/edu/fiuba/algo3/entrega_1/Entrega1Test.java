@@ -162,16 +162,17 @@ public class Entrega1Test {
         Mapa mapa = Mapa.getInstancia();
 
         assertTrue(mapa.gano(jugador));
+        Hormiga.reiniciar();
     }
 
     @Test
-    public void Test11(){
+    public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta(){
         Jugador jugador = new Jugador(10, 100);
         Enemigo hormiga = new Hormiga();
         Enemigo arania = new Arania();
 
-        hormiga.recibirDanio(1, jugador);
-        arania.recibirDanio(2, jugador);
+
+
 
         Mapa mapa = Mapa.getInstancia();
 
