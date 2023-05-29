@@ -99,12 +99,10 @@ public class Entrega1Test {
 
     @Test
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
-        Hormiga test = new Hormiga();
-
         Jugador jugador = new Jugador(10, 100);
         Enemigo hormiga = new Hormiga();
         hormiga.recibirDanio(1, jugador);
-        assertEquals(jugador.obtenerCreditos(), 101);
+        assertEquals(101, jugador.obtenerCreditos());
 
         Hormiga[] hormigas = new Hormiga[9];
 
@@ -113,7 +111,7 @@ public class Entrega1Test {
             hormigas[i].recibirDanio(1, jugador);
         }
 
-        assertEquals(111, jugador.obtenerCreditos());
+        assertEquals(110, jugador.obtenerCreditos());
         Hormiga.reiniciar();
     }
 

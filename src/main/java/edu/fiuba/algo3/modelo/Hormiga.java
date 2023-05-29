@@ -8,11 +8,15 @@ public class Hormiga extends Enemigo {
     }
 
     private static void sumarCreditos(Jugador jugador) {
-        if (contador >= 10) {
+        if (contador > 10) {
             jugador.sumarCreditos(2);
         } else {
             jugador.sumarCreditos(1);
         }
+    }
+
+    public static void reiniciar() {
+        contador = 0;
     }
 
     public void recibirDanio(int danio, Jugador jugador) {
@@ -25,9 +29,5 @@ public class Hormiga extends Enemigo {
     protected void destruirse(Jugador jugador) {
         Hormiga.contador += 1;
         Hormiga.sumarCreditos(jugador);
-    }
-
-    public static void reiniciar(){
-        contador=0;
     }
 }
