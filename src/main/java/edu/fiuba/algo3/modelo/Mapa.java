@@ -28,15 +28,11 @@ public class Mapa {
 
     public Enemigo getObjetivo(Parcela parcela) {
         Iterator<Enemigo> it = enemigos.iterator();
-        //int distanciaMinima = enemigos.get(0).distancia(parcela);
-        //Enemigo enemigoCercano = enemigos.get(0);
         Enemigo enemigoCercano = it.next();
         int distanciaMinima = enemigoCercano.distancia(parcela);
         int distanciaElemento;
         Enemigo enemigo;
-        //for (int i = 1; i < enemigos.size(); i++) {
         while(it.hasNext()){
-            //enemigo = enemigos.get(i);
             enemigo = it.next();
             distanciaElemento = enemigo.distancia(parcela);
 
@@ -76,5 +72,7 @@ public class Mapa {
     public boolean gano(Jugador jugador) {
         return (enemigos.size() == 0 && jugador.getVida() > 0);
     }
+
+
 
 }

@@ -7,6 +7,7 @@ public abstract class Enemigo {
     protected Camino camino;
     protected Vida vida;
     protected int velocidad;
+    protected int danio;
 
     public static Enemigo crearEnemigo(String enemigo) {
         Map<String, Enemigo> enemigosPosibles = new HashMap<String, Enemigo>() {
@@ -56,6 +57,10 @@ public abstract class Enemigo {
 
     public Camino getCamino() {
         return this.camino;
+    }
+
+    public void atacar(Jugador jugador) {
+        jugador.rebibirDaño(this.danio);
     }
 
 }

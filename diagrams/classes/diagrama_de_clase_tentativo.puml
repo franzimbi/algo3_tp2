@@ -3,41 +3,62 @@
 
 class Jugador {
     -nombre: String
-    +recibirAtaque(Enemigo: enemigo): void
-    +sumarCreditos(int : cantidad): void
-    +atacar(): void
-    +VidaObtener() : int
-    +restarCreditos(int creditos)
+    +Jugador(int cantidadVida, int cantidadCreditos)
+    +getVida() : int
+    +obtenerCreditos(): int
+    +restarCreditos(int : cantidad) : void
+    +sumarCreditos(int : cantidad) : void
+    +recibirDaño(int : cantidad) : void
+
 }
+Jugador  *-->  Creditos
+Jugador  *-->  Vida
 
 class Creditos {
     -valor: int
-    +modificar(int : Valor): void
+    +Creditos(int : cantidadCreditos)
+    + cantidad() : int
+    +restarCreditos(int : cantidad) : void
+    +sumarCreditos(int : cantidad) : void
 }
 
 class Vida {
-    -valor: int
-    +modificar(int : Valor): void
+    -cantidad: int
+    +Vida(int cantidadVida)
+    +quitar(int danio) : void
+    +estaMuerto(): boolean
     +cantidad() : int
-}
-
-class Score {
-    +sumar(Enemigo: enemigo): void
 }
 
 abstract class Defensa {
     -coste: int
-    +Defensa(Parcela : lugar)
-    +atacar(Enemigo : enemigo)
-    +construir()
+    +construirDefensa(String nombre, Jugador jugador)
+    +atacar(Jugador jugador): boolean
+    +coste() : int
+    +estaOperativa(): boolean
+    +construir():void
+    +setParcela(Parcela parcela):void
+    +distancia(Parcela parcela): int
 }
+Defensa ..> Parcela
+Defensa ..>Jugador
+Defensa *--> sistemaDeAtaque
+Defensa *--> turnosNecesarios
+Defensa *--> Parcela
+Defensa <|.. TorreBlanca
+Defensa <|.. TorrePlateada
+
 
 class sistemaDeAtaque{
     -daño: int
     -rango: int
     +SistemaDeAtaque(int daño, int rango)
-    +atacar()
+    +atacar(Enemigo objetivo, Jugador jugador, Defensa defensa) : boolean
+    -puedeAtacar(Enemigo objetivo, Defensa defensa): boolean
 }
+sistemaDeAtaque..>Enemigo
+sistemaDeAtaque..>Jugador
+sistemaDeAtaque..>Defensa
 
 class turnosNecesarios{
     -turnosFaltantes: int
@@ -100,15 +121,12 @@ class Velocidad {
     +moverse(): void
 }
 
-Jugador  *-->  Creditos
-Jugador  *-->  Vida
+/'
 Jugador  *--> "0..*" Defensa
-Score  o-->  Jugador
 
 Defensa <|--- TorreBlanca
 Defensa <|--- TorrePlateada
 Defensa <..> Enemigo
-Defensa *--> sistemaDeAtaque
 Defensa *--> turnosNecesarios
 
 Parcela o--> Defensa
@@ -124,10 +142,9 @@ Enemigo <|-- Hormiga
 Enemigo <|-- Arania
 Enemigo *--> Daño
 Enemigo *--> Velocidad
-Enemigo "0..*" <--  Score
 Enemigo ..> Jugador
 Enemigo *--> Vida
-Enemigo <--o Parcela
+Enemigo <--o Parcela'/
 
 
 

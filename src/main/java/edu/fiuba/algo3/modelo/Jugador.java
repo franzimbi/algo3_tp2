@@ -25,5 +25,9 @@ public class Jugador {
         this.creditos.sumarCreditos(cantidad);
     }
 
+    public void rebibirDaño(int cantidad) {
+        this.vida.quitar(cantidad);
+    }
+
 
 }

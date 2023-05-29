@@ -146,6 +146,8 @@ public class Entrega1Test {
         assertSame(caminoSig, hormiga.getCamino());
         assertNotSame(camino1, hormiga.getCamino());
 
+        Mapa mapa = Mapa.getInstancia();
+        mapa.reiniciar();
     }
 
     @Test
@@ -179,7 +181,7 @@ public class Entrega1Test {
 
     /*
     @Test
-    public void Test12(){
+    public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaLoMatan(){
 
     }
     */

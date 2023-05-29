@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
-public class Tierra extends Parcela {
+public class Tierra extends Parcela{
 
-    public Tierra(Coordenadas coordenadas){
+    public Tierra(Coordenadas coordenadas) {
         this.coordenadas = coordenadas;
     }
 
@@ -13,6 +13,9 @@ public class Tierra extends Parcela {
         return true;
     }
 
-    public boolean ubicar(Enemigo enemigo){return false;}
+    public boolean ubicar(Enemigo enemigo) {
+        return false;
+    }
+
 }
 
