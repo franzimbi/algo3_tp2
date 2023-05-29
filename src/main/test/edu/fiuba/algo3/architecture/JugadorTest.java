@@ -12,7 +12,7 @@ public class JugadorTest {
     public void Test01UnJugadorComienzaEnUnEstadoValido() {
         Jugador jugador = new Jugador(20, 100);
 
-        assertEquals(jugador.obtenerVida(), 20);
+        assertEquals(jugador.getVida(), 20);
 
         assertEquals(jugador.obtenerCreditos(), 100);
     }

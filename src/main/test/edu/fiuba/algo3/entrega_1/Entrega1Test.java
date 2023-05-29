@@ -10,7 +10,7 @@ public class Entrega1Test {
     public void Test01UnJugadorComienzaEnUnEstadoValido() {
         Jugador jugador = new Jugador(20, 100);
 
-        assertEquals(jugador.obtenerVida(), 20);
+        assertEquals(jugador.getVida(), 20);
 
         assertEquals(jugador.obtenerCreditos(), 100);
     }
@@ -150,9 +150,39 @@ public class Entrega1Test {
 
     @Test
     public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
+        Jugador jugador = new Jugador(10, 100);
+        Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
+
+        hormiga.recibirDanio(1, jugador);
+        arania.recibirDanio(2, jugador);
+
+        Mapa mapa = Mapa.getInstancia();
+
+        assertTrue(mapa.gano(jugador));
+    }
+
+    @Test
+    public void Test11(){
+        Jugador jugador = new Jugador(10, 100);
+        Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
+
+        hormiga.recibirDanio(1, jugador);
+        arania.recibirDanio(2, jugador);
+
+        Mapa mapa = Mapa.getInstancia();
+
+        assertTrue(mapa.gano(jugador));
 
     }
 
+    /*
+    @Test
+    public void Test12(){
+
+    }
+    */
 }
 
 
