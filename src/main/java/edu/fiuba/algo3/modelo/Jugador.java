@@ -1,12 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
 public class Jugador {
+    private static Jugador instancia = new Jugador(20, 100);
     private Vida vida;
     private Creditos creditos;
 
-    public Jugador(int cant_vida, int cant_creditos){
+    private Jugador(int cant_vida, int cant_creditos){
         this.vida = new Vida(cant_vida);
         this.creditos = new Creditos(cant_creditos);
+    }
+
+    public static Jugador getInstancia() {
+        return instancia;
     }
 
     public int getVida(){
@@ -29,5 +34,12 @@ public class Jugador {
         this.vida.quitar(cantidad);
     }
 
+    public static void reiniciar() {
+        instancia = new Jugador(20, 100);
+    }
+
+    public boolean estaMuerto(){
+        return this.vida.estaMuerto();
+    }
 
 }

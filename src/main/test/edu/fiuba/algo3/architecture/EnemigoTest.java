@@ -26,4 +26,9 @@ public class EnemigoTest {
     public void Test02CrearEnemigoInexistenteLanzaExcepcion() {
         assertThrows(EnemigoNoExisteError.class, () -> Enemigo.crearEnemigo("Hormiga Gigante"));
     }
+
+    @Test
+    public void Test03UnEnemigoSeCreaEnLaPasarelaDeLargada(){
+
+    }
 }

@@ -9,10 +9,11 @@ public class SistemaDeAtaque {
         this.rango = rango;
     }
 
-    public boolean atacar(Enemigo objetivo, Jugador jugador, Defensa defensa){
+    public boolean atacar(Enemigo objetivo, Defensa defensa){
+        Jugador jugador = Jugador.getInstancia();
         boolean puedeAtacar= this.puedeAtacar(objetivo,defensa);
         if(puedeAtacar){
-            objetivo.recibirDanio(this.danio,jugador);
+            objetivo.recibirDanio(this.danio);
         }
         return puedeAtacar;
     }

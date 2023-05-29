@@ -34,6 +34,10 @@ public class Camino extends Parcela    {
         this.enemigos.remove(enemigo);
     }
 
+    public void remover(Enemigo enemigo){
+        this.enemigos.remove(enemigo);
+    }
+
     public void setSiguiente(Camino siguiente) {
         this.siguiente = siguiente;
     }
