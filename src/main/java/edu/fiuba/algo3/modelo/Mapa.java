@@ -3,30 +3,30 @@ package edu.fiuba.algo3.modelo;
 import java.util.LinkedList;
 
 public class Mapa {
-    private static Mapa instancia = new Mapa();
-    private LinkedList<Camino> caminos;
-    private LinkedList<Enemigo> enemigos;
+    final private static Mapa instancia = new Mapa();
+    final private LinkedList<Camino> caminos;
+    final private LinkedList<Enemigo> enemigos;
 
-    private Mapa(){
+    private Mapa() {
         this.caminos = new LinkedList<>();
         this.enemigos = new LinkedList<>();
     }
 
-    public static Mapa getInstancia(){
+    public static Mapa getInstancia() {
         return instancia;
     }
 
-    public void ubicarCamino(Camino camino){
+    public void ubicarCamino(Camino camino) {
         this.caminos.addLast(camino);
     }
 
-    public void ubicarEnemigo(Enemigo enemigo){
+    public void ubicarEnemigo(Enemigo enemigo) {
         this.enemigos.addLast(enemigo);
     }
 
 
     public Enemigo getObjetivo(Parcela parcela) {
-        int distanciaMinima=enemigos.get(0).distancia(parcela);
+        int distanciaMinima = enemigos.get(0).distancia(parcela);
         Enemigo enemigoCercano = enemigos.get(0);
         int distanciaElemento;
         Enemigo enemigo;
@@ -35,15 +35,15 @@ public class Mapa {
             enemigo = enemigos.get(i);
             distanciaElemento = enemigo.distancia(parcela);
 
-            if(distanciaMinima>distanciaElemento){
-                distanciaMinima=distanciaElemento;
+            if (distanciaMinima > distanciaElemento) {
+                distanciaMinima = distanciaElemento;
                 enemigoCercano = enemigo;
             }
         }
         return enemigoCercano;
     }
 
-    public void reiniciar(){
+    public void reiniciar() {
         enemigos.clear();
         caminos.clear();
     }
