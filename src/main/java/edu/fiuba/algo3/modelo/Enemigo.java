@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Enemigo {
-    protected Parcela parcela;
+    protected Camino camino;
     protected Vida vida;
+    protected int velocidad;
 
     public static Enemigo crearEnemigo(String enemigo) {
         Map<String, Enemigo> enemigosPosibles = new HashMap<String, Enemigo>() {
@@ -36,17 +37,25 @@ public abstract class Enemigo {
     }
 
     public int distancia(Parcela parcela) {
-        return this.parcela.distancia(parcela);
+        return this.camino.distancia(parcela);
     }
 
     public int distancia(Defensa defensa) {
-        return defensa.distancia(this.parcela);
+        return defensa.distancia(this.camino);
     }
 
     protected abstract void destruirse(Jugador jugador);
 
-    public void setParcela(Parcela parcela) {
-        this.parcela = parcela;
+    public void setCamino(Camino camino) {
+        this.camino = camino;
+    }
+
+    public void mover() {
+        this.camino.mover(this.velocidad, this);
+    }
+
+    public Camino getCamino() {
+        return this.camino;
     }
 
 }

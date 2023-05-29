@@ -92,10 +92,23 @@ public class Entrega1Test {
         assertEquals(1, arania.Vida());
     }
 
-    //TODO: test07 sin terminar
-    /*@Test
-    public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelautorizada(){
-    }*/
+    @Test
+    public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelaAutorizada(){
+        Enemigo hormiga = new Hormiga();
+
+        Coordenadas coord1 = new Coordenadas(0,0);
+        Camino camino = new Camino(coord1);
+
+        Coordenadas coord2 = new Coordenadas(1,0);
+        Rocoso rocoso = new Rocoso(coord2);
+
+        Coordenadas coord3 = new Coordenadas(2,0);
+        Tierra tierra = new Tierra(coord3);
+
+        assertFalse(rocoso.ubicar(hormiga));
+        assertFalse(tierra.ubicar(hormiga));
+        assertTrue(camino.ubicar(hormiga));
+    }
 
     @Test
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
@@ -104,18 +117,44 @@ public class Entrega1Test {
         hormiga.recibirDanio(1, jugador);
         assertEquals(101, jugador.obtenerCreditos());
 
-        Hormiga[] hormigas = new Hormiga[9];
+        Hormiga[] hormigas = new Hormiga[10];
 
         for (int i = 0; i < hormigas.length; i++) {
             hormigas[i] = new Hormiga();
             hormigas[i].recibirDanio(1, jugador);
         }
 
-        assertEquals(110, jugador.obtenerCreditos());
+        assertEquals(112, jugador.obtenerCreditos());
         Hormiga.reiniciar();
     }
 
+    @Test
+    public void Test09PasarUnTurnoMueveEnemigoSegunCapacidad() {
+        Enemigo hormiga = new Hormiga();
+
+        Coordenadas coord1 = new Coordenadas(0,0);
+        Camino camino1 = new Camino(coord1);
+
+        Coordenadas coordSig = new Coordenadas(1,0);
+        Camino caminoSig = new Camino(coordSig);
+
+        camino1.ubicar(hormiga);
+        camino1.setSiguiente(caminoSig);
+
+        hormiga.mover();
+
+        assertSame(caminoSig, hormiga.getCamino());
+        assertNotSame(camino1, hormiga.getCamino());
+
+    }
+
+    @Test
+    public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
+
+    }
 
 }
+
+
 
 
