@@ -9,7 +9,7 @@ public class Jugador {
         this.creditos = new Creditos(cant_creditos);
     }
 
-    public int obtenerVida(){
+    public int getVida(){
         return this.vida.cantidad();
     }
 
@@ -24,4 +24,6 @@ public class Jugador {
     public void sumarCreditos(int cantidad){
         this.creditos.sumarCreditos(cantidad);
     }
+
+
 }

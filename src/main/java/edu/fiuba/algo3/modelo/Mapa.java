@@ -62,4 +62,19 @@ public class Mapa {
         }
     }
 
+    public void actualizarMapa() {
+        Iterator<Enemigo> it = enemigos.iterator();
+        Enemigo enemigo;
+        while(it.hasNext()){
+            enemigo = it.next();
+            if (enemigo.estaMuerto()) {
+                it.remove();
+            }
+        }
+    }
+
+    public boolean gano(Jugador jugador) {
+        return (enemigos.size() == 0 && jugador.getVida() > 0);
+    }
+
 }
