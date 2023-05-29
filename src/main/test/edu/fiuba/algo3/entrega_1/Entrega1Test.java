@@ -12,7 +12,7 @@ public class Entrega1Test {
 
         assertEquals(jugador.getVida(), 20);
 
-        assertEquals(jugador.obtenerCreditos(), 100);
+        assertEquals(jugador.getCreditos(), 100);
     }
 
     @Test
@@ -125,7 +125,7 @@ public class Entrega1Test {
         Jugador jugador = Jugador.getInstancia();
         Enemigo hormiga = new Hormiga();
         hormiga.recibirDanio(1);
-        assertEquals(101, jugador.obtenerCreditos());
+        assertEquals(101, jugador.getCreditos());
 
         Hormiga[] hormigas = new Hormiga[10];
 
@@ -134,7 +134,7 @@ public class Entrega1Test {
             hormigas[i].recibirDanio(1);
         }
 
-        assertEquals(112, jugador.obtenerCreditos());
+        assertEquals(112, jugador.getCreditos());
         Hormiga.reiniciar();
 
         Jugador.reiniciar();
@@ -153,12 +153,13 @@ public class Entrega1Test {
         camino1.ubicar(hormiga);
         camino1.setSiguiente(caminoSig);
 
-        hormiga.mover();
+        Mapa mapa = Mapa.getInstancia();
+
+        mapa.moverEnemigos();
 
         assertSame(caminoSig, hormiga.getCamino());
         assertNotSame(camino1, hormiga.getCamino());
 
-        Mapa mapa = Mapa.getInstancia();
         mapa.reiniciar();
     }
 
@@ -196,12 +197,9 @@ public class Entrega1Test {
         camino1.ubicar(hormiga);
         camino1.ubicar(arania);
 
-        hormiga.mover();
-        arania.mover();
-
-
-
         Mapa mapa = Mapa.getInstancia();
+
+        mapa.moverEnemigos();
 
         assertTrue(mapa.gano());
         Jugador.reiniciar();
@@ -227,10 +225,11 @@ public class Entrega1Test {
         for( int i = 0; i < enemigos.length; i++){
             enemigos[i] = new Arania();
             camino1.ubicar(enemigos[i]);
-            enemigos[i].mover();
         }
 
         Mapa mapa = Mapa.getInstancia();
+
+        mapa.moverEnemigos();
 
         assertTrue(mapa.perdio());
         Jugador.reiniciar();

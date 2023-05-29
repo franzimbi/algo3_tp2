@@ -52,20 +52,9 @@ public class Mapa {
     public void moverEnemigos() {
         Enemigo enemigo;
 
-        for (int i = enemigos.size(); i >= 0; i--) {
+        for (int i = enemigos.size()-1; i >= 0; i--) {
             enemigo = enemigos.get(i);
             enemigo.mover();
-        }
-    }
-
-    public void actualizar() {
-        Iterator<Enemigo> it = enemigos.iterator();
-        Enemigo enemigo;
-        while(it.hasNext()){
-            enemigo = it.next();
-            if (enemigo.estaMuerto()) {
-                it.remove();
-            }
         }
     }
 
@@ -79,4 +68,8 @@ public class Mapa {
         return (jugador.estaMuerto());
     }
 
+
+    public void removerEnemigo(Enemigo enemigo) {
+        this.enemigos.remove(enemigo);
+    }
 }

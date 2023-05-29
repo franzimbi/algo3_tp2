@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
 
+import static java.util.Objects.isNull;
+
 public class Camino extends Parcela    {
     private ArrayList<Enemigo> enemigos;
     private Camino siguiente;
@@ -26,6 +28,10 @@ public class Camino extends Parcela    {
     }
 
     public void mover(int velocidad, Enemigo enemigo) {
+        if(isNull(siguiente)){
+            this.ubicar(enemigo);
+            return;
+        }
         if (velocidad == 0) {
             this.ubicar(enemigo);
             return;

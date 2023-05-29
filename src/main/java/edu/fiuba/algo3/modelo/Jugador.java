@@ -18,7 +18,7 @@ public class Jugador {
         return this.vida.cantidad();
     }
 
-    public int obtenerCreditos(){
+    public int getCreditos(){
         return this.creditos.cantidad();
     }
 

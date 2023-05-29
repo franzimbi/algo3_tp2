@@ -17,8 +17,7 @@ public class Arania extends Enemigo {
         jugador.sumarCreditos( randomNum.nextInt(10));
     }
 
-    protected void destruirse(){
-        Jugador jugador = Jugador.getInstancia();
+    protected void destruirse() {
         Arania.contador -= 2;
         Arania.sumarCreditos();
     }
