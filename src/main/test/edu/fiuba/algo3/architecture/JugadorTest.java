@@ -14,7 +14,7 @@ public class JugadorTest {
 
         assertEquals(20,jugador.getVida());
 
-        assertEquals(100,jugador.obtenerCreditos());
+        assertEquals(100,jugador.getCreditos());
         Jugador.reiniciar();
     }
 
@@ -23,10 +23,10 @@ public class JugadorTest {
         Jugador jugador = Jugador.getInstancia();
         Enemigo hormiga = new Hormiga();
 
-        assertEquals(100, jugador.obtenerCreditos());
+        assertEquals(100, jugador.getCreditos());
 
         hormiga.recibirDanio(1);
-        assertEquals(101, jugador.obtenerCreditos());
+        assertEquals(101, jugador.getCreditos());
         Hormiga.reiniciar();
         Jugador.reiniciar();
     }
@@ -39,12 +39,12 @@ public class JugadorTest {
             hormiga.recibirDanio(1);
         }
 
-        assertEquals(110, jugador.obtenerCreditos());
+        assertEquals(110, jugador.getCreditos());
 
         Enemigo hormiga = new Hormiga();
         hormiga.recibirDanio(1);
 
-        assertEquals(112, jugador.obtenerCreditos());
+        assertEquals(112, jugador.getCreditos());
         Hormiga.reiniciar();
         Jugador.reiniciar();
     }

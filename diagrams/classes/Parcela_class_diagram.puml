@@ -2,7 +2,7 @@
 'https://plantuml.com/class-diagram
 
 interface Parcela {
-    +ubicar(Defensa : defensa): void
+    +ubicar(Defensa : defensa): z
 }
 
 class InterfazGrafica {}

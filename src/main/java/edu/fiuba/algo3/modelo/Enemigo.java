@@ -71,8 +71,11 @@ public abstract class Enemigo {
     }
 
     public void autoDestruccion() {
-        this.recibirDanio(this.Vida());
+        Mapa mapa = Mapa.getInstancia();
+        mapa.removerEnemigo(this);
     }
+
+
 
 }
 

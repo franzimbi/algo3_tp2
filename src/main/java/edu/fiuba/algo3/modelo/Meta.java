@@ -9,6 +9,7 @@ public class Meta extends Camino {
     public boolean ubicar(Enemigo enemigo){
         Jugador jugador = Jugador.getInstancia();
         enemigo.atacar();
+        enemigo.autoDestruccion();
         return true;
     }
 }

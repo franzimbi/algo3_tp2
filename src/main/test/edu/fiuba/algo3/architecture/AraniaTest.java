@@ -25,5 +25,13 @@ public class AraniaTest {
         Jugador.reiniciar();
     }
 
-    //TODO: test03 se puede testear el metodo destruir?
+    @Test
+    public void Test03UnaAraniaDaCreditosEnUnRangoCorrecto(){
+        Jugador jugador = Jugador.getInstancia();
+        Arania arania = new Arania();
+
+        arania.recibirDanio(2);
+        int creditos = jugador.getCreditos();
+        assertTrue(creditos >= 100 && creditos <= 110);
+    }
 }
