@@ -4,6 +4,7 @@ public abstract class Parcela {
     protected Coordenadas coordenadas;
 
     public abstract boolean ubicar(Defensa defensa);
+
     public abstract boolean ubicar(Enemigo enemigo);
 
     public int distancia(Parcela other){

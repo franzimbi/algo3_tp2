@@ -11,12 +11,14 @@ public class CaminoTest {
 
     @Test
     public void Test01CaminoNoPuedeUbicarDefensa() {
-        Jugador jugador = new Jugador(20, 100);
-        Defensa defensa = Defensa.construirDefensa("torre blanca", jugador);
+        Jugador jugador = Jugador.getInstancia();
+        Defensa defensa = Defensa.construirDefensa("torre blanca");
         Coordenadas coordenadas = new Coordenadas(1, 2);
         Camino camino = new Camino(coordenadas);
 
         assertFalse(camino.ubicar(defensa));
+
+        Jugador.reiniciar();
     }
 
     @Test

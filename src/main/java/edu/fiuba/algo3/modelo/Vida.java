@@ -14,6 +14,6 @@ public class Vida {
     public void quitar(int danio) { this.cantidad -= danio; }
 
     public boolean estaMuerto(){
-        return (this.cantidad==0);
+        return (this.cantidad <= 0);
     }
 }

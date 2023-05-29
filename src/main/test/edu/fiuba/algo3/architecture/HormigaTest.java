@@ -18,21 +18,23 @@ public class HormigaTest {
     @Test
     public void Test2HormigaAlRecibirDanioSeDestruye() {
         Hormiga hormiga = new Hormiga();
-        Jugador jugador = new Jugador(20, 100);
-        hormiga.recibirDanio(1, jugador);
+        Jugador jugador = Jugador.getInstancia();
+        hormiga.recibirDanio(1);
 
         assertTrue(hormiga.estaMuerto());
         Hormiga.reiniciar();
+        Jugador.reiniciar();
     }
 
     @Test
     public void Test03HormigaAlRecirDanioPierdeVida() {
         Hormiga hormiga = new Hormiga();
-        Jugador jugador = new Jugador(20, 100);
-        hormiga.recibirDanio(1, jugador);
+        Jugador jugador = Jugador.getInstancia();
+        hormiga.recibirDanio(1);
 
         assertEquals(0, hormiga.Vida());
         Hormiga.reiniciar();
+        Jugador.reiniciar();
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Mapa {
-    final private static Mapa instancia = new Mapa();
+     final private static Mapa instancia = new Mapa();
     final private ArrayList<Camino> caminos;
     final private ArrayList<Enemigo> enemigos;
 
@@ -69,10 +69,14 @@ public class Mapa {
         }
     }
 
-    public boolean gano(Jugador jugador) {
-        return (enemigos.size() == 0 && jugador.getVida() > 0);
+    public boolean gano() {
+        Jugador jugador = Jugador.getInstancia();
+        return (enemigos.size() == 0 && !(jugador.estaMuerto()));
     }
 
-
+    public boolean perdio(){
+        Jugador jugador = Jugador.getInstancia();
+        return (jugador.estaMuerto());
+    }
 
 }

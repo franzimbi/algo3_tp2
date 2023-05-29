@@ -16,12 +16,13 @@ public class AraniaTest {
 
     @Test
     public void Test02UnaAraniaRecibeElDanioCorrecto() {
-        Jugador jugador = new Jugador(20, 100);
+        Jugador jugador = Jugador.getInstancia();
 
         Arania arania = new Arania();
 
-        arania.recibirDanio(1, jugador);
+        arania.recibirDanio(1);
         assertEquals(arania.Vida(), 1);
+        Jugador.reiniciar();
     }
 
     //TODO: test03 se puede testear el metodo destruir?

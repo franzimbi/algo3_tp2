@@ -10,7 +10,8 @@ public abstract class Defensa {
     protected TurnosNecesarios turnosNecesarios;
     protected Parcela parcela;
 
-    public static Defensa construirDefensa(String nombre, Jugador jugador){
+    public static Defensa construirDefensa(String nombre){
+        Jugador jugador = Jugador.getInstancia();
         Defensa torre;
 
         Map<String, Defensa> defensaPosibles = new HashMap<String, Defensa>(){{
@@ -28,10 +29,11 @@ public abstract class Defensa {
 
     }
 
-    public boolean atacar(Jugador jugador){
+    public boolean atacar(){
+        Jugador jugador = Jugador.getInstancia();
         Mapa mapa = Mapa.getInstancia();
         Enemigo objetivo = mapa.getObjetivo(this.parcela);
-        return sistemaDeAtaque.atacar(objetivo,jugador,this);
+        return sistemaDeAtaque.atacar(objetivo,this);
     }
 
     public int coste(){

@@ -10,7 +10,8 @@ public class Hormiga extends Enemigo {
         this.danio = 1;
     }
 
-    private static void sumarCreditos(Jugador jugador) {
+    private static void sumarCreditos() {
+        Jugador jugador = Jugador.getInstancia();
         if (contador > 10) {
             jugador.sumarCreditos(2);
         } else {
@@ -22,15 +23,8 @@ public class Hormiga extends Enemigo {
         contador = 0;
     }
 
-    public void recibirDanio(int danio, Jugador jugador) {
-        vida.quitar(danio);
-        if (vida.estaMuerto()) {
-            this.destruirse(jugador);
-        }
-    }
-
-    protected void destruirse(Jugador jugador) {
+    protected void destruirse() {
         Hormiga.contador += 1;
-        Hormiga.sumarCreditos(jugador);
+        Hormiga.sumarCreditos();
     }
 }

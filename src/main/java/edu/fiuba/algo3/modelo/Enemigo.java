@@ -25,8 +25,12 @@ public abstract class Enemigo {
 
     }
 
-    public void recibirDanio(int danio, Jugador jugador) {
+    public void recibirDanio(int danio) {
+        Jugador jugador = Jugador.getInstancia();
         vida.quitar(danio);
+        if (vida.estaMuerto()) {
+            this.destruirse();
+        }
     }
 
     public int Vida() {
@@ -45,7 +49,7 @@ public abstract class Enemigo {
         return defensa.distancia(this.camino);
     }
 
-    protected abstract void destruirse(Jugador jugador);
+    protected abstract void destruirse();
 
     public void setCamino(Camino camino) {
         this.camino = camino;
@@ -59,11 +63,19 @@ public abstract class Enemigo {
         return this.camino;
     }
 
-    public void atacar(Jugador jugador) {
+    public void atacar() {
+        Jugador jugador = Jugador.getInstancia();
         jugador.rebibirDaño(this.danio);
+        this.autoDestruccion();
+        this.camino.remover(this);
+    }
+
+    public void autoDestruccion() {
+        this.recibirDanio(this.Vida());
     }
 
 }
+
 
 
 
