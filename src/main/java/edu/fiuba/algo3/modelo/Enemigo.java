@@ -1,8 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public abstract class Enemigo {
     protected Camino camino;
     protected Vida vida;

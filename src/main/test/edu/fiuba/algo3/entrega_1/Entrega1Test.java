@@ -69,22 +69,19 @@ public class Entrega1Test {
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
         Jugador jugador = Jugador.getInstancia();
 
-
         Defensa defensa = new TorreBlanca();
-        Coordenadas coordt = new Coordenadas(6, 7);
-        Tierra tierra = new Tierra(coordt);
+
+        Tierra tierra = new Tierra(new Coordenadas(6, 7));
         tierra.ubicar(defensa);
 
         Enemigo enemigoHormiga1 = new Hormiga();
-        Coordenadas coordc1 = new Coordenadas(8, 9);
-        Camino camino1 = new Camino(coordc1);
+        Camino camino1 = new Camino(new Coordenadas(8, 9));
         camino1.ubicar(enemigoHormiga1);
 
         assertFalse(defensa.atacar());
 
         Enemigo enemigoHormiga2 = new Hormiga();
-        Coordenadas coordc2 = new Coordenadas(7, 9);
-        Camino camino2 = new Camino(coordc2);
+        Camino camino2 = new Camino(new Coordenadas(7, 9));
         camino2.ubicar(enemigoHormiga2);
 
         assertTrue(defensa.atacar());
