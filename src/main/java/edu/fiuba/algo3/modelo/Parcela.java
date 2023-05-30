@@ -14,4 +14,5 @@ public abstract class Parcela {
     public int distancia (Coordenadas coordenadas){
         return this.coordenadas.distancia(coordenadas);
     }
+
 }

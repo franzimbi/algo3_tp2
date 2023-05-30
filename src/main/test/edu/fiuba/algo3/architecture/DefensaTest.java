@@ -19,6 +19,7 @@ public class DefensaTest {
         assertSame(torrePlanteadaDevuelta.getClass(), torrePlateada.getClass());
 
         Jugador.reiniciar();
+        Mapa.getInstancia().reiniciar();
     }
 
     @Test
@@ -26,5 +27,6 @@ public class DefensaTest {
         Jugador jugador = Jugador.getInstancia();
         assertThrows(DefensaNoExisteError.class, () -> Defensa.construirDefensa("torre de obsidiana"));
         Jugador.reiniciar();
+        Mapa.getInstancia().reiniciar();
     }
 }

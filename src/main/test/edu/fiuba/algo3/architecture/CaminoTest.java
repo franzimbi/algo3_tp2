@@ -19,6 +19,7 @@ public class CaminoTest {
         assertFalse(camino.ubicar(defensa));
 
         Jugador.reiniciar();
+        Mapa.getInstancia().reiniciar();
     }
 
     @Test
@@ -29,5 +30,6 @@ public class CaminoTest {
 
         assertTrue(camino.ubicar(hormiga));
         Mapa.getInstancia().reiniciar();
+
     }
 }

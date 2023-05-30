@@ -33,7 +33,8 @@ public abstract class Defensa {
         Jugador jugador = Jugador.getInstancia();
         Mapa mapa = Mapa.getInstancia();
         Enemigo objetivo = mapa.getObjetivo(this.parcela);
-        return sistemaDeAtaque.atacar(objetivo,this);
+        int distancia = objetivo.distancia(this);
+        return sistemaDeAtaque.atacar(objetivo,distancia);
     }
 
     public int coste(){
