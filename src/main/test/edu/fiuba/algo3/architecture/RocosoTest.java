@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class RocosoTest {
     @Test
     public void Test01EnRocosoNoEsPosibleConstruirDefensas() {
-        Defensa torreBlanca = Defensa.construirDefensa("torre blanca");
-        Defensa torrePlateada = Defensa.construirDefensa("torre plateada");
-        Coordenadas coordenadas = new Coordenadas(1, 1);
-        Rocoso rocoso = new Rocoso(coordenadas);
+        Defensa torreBlanca = new TorreBlanca();
+        Defensa torrePlateada = new TorrePlateada();
+
+        Rocoso rocoso = new Rocoso(new Coordenadas(1, 1));
 
         assertFalse(rocoso.ubicar(torreBlanca));
         assertFalse(rocoso.ubicar(torrePlateada));
@@ -21,8 +21,8 @@ public class RocosoTest {
     public void Test03EnRocosoNoEsPosibleUbicarEnemigos() {
         Enemigo hormiga = new Hormiga();
         Enemigo arania = new Arania();
-        Coordenadas coordenadas = new Coordenadas(1, 1);
-        Rocoso rocoso = new Rocoso(coordenadas);
+
+        Rocoso rocoso = new Rocoso(new Coordenadas(1, 1));
 
         assertFalse(rocoso.ubicar(hormiga));
         assertFalse(rocoso.ubicar(arania));

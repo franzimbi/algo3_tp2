@@ -12,9 +12,9 @@ public class CaminoTest {
     @Test
     public void Test01CaminoNoPuedeUbicarDefensa() {
         Jugador jugador = Jugador.getInstancia();
-        Defensa defensa = Defensa.construirDefensa("torre blanca");
-        Coordenadas coordenadas = new Coordenadas(1, 2);
-        Camino camino = new Camino(coordenadas);
+        Defensa defensa = new TorreBlanca();
+
+        Camino camino = new Camino(new Coordenadas(1, 2));
 
         assertFalse(camino.ubicar(defensa));
 
@@ -25,8 +25,8 @@ public class CaminoTest {
     @Test
     void Test02CaminoPuedeUbicarEnemigo() {
         Enemigo hormiga = new Hormiga();
-        Coordenadas coordenadas = new Coordenadas(1, 2);
-        Camino camino = new Camino(coordenadas);
+
+        Camino camino = new Camino(new Coordenadas(1, 2));
 
         assertTrue(camino.ubicar(hormiga));
         Mapa.getInstancia().reiniciar();

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class Jugador {
     private static Jugador instancia = new Jugador(20, 100);
+    private String nombre;
     private Vida vida;
     private Creditos creditos;
 
@@ -28,6 +29,13 @@ public class Jugador {
 
     public void sumarCreditos(int cantidad){
         this.creditos.sumarCreditos(cantidad);
+    }
+    public boolean nombre(String nombre){
+        if (nombre.length() < 6){
+            return false;
+        }
+        this.nombre = nombre;
+        return true;
     }
 
     public void rebibirDaño(int cantidad) {

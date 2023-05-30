@@ -8,8 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class TierraTest {
     @Test
     public void Test02EnTierraEsPosibleconstruirDefensas() {
-        Defensa torreBlanca = Defensa.construirDefensa("torre blanca");
-        Defensa torrePlateada = Defensa.construirDefensa("torre plateada");
+
+        Defensa torreBlanca = new TorreBlanca();
+        Defensa torrePlateada = new TorrePlateada();
+
         Rocoso rocoso = new Rocoso(new Coordenadas(0, 0));
 
         assertFalse(rocoso.ubicar(torreBlanca));

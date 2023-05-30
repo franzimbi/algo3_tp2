@@ -40,7 +40,7 @@ abstract class Defensa {
     +setParcela(Parcela parcela):void
     +distancia(Parcela parcela): int
 }
-Defensa ..> Parcela
+
 Defensa ..>Jugador
 Defensa *--> sistemaDeAtaque
 Defensa *--> turnosNecesarios

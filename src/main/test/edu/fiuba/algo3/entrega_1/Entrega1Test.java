@@ -18,7 +18,7 @@ public class Entrega1Test {
     @Test
     public void Test02UnaDefensaSeConstruyeEnElTiempoCorrecto() {
         Jugador jugador = Jugador.getInstancia();
-        Defensa defensa = Defensa.construirDefensa("torre blanca");
+        Defensa defensa = new TorreBlanca();
 
         assertFalse(defensa.estaOperativa());
 
@@ -30,14 +30,13 @@ public class Entrega1Test {
     @Test
     public void Test03UnJugadorDebeTenerCreditosSuficientesParaConstruirUnaTorre() {
         Jugador jugador = Jugador.getInstancia();
-        assertDoesNotThrow(() -> Defensa.construirDefensa("torre plateada"));
-        assertDoesNotThrow(() -> Defensa.construirDefensa("torre plateada"));
-        assertDoesNotThrow(() -> Defensa.construirDefensa("torre plateada"));
-        assertDoesNotThrow(() -> Defensa.construirDefensa("torre plateada"));
-        assertDoesNotThrow(() -> Defensa.construirDefensa("torre plateada"));
+        assertDoesNotThrow(TorrePlateada::new);
+        assertDoesNotThrow(TorrePlateada::new);
+        assertDoesNotThrow(TorrePlateada::new);
+        assertDoesNotThrow(TorrePlateada::new);
+        assertDoesNotThrow(TorrePlateada::new);
 
-
-        assertThrows(CreditosInsuficientesError.class, () -> Defensa.construirDefensa("torre plateada"));
+        assertThrows(CreditosInsuficientesError.class, TorrePlateada::new);
 
         Jugador.reiniciar();
     }
@@ -45,8 +44,8 @@ public class Entrega1Test {
     @Test
     public void Test04SoloSePuedeConstruirDefensasSobreTierra() {
         Jugador jugador = Jugador.getInstancia();
+        Defensa defensa = new TorreBlanca();
 
-        Defensa defensa = Defensa.construirDefensa("torre blanca");
         Coordenadas coordenadas = new Coordenadas(1, 1);
         Tierra tierra = new Tierra(coordenadas);
         Rocoso rocoso = new Rocoso(coordenadas);
@@ -64,7 +63,8 @@ public class Entrega1Test {
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
         Jugador jugador = Jugador.getInstancia();
 
-        Defensa defensa = Defensa.construirDefensa("torre blanca");
+
+        Defensa defensa = new TorreBlanca();
         Coordenadas coordt = new Coordenadas(6, 7);
         Tierra tierra = new Tierra(coordt);
         tierra.ubicar(defensa);

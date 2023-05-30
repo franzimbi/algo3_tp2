@@ -6,5 +6,7 @@ public class TorrePlateada extends Defensa {
         this.sistemaDeAtaque = new SistemaDeAtaque(2,5);
         this.turnosNecesarios = new TurnosNecesarios(2);
         this.coste = 20;
+        Jugador jugador = Jugador.getInstancia();
+        jugador.restarCreditos(this.coste());
     }
 }

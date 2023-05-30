@@ -1,33 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public abstract class Defensa {
 
-    protected int coste; //podria ser un objeto?
+    protected int coste;
     protected SistemaDeAtaque sistemaDeAtaque;
     protected TurnosNecesarios turnosNecesarios;
     protected Parcela parcela;
-
-    public static Defensa construirDefensa(String nombre){
-        Jugador jugador = Jugador.getInstancia();
-        Defensa torre;
-
-        Map<String, Defensa> defensaPosibles = new HashMap<String, Defensa>(){{
-            put("torre blanca", (new TorreBlanca()));
-            put("torre plateada", (new TorrePlateada()));
-        }
-        };
-        Defensa defensaActual =  defensaPosibles.get(nombre);
-        if (defensaActual != null){
-            jugador.restarCreditos(defensaActual.coste());
-            return defensaActual;
-        }else{
-            throw new DefensaNoExisteError();
-        }
-
-    }
 
     public boolean atacar(){
         Jugador jugador = Jugador.getInstancia();
