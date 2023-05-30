@@ -36,5 +36,4 @@ public class HormigaTest {
         Hormiga.reiniciar();
         Jugador.reiniciar();
     }
-
 }

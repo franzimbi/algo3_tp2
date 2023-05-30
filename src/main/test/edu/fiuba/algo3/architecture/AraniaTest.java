@@ -35,4 +35,14 @@ public class AraniaTest {
         int creditos = jugador.getCreditos();
         assertTrue(creditos >= 100 && creditos <= 110);
     }
+    @Test
+    public void Test04UnaAraniaMuereCorrectamente(){
+        Jugador jugador = Jugador.getInstancia();
+        Arania arania = new Arania();
+
+        arania.recibirDanio(2);
+        assertTrue(arania.estaMuerto());
+    }
 }
+
+

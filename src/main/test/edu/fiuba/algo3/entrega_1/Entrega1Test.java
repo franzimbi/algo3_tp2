@@ -13,7 +13,6 @@ public class Entrega1Test {
         Jugador jugador = Jugador.getInstancia();
 
         assertEquals(jugador.getVida(), 20);
-
         assertEquals(jugador.getCreditos(), 100);
     }
 
