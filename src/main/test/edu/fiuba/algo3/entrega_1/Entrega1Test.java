@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega1Test {
+
+    //Verificar que jugador empieza con la vida y los créditos correspondientes.
     @Test
     public void Test01UnJugadorComienzaEnUnEstadoValido() {
         Jugador jugador = Jugador.getInstancia();
@@ -15,6 +17,8 @@ public class Entrega1Test {
         assertEquals(jugador.getCreditos(), 100);
     }
 
+    //Verificar que cada defensa tarde en construirse lo que dice que
+    // tarda y que recién están “operativas” cuando ya se terminaron de construir.
     @Test
     public void Test02UnaDefensaSeConstruyeEnElTiempoCorrecto() {
         Jugador jugador = Jugador.getInstancia();
@@ -27,6 +31,7 @@ public class Entrega1Test {
         assertTrue(defensa.estaOperativa());
     }
 
+    //Verificar que se disponga de credito para realizar las construcciones.
     @Test
     public void Test03UnJugadorDebeTenerCreditosSuficientesParaConstruirUnaTorre() {
         Jugador jugador = Jugador.getInstancia();
@@ -41,6 +46,7 @@ public class Entrega1Test {
         Jugador.reiniciar();
     }
 
+    //Verificar solo se pueda construir defensas sobre tierra (y verificar lo contrario)
     @Test
     public void Test04SoloSePuedeConstruirDefensasSobreTierra() {
         Jugador jugador = Jugador.getInstancia();
@@ -59,6 +65,7 @@ public class Entrega1Test {
 
     }
 
+    //Verificar que las defensas ataquen dentro del rango esperado (y verificar lo contrario)
     @Test
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
         Jugador jugador = Jugador.getInstancia();
@@ -89,6 +96,7 @@ public class Entrega1Test {
         Jugador.reiniciar();
     }
 
+    //Verificar que las unidades enemigas son dañadas acorde al ataque recibido.
     @Test
     public void Test06UnEnemigoRecibeElDanioCorrecto() {
         Jugador jugador = Jugador.getInstancia();
@@ -101,24 +109,21 @@ public class Entrega1Test {
         Jugador.reiniciar();
     }
 
+    //Verificar que las unidades enemigas solo se muevan por la parcela autorizada.
     @Test
     public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelaAutorizada() {
         Enemigo hormiga = new Hormiga();
 
-        Coordenadas coord1 = new Coordenadas(0, 0);
-        Camino camino = new Camino(coord1);
-
-        Coordenadas coord2 = new Coordenadas(1, 0);
-        Rocoso rocoso = new Rocoso(coord2);
-
-        Coordenadas coord3 = new Coordenadas(2, 0);
-        Tierra tierra = new Tierra(coord3);
+        Camino camino = new Camino(new Coordenadas(0, 0));
+        Rocoso rocoso = new Rocoso(new Coordenadas(1, 0));
+        Tierra tierra = new Tierra(new Coordenadas(2, 0));
 
         assertFalse(rocoso.ubicar(hormiga));
         assertFalse(tierra.ubicar(hormiga));
         assertTrue(camino.ubicar(hormiga));
     }
 
+    //Verificar que al destruir una unidad enemiga, el jugador cobra el crédito que le corresponde.
     @Test
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
         Jugador jugador = Jugador.getInstancia();
@@ -139,21 +144,18 @@ public class Entrega1Test {
         Jugador.reiniciar();
     }
 
+    //Verificar que al pasar un turno las unidades enemigas se hayan movido según sus capacidades.
     @Test
     public void Test09PasarUnTurnoMueveEnemigoSegunCapacidad() {
         Enemigo hormiga = new Hormiga();
 
-        Coordenadas coord1 = new Coordenadas(0, 0);
-        Camino camino1 = new Camino(coord1);
-
-        Coordenadas coordSig = new Coordenadas(1, 0);
-        Camino caminoSig = new Camino(coordSig);
+        Camino camino1 = new Camino(new Coordenadas(0, 0));
+        Camino caminoSig = new Camino(new Coordenadas(1, 0));
 
         camino1.ubicar(hormiga);
         camino1.setSiguiente(caminoSig);
 
         Mapa mapa = Mapa.getInstancia();
-
         mapa.moverEnemigos();
 
         assertSame(caminoSig, hormiga.getCamino());
@@ -162,6 +164,7 @@ public class Entrega1Test {
         mapa.reiniciar();
     }
 
+    //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
     @Test
     public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
         Jugador jugador = Jugador.getInstancia();
@@ -179,42 +182,34 @@ public class Entrega1Test {
         Jugador.reiniciar();
     }
 
+    //Verificar que sin eliminar todas la unidades enemigas, pero las pocas que
+    // llegaron a la meta no alcanzan para matar al jugador, este también gana el juego.
     @Test
     public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta() {
         Enemigo hormiga = new Hormiga();
         Enemigo arania = new Arania();
 
-        Coordenadas coordenadas1 = new Coordenadas(0, 0);
-        Camino camino1 = new Camino(coordenadas1);
-
-        Coordenadas coordenadas2 = new Coordenadas(1, 0);
-        Camino camino2 = new Meta(coordenadas2);
-
+        Camino camino1 = new Camino(new Coordenadas(0, 0));
+        Camino camino2 = new Meta(new Coordenadas(1, 0));
         camino1.setSiguiente(camino2);
 
         camino1.ubicar(hormiga);
         camino1.ubicar(arania);
 
         Mapa mapa = Mapa.getInstancia();
-
         mapa.moverEnemigos();
 
         assertTrue(mapa.gano());
         Jugador.reiniciar();
     }
 
-
+    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
     @Test
     public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
+        Camino camino1 = new Camino(new Coordenadas(0, 0));
+        Camino camino2 = new Camino(new Coordenadas(1, 0));
+        Camino camino3 = new Meta(new Coordenadas(2, 0));
 
-        Coordenadas coordenadas1 = new Coordenadas(0, 0);
-        Camino camino1 = new Camino(coordenadas1);
-
-        Coordenadas coordenadas2 = new Coordenadas(1, 0);
-        Camino camino2 = new Camino(coordenadas2);
-
-        Coordenadas coordenadas3 = new Coordenadas(2, 0);
-        Camino camino3 = new Meta(coordenadas3);
         camino1.setSiguiente(camino2);
         camino2.setSiguiente(camino3);
 
@@ -225,13 +220,11 @@ public class Entrega1Test {
         }
 
         Mapa mapa = Mapa.getInstancia();
-
         mapa.moverEnemigos();
 
         assertTrue(mapa.perdio());
         Jugador.reiniciar();
     }
-
 }
 
 
