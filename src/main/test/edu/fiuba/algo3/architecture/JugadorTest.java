@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.architecture;
 
-import edu.fiuba.algo3.modelo.Enemigo;
-import edu.fiuba.algo3.modelo.Hormiga;
-import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,9 +10,9 @@ public class JugadorTest {
     public void Test01UnJugadorComienzaEnUnEstadoValido() {
         Jugador jugador = Jugador.getInstancia();
 
-        assertEquals(20,jugador.getVida());
+        assertEquals(20, jugador.getVida());
 
-        assertEquals(100,jugador.getCreditos());
+        assertEquals(100, jugador.getCreditos());
         Jugador.reiniciar();
     }
 
@@ -49,7 +47,16 @@ public class JugadorTest {
         Jugador.reiniciar();
     }
 
-    //TODO: implementar logica del usuario recibiendo daño
-    /*@Test
-    public void Test04UnJugadorPierdeVidaAlRecibirDaño(){}*/
+    @Test
+    public void Test04UnJugadorPierdeVidaAlRecibirDaño() {
+        Jugador jugador = Jugador.getInstancia();
+        Enemigo hormiga = new Hormiga();
+        Camino camino = new Camino(new Coordenadas(2, 2));
+        camino.ubicar(hormiga);
+        hormiga.atacar();
+        hormiga.atacar();
+
+        assertEquals(18, jugador.getVida());
+
+    }
 }

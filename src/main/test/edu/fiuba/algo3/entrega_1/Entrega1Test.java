@@ -60,7 +60,6 @@ public class Entrega1Test {
 
     }
 
-    //TODO: test05 sin terminar, esta complejo
     @Test
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
         Jugador jugador = Jugador.getInstancia();
@@ -103,16 +102,16 @@ public class Entrega1Test {
     }
 
     @Test
-    public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelaAutorizada(){
+    public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelaAutorizada() {
         Enemigo hormiga = new Hormiga();
 
-        Coordenadas coord1 = new Coordenadas(0,0);
+        Coordenadas coord1 = new Coordenadas(0, 0);
         Camino camino = new Camino(coord1);
 
-        Coordenadas coord2 = new Coordenadas(1,0);
+        Coordenadas coord2 = new Coordenadas(1, 0);
         Rocoso rocoso = new Rocoso(coord2);
 
-        Coordenadas coord3 = new Coordenadas(2,0);
+        Coordenadas coord3 = new Coordenadas(2, 0);
         Tierra tierra = new Tierra(coord3);
 
         assertFalse(rocoso.ubicar(hormiga));
@@ -144,10 +143,10 @@ public class Entrega1Test {
     public void Test09PasarUnTurnoMueveEnemigoSegunCapacidad() {
         Enemigo hormiga = new Hormiga();
 
-        Coordenadas coord1 = new Coordenadas(0,0);
+        Coordenadas coord1 = new Coordenadas(0, 0);
         Camino camino1 = new Camino(coord1);
 
-        Coordenadas coordSig = new Coordenadas(1,0);
+        Coordenadas coordSig = new Coordenadas(1, 0);
         Camino caminoSig = new Camino(coordSig);
 
         camino1.ubicar(hormiga);
@@ -181,15 +180,14 @@ public class Entrega1Test {
     }
 
     @Test
-    public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta(){
-        Jugador jugador = Jugador.getInstancia();
+    public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta() {
         Enemigo hormiga = new Hormiga();
         Enemigo arania = new Arania();
 
-        Coordenadas coordenadas1 = new Coordenadas(0,0);
+        Coordenadas coordenadas1 = new Coordenadas(0, 0);
         Camino camino1 = new Camino(coordenadas1);
 
-        Coordenadas coordenadas2 = new Coordenadas(1,0);
+        Coordenadas coordenadas2 = new Coordenadas(1, 0);
         Camino camino2 = new Meta(coordenadas2);
 
         camino1.setSiguiente(camino2);
@@ -207,22 +205,21 @@ public class Entrega1Test {
 
 
     @Test
-    public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan(){
+    public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
 
-        Coordenadas coordenadas1 = new Coordenadas(0,0);
+        Coordenadas coordenadas1 = new Coordenadas(0, 0);
         Camino camino1 = new Camino(coordenadas1);
 
-        Coordenadas coordenadas2 = new Coordenadas(1,0);
+        Coordenadas coordenadas2 = new Coordenadas(1, 0);
         Camino camino2 = new Camino(coordenadas2);
-        camino1.setSiguiente(camino2);
 
-        Coordenadas coordenadas3 = new Coordenadas(2,0);
+        Coordenadas coordenadas3 = new Coordenadas(2, 0);
         Camino camino3 = new Meta(coordenadas3);
         camino1.setSiguiente(camino2);
         camino2.setSiguiente(camino3);
 
-        Enemigo [] enemigos = new Arania[10];
-        for( int i = 0; i < enemigos.length; i++){
+        Enemigo[] enemigos = new Arania[10];
+        for (int i = 0; i < enemigos.length; i++) {
             enemigos[i] = new Arania();
             camino1.ubicar(enemigos[i]);
         }
