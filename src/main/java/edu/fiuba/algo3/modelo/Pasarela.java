@@ -29,4 +29,11 @@ public class Pasarela extends Parcela {
 
         for(enemigo.mover(mapa.pasarela(i, velocidad));)
     }*/
+
+    public void mover(Pasarela pasarela, Mapa mapa){
+        for (int i = 0; i <= enemigos.size()-1; i++) {
+            Enemigo actual = enemigos.remove(i);
+            mapa.siguiente(actual.getVelocidad(), pasarela).ubicar(actual);
+        }
+    }
 }
