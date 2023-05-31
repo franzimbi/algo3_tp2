@@ -10,10 +10,12 @@ public class Tierra extends Parcela {
         this.ubicacion = new Coordenadas(0,0);
     }
 
-    @Override
     public boolean ubicar(Defensa defensa) {
         this.defensa = defensa;
         return true;
+    }
+    public boolean ubicar(Enemigo enemigo) {
+        return false;
     }
     public boolean estaOcupada(){
         return this.defensa != null;

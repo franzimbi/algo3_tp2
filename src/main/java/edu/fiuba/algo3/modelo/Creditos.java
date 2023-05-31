@@ -10,10 +10,14 @@ public class Creditos {
     public int  cantidad(){
         return this.cantidad;
     }
-    public void sacarCreditos(int cantidad){
-        if (this.cantidad < cantidad){
+
+    public void sacarCreditos(Creditos creditos){
+        if (this.cantidad < creditos.cantidad){
             throw new CreditosInsuficientesError();
         }
         this.cantidad -= cantidad;
+    }
+    public void agregarCreditos(Creditos creditos){
+        this.cantidad += creditos.cantidad;
     }
 }

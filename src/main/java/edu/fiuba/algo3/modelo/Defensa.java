@@ -4,6 +4,8 @@ public abstract class Defensa {
     protected int danio;
     protected int rango;
     protected int turnosRestantes;
+    protected Creditos coste;
+
 
     public boolean estaOperativa(){
         return this.turnosRestantes == 0;
@@ -11,7 +13,6 @@ public abstract class Defensa {
 
     public void atacar(){
         if (this.estaOperativa()){
-
             return;
         }
         this.turnosRestantes --;

@@ -5,17 +5,20 @@ public abstract class Enemigo {
     protected int danio;
     protected int velocidad;
 
-    public Enemigo(){
-        this.vida = new Vida(20);
-    }
-    public void recibirDanio(Defensa defensa){
-        this.vida.quitar(defensa.danioGenerado());
-    }
-    public int danioGenerado(){
-        return danio;
-    }
-    public boolean estaMuerto(){
-        return this.vida.estaMuerto();
-    }
+    protected Creditos creditos;
+
+    public void recibirDanio(Defensa defensa){this.vida.quitar(defensa.danioGenerado());}
+
+    public int danioGenerado(){return danio;}
+
+    public boolean estaMuerto(){return this.vida.estaMuerto();}
+
     public int getVelocidad() {return velocidad;}
+
+    public void atacar(Jugador jugador){
+        jugador.recibirDanio(this);
+    }
+    public Creditos obtenerCreditos(){
+        return creditos;
+    }
 }
