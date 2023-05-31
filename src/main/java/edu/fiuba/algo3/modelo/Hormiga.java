@@ -12,4 +12,5 @@ public class Hormiga extends Enemigo{
     public void setCreditos(Creditos creditosNuevos){
         this.creditos = creditosNuevos;
     }
+
 }

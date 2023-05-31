@@ -7,16 +7,16 @@ public abstract class Enemigo {
 
     protected Creditos creditos;
 
-    public void recibirDanio(Defensa defensa){this.vida.quitar(defensa.danioGenerado());}
-
-    public int danioGenerado(){return danio;}
+    public void recibirDanio(Defensa defensa){
+        this.vida.quitar(defensa.danioGenerado());
+    }
 
     public boolean estaMuerto(){return this.vida.estaMuerto();}
 
     public int getVelocidad() {return velocidad;}
 
     public void atacar(Jugador jugador){
-        jugador.recibirDanio(this);
+        jugador.recibirDanio(this.danio);
     }
     public Creditos obtenerCreditos(){
         return creditos;

@@ -16,8 +16,8 @@ public class Jugador {
         this.vida = new Vida(vida);
         this.creditos = new Creditos(creditos);
     }
-    public Vida vida() {
-        return this.vida;
+    public int vida() {
+        return this.vida.vida();
     }
 
 
@@ -33,11 +33,13 @@ public class Jugador {
         return this.vida.estaMuerto();
     }
 
-    public void recibirDanio(Enemigo enemigo){
-        this.vida.quitar(enemigo.danioGenerado());
+    public void recibirDanio(int danio){
+        this.vida.quitar(danio);
     }
     public void recibirCreditos(Creditos creditos){
-
+        this.creditos.agregarCreditos(creditos);
     }
+
+
 }
 

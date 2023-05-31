@@ -6,10 +6,10 @@ public class Meta extends Pasarela {
     public Meta(Coordenadas ubicacion ){
         super(ubicacion);
     }
-    public void atacar(Jugador jugador){
-        for (int i = 0; i< this.enemigos.size()-1; i++){
-            this.enemigos.remove(i).atacar(jugador);
-        }
+
+    public boolean ubicar(Enemigo enemigo, Jugador jugador){
+        enemigo.atacar(jugador);
+        return true;
     }
 }
 

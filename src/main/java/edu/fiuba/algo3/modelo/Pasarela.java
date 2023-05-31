@@ -11,29 +11,34 @@ public class Pasarela extends Parcela {
         this.ubicacion = new Coordenadas(0,0);
     }
 
-    public boolean ubicar(Defensa defensa) {
+    public boolean ubicar(Defensa defensa, Jugador jugador) {
         return false;
     }
 
-    public boolean ubicar(Enemigo enemigo){
+    public boolean ubicar(Enemigo enemigo, Jugador jugador){
         enemigos.add(enemigo);
         return true;
     }
 
     @Override
-    public boolean atacado(Defensa defensa, Coordenadas ubicacionDefensa) {
-        if(ubicacionDefensa.distancia(this.ubicacion) > defensa.rangoMaximo() || enemigos.isEmpty()){
+    public boolean atacado(Defensa defensa, Parcela ubicacionDefensa) {
+        if(ubicacionDefensa.distancia(this) > defensa.rangoMaximo() || enemigos.isEmpty()){
             return false;
         }
-        enemigos.get(0).recibirDanio(defensa);
+        Enemigo primerEnemigo = enemigos.get(0);
+        primerEnemigo.recibirDanio(defensa);
+        if (primerEnemigo.estaMuerto()){
+            enemigos.remove(primerEnemigo);
+        }
         return true;
     }
 
-    public void mover(Camino camino){
+    public void mover(Camino camino,Jugador jugador){
         int tam = enemigos.size();
+
         for (int i = 0; i < tam; i++) {
             Enemigo actual = enemigos.remove(0);
-            camino.siguiente(actual.getVelocidad(), this).ubicar(actual);
+            camino.siguiente(actual, this,jugador);
         }
     }
     public boolean esta(Enemigo enemigo){return enemigos.contains(enemigo);}

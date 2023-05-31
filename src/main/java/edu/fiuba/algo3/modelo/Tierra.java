@@ -10,11 +10,12 @@ public class Tierra extends Parcela {
         this.ubicacion = new Coordenadas(0,0);
     }
 
-    public boolean ubicar(Defensa defensa) {
+    public boolean ubicar(Defensa defensa, Jugador jugador) {
         this.defensa = defensa;
+        jugador.sacarCreditos(defensa.coste);
         return true;
     }
-    public boolean ubicar(Enemigo enemigo) {
+    public boolean ubicar(Enemigo enemigo, Jugador jugador) {
         return false;
     }
     public boolean estaOcupada(){
@@ -25,6 +26,7 @@ public class Tierra extends Parcela {
         if (!this.estaOcupada()) {
             return false;
         }
-        return lugar.atacado(this.defensa, this.ubicacion);
+        return lugar.atacado(this.defensa,this);
     }
+
 }
