@@ -25,8 +25,8 @@ public class Pasarela extends Parcela {
         enemigos.get(0).recibirDanio(defensa);
         return true;
     }
-    /*public void moverConVelocidad(int velocidad, Mapa mapa){
+    /*public void moverConVelocidad(int i, int velocidad, Mapa mapa){
 
-        for(enemigo.mover(mapa.pasarela(velocidad));)
+        for(enemigo.mover(mapa.pasarela(i, velocidad));)
     }*/
 }
