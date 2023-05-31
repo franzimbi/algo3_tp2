@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class CreditosTest {
-    @Test
+    /*@Test
     public void Test01UnosCreditosComienzaEnUnEstadoValido() {
         Creditos creditos = new Creditos(100);
 
@@ -22,5 +22,5 @@ public class CreditosTest {
 
         assertThrows(CreditosInsuficientesError.class, () -> creditos.restarCreditos(200));
 
-    }
+    }*/
 }

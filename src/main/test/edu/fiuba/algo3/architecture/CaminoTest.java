@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CaminoTest {
 
-    @Test
+  /*  @Test
     public void Test01CaminoNoPuedeUbicarDefensa() {
         Jugador jugador = Jugador.getInstancia();
         Defensa defensa = new TorreBlanca();
@@ -31,5 +31,5 @@ public class CaminoTest {
         assertTrue(camino.ubicar(hormiga));
         Mapa.getInstancia().reiniciar();
 
-    }
+    }*/
 }

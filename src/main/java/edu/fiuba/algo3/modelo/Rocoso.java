@@ -1,14 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-public class Rocoso extends Parcela {
-    private Coordenadas coordenadas;
-    public Rocoso(Coordenadas coordenadas){
-        this.coordenadas = coordenadas;
-    }
+public class Rocoso extends Parcela{
 
-    public boolean ubicar(Defensa defensa) {
-        return false;
+    public Rocoso(Coordenadas ubicacion){
+        this.ubicacion = ubicacion;
     }
-    public boolean ubicar(Enemigo enemigo) {return false;}
+    public Rocoso(){
+        this.ubicacion = new Coordenadas(0,0);
+    }
 
 }
