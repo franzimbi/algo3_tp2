@@ -18,24 +18,25 @@ public class Camino {
     }
 
     // a cada pasarela de atras para adelante le envia el mensaje de mover
-    public void mover() {
+    public void mover(Jugador jugador) {
         for (int i = pasarelas.size()-1; i >= 0; i--) {
-            pasarelas.get(i).mover(this);
+            pasarelas.get(i).mover(this,jugador);
         }
     }
 
     // agrega un nuevo enemigo a la posicion de inicio
-    public void spawnEnemigo(Enemigo enemigo) {
-        this.pasarelas.get(0).ubicar(enemigo);
-    }
+    /*public void spawnEnemigo(Enemigo enemigo) {
+        this.pasarelas.get(0).ubicar(enemigo,jugador);
+    }*/
 
     //devuelve la pasarela a la q tiene q moverse dependiendo de su ubicacion y velocidad
-    public Parcela siguiente(int velocidad, Pasarela pasarela) {
-       int aux = pasarelas.indexOf(pasarela) + velocidad;
+    public void siguiente(Enemigo enemigo, Pasarela pasarela, Jugador jugador) {
+       int aux = pasarelas.indexOf(pasarela) + enemigo.getVelocidad();
        if (aux >= pasarelas.size()){
-           return meta;
+           meta.ubicar(enemigo, jugador);
+           return;
         }
-       return  pasarelas.get(aux);
+       pasarelas.get(aux).ubicar(enemigo, jugador);
     }
     public boolean tieneEnemigos(){
         for (Pasarela pasarela : this.pasarelas) {
@@ -44,5 +45,13 @@ public class Camino {
             }
         }
         return false;
+    }
+
+    public boolean gano(Jugador jugador){
+        return (!tieneEnemigos() && !jugador.estaMuerto() );
+    }
+
+    public boolean perdio(Jugador jugador){
+        return jugador.estaMuerto();
     }
 }

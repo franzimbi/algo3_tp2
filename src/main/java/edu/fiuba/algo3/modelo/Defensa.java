@@ -23,4 +23,8 @@ public abstract class Defensa {
     public int danioGenerado(){
         return danio;
     }
+
+    public Creditos coste(){
+        return this.coste;
+    }
 }

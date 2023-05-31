@@ -10,10 +10,10 @@ public class Turno {
 
 
         // despues se mueven los enemigos
-        camino.mover();
+        //camino.mover();
 
         // despues spawneo enemigo nuevo
-        if (nuevoEnemigo != null){camino.spawnEnemigo(nuevoEnemigo);}
+        /*if (nuevoEnemigo != null){camino.spawnEnemigo(nuevoEnemigo);}*/
     }
 
 }
