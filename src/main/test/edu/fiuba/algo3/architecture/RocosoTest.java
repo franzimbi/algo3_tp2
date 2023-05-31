@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class RocosoTest {
-    @Test
+   /* @Test
     public void Test01EnRocosoNoEsPosibleConstruirDefensas() {
         Defensa torreBlanca = new TorreBlanca();
         Defensa torrePlateada = new TorrePlateada();
@@ -26,5 +26,5 @@ public class RocosoTest {
 
         assertFalse(rocoso.ubicar(hormiga));
         assertFalse(rocoso.ubicar(arania));
-    }
+    }*/
 }

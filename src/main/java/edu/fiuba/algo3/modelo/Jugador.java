@@ -1,53 +1,41 @@
 package edu.fiuba.algo3.modelo;
 
 public class Jugador {
-    private static Jugador instancia = new Jugador(20, 100);
+    //private static Jugador instancia = new Jugador(20, 100);
     private String nombre;
     private Vida vida;
     private Creditos creditos;
 
-    private Jugador(int cant_vida, int cant_creditos){
-        this.vida = new Vida(cant_vida);
-        this.creditos = new Creditos(cant_creditos);
+    public Jugador(Vida vida, Creditos creditos, String nombre) {
+        this.vida = vida;
+        this.creditos = creditos;
+        this.nombre = nombre;
     }
 
-    public static Jugador getInstancia() {
-        return instancia;
+    public Jugador(String nombre) {
+        this.vida = new Vida(20);
+        this.creditos = new Creditos(100);
     }
 
-    public int getVida(){
-        return this.vida.cantidad();
+    public Vida vida() {
+        return this.vida;
     }
 
-    public int getCreditos(){
+
+    public int getCreditos() {
         return this.creditos.cantidad();
     }
 
-    public void restarCreditos(int cantidad){
-        this.creditos.restarCreditos(cantidad);
-    }
-
-    public void sumarCreditos(int cantidad){
-        this.creditos.sumarCreditos(cantidad);
-    }
-    public boolean nombre(String nombre){
-        if (nombre.length() < 6){
-            return false;
-        }
-        this.nombre = nombre;
-        return true;
-    }
-
-    public void rebibirDaño(int cantidad) {
-        this.vida.quitar(cantidad);
-    }
-
-    public static void reiniciar() {
-        instancia = new Jugador(20, 100);
+    public  void cobrar(int cantidad) {
+        this.creditos.sacarCreditos(cantidad);
     }
 
     public boolean estaMuerto(){
         return this.vida.estaMuerto();
     }
 
+    public void recibirDanio(Enemigo enemigo){
+        this.vida.quitar(enemigo.danioGenerado());
+    }
 }
+

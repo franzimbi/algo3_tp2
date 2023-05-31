@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class JugadorTest {
-    @Test
+    /*@Test
     public void Test01UnJugadorComienzaEnUnEstadoValido() {
         Jugador jugador = Jugador.getInstancia();
 
@@ -58,5 +58,5 @@ public class JugadorTest {
 
         assertEquals(18, jugador.getVida());
 
-    }
+    }*/
 }

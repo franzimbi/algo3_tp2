@@ -3,23 +3,17 @@ package edu.fiuba.algo3.modelo;
 public class Creditos {
     private int cantidad;
 
-    public Creditos(int cant_creditos){
-        this.cantidad = cant_creditos;
+    public Creditos(int cantidadCreditos){
+        this.cantidad = cantidadCreditos;
     }
 
-    public int cantidad(){
+    public int  cantidad(){
         return this.cantidad;
     }
-
-    public void restarCreditos(int cantidad){
-        if(cantidad > this.cantidad){
+    public void sacarCreditos(int cantidad){
+        if (this.cantidad < cantidad){
             throw new CreditosInsuficientesError();
         }
         this.cantidad -= cantidad;
     }
-
-    public void sumarCreditos(int cantidad){
-        this.cantidad += cantidad;
-    }
-
 }

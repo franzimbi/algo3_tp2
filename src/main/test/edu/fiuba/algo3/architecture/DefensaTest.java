@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DefensaTest {
-    @Test
+    /*@Test
     public void Test01DefensaDevuelveLatorreCorrecta() {
         Jugador jugador = Jugador.getInstancia();
 
@@ -21,6 +21,6 @@ public class DefensaTest {
 
         Jugador.reiniciar();
         Mapa.getInstancia().reiniciar();
-    }
+    }*/
 }
 

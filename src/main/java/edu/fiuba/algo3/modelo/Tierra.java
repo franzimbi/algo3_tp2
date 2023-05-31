@@ -1,21 +1,28 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+public class Tierra extends Parcela {
+    private Defensa defensa;
 
-public class Tierra extends Parcela{
-
-    public Tierra(Coordenadas coordenadas) {
-        this.coordenadas = coordenadas;
+    public Tierra(Coordenadas ubicacion){
+        this.ubicacion = ubicacion;
+    }
+    public Tierra(){
+        this.ubicacion = new Coordenadas(0,0);
     }
 
+    @Override
     public boolean ubicar(Defensa defensa) {
-        defensa.setParcela(this);
+        this.defensa = defensa;
         return true;
     }
-
-    public boolean ubicar(Enemigo enemigo) {
-        return false;
+    public boolean estaOcupada(){
+        return this.defensa != null;
     }
-
+    @Override
+    public boolean defender(Parcela lugar) {
+        if (!this.estaOcupada()) {
+            return false;
+        }
+        return lugar.atacado(this.defensa, this.ubicacion);
+    }
 }
-
