@@ -2,9 +2,10 @@
 'https://plantuml.com/class-diagram
 
 class Arania {
-    -vida: int
+    -vida: Vida
     -danio: int
-    -creditos: int
+    -velocidad: int
+    -creditos: Creditos
     +Arania()
 }
 
@@ -174,21 +175,39 @@ class SystemInfi {
     +javafxVersion(): String
 }
 
-Jugador o-- Creditos
 Jugador *-- Vida
+Jugador *-- Creditos
 
+Defensa --> Creditos
 
-Enemigo <|-- Arania
-Enemigo <|-- Hormiga
+TorreBlanca --|> Defensa
+TorrePlateada --|> Defensa
 
-Defensa <|-- TorreBlanca
-Defensa <|-- TorrePlateada
+Pasarela --|> Parcela
 
-Parcela <|-- Pasarela
+Parcela ..> Defensa
+Parcela ..> Jugador
+Parcela o-- Coordenadas
+Parcela ..> Enemigo
+
+Meta --|> Pasarela
+
 Parcela <|-- Rocoso
 Parcela <|-- Tierra
 
-Pasarela <|-- Meta
+Camino --> Pasarela
+Camino --> Meta
+Camino ..> Jugador
+Camino ..> Enemigo
+
+
+Enemigo --> Vida
+Enemigo --> Creditos
+Enemigo ..> Defensa
+Enemigo --> Jugador
+
+Hormiga --|> Enemigo
+Arania --|> Enemigo
 
 Creditos *-- CreditosInsuficientesError
 
