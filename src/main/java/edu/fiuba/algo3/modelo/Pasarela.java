@@ -41,6 +41,8 @@ public class Pasarela extends Parcela {
             camino.siguiente(actual, this,jugador);
         }
     }
+
+    //TODO: funcion que no se usa en Pasarela
     public boolean esta(Enemigo enemigo){return enemigos.contains(enemigo);}
 
     public boolean estaVacia(){

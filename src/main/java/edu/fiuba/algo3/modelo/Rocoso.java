@@ -11,6 +11,7 @@ public class Rocoso extends Parcela{
         return false;
     }
 
+    //TODO: funcion en rocoso que no se utiliza en Rocoso
     public Rocoso(Coordenadas ubicacion){
         this.ubicacion = ubicacion;
     }
