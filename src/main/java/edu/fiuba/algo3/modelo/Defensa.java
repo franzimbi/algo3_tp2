@@ -6,25 +6,26 @@ public abstract class Defensa {
     protected int turnosRestantes;
     protected Creditos coste;
 
-
-    public boolean estaOperativa(){
+    public boolean estaOperativa() {
         return this.turnosRestantes == 0;
     }
 
-    public void atacar(){
-        if (this.estaOperativa()){
+    public void atacar() {
+        if (this.estaOperativa()) {
             return;
         }
-        this.turnosRestantes --;
+        this.turnosRestantes--;
     }
-    public int rangoMaximo(){
+
+    public int rangoMaximo() {
         return rango;
     }
-    public int danioGenerado(){
+
+    public int danioGenerado() {
         return danio;
     }
 
-    public Creditos coste(){
+    public Creditos coste() {
         return this.coste;
     }
 }
