@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model;
+
+import edu.fiuba.algo3.model.exceptions.CreditosInsuficientesError;
 
 public class Creditos {
     private int cantidad;

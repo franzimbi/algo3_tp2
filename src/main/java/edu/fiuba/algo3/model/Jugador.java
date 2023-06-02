@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model;
 
 public class Jugador {
     //private static Jugador instancia = new Jugador(20, 100);

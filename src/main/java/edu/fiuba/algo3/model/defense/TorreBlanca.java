@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model.defense;
+
+import edu.fiuba.algo3.model.Creditos;
 
 public class TorreBlanca extends Defensa {
 

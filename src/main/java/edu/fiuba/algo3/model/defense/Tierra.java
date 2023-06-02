@@ -1,4 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model.defense;
+
+import edu.fiuba.algo3.model.map.Coordenadas;
+import edu.fiuba.algo3.model.Jugador;
+import edu.fiuba.algo3.model.enemy.Enemigo;
+import edu.fiuba.algo3.model.map.Parcela;
 
 public class Tierra extends Parcela {
     private Defensa defensa;

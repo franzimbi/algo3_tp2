@@ -1,6 +1,15 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.model.*;
+import edu.fiuba.algo3.model.defense.Defensa;
+import edu.fiuba.algo3.model.defense.Tierra;
+import edu.fiuba.algo3.model.defense.TorreBlanca;
+import edu.fiuba.algo3.model.defense.TorrePlateada;
+import edu.fiuba.algo3.model.enemy.Arania;
+import edu.fiuba.algo3.model.enemy.Enemigo;
+import edu.fiuba.algo3.model.enemy.Hormiga;
+import edu.fiuba.algo3.model.exceptions.CreditosInsuficientesError;
+import edu.fiuba.algo3.model.map.*;
 import org.junit.jupiter.api.Test;
 
 
