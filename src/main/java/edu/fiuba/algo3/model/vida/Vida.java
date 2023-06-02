@@ -7,17 +7,18 @@ public class Vida {
         this.cantidad = cantidadVida;
     }
 
-    public boolean Equals(Vida other){
+    public boolean equals(Vida other){
         return this.cantidad == other.cantidad;
     }
 
-    public void quitar(int danio) {
-        this.cantidad -= danio;
+    public void reducir(Vida vidaRestada) {
+        this.cantidad -= vidaRestada.cantidad;
     }
+
+    public void aumentar(Vida extra){this.cantidad += extra.cantidad;}
 
     public boolean estaMuerto(){
         return (this.cantidad <= 0);
     }
 
-    public int vida(){return this.cantidad;}
 }

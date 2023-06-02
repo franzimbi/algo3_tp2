@@ -6,7 +6,7 @@ import edu.fiuba.algo3.model.vida.Vida;
 public class Hormiga extends Enemigo {
     public Hormiga() {
         this.vida = new Vida(1);
-        this.danio = 1;
+        this.danio = new Vida(1);
         this.velocidad = 1;
         this.creditos = new Creditos(1);
     }

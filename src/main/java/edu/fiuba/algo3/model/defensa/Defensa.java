@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.model.defensa;
 
 import edu.fiuba.algo3.model.creditos.Creditos;
+import edu.fiuba.algo3.model.vida.Vida;
 
 public abstract class Defensa {
-    protected int danio;
+    protected Vida danio;
     protected int rango;
     protected int turnosRestantes;
     protected Creditos coste;
@@ -23,7 +24,7 @@ public abstract class Defensa {
         return rango;
     }
 
-    public int danioGenerado() {
+    public Vida danioGenerado() {
         return danio;
     }
 

@@ -9,9 +9,7 @@ public class Creditos {
         this.cantidad = cantidadCreditos;
     }
 
-    public int  cantidad(){
-        return this.cantidad;
-    }
+    public boolean equals(Creditos other){ return this.cantidad == other.cantidad;}
 
     public void sacarCreditos(Creditos creditos){
         if (this.cantidad < creditos.cantidad){

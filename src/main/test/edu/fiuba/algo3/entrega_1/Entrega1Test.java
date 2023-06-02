@@ -1,15 +1,12 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.model.defensa.Defensa;
-import edu.fiuba.algo3.model.defensa.Tierra;
-import edu.fiuba.algo3.model.defensa.TorreBlanca;
-import edu.fiuba.algo3.model.defensa.TorrePlateada;
-import edu.fiuba.algo3.model.enemigos.Arania;
-import edu.fiuba.algo3.model.enemigos.Enemigo;
-import edu.fiuba.algo3.model.enemigos.Hormiga;
-import edu.fiuba.algo3.model.excepciones.CreditosInsuficientesError;
-import edu.fiuba.algo3.model.jugador.Jugador;
+import edu.fiuba.algo3.model.creditos.Creditos;
+import edu.fiuba.algo3.model.defensa.*;
+import edu.fiuba.algo3.model.enemigos.*;
+import edu.fiuba.algo3.model.excepciones.*;
+import edu.fiuba.algo3.model.jugador.*;
 import edu.fiuba.algo3.model.mapa.*;
+import edu.fiuba.algo3.model.vida.*;
 import org.junit.jupiter.api.Test;
 
 
@@ -23,7 +20,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20,100,"mati");
 
         assertFalse(jugador.estaMuerto());
-        assertEquals(jugador.getCreditos(), 100);
+        assertTrue(jugador.creditos().equals(new Creditos(100)));
     }
 
     //Verificar que cada defensa tarde en construirse lo que dice que
@@ -125,7 +122,7 @@ public class Entrega1Test {
 
         jugador.recibirCreditos(enemigo.obtenerCreditos());
 
-        assertEquals(jugador.getCreditos(), 2);
+        assertTrue(jugador.creditos().equals(new Creditos(2)));
     }
 
     //Verificar que al pasar un turno las unidades enemigas se hayan movido según sus capacidades.
@@ -203,7 +200,7 @@ public class Entrega1Test {
 
         camino.mover( jugador);
 
-        assertEquals(19,jugador.vida());
+        assertTrue((new Vida(19)).equals(jugador.vida()));
         assertTrue(camino.gano(jugador));
 
     }

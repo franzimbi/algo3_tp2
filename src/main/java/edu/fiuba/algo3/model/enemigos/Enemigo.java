@@ -7,13 +7,13 @@ import edu.fiuba.algo3.model.vida.Vida;
 
 public abstract class Enemigo {
     protected Vida vida;
-    protected int danio;
+    protected Vida danio;
     protected int velocidad;
 
     protected Creditos creditos;
 
     public void recibirDanio(Defensa defensa){
-        this.vida.quitar(defensa.danioGenerado());
+        this.vida.reducir(defensa.danioGenerado());
     }
 
     public boolean estaMuerto(){return this.vida.estaMuerto();}
@@ -21,7 +21,7 @@ public abstract class Enemigo {
     public int getVelocidad() {return velocidad;}
 
     public void atacar(Jugador jugador){
-        jugador.recibirDanio(this.danio);
+        jugador.atacadoCon(this.danio);
     }
     public Creditos obtenerCreditos(){
         return creditos;
