@@ -1,9 +1,5 @@
 package edu.fiuba.algo3.architecture;
 
-import edu.fiuba.algo3.modelo.Creditos;
-import edu.fiuba.algo3.modelo.CreditosInsuficientesError;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

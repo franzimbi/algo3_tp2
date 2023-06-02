@@ -1,4 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model.map;
+
+import edu.fiuba.algo3.model.defense.Defensa;
+import edu.fiuba.algo3.model.Jugador;
+import edu.fiuba.algo3.model.enemy.Enemigo;
 
 import java.util.ArrayList;
 

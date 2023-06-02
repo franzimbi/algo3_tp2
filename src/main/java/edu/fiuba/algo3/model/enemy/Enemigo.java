@@ -1,4 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model.enemy;
+
+import edu.fiuba.algo3.model.Creditos;
+import edu.fiuba.algo3.model.defense.Defensa;
+import edu.fiuba.algo3.model.Jugador;
+import edu.fiuba.algo3.model.Vida;
 
 public abstract class Enemigo {
     protected Vida vida;

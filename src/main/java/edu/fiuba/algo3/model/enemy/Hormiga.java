@@ -1,4 +1,7 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model.enemy;
+
+import edu.fiuba.algo3.model.Creditos;
+import edu.fiuba.algo3.model.Vida;
 
 public class Hormiga extends Enemigo {
     public Hormiga() {

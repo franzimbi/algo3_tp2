@@ -1,4 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.model;
+
+import edu.fiuba.algo3.model.enemy.Enemigo;
+import edu.fiuba.algo3.model.map.Camino;
+import edu.fiuba.algo3.model.map.Parcela;
 
 public class Turno {
     private int numero;

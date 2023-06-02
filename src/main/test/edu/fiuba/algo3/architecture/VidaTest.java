@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.architecture;
 
-import edu.fiuba.algo3.modelo.Vida;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
