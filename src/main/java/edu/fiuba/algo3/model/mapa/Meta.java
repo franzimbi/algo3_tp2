@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.model.map;
+package edu.fiuba.algo3.model.mapa;
 
 
-import edu.fiuba.algo3.model.Jugador;
-import edu.fiuba.algo3.model.enemy.Enemigo;
+import edu.fiuba.algo3.model.jugador.Jugador;
+import edu.fiuba.algo3.model.enemigos.Enemigo;
 
 public class Meta extends Pasarela {
 

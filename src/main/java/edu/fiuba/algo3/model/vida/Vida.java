@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.model;
+package edu.fiuba.algo3.model.vida;
 
 public class Vida {
     private int cantidad;

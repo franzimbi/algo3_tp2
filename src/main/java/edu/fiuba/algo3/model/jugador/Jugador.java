@@ -1,4 +1,7 @@
-package edu.fiuba.algo3.model;
+package edu.fiuba.algo3.model.jugador;
+
+import edu.fiuba.algo3.model.vida.Vida;
+import edu.fiuba.algo3.model.creditos.Creditos;
 
 public class Jugador {
     //private static Jugador instancia = new Jugador(20, 100);
