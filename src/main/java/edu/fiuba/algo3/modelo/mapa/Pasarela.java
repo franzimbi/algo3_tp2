@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import java.util.ArrayList;
 
 public class Pasarela extends Parcela {
-    protected ArrayList<Enemigo> enemigos = new ArrayList<Enemigo>();
+    protected ArrayList<Enemigo> enemigos = new ArrayList<>();
 
     public Pasarela(Coordenadas ubicacion){this.ubicacion = ubicacion;}
 
@@ -20,10 +20,11 @@ public class Pasarela extends Parcela {
         return true;
     }
 
-    public void atacado(Defensa defensa, Jugador jugador) {
+    public void recibirAtaqueDe(Defensa defensa, Jugador jugador) {
         Enemigo primerEnemigo = enemigos.get(0);
         defensa.atacarEnemigo(primerEnemigo,jugador);
         if (primerEnemigo.estaMuerto()){
+            jugador.recibirMuerto(primerEnemigo);
             enemigos.remove(primerEnemigo);
         }
     }

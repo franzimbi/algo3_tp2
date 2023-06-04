@@ -4,11 +4,9 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 
 import java.util.Random;
 
-public class RecompensaRandom implements Recompensa{
+public class RecompensaRandom implements Recompensa {
 
-    private int rango;
-
-    public RecompensaRandom(int rango) {this.rango = rango;}
+    private static final int rango = 10;
 
     @Override
     public void otorgarRecompensa(Jugador jugador) {
@@ -17,6 +15,6 @@ public class RecompensaRandom implements Recompensa{
 
     private Creditos generarCreditos() {
         Random rand = new Random();
-        return new Creditos(rand.nextInt(this.rango));
+        return new Creditos(rand.nextInt(rango));
     }
 }

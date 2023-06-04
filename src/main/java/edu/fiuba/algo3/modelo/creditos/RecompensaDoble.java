@@ -2,10 +2,8 @@ package edu.fiuba.algo3.modelo.creditos;
 
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 
-public class RecompensaDobleConCheddar implements Recompensa{
-    private int cantidadDoble;
-
-    public RecompensaDobleConCheddar(int cantidadDoble) {this.cantidadDoble = cantidadDoble;}
+public class RecompensaDoble implements Recompensa{
+    private static final int cantidadDoble = 2;
 
     @Override
     public void otorgarRecompensa(Jugador jugador) {
@@ -13,6 +11,6 @@ public class RecompensaDobleConCheddar implements Recompensa{
     }
 
     private Creditos generarCreditos() {
-        return new Creditos(this.cantidadDoble);
+        return new Creditos(cantidadDoble);
     }
 }
