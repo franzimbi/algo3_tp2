@@ -23,7 +23,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100, "mati");
 
         assertFalse(jugador.estaMuerto());
-        assertTrue(jugador.creditos().equals(new Creditos(100)));
+        assertTrue(jugador.getCreditos().equals(new Creditos(100)));
     }
 
     //Verificar que cada defensa tarde en construirse lo que dice que
@@ -132,7 +132,7 @@ public class Entrega1Test {
 
         enemigo.recibirDanio(energia, jugador);
 
-        assertTrue(jugador.creditos().equals(new Creditos(2)));
+        assertTrue(jugador.getCreditos().equals(new Creditos(2)));
     }
 
     //Verificar que al pasar un turno las unidades enemigas se hayan movido según sus capacidades.
@@ -183,8 +183,8 @@ public class Entrega1Test {
         c1.ubicar(enemigo, jugador);
         t1.ubicar(defensa, jugador);
         //TODO: hacer un mock de la torre
-        c1.atacado(defensa, jugador); //esto pone la torre en operacion
-        c1.atacado(defensa, jugador);
+        c1.recibirAtaqueDe(defensa, jugador); //esto pone la torre en operacion
+        c1.recibirAtaqueDe(defensa, jugador);
 
         assertTrue(camino.gano(jugador));
 
@@ -212,7 +212,7 @@ public class Entrega1Test {
 
         camino.mover(jugador);
 
-        assertTrue((new Energia(19)).equals(jugador.vida()));
+        assertTrue((new Energia(19)).equals(jugador.getVida()));
         assertTrue(camino.gano(jugador));
 
     }

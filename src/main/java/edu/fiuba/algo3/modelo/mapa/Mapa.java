@@ -12,9 +12,9 @@ public class Mapa {
     public Mapa(int tamanoHorizontal, int tamanoVertical) {
         this.tamanoVertical = tamanoVertical;
         this.tamanoHorizontal = tamanoHorizontal;
-        this.matriz = new ArrayList<ArrayList<Parcela>>(tamanoHorizontal);
+        this.matriz = new ArrayList<>(tamanoHorizontal);
         for (int i = 0; i < tamanoHorizontal; i++) {
-            ArrayList<Parcela> aux = new ArrayList<Parcela>(tamanoVertical);
+            ArrayList<Parcela> aux = new ArrayList<>(tamanoVertical);
             this.matriz.add(aux);
         }
     }

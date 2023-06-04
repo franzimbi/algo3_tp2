@@ -10,13 +10,14 @@ public class Entrega2Test {
     @Test
     public void Test13ElFormatoDelJSONDeEnemigosEsValido(){
         Lector lector = new Lector();
-        lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/mapa.json");
-        lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/enemigos.json");
+        lector.leerEnemigos("src/main/java/edu/fiuba/algo3/modelo/setDeDatos/enemigos.json");
     }
 
     //Verificar el formato valido del JSON del mapa
     @Test
     public void Test14ElFormatoDelJASONDelMapaEsValido(){
+        Lector lector = new Lector();
+        lector.leerMapa("src/main/java/edu/fiuba/algo3/modelo/setDeDatos/mapa.json");
     }
 
     //Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON de enemigos
