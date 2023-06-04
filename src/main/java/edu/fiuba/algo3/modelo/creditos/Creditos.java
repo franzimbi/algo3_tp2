@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.model.creditos;
+package edu.fiuba.algo3.modelo.creditos;
 
-import edu.fiuba.algo3.model.excepciones.CreditosInsuficientesError;
+import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
 
 public class Creditos {
     private int cantidad;
@@ -21,3 +21,5 @@ public class Creditos {
         this.cantidad += creditos.cantidad;
     }
 }
+
+

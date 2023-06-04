@@ -1,10 +1,12 @@
-package edu.fiuba.algo3.model.defensa;
+package edu.fiuba.algo3.modelo.defensa;
 
-import edu.fiuba.algo3.model.creditos.Creditos;
-import edu.fiuba.algo3.model.vida.Vida;
+import edu.fiuba.algo3.modelo.creditos.Creditos;
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+
 
 public abstract class Defensa {
-    protected Vida danio;
+    protected SistemaDeAtaque armas;
     protected int rango;
     protected int turnosRestantes;
     protected Creditos coste;
@@ -20,12 +22,11 @@ public abstract class Defensa {
         this.turnosRestantes--;
     }
 
+    public Creditos costo(){
+        return this.coste;
+    }
     public int rangoMaximo() {
         return rango;
-    }
-
-    public Vida danioGenerado() {
-        return danio;
     }
 
     public Creditos coste() {

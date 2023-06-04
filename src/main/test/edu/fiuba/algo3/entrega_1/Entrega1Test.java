@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.model.creditos.Creditos;
-import edu.fiuba.algo3.model.defensa.*;
-import edu.fiuba.algo3.model.enemigos.*;
-import edu.fiuba.algo3.model.excepciones.*;
-import edu.fiuba.algo3.model.jugador.*;
-import edu.fiuba.algo3.model.mapa.*;
-import edu.fiuba.algo3.model.vida.*;
+import edu.fiuba.algo3.modelo.creditos.Creditos;
+import edu.fiuba.algo3.modelo.defensa.*;
+import edu.fiuba.algo3.modelo.enemigos.*;
+import edu.fiuba.algo3.modelo.excepciones.*;
+import edu.fiuba.algo3.modelo.jugador.*;
+import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.vida.*;
 import org.junit.jupiter.api.Test;
 
 
@@ -200,7 +200,7 @@ public class Entrega1Test {
 
         camino.mover( jugador);
 
-        assertTrue((new Vida(19)).equals(jugador.vida()));
+        assertTrue((new Energia(19)).equals(jugador.vida()));
         assertTrue(camino.gano(jugador));
 
     }

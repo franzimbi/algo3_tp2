@@ -1,8 +1,8 @@
-package edu.fiuba.algo3.model.mapa;
+package edu.fiuba.algo3.modelo.mapa;
 
-import edu.fiuba.algo3.model.defensa.Defensa;
-import edu.fiuba.algo3.model.jugador.Jugador;
-import edu.fiuba.algo3.model.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.defensa.Defensa;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 
 public class Rocoso extends Parcela{
 

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.model.mapa;
+package edu.fiuba.algo3.modelo.mapa;
 
 public class Coordenadas {
     private final int x,y;
