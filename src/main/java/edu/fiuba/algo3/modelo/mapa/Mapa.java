@@ -1,15 +1,29 @@
 package edu.fiuba.algo3.modelo.mapa;
 
-import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
+
 import java.util.ArrayList;
 
 public class Mapa {
+    private final int tamanoHorizontal;
+    private final int tamanoVertical;
     ArrayList<ArrayList<Parcela>> matriz;
-    public Mapa(){
-        this.matriz = new ArrayList<ArrayList<Parcela>>();
-    }
-    public void agregarParcela(int x, int y){
-        Coordenadas aux = new Coordenadas(x,y);
 
+    public Mapa(int tamanoHorizontal, int tamanoVertical) {
+        this.tamanoVertical = tamanoVertical;
+        this.tamanoHorizontal = tamanoHorizontal;
+        this.matriz = new ArrayList<ArrayList<Parcela>>(tamanoHorizontal);
+        for (int i = 0; i < tamanoHorizontal; i++) {
+            ArrayList<Parcela> aux = new ArrayList<Parcela>(tamanoVertical);
+            this.matriz.add(aux);
+        }
+    }
+
+    public void agregarParcela(int x, int y, Parcela parcela) throws RangoInvalidoMapeadoError {
+        if (x > this.tamanoHorizontal || y > this.tamanoVertical) {
+            throw new RangoInvalidoMapeadoError();
+        }
+        var filaX = matriz.get(x);
+        filaX.add(y, parcela);
     }
 }

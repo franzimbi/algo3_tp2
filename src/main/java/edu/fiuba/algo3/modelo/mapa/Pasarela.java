@@ -11,10 +11,6 @@ public class Pasarela extends Parcela {
 
     public Pasarela(Coordenadas ubicacion){this.ubicacion = ubicacion;}
 
-    public Pasarela(){
-        this.ubicacion = new Coordenadas(0,0);
-    }
-
     public boolean ubicar(Defensa defensa, Jugador jugador) {
         return false;
     }
@@ -24,17 +20,12 @@ public class Pasarela extends Parcela {
         return true;
     }
 
-    @Override
-    public boolean atacado(Defensa defensa, Parcela ubicacionDefensa) {
-        if(ubicacionDefensa.distancia(this) > defensa.rangoMaximo() || enemigos.isEmpty()){
-            return false;
-        }
+    public void atacado(Defensa defensa, Jugador jugador) {
         Enemigo primerEnemigo = enemigos.get(0);
-        primerEnemigo.recibirDanio(defensa);
+        defensa.atacarEnemigo(primerEnemigo,jugador);
         if (primerEnemigo.estaMuerto()){
             enemigos.remove(primerEnemigo);
         }
-        return true;
     }
 
     public void mover(Camino camino,Jugador jugador){
@@ -42,12 +33,9 @@ public class Pasarela extends Parcela {
 
         for (int i = 0; i < tam; i++) {
             Enemigo actual = enemigos.remove(0);
-            camino.siguiente(actual, this,jugador);
+            camino.moverEnemigo(actual, this,jugador);
         }
     }
-
-    //TODO: funcion que no se usa en Pasarela
-    public boolean esta(Enemigo enemigo){return enemigos.contains(enemigo);}
 
     public boolean estaVacia(){
         return this.enemigos.isEmpty();

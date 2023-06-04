@@ -4,16 +4,11 @@ import edu.fiuba.algo3.modelo.vida.Energia;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 
 public class Jugador {
-    //private static Jugador instancia = new Jugador(20, 100);
     private String nombre;
     private Energia energia;
     private Creditos creditos;
 
-    /*public Jugador(Vida vida, Creditos creditos, String nombre) {
-        this.vida = vida;
-        this.creditos = creditos;
-        this.nombre = nombre;
-    }*/
+
     public Jugador(int vida, int creditos,String nombre) {
         this.nombre = nombre;
         this.energia = new Energia(vida);
@@ -29,6 +24,7 @@ public class Jugador {
     }
 
     public Creditos creditos(){return this.creditos;}
+
     public boolean estaMuerto(){
         return this.energia.estaMuerto();
     }
@@ -36,6 +32,7 @@ public class Jugador {
     public void atacadoCon(Energia danio){
         this.energia.reducir(danio);
     }
+
     public void recibirCreditos(Creditos creditos){
         this.creditos.agregarCreditos(creditos);
     }

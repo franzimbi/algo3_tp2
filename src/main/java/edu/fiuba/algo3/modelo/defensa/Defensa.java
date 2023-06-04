@@ -15,21 +15,21 @@ public abstract class Defensa {
         return this.turnosRestantes == 0;
     }
 
-    public void atacar() {
+    public void atacarEnemigo(Enemigo enemigo, Jugador jugador) {
         if (this.estaOperativa()) {
+            this.armas.atacar(enemigo,jugador);
             return;
         }
         this.turnosRestantes--;
     }
 
-    public Creditos costo(){
-        return this.coste;
-    }
-    public int rangoMaximo() {
-        return rango;
+    public void sacarCreditos(Jugador jugador){
+        jugador.sacarCreditos(this.coste);
     }
 
-    public Creditos coste() {
-        return this.coste;
+
+    public boolean estaEnRango(int distancia){
+        return rango >= distancia;
     }
+
 }

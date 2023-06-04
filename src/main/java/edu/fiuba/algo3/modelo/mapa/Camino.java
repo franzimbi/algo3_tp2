@@ -11,9 +11,25 @@ public class Camino {
 
     public Camino(Pasarela meta){
         this.pasarelas = new ArrayList<Pasarela>();
-        this.meta= meta;
+        this.meta = meta;
     }
 
+    public void atacar(Tierra tierra, Jugador jugador){
+        Pasarela pasarelaCercana = pasarelas.get(0);
+        int distanciaMinima = tierra.distancia(pasarelaCercana);
+
+        for (int i = 1; i < pasarelas.size(); i++){
+            Pasarela  pasarelaActual = pasarelas.get(i);
+            int distanciaActual = tierra.distancia(pasarelaActual);
+            if(!pasarelaActual.estaVacia()) {
+                if(distanciaMinima > distanciaActual){
+                    pasarelaCercana = pasarelaActual;
+                    distanciaMinima = distanciaActual;
+                }
+            }
+        }
+        tierra.atacar(pasarelaCercana,jugador);
+    }
 
     public void agregarPasarela(Pasarela pasarela){
         this.pasarelas.add(pasarela);
@@ -32,7 +48,9 @@ public class Camino {
     }*/
 
     //devuelve la pasarela a la q tiene q moverse dependiendo de su ubicacion y velocidad
-    public void siguiente(Enemigo enemigo, Pasarela pasarela, Jugador jugador) {
+
+
+    public void moverEnemigo(Enemigo enemigo, Pasarela pasarela, Jugador jugador) {
        int aux = pasarelas.indexOf(pasarela) + enemigo.getVelocidad();
        if (aux >= pasarelas.size()){
            meta.ubicar(enemigo, jugador);
@@ -40,6 +58,8 @@ public class Camino {
         }
        pasarelas.get(aux).ubicar(enemigo, jugador);
     }
+
+
     public boolean tieneEnemigos(){
         for (Pasarela pasarela : this.pasarelas) {
             if (!pasarela.estaVacia()) {

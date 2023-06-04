@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.enemigos;
 
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
-import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.vida.Energia;
 
@@ -10,24 +9,30 @@ public abstract class Enemigo {
     protected Energia energia;
     protected Energia danio;
     protected int velocidad;
-
+    protected Recompensa recompensa;
     protected Creditos creditos;
 
-    public void recibirDanio(Energia danioRecibido, Jugador jugador){
+    public void recibirDanio(Energia danioRecibido, Jugador jugador) {
         this.energia.reducir(danioRecibido);
-        if (this.estaMuerto()) {
-            recompensa.otorgarRecompensa(jugador);
+        if (estaMuerto()) {
+            this.recompensa.otorgarRecompensa(jugador);
         }
     }
 
-    public boolean estaMuerto(){return this.energia.estaMuerto();}
+    public void setRecompensa(Recompensa nuevaRecompensa) {
+        this.recompensa = nuevaRecompensa;
+    }
 
-    public int getVelocidad() {return velocidad;}
+    public boolean estaMuerto() {
+        return this.energia.estaMuerto();
+    }
 
-    public void atacar(Jugador jugador){
+    public int getVelocidad() {
+        return velocidad;
+    }
+
+    public void atacar(Jugador jugador) {
         jugador.atacadoCon(this.danio);
     }
-    public Creditos obtenerCreditos(){
-        return creditos;
-    }
+
 }

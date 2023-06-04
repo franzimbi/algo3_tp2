@@ -3,6 +3,10 @@ package edu.fiuba.algo3.modelo.lector;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.mapa.Parcela;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,31 +18,33 @@ import java.util.ArrayList;
 
 public class Lector {
     public final ArrayList<ArrayList<Enemigo>> enemigosPorTurno = new ArrayList<ArrayList<Enemigo>>();
+
     //public final mapa = new ;
     public Lector() {
     }
 
-    public void leerMapa(String rutaArchivoMapa) {
-        try {
+    public Mapa leerMapa(String rutaArchivoMapa) {
+        try (FileReader archivoDeLectura = new FileReader(rutaArchivoMapa)) {
             JSONParser parser = new JSONParser();
             // Leer y procesar el archivo de mapa
-            JSONObject mapaJSON = (JSONObject) parser.parse(new FileReader(rutaArchivoMapa));
+            JSONObject mapaJSON = (JSONObject) parser.parse(archivoDeLectura);
             JSONObject mapaObject = (JSONObject) mapaJSON.get("Mapa");
             int filas = mapaObject.size();
             int columnas = ((JSONArray) mapaObject.get("1")).size(); // Suponiendo que todas las filas tienen la misma longitud
-
+            Mapa mapaLeido = new Mapa(filas, columnas);
             for (int i = 1; i <= filas; i++) {
                 JSONArray filaArray = (JSONArray) mapaObject.get(String.valueOf(i));
                 for (int j = 0; j < columnas; j++) {
                     Object elemento = filaArray.get(j);
-                    System.out.print(elemento + " ");
+                    Parcela aux = Parcela.construirParcela(elemento.toString(), new Coordenadas(i - 1, j));
+                    mapaLeido.agregarParcela(i - 1, j, aux);
                 }
-                System.out.println();
             }
-        } catch (IOException | ParseException e) {
+            return mapaLeido;
+        } catch (IOException | RangoInvalidoMapeadoError | ParseException e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 
     public void leerEnemigos(String rutaArchivoTurnos) {

@@ -13,7 +13,7 @@ public class Tierra extends Parcela {
 
     public boolean ubicar(Defensa defensa, Jugador jugador) {
         this.defensa = defensa;
-        jugador.sacarCreditos(defensa.costo());
+        defensa.sacarCreditos(jugador);
         return true;
     }
 
@@ -21,11 +21,10 @@ public class Tierra extends Parcela {
         return false;
     }
 
-    public boolean estaOcupada() {
-        return this.defensa != null;
-    }
-
-    public void defender(Camino camino){
-        camino.atacar(this);
+    public void atacar(Pasarela pasarela, Jugador jugador) {
+        int distancia = this.distancia(pasarela);
+        if (this.defensa.estaEnRango(distancia)) {
+            pasarela.atacado(this.defensa, jugador);
+        }
     }
 }
