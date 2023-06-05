@@ -25,7 +25,9 @@ public class Lector {
     }
 
     public Mapa leerMapa(String rutaArchivoMapa) {
-        try (FileReader archivoDeLectura = new FileReader(rutaArchivoMapa)) {
+        if (!rutaArchivoMapa.endsWith(".json")){throw new NoSePuedeLeerElMapaError();}
+        try {
+            FileReader archivoDeLectura = new FileReader(rutaArchivoMapa);
             JSONParser parser = new JSONParser();
             // Leer y procesar el archivo de mapa
             JSONObject mapaJSON = (JSONObject) parser.parse(archivoDeLectura);
@@ -42,10 +44,9 @@ public class Lector {
                 }
             }
             return mapaLeido;
-        } catch (IOException | RangoInvalidoMapeadoError | ParseException e) {
-            e.printStackTrace();
+        } catch (IOException | RangoInvalidoMapeadoError | ParseException | ClassCastException e) {
+            throw new NoSePuedeLeerElMapaError();
         }
-        return null;
     }
 
     public ArrayList<ArrayList<Enemigo>> leerEnemigos(String rutaArchivoTurnos) {
@@ -71,8 +72,9 @@ public class Lector {
                 }
                 enemigosPorTurno.add(enemigosEnEsteTurno);
             }
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
+            return enemigosPorTurno;
+        } catch (IOException | ParseException | NoSePuedeLeerEnemigosError | ClassCastException e){
+            throw new NoSePuedeLeerEnemigosError();
         }
     }
 }

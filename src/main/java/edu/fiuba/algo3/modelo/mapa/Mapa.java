@@ -27,4 +27,8 @@ public class Mapa {
         var filaX = matriz.get(x);
         filaX.add(y, parcela);
     }
+    public int tamanoTotal(){
+        return this.tamanoHorizontal * this.tamanoVertical;
+    }
 }
+

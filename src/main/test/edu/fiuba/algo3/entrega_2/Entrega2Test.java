@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
+import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.lector.Lector;
-
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class Entrega2Test {
     //Verificar el formato valido del JSON de enemigos
@@ -15,7 +17,7 @@ public class Entrega2Test {
 
     //Verificar el formato valido del JSON del mapa
     @Test
-    public void Test14ElFormatoDelJASONDelMapaEsValido(){
+    public void Test14ElFormatoDelJASONDelMapaNoEsValido(){
         Lector lector = new Lector();
         assert (lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test14.json").tamanoTotal() == 9 );
         assertThrows(NoSePuedeLeerElMapaError.class, ()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test14.txt"));
@@ -23,15 +25,15 @@ public class Entrega2Test {
 
     //Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON de enemigos
     @Test
-    public void Test15(){}
+    public void Test15VerificarConversionDelJSONDeEnemigos(){}
 
     // Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON del mapa.
     @Test
-    public void Test16(){}
+    public void Test16VerificarConversionDelJSONDeMapa(){}
 
     //Verificar que el juego se crea acorde a ambos JSON
     @Test
-    public void Test17(){}
+    public void Test17SimularYVerificarQueElJuegoSeCreeCorrectamenteAcordeAlJSON(){}
 
     //Simular y verificar que el jugador gana una partida.
     @Test
