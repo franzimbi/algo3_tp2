@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.architecture;
+
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class CreditosTest {
@@ -31,7 +33,7 @@ public class CreditosTest {
     @Test
     public void Test04CreditosInsuficienteExeption() {
         Creditos creditos = new Creditos(100);
-        assertThrows(CreditosInsuficientesError.class, () -> creditos.sacarCreditos(new Creditos(110)) );
+        assertThrows(CreditosInsuficientesError.class, () -> creditos.sacarCreditos(new Creditos(110)));
 
     }
 

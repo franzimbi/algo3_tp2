@@ -2,11 +2,12 @@ package edu.fiuba.algo3.modelo.vida;
 
 public class Energia {
     private int cantidad;
-    public Energia(int cantidadVida){
+
+    public Energia(int cantidadVida) {
         this.cantidad = cantidadVida;
     }
 
-    public boolean equals(Energia other){
+    public boolean equals(Energia other) {
         return this.cantidad == other.cantidad;
     }
 
@@ -14,9 +15,11 @@ public class Energia {
         this.cantidad -= energiaRestada.cantidad;
     }
 
-    public void aumentar(Energia extra){this.cantidad += extra.cantidad;}
+    public void aumentar(Energia extra) {
+        this.cantidad += extra.cantidad;
+    }
 
-    public boolean estaMuerto(){
+    public boolean estaMuerto() {
         return (this.cantidad <= 0);
     }
 

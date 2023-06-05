@@ -10,11 +10,7 @@ public class RecompensaRandom implements Recompensa {
 
     @Override
     public void otorgarRecompensa(Jugador jugador) {
-        jugador.recibirCreditos(this.generarCreditos());
-    }
-
-    private Creditos generarCreditos() {
         Random rand = new Random();
-        return new Creditos(rand.nextInt(rango));
+        jugador.recibirCreditos(new Creditos(rand.nextInt(rango)));
     }
 }

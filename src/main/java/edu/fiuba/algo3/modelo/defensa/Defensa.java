@@ -16,18 +16,18 @@ public abstract class Defensa {
 
     public void atacarEnemigo(Enemigo enemigo, Jugador jugador) {
         if (this.estaOperativa()) {
-            this.armas.atacar(enemigo,jugador);
+            this.armas.atacar(enemigo, jugador);
             return;
         }
         this.turnosRestantes--;
     }
 
-    public void sacarCreditos(Jugador jugador){
+    public void sacarCreditos(Jugador jugador) {
         jugador.sacarCreditos(this.coste);
     }
 
 
-    public boolean estaEnRango(int distancia){
+    public boolean estaEnRango(int distancia) {
         return this.armas.estaEnRango(distancia);
     }
 
