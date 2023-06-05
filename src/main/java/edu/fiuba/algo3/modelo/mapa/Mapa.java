@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
 
 import java.util.ArrayList;
 
@@ -26,4 +27,8 @@ public class Mapa {
         var filaX = matriz.get(x);
         filaX.add(y, parcela);
     }
+    public int tamanoTotal(){
+        return this.tamanoHorizontal * this.tamanoVertical;
+    }
 }
+

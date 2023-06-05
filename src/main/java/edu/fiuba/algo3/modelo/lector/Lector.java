@@ -3,10 +3,12 @@ package edu.fiuba.algo3.modelo.lector;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
+import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.mapa.Parcela;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -23,7 +25,9 @@ public class Lector {
     }
 
     public Mapa leerMapa(String rutaArchivoMapa) {
-        try (FileReader archivoDeLectura = new FileReader(rutaArchivoMapa)) {
+        if (!rutaArchivoMapa.endsWith(".json")){throw new NoSePuedeLeerElMapaError();}
+        try {
+            FileReader archivoDeLectura = new FileReader(rutaArchivoMapa);
             JSONParser parser = new JSONParser();
             // Leer y procesar el archivo de mapa
             JSONObject mapaJSON = (JSONObject) parser.parse(archivoDeLectura);
@@ -40,14 +44,14 @@ public class Lector {
                 }
             }
             return mapaLeido;
-        } catch (IOException | RangoInvalidoMapeadoError | ParseException e) {
-            e.printStackTrace();
+        } catch (IOException | RangoInvalidoMapeadoError | ParseException | ClassCastException e) {
+            throw new NoSePuedeLeerElMapaError();
         }
-        return null;
     }
 
-    public void leerEnemigos(String rutaArchivoTurnos) {
+    public ArrayList<ArrayList<Enemigo>> leerEnemigos(String rutaArchivoTurnos) {
         // Leer y procesar el archivo de turnos
+        if (!rutaArchivoTurnos.endsWith(".json")){throw new NoSePuedeLeerEnemigosError();}
         try {
             JSONParser parser = new JSONParser();
             JSONArray turnosJSON = (JSONArray) parser.parse(new FileReader(rutaArchivoTurnos));
@@ -68,8 +72,9 @@ public class Lector {
                 }
                 enemigosPorTurno.add(enemigosEnEsteTurno);
             }
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
+            return enemigosPorTurno;
+        } catch (IOException | ParseException | NoSePuedeLeerEnemigosError | ClassCastException e){
+            throw new NoSePuedeLeerEnemigosError();
         }
     }
 }

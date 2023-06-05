@@ -1,10 +1,11 @@
-package edu.fiuba.algo3.modelo.mapa;
+package edu.fiuba.algo3.modelo.parcelas;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 
-public class Rocoso extends Parcela{
+public class Rocoso extends Parcela {
 
 
     public boolean ubicar(Defensa defensa, Jugador jugador) {

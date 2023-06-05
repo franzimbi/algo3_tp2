@@ -2,16 +2,17 @@ package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.parcelas.Tierra;
 
 import java.util.ArrayList;
 
 public class Camino {
     private final ArrayList<Pasarela> pasarelas;
-    private final Pasarela meta;
 
     public Camino(Pasarela meta) {
-        this.pasarelas = new ArrayList<Pasarela>();
-        this.meta = meta;
+        this.pasarelas = new ArrayList<>();
+        this.pasarelas.add(meta);
     }
 
     public void atacar(Tierra tierra, Jugador jugador) {
@@ -32,7 +33,7 @@ public class Camino {
     }
 
     public void agregarPasarela(Pasarela pasarela) {
-        this.pasarelas.add(pasarela);
+        this.pasarelas.add(this.pasarelas.size()-1,pasarela);
     }
 
     // a cada pasarela de atras para adelante le envia el mensaje de mover
@@ -53,7 +54,7 @@ public class Camino {
     public void moverEnemigo(Enemigo enemigo, Pasarela pasarela, Jugador jugador) {
         int aux = pasarelas.indexOf(pasarela) + enemigo.getVelocidad();
         if (aux >= pasarelas.size()) {
-            meta.ubicar(enemigo, jugador);
+            this.pasarelas.get(this.pasarelas.size()-1).ubicar(enemigo, jugador);
             return;
         }
         pasarelas.get(aux).ubicar(enemigo, jugador);
