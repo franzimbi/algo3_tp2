@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
 
 import java.util.ArrayList;
 

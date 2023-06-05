@@ -8,16 +8,17 @@ import org.junit.jupiter.api.Test;
 public class Entrega2Test {
     //Verificar el formato valido del JSON de enemigos
     @Test
-    public void Test13ElFormatoDelJSONDeEnemigosEsValido(){
+    public void Test13ElFormatoDelJSONDeEnemigosNoEsValido(){
         Lector lector = new Lector();
-        lector.leerEnemigos("src/main/java/edu/fiuba/algo3/modelo/setDeDatos/enemigos.json");
+        assertThrows(NoSePuedeLeerEnemigosError.class, ()->lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test13.txt"));
     }
 
     //Verificar el formato valido del JSON del mapa
     @Test
     public void Test14ElFormatoDelJASONDelMapaEsValido(){
         Lector lector = new Lector();
-        lector.leerMapa("src/main/java/edu/fiuba/algo3/modelo/setDeDatos/mapa.json");
+        assert (lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test14.json").tamanoTotal() == 9 );
+        assertThrows(NoSePuedeLeerElMapaError.class, ()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test14.txt"));
     }
 
     //Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON de enemigos

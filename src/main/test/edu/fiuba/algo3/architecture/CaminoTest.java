@@ -6,8 +6,8 @@ import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Camino;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.mapa.Meta;
-import edu.fiuba.algo3.modelo.mapa.Pasarela;
+import edu.fiuba.algo3.modelo.parcelas.Meta;
+import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

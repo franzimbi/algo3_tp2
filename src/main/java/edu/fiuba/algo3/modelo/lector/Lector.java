@@ -3,10 +3,12 @@ package edu.fiuba.algo3.modelo.lector;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
+import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.mapa.Parcela;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -46,8 +48,9 @@ public class Lector {
         return null;
     }
 
-    public void leerEnemigos(String rutaArchivoTurnos) {
+    public ArrayList<ArrayList<Enemigo>> leerEnemigos(String rutaArchivoTurnos) {
         // Leer y procesar el archivo de turnos
+        if (!rutaArchivoTurnos.endsWith(".json")){throw new NoSePuedeLeerEnemigosError();}
         try {
             JSONParser parser = new JSONParser();
             JSONArray turnosJSON = (JSONArray) parser.parse(new FileReader(rutaArchivoTurnos));

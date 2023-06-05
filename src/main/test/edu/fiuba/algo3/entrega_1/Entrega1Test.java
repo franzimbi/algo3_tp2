@@ -9,7 +9,9 @@ import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.mapa.*;
+import edu.fiuba.algo3.modelo.mapa.Camino;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.parcelas.*;
 import edu.fiuba.algo3.modelo.vida.Energia;
 import org.junit.jupiter.api.Test;
 
