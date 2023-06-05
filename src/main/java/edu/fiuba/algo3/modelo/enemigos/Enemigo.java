@@ -13,6 +13,7 @@ public abstract class Enemigo {
     public void recibirDanio(Energia danioRecibido, Jugador jugador) {
         this.energia.reducir(danioRecibido);
         if (estaMuerto()) {
+            jugador.recibirMuerto(this);
             this.recompensa.otorgarRecompensa(jugador);
         }
     }

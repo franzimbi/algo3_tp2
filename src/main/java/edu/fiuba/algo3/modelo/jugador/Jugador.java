@@ -45,7 +45,6 @@ public class Jugador {
         this.creditos.sacarCreditos(creditos);
     }
 
-    //de aca para abajo era la clase Score
     public void recibirMuerto(Enemigo enemigo) {
         this.muertos.add(enemigo);
         this.asignarCreditos(enemigo);
