@@ -59,8 +59,6 @@ public class Camino {
         }
         pasarelas.get(aux).ubicar(enemigo, jugador);
     }
-
-
     public boolean tieneEnemigos() {
         for (Pasarela pasarela : this.pasarelas) {
             if (!pasarela.estaVacia()) {

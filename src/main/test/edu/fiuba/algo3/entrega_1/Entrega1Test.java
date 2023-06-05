@@ -93,7 +93,6 @@ public class Entrega1Test {
 
         assertTrue(enemigo1.estaMuerto());
         assertFalse(enemigo2.estaMuerto());
-
     }
 
     //Verificar que las unidades enemigas son dañadas acorde al ataque recibido.

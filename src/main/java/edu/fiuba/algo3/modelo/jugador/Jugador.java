@@ -12,7 +12,6 @@ public class Jugador {
     private final String nombre;
     private final Energia energia;
     private final Creditos creditos;
-
     private final ArrayList<Enemigo> muertos = new ArrayList<>();
 
     public Jugador(int vida, int creditos, String nombre) {

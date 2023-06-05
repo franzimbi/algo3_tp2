@@ -62,7 +62,7 @@ public class Lector {
                 ArrayList<Enemigo> enemigosEnEsteTurno = new ArrayList<>();
                 long cantidadHormigas = (Long) enemigosJSON.get("hormiga");
 
-                for (int i = 0; i < cantidadHormigas; i++) {
+                /*(for (int i = 0; i < cantidadHormigas; i++) {
                     enemigosEnEsteTurno.add(new Hormiga());
                 }
                 long cantidadAranias = (Long) enemigosJSON.get("arana");
@@ -70,7 +70,8 @@ public class Lector {
                 for (int i = 0; i < cantidadAranias; i++) {
                     enemigosEnEsteTurno.add(new Arania());
                 }
-                enemigosPorTurno.add(enemigosEnEsteTurno);
+                enemigosPorTurno.add(enemigosEnEsteTurno); */
+                // TODO: falta la logica usando el Turnos
             }
             return enemigosPorTurno;
         } catch (IOException | ParseException | NoSePuedeLeerEnemigosError | ClassCastException e){
