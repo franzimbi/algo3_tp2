@@ -37,7 +37,7 @@ public class Camino {
 
     // a cada pasarela de atras para adelante le envia el mensaje de mover
     public void mover(Jugador jugador) {
-        for (int i = pasarelas.size()-1; i >= 0; i--) {
+        for (int i = pasarelas.size() - 1; i >= 0; i--) {
             pasarelas.get(i).mover(this,jugador);
         }
     }

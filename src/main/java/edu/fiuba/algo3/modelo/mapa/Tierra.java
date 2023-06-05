@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.excepciones.NoHayDefensaEnTierraError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 
 public class Tierra extends Parcela {
@@ -23,6 +24,7 @@ public class Tierra extends Parcela {
 
     public void atacar(Pasarela pasarela, Jugador jugador) {
         int distancia = this.distancia(pasarela);
+        if (this.defensa == null){throw new NoHayDefensaEnTierraError();}
         if (this.defensa.estaEnRango(distancia)) {
             pasarela.recibirAtaqueDe(this.defensa, jugador);
         }

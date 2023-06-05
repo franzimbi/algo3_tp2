@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 
 public abstract class Defensa {
     protected SistemaDeAtaque armas;
-    protected int rango;
     protected int turnosRestantes;
     protected Creditos coste;
 
@@ -29,7 +28,7 @@ public abstract class Defensa {
 
 
     public boolean estaEnRango(int distancia){
-        return rango >= distancia;
+        return this.armas.estaEnRango(distancia);
     }
 
 }

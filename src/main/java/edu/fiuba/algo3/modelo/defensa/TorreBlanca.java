@@ -7,9 +7,8 @@ public class TorreBlanca extends Defensa {
 
     public TorreBlanca(){
         this.coste = new Creditos(10);
-        this.armas = new SistemaDeAtaque(new Energia(1));
+        this.armas = new SistemaDeAtaque(new Energia(1),3);
         this.turnosRestantes = 1;
-        this.rango = 3;
     }
 
 }
