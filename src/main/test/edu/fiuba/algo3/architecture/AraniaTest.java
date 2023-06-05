@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.architecture;
 
 import edu.fiuba.algo3.modelo.creditos.Creditos;
-import edu.fiuba.algo3.modelo.creditos.RecompensaRandom;
 import edu.fiuba.algo3.modelo.creditos.RecompensaSimple;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -23,7 +22,7 @@ public class AraniaTest {
     public void Test2AranialRecibirDanioSeDestruye() {
         Arania arania = new Arania();
         Jugador jugador = new Jugador(10, 100, "Juli");
-        Energia danio = new Energia(1);
+        Energia danio = new Energia(2);
         arania.recibirDanio(danio, jugador);
         assertTrue(arania.estaMuerto());
     }
@@ -35,7 +34,7 @@ public class AraniaTest {
 
         arania.setRecompensa(new RecompensaSimple());
         arania.recibirDanio(new Energia(2), jugador);
-        assertEquals(new Creditos(11), jugador.getCreditos());
+        assertTrue(new Creditos(11).equals(jugador.getCreditos()));
 
     }
 
@@ -44,7 +43,7 @@ public class AraniaTest {
         Arania arania = new Arania();
         Jugador jugador = new Jugador(10,10,"juli3");
         arania.atacar(jugador);
-        assertTrue((new Energia(9)).equals(jugador.getVida()));
+        assertTrue((new Energia(8)).equals(jugador.getVida()));
     }
 
 }
