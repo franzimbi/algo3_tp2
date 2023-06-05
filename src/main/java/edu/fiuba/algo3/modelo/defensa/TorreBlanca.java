@@ -10,5 +10,4 @@ public class TorreBlanca extends Defensa {
         this.armas = new SistemaDeAtaque(new Energia(1),3);
         this.turnosRestantes = 1;
     }
-
 }
