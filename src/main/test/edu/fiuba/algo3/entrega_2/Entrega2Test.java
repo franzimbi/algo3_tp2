@@ -30,7 +30,7 @@ public class Entrega2Test {
     //Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON de enemigos
     @Test
     public void Test15VerificarConversionDelJSONDeEnemigos(){
-//        aca se podria poner a mutante (no quiero) en el json para que tire enemigo invalido
+
     }
 
     // Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON del mapa.

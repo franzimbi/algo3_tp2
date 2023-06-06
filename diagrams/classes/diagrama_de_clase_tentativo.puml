@@ -1,24 +1,24 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-class Arania {
-    -vida: Vida
-    -danio: int
-    -velocidad: int
-    -creditos: Creditos
-    +Arania()
-}
-
 class Camino {
     -pasarelas: ArrayList<Pasarela>
-    -meta: Pasarela
     +Camino(Pasarela meta)
     +agregarPasarela((Pasarela pasarela): void
     +mover(Jugador jugador): void
-    +siguiente(Enemigo enemigo, Pasarela pasarela, Jugador jugador): void
+    +moverEnemigo(Enemigo enemigo, Pasarela pasarela, Jugador jugador): void
     +tieneEnemigos(): bool
     +gano(Jugador jugador): bool
     +perdio(Jugador jugador): bool
+}
+
+class Mapa {
+    -tamanoHorizontal: int
+    -tamanoVertical: int
+    -matriz: ArrayList<ArrayList<Parcela>>
+    +Mapa(int tamanoHorizontal, int tamanoVertical)
+    +agregarParcela(int x, int y, Parcela parcela): void
+    +tamanoTotal(): int
 }
 
 class Coordenadas {
@@ -31,55 +31,101 @@ class Coordenadas {
 class Creditos {
     -cantidad: int
     +Creditos(int cantidadCreditos)
-    +cantidad(): int
+    +equals(Creditos other): bool
     +sacarCreditos(Creditos creditos): void
     +agregarCreditos(Creditos creditos): void
 }
 
-class CreditosInsuficientesError {}
+interface  Recompensa {
+    +otorgarRecompensa(Jugador jugador): void
+}
+
+class RecompensaSimple{
+    -cantidadBase: int
+    +otorgarRecompensa(Jugador jugador): void
+}
+
+class RecompensaDoble{
+    -cantidadDoble: int
+    +otorgarRecompensa(Jugador jugador): void
+}
+
+class RecompensaRandom{
+    -rango: int
+    +otorgarRecompensa(Jugador jugador): void
+}
 
 abstract class Defensa {
-    -danio: int
-    -rango: int
+    -armas: SistemaDeAtaque
     -turnosRestantes: int
     -coste: Creditos
     +estaOperativa(): bool
-    +atacar(): void
-    +rangoMaximo(): int
-    +danioGenerado(): int
-    +coste(): Creditos
+    +atacarEnemigo(Enemigo enemigo, Jugador jugador): void
+    +sacarCreditos(Jugador jugador): void
+    +estaEnRango(int distancia): bool
+}
+
+class SistemaDeAtaque {
+    -rango: int
+    -danio: energia
+    +SistemaDeAtaque(Energia energia, int rango)
+    +estaEnRango(int distancia): bool
+    +atacar(Enemigo enemigo, Jugador jugador): void
+}
+
+class TorreBlanca {
+    -coste: Creditos
+    -armas: SistemaDeAtaque
+    -turnosRestantes: int
+}
+
+class TorrePlateada {
+    -coste: Creditos
+    -armas: SistemaDeAtaque
+    -turnosRestantes: int
 }
 
 abstract class Enemigo {
-    -vida: Vida
-    -danio: int
-    -creditos: Creditos
-    +recibirDanio(Defensa defensa): void
+    -energia: Energia
+    -danio: Energia
+    -velocidad: int
+    -recompensa: Recompensa
+    +construir(Enemigo enemigo): Enemigo
+    +recibirDanio(Energia danioRecibido, Jugador jugador): void
+    +setRecompensa(Recompensa nuevaRecompensa): void
     +estaMuerto(): bool
     +getVelocidad(): int
     +atacar(Jugador jugador): void
-    +obtenerCreditos(): Creditos
 }
 
 class Hormiga {
-    -vida: Vida
-    -danio: int
+    -recompensa: RecompensaSimple
+    -energia: Energia
+    -danio: Energia
     -velocidad: int
-    -creditos: Creditos
-    +Hormiga()
-    +setCreditos(Creditos creditos)
+}
+
+class Arania {
+    -recompensa: RecompensaRandom
+    -energia: Energia
+    -danio: Energia
+    -velocidad: int
 }
 
 class Jugador {
     -nombre: String
-    -vida: Vida
+    -energia: Energia
     -creditos: Creditos
-    +vida(): int
-    +getCreditos(): int
-    +sacarCreditos(Creditos creditos): void
+    -muertos: ArrayList<Enemigo>
+    +Jugador(int vida, int creditos, String nombre)
+    +getVida(): Energia
+    +getCreditos(): Creditos
+    +recibirAtaque(Energia danio): void
     +estaMuerto(): bool
-    +recibirDanio(int danio): void
     +recibirCreditos(Creditos creditos): void
+    +sacarCreditos(Creditos creditos): void
+    +recibirMuerto(Enemigo enemigo): void
+    +asignarCreditos(Enemigo enemigo): void
 }
 
 class Meta {
@@ -89,77 +135,67 @@ class Meta {
 
 abstract class Parcela {
     -ubicacion: Coordenadas
+    +construirParcela(String parcela, Coordenadas ubicacion): Parcela
     +ubicar(Defensa defensa, Jugador jugador): bool
     +ubicar(Enemigo enemigo, Jugador jugador): bool
-    +defender(Parcela parcela): bool
-    +atacado(Defensa defensa, Parcela parcela): bool
     +distacia(Parcela other): int
 }
 
 class Pasarela {
     -enemigos: ArrayList<Enemigo>
-    +Pasarela(Coordenadas other)
-    +Pasarela()
+    +Pasarela(Coordenadas ubicacion)
     +ubicar(Defensa defensa, Jugador jugador): bool
     +ubicar(Enemigo enemigo, Jugador jugador): bool
-    +atacado(Defensa defensa, Parcela ubicacionDefensa): bool
+    +recibirAtaqueDe(Defensa defensa, Jugador jugador): void
     +mover(Camino camino, Jugador jugador): void
-    +esta(Enemigo enemigo): bool
     +estaVacia(): bool
 }
 
 class Rocoso {
     +Rocoso(Coordenadas ubicacion)
-    +Rocoso()
     +ubicar(Defensa defensa, Jugador jugador): bool
     +ubicar(Enemigo enemigo, Jugador jugador): bool
 }
 
-class Score {}
-
 class Tierra {
     -defensa: Defensa
     +Tierra(Coordenadas ubicacion)
-    +Tierra()
+    +ubicar(Defensa defensa, Jugador jugador): bool
     +ubicar(Enemigo enemigo, Jugador jugador): bool
-    +ubicar(): bool
-    +estaOcupada(): bool
-    +defender(Parcela lugar): bool
+    +atacar(Pasarela pasarela): void
 }
 
-
-class TorreBlanca {
-    -danio: int
-    -rango: int
-    -turnosRestantes: int
-    -coste: Creditos
-    +TorreBlanca()
-}
-
-class TorrePlateada {
-    -danio: int
-    -rango: int
-    -turnosRestantes: int
-    -coste: Creditos
-    +TorrePlateada()
-    +atacar(): void
-}
-
-class Turno {
-    -numero: int
-    -jugador: Jugador
-    -camino: Camino
-    +siguienteTurno(Parcela parcela, Enemigo nuevoEnemigo): void
-}
-
-class Vida {
+class Energia {
     -cantidad: int
-    +Vida(int cantidadVida)
-    +Equals(Vida other): bool
-    +quitar(int danio): void
+    +Energia(int cantidadVida)
+    +Equals(Energia other): bool
+    +reducir(Energia energiaRestada): void
+    +aumentar(Energia extra): void
     +estaMuerto(): bool
-    +vida(): int
 }
+
+class Turnos {
+    -turnos: ArrayList<ArrayList<Enemigo>>
+    -cantidadTurnos: int
+    -siguienteTurno: int
+    +Turnos()
+    +agregarEnemigoAturno(int turno, Enemigo enemigo): void
+    +pasarTurno(Camino camino): void
+}
+
+class Lector {
+    +leerMapa(String rutaArchivo): Mapa
+    +leerEnemigos(String rutaArchivoTurnos): Turnos
+}
+
+class CreditosInsuficientesError {}
+class EnemigoInvalidoError {}
+class NoHayDefensaEnTierraError {}
+class NoSePuedeLeerElMapaError {}
+class NoSePuedeLeerEnemigosError {}
+class ParcelaInvalidaError {}
+class RangoInvalidoMapeadoError {}
+class TurnoInvalidoError {}
 
 class App {
     +main(String[] args): void
@@ -175,41 +211,7 @@ class SystemInfi {
     +javafxVersion(): String
 }
 
-Jugador *-- Vida
-Jugador *-- Creditos
 
-Defensa --> Creditos
-
-TorreBlanca --|> Defensa
-TorrePlateada --|> Defensa
-
-Pasarela --|> Parcela
-
-Parcela ..> Defensa
-Parcela ..> Jugador
-Parcela o-- Coordenadas
-Parcela ..> Enemigo
-
-Meta --|> Pasarela
-
-Parcela <|-- Rocoso
-Parcela <|-- Tierra
-
-Camino --> Pasarela
-Camino --> Meta
-Camino ..> Jugador
-Camino ..> Enemigo
-
-
-Enemigo --> Vida
-Enemigo --> Creditos
-Enemigo ..> Defensa
-Enemigo --> Jugador
-
-Hormiga --|> Enemigo
-Arania --|> Enemigo
-
-Creditos *-- CreditosInsuficientesError
 
 
 
