@@ -78,11 +78,11 @@ public class Entrega2Test {
 
     //Simular y verificar que el jugador gana una partida.
     @Test
-    public void Test18(){}
+    public void Test18SimularYVerificarPartidaGanada(){}
 
     //Simular y verificar que el jugador pierde una partida.
     @Test
-    public void Test19(){}
+    public void Test19SimularYVerificarPartidaPerdida(){}
 
     // Verificar el sistema de log a utilizar necesario para la entrega 3. El log puede ser
     // una implementación propia, casera y simple del grupo o utilizar alguna librería.
