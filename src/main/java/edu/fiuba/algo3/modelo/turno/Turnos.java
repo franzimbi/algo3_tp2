@@ -35,9 +35,10 @@ public class Turnos {
             return false;
         }
         ArrayList<Enemigo> enemigosDelTurno = this.turnos.get(siguienteTurno);
-        for (int i =0; i< enemigosDelTurno.size()-1;i++){
+        for (int i =0; i < enemigosDelTurno.size()-1;i++){
             camino.spawnEnemigo(enemigosDelTurno.get(i),  jugador);
         }
+        this.siguienteTurno++;
         return true;
     }
 }

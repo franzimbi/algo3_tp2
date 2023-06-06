@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.juego;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -12,36 +12,38 @@ import java.util.ArrayList;
 public class Juego {
 
     private Jugador jugador;
-    private Mapa mapa;
-    private Camino camino;
+    private Mapa mapa; //mapa tiene q tener un camino.
     private Turnos turnos;
 
     public Juego(){
-
     }
     // esta clase es la estructura simplificada implementada a traves del patron de diseño Facade.
     // https://refactoring.guru/es/design-patterns/facade
-    public void jugar(Jugador jugador, Mapa mapa, Camino camino, Turnos turnos){
+    public Juego(Jugador jugador, Mapa mapa, Turnos turnos){
         this.jugador = jugador;
         this.mapa = mapa;
         this.turnos = turnos;
-        this.camino = camino;
     }
-    public void terminarTurno(){
-        if(!this.turnos.spawnearEnemigos(this.camino, this.jugador)){
+    public void turnoEnemigos(){
+        if(!this.turnos.spawnearEnemigos(this.mapa.camino(), this.jugador)){
             // no hay mas turnos. sigue el juego hasta q el camino quede vacio o muera jugador
-            if(!this.camino.tieneEnemigos() && !this.jugador.estaMuerto()){
-                // ganó
+            if(!this.mapa.camino().tieneEnemigos() && !this.jugador.estaMuerto()){
+                // gano. fin del juego
+                System.out.println("Ganaste!");
             }
         }
         // muevo enemigos
-        this.camino.mover(this.jugador);
-        // que ataquen todas las torres una vez
+        this.mapa.camino().mover(this.jugador);
+        if (this.jugador.estaMuerto()){
+            //perdio. fin del juego
+            System.out.println("Perdiste!");
+        }
     }
     public void agregarDefensa(Defensa defensa, Coordenadas coordenadas){
         this.mapa.agregarDefensa(defensa, coordenadas, this.jugador);
-
-        }
+    }
+    public void pasarTurno(){
+        this.mapa.defensasAtacar(this.jugador);
     }
 
 }
