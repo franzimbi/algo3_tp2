@@ -10,7 +10,4 @@ public class TorrePlateada extends Defensa {
         this.armas = new SistemaDeAtaque(new Energia(2),5);
         this.turnosRestantes = 2;
     }
-
-    public void atacar() {
-    }
 }
