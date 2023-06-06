@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.lector;
 
 import edu.fiuba.algo3.modelo.enemigos.Arania;
-import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
@@ -9,6 +8,7 @@ import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.parcelas.Parcela;
+import edu.fiuba.algo3.modelo.turno.Turnos;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,16 +16,13 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Lector {
-    public final ArrayList<ArrayList<Enemigo>> enemigosPorTurno = new ArrayList<ArrayList<Enemigo>>();
-
-    public Lector() {
-    }
 
     public Mapa leerMapa(String rutaArchivoMapa) {
-        if (!rutaArchivoMapa.endsWith(".json")){throw new NoSePuedeLeerElMapaError();}
+        if (!rutaArchivoMapa.endsWith(".json")) {
+            throw new NoSePuedeLeerElMapaError();
+        }
         try {
             FileReader archivoDeLectura = new FileReader(rutaArchivoMapa);
             JSONParser parser = new JSONParser();
@@ -49,32 +46,33 @@ public class Lector {
         }
     }
 
-    public ArrayList<ArrayList<Enemigo>> leerEnemigos(String rutaArchivoTurnos) {
+    public Turnos leerEnemigos(String rutaArchivoTurnos) {
         // Leer y procesar el archivo de turnos
-        if (!rutaArchivoTurnos.endsWith(".json")){throw new NoSePuedeLeerEnemigosError();}
+        if (!rutaArchivoTurnos.endsWith(".json")) {
+            throw new NoSePuedeLeerEnemigosError();
+        }
+        Turnos turnosLeidos = new Turnos();
         try {
             JSONParser parser = new JSONParser();
             JSONArray turnosJSON = (JSONArray) parser.parse(new FileReader(rutaArchivoTurnos));
+            Turnos enemigosPorTurno = new Turnos();
             for (Object turnoObj : turnosJSON) {
                 JSONObject turnoJSON = (JSONObject) turnoObj;
-                long turno = (Long) turnoJSON.get("turno");
+                long turno = (long) turnoJSON.get("turno");
                 JSONObject enemigosJSON = (JSONObject) turnoJSON.get("enemigos");
-                ArrayList<Enemigo> enemigosEnEsteTurno = new ArrayList<>();
                 long cantidadHormigas = (Long) enemigosJSON.get("hormiga");
 
-                /*(for (int i = 0; i < cantidadHormigas; i++) {
-                    enemigosEnEsteTurno.add(new Hormiga());
+                for (int i = 0; i < cantidadHormigas; i++) {
+                    enemigosPorTurno.agregarEnemigoATurno((int)turno-1, new Hormiga());
                 }
                 long cantidadAranias = (Long) enemigosJSON.get("arana");
 
                 for (int i = 0; i < cantidadAranias; i++) {
-                    enemigosEnEsteTurno.add(new Arania());
+                    enemigosPorTurno.agregarEnemigoATurno((int) turno-1, new Arania());
                 }
-                enemigosPorTurno.add(enemigosEnEsteTurno); */
-                // TODO: falta la logica usando el Turnos
             }
-            return enemigosPorTurno;
-        } catch (IOException | ParseException | NoSePuedeLeerEnemigosError | ClassCastException e){
+            return turnosLeidos;
+        } catch (IOException | ParseException | NoSePuedeLeerEnemigosError | ClassCastException e) {
             throw new NoSePuedeLeerEnemigosError();
         }
     }

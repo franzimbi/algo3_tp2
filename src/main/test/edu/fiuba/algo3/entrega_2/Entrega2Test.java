@@ -5,27 +5,33 @@ import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.lector.Lector;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class Entrega2Test {
     //Verificar el formato valido del JSON de enemigos
     @Test
-    public void Test13ElFormatoDelJSONDeEnemigosNoEsValido(){
+    public void Test13LecturaDeEnemigosLanzaExccepcionSiElArchivoEsInvalido(){
         Lector lector = new Lector();
-        assertThrows(NoSePuedeLeerEnemigosError.class, ()->lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test13.txt"));
+        assertThrows(NoSePuedeLeerEnemigosError.class, ()->lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.txt"));
+        assertThrows(NoSePuedeLeerEnemigosError.class, ()->lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.json"));
+        assertDoesNotThrow(()->lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json"));
     }
 
     //Verificar el formato valido del JSON del mapa
     @Test
-    public void Test14ElFormatoDelJASONDelMapaNoEsValido(){
+    public void Test14LecturaDelMapaLanzaExccepcionSiElArchivoEsInvalidoo(){
         Lector lector = new Lector();
-        assert (lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test14.json").tamanoTotal() == 9 );
-        assertThrows(NoSePuedeLeerElMapaError.class, ()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/setDeDatos/test14.txt"));
+        assertThrows(NoSePuedeLeerElMapaError.class, ()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.txt"));
+        assertThrows(NoSePuedeLeerElMapaError.class, ()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.json"));
+        assertDoesNotThrow(()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json"));
     }
 
     //Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON de enemigos
     @Test
-    public void Test15VerificarConversionDelJSONDeEnemigos(){}
+    public void Test15VerificarConversionDelJSONDeEnemigos(){
+//        aca se podria poner a mutante (no quiero) en el json para que tire enemigo invalido
+    }
 
     // Verificar la lectura y posterior conversión a unidades del modelo de dominio del JSON del mapa.
     @Test
