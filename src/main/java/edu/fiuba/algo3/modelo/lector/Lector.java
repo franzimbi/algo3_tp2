@@ -51,7 +51,6 @@ public class Lector {
         if (!rutaArchivoTurnos.endsWith(".json")) {
             throw new NoSePuedeLeerEnemigosError();
         }
-        Turnos turnosLeidos = new Turnos();
         try {
             JSONParser parser = new JSONParser();
             JSONArray turnosJSON = (JSONArray) parser.parse(new FileReader(rutaArchivoTurnos));
@@ -71,7 +70,7 @@ public class Lector {
                     enemigosPorTurno.agregarEnemigoATurno((int) turno-1, new Arania());
                 }
             }
-            return turnosLeidos;
+            return enemigosPorTurno;
         } catch (IOException | ParseException | NoSePuedeLeerEnemigosError | ClassCastException e) {
             throw new NoSePuedeLeerEnemigosError();
         }

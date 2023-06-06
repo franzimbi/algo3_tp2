@@ -12,5 +12,11 @@ public class Coordenadas {
         // los atributos de una instancias se pueden acceder desde otra instancia del mismo tipo
         return Math.abs(this.x - other.x) + Math.abs(this.y - other.y);
     }
+    public int getX(){
+        return this.x;
+    }
 
+    public int getY(){
+        return this.y;
+    }
 }

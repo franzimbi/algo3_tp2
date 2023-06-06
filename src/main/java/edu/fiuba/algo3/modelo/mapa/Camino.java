@@ -44,9 +44,9 @@ public class Camino {
     }
 
     // agrega un nuevo enemigo a la posicion de inicio
-    /*public void spawnEnemigo(Enemigo enemigo) {
+    public void spawnEnemigo(Enemigo enemigo, Jugador jugador) {
         this.pasarelas.get(0).ubicar(enemigo,jugador);
-    }*/
+    }
 
     //devuelve la pasarela a la q tiene q moverse dependiendo de su ubicacion y velocidad
 

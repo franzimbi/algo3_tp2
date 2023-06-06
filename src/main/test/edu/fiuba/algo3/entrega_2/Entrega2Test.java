@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class Entrega2Test {
     //Verificar el formato valido del JSON de enemigos
     @Test
-    public void Test13LecturaDeEnemigosLanzaExccepcionSiElArchivoEsInvalido(){
+    public void Test13LecturaDeEnemigosLanzaExcepcionSiElArchivoEsInvalido(){
         Lector lector = new Lector();
         assertThrows(NoSePuedeLeerEnemigosError.class, ()->lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.txt"));
         assertThrows(NoSePuedeLeerEnemigosError.class, ()->lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.json"));
@@ -20,7 +20,7 @@ public class Entrega2Test {
 
     //Verificar el formato valido del JSON del mapa
     @Test
-    public void Test14LecturaDelMapaLanzaExccepcionSiElArchivoEsInvalidoo(){
+    public void Test14LecturaDelMapaLanzaExcepcionSiElArchivoEsInvalido(){
         Lector lector = new Lector();
         assertThrows(NoSePuedeLeerElMapaError.class, ()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.txt"));
         assertThrows(NoSePuedeLeerElMapaError.class, ()->lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.json"));
