@@ -17,7 +17,9 @@ public class CaminoTest {
 
     @Test
     public void Test01CaminoTieneEnemigos() {
-        Camino camino = new Camino( new Pasarela(new Coordenadas(0,0)));
+        Camino camino = new Camino();
+        Pasarela pasarela = new Pasarela(new Coordenadas(0,0));
+        camino.agregarPasarela(pasarela);
 
         assertFalse(camino.tieneEnemigos());
     }
@@ -28,7 +30,8 @@ public class CaminoTest {
         Pasarela pasarela = new Pasarela(new Coordenadas(1,0));
         Enemigo arania = new Arania();
         pasarela.ubicar(arania, jugador);
-        Camino camino = new Camino(new Meta(new Coordenadas(0,0)));
+        Camino camino = new Camino();
+
         camino.agregarPasarela(pasarela);
 
         assertTrue(camino.tieneEnemigos());

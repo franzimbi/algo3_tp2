@@ -31,14 +31,15 @@ public class Turnos {
     }
 
     public boolean spawnearEnemigos(Camino camino, Jugador jugador){
-        if (siguienteTurno >= cantidadTurnos){
+        if (cantidadTurnos <= 0){
             return false;
         }
-        ArrayList<Enemigo> enemigosDelTurno = this.turnos.get(siguienteTurno);
-        for (int i =0; i < enemigosDelTurno.size()-1;i++){
+        ArrayList<Enemigo> enemigosDelTurno = this.turnos.get(0);
+        for (int i =0; i < enemigosDelTurno.size(); i++){
             camino.spawnEnemigo(enemigosDelTurno.get(i),  jugador);
         }
-        this.siguienteTurno++;
+        this.cantidadTurnos--;
+        this.turnos.remove(0);
         return true;
     }
 }

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.entrega_2;
 
-import edu.fiuba.algo3.juego.Juego;
+import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
@@ -41,10 +41,11 @@ public class Entrega2Test {
     public void Test15VerificarConversionDelJSONDeEnemigos(){
         Lector lector = new Lector();
         Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
-        Camino camino = new Camino(new Meta(new Coordenadas(0,2)));
+        Camino camino = new Camino();
         Jugador jugador = new Jugador(5, 1, "Leo Messi");
         camino.agregarPasarela(new Pasarela(new Coordenadas(0,0)));
         camino.agregarPasarela(new Pasarela(new Coordenadas(0,1)));
+        camino.agregarPasarela(new Pasarela(new Coordenadas(0,2)));
 
         assertFalse(camino.tieneEnemigos()); // no debe tener enemigos en el camino
         turnos.spawnearEnemigos(camino, jugador); // spawneo en el camino 2 veces
@@ -73,7 +74,31 @@ public class Entrega2Test {
         Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
         Jugador jugador = new Jugador(2, 300, "Cristiano Ronaldo");
         Juego juego = new Juego(jugador, mapa, turnos);
-        // TODO: FALTA LOGICA DE CAMINO EN EL MAPA
+
+        // ["R", "P", "T"]
+        // ["T", "P", "T"]
+        // ["T", "P", "T"]
+
+        //    "turno": 1,
+        //        "enemigos":
+        //            "hormiga": 1,
+        //            "arana": 0
+        //    "turno": 2,
+        //        "enemigos":
+        //            "hormiga": 1,
+        //            "arana": 1
+
+        assertFalse(mapa.camino().tieneEnemigos());
+        juego.turnoEnemigos();
+        assertTrue(mapa.camino().tieneEnemigos());
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1,0));
+        juego.pasarTurno();
+        juego.turnoEnemigos();
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2,2));
+        juego.pasarTurno();
+        juego.turnoEnemigos();
+        juego.pasarTurno();
+        juego.turnoEnemigos();
     }
 
     //Simular y verificar que el jugador gana una partida.

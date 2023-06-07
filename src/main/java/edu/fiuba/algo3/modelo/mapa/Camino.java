@@ -10,30 +10,36 @@ import java.util.ArrayList;
 public class Camino {
     private final ArrayList<Pasarela> pasarelas;
 
-    public Camino(Pasarela meta) {
+    public Camino() {
         this.pasarelas = new ArrayList<>();
-        this.pasarelas.add(meta);
     }
 
-    public void atacar(Tierra tierra, Jugador jugador) {
-        Pasarela pasarelaCercana = pasarelas.get(0);
-        int distanciaMinima = tierra.distancia(pasarelaCercana);
+//    public void atacar(Tierra tierra, Jugador jugador) {
+//        Pasarela pasarelaCercana = pasarelas.get(0);
+//        int distanciaMinima = tierra.distancia(pasarelaCercana);
+//
+//        for (int i = 1; i < pasarelas.size(); i++) {
+//            Pasarela pasarelaActual = pasarelas.get(i);
+//            int distanciaActual = tierra.distancia(pasarelaActual);
+//            if (!pasarelaActual.estaVacia()) {
+//                if (distanciaMinima > distanciaActual) {
+//                    pasarelaCercana = pasarelaActual;
+//                    distanciaMinima = distanciaActual;
+//                }
+//            }
+//        }
+//        tierra.atacar(pasarelaCercana, jugador);
+//    }
 
-        for (int i = 1; i < pasarelas.size(); i++) {
+    public void atacar(Tierra tierra, Jugador jugador){
+        for (int i = pasarelas.size()-1; i>=0; i--){
             Pasarela pasarelaActual = pasarelas.get(i);
-            int distanciaActual = tierra.distancia(pasarelaActual);
-            if (!pasarelaActual.estaVacia()) {
-                if (distanciaMinima > distanciaActual) {
-                    pasarelaCercana = pasarelaActual;
-                    distanciaMinima = distanciaActual;
-                }
-            }
+            tierra.atacar(pasarelaActual, jugador);
         }
-        tierra.atacar(pasarelaCercana, jugador);
     }
 
     public void agregarPasarela(Pasarela pasarela) {
-        this.pasarelas.add(this.pasarelas.size()-1,pasarela);
+        this.pasarelas.add(pasarela);
     }
 
     // a cada pasarela de atras para adelante le envia el mensaje de mover
@@ -45,20 +51,20 @@ public class Camino {
 
     // agrega un nuevo enemigo a la posicion de inicio
     public void spawnEnemigo(Enemigo enemigo, Jugador jugador) {
-        this.pasarelas.get(0).ubicar(enemigo,jugador);
+        this.pasarelas.get(0).ubicar(enemigo, jugador);
     }
-
-    //devuelve la pasarela a la q tiene q moverse dependiendo de su ubicacion y velocidad
 
 
     public void moverEnemigo(Enemigo enemigo, Pasarela pasarela, Jugador jugador) {
         int aux = pasarelas.indexOf(pasarela) + enemigo.getVelocidad();
-        if (aux >= pasarelas.size()) {
-            this.pasarelas.get(this.pasarelas.size()-1).ubicar(enemigo, jugador);
+        if (aux >= pasarelas.size()-1) {
+            enemigo.atacar(jugador);
+            //this.pasarelas.get(this.pasarelas.size() - 1).ubicar(enemigo, jugador);
             return;
         }
         pasarelas.get(aux).ubicar(enemigo, jugador);
     }
+
     public boolean tieneEnemigos() {
         for (Pasarela pasarela : this.pasarelas) {
             if (!pasarela.estaVacia()) {

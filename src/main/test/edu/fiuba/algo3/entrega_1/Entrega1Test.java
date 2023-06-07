@@ -143,14 +143,16 @@ public class Entrega1Test {
         Enemigo hormiga = new Hormiga();
         Enemigo arania = new Arania();
 
-        Camino camino = new Camino(new Meta(new Coordenadas(0, 4)));
+        Camino camino = new Camino();
         Pasarela pasarela = new Pasarela(new Coordenadas(0, 0));
         Pasarela siguienteHormiga = new Pasarela(new Coordenadas(0, 1));
         Pasarela siguienteArania = new Pasarela(new Coordenadas(0, 2));
+        Pasarela meta = new Pasarela(new Coordenadas(0, 4));
 
         camino.agregarPasarela(pasarela);
         camino.agregarPasarela(siguienteHormiga);
         camino.agregarPasarela(siguienteArania);
+        camino.agregarPasarela(meta);
 
         pasarela.ubicar(hormiga, jugador);
         pasarela.ubicar(arania, jugador);
@@ -168,22 +170,23 @@ public class Entrega1Test {
     @Test
     public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
         Jugador jugador = new Jugador(20, 100, "Julian");
-        Camino camino = new Camino(new Meta(new Coordenadas(0, 3)));
+        Camino camino = new Camino();
 
         Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
         Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
         Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
+        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
         Parcela t1 = new Tierra(new Coordenadas(0, 0));
 
         camino.agregarPasarela(c1);
         camino.agregarPasarela(c2);
         camino.agregarPasarela(c3);
+        camino.agregarPasarela(c4);
 
         Enemigo enemigo = new Hormiga();
         Defensa defensa = new TorreBlanca();
         c1.ubicar(enemigo, jugador);
         t1.ubicar(defensa, jugador);
-        //TODO: hacer un mock de la torre
         c1.recibirAtaqueDe(defensa, jugador); //esto pone la torre en operacion
         c1.recibirAtaqueDe(defensa, jugador);
 
@@ -198,15 +201,17 @@ public class Entrega1Test {
     @Test
     public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta() {
         Jugador jugador = new Jugador(20, 100, "Julian");
-        Camino camino = new Camino(new Meta(new Coordenadas(0, 3)));
+        Camino camino = new Camino();
 
         Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
         Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
         Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
+        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
 
         camino.agregarPasarela(c1);
         camino.agregarPasarela(c2);
         camino.agregarPasarela(c3);
+        camino.agregarPasarela(c4);
 
         Enemigo enemigo = new Hormiga();
         c3.ubicar(enemigo, jugador);
@@ -222,15 +227,17 @@ public class Entrega1Test {
     @Test
     public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
         Jugador jugador = new Jugador(1, 100, "Julian");
-        Camino camino = new Camino(new Meta(new Coordenadas(0, 3)));
+        Camino camino = new Camino();
 
         Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
         Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
         Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
+        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
 
         camino.agregarPasarela(c1);
         camino.agregarPasarela(c2);
         camino.agregarPasarela(c3);
+        camino.agregarPasarela(c4);
 
         Enemigo enemigo = new Hormiga();
         c3.ubicar(enemigo, jugador);

@@ -23,11 +23,14 @@ public class Pasarela extends Parcela {
         enemigos.add(enemigo);
         return true;
     }
+    public Coordenadas ubicacion(){return this.ubicacion;}
 
     public void recibirAtaqueDe(Defensa defensa, Jugador jugador) {
+        if (enemigos.isEmpty()){return;}
         Enemigo primerEnemigo = enemigos.get(0);
         defensa.atacarEnemigo(primerEnemigo, jugador);
         if (primerEnemigo.estaMuerto()) {
+            jugador.recibirMuerto(primerEnemigo);
             enemigos.remove(primerEnemigo);
         }
     }

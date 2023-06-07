@@ -82,22 +82,22 @@ public class Lector {
 /*
 
 Mapa:
-     1:                             :15
-     1: [R P T T T T T T T T R R R R R]
-     2: [T P T T T T T T T T R R R R R]
-     3: [T P T T T T T T T T R R R R R]
-     4: [T P T T T T T T T T R R R R R]
-     5: [T P R R T T T T T T T T T T T]
-     6: [T P R R T T T R T T T T T T T]
-     7: [T P P P P P P P P T T T T T T]
-     8: [T T T T T T T T P T T T T T T]
-     9: [T T T T T T T T P T T T T T T]
-    10: [T T T T T T T T P R T T T T T]
-    11: [T T T T T T T T P P P P P P P]
-    12: [R R R R R T T T T T T T T T T]
-    13: [R R R R R T T T T T T T T T T]
-    14: [R R R R R T T T T T T T T T T]
-    15: [R R R R R T T T T T T T T T T]
+       1:                         :15
+   1: [R P T T T T T T T T R R R R R]
+      [T P T T T T T T T T R R R R R]
+      [T P T T T T T T T T R R R R R]
+      [T P T T T T T T T T R R R R R]
+      [T P R R T T T T T T T T T T T]
+      [T P R R T T T R T T T T T T T]
+      [T P P P P P P P P T T T T T T]
+      [T T T T T T T T P T T T T T T]
+      [T T T T T T T T P T T T T T T]
+      [T T T T T T T T P R T T T T T]
+      [T T T T T T T T P P P P P P P]
+      [R R R R R T T T T T T T T T T]
+      [R R R R R T T T T T T T T T T]
+      [R R R R R T T T T T T T T T T]
+  15: [R R R R R T T T T T T T T T T]
 
  */
 
