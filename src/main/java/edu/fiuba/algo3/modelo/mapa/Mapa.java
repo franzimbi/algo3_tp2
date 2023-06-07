@@ -3,10 +3,10 @@ package edu.fiuba.algo3.modelo.mapa;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.parcelas.Meta;
 import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.parcelas.Tierra;
+import edu.fiuba.algo3.modelo.turno.Turnos;
 
 import java.util.ArrayList;
 
@@ -58,8 +58,20 @@ public class Mapa {
         }
     }
 
-    public Camino camino() {
-        return this.camino;
+    public void mover(Jugador jugador){
+        this.camino.mover(jugador);
+    }
+
+    public boolean perdio(Jugador jugador) {
+        return this.camino.perdio(jugador);
+    }
+
+    public void generarEnemigos(Turnos turnos, Jugador jugador){
+        turnos.generarEnemigos(this.camino, jugador);
+    }
+
+    public boolean gano(Jugador jugador){
+        return this.camino.gano(jugador);
     }
 }
 

@@ -50,7 +50,7 @@ public class Camino {
     }
 
     // agrega un nuevo enemigo a la posicion de inicio
-    public void spawnEnemigo(Enemigo enemigo, Jugador jugador) {
+    public void generarEnemigo(Enemigo enemigo, Jugador jugador) {
         this.pasarelas.get(0).ubicar(enemigo, jugador);
     }
 

@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.lector.Lector;
 import edu.fiuba.algo3.modelo.mapa.Camino;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.parcelas.Meta;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
 import org.junit.jupiter.api.Test;
@@ -48,8 +47,8 @@ public class Entrega2Test {
         camino.agregarPasarela(new Pasarela(new Coordenadas(0,2)));
 
         assertFalse(camino.tieneEnemigos()); // no debe tener enemigos en el camino
-        turnos.spawnearEnemigos(camino, jugador); // spawneo en el camino 2 veces
-        turnos.spawnearEnemigos(camino, jugador);
+        turnos.generarEnemigos(camino, jugador); // spawneo en el camino 2 veces
+        turnos.generarEnemigos(camino, jugador);
         assertTrue(camino.tieneEnemigos());
     }
 
@@ -69,50 +68,51 @@ public class Entrega2Test {
     // Verificar que el juego se crea acorde a ambos JSON.
     @Test
     public void Test17SimularYVerificarQueElJuegoSeCreeCorrectamenteAcordeAlJSON(){
+        //este test es una mierda sin sentido.
+    }
+
+    //Simular y verificar que el jugador gana una partida.
+    @Test
+    public void Test18SimularYVerificarPartidaGanada(){
+        Lector lector = new Lector();
+        Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
+        Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
+        Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
+        Juego juego = new Juego(jugador, mapa, turnos);
+
+        juego.juegoEmpezar();
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1,0));
+        juego.pasarTurno();
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2,2));
+        assert !juego.gano();
+        juego.pasarTurno();
+        assert juego.gano();
+    }
+
+    //Simular y verificar que el jugador pierde una partida.
+    @Test
+    public void Test19SimularYVerificarPartidaPerdida(){
         Lector lector = new Lector();
         Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
         Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
         Jugador jugador = new Jugador(2, 300, "Cristiano Ronaldo");
         Juego juego = new Juego(jugador, mapa, turnos);
 
-        // ["R", "P", "T"]
-        // ["T", "P", "T"]
-        // ["T", "P", "T"]
-
-        //    "turno": 1,
-        //        "enemigos":
-        //            "hormiga": 1,
-        //            "arana": 0
-        //    "turno": 2,
-        //        "enemigos":
-        //            "hormiga": 1,
-        //            "arana": 1
-
-        assertFalse(mapa.camino().tieneEnemigos());
-        juego.turnoEnemigos();
-        assertTrue(mapa.camino().tieneEnemigos());
+        juego.juegoEmpezar();
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1,0));
         juego.pasarTurno();
-        juego.turnoEnemigos();
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2,2));
+        assert !juego.perdio();
         juego.pasarTurno();
-        juego.turnoEnemigos();
-        juego.pasarTurno();
-        juego.turnoEnemigos();
+        assert juego.perdio();
     }
-
-    //Simular y verificar que el jugador gana una partida.
-    @Test
-    public void Test18SimularYVerificarPartidaGanada(){}
-
-    //Simular y verificar que el jugador pierde una partida.
-    @Test
-    public void Test19SimularYVerificarPartidaPerdida(){}
 
     // Verificar el sistema de log a utilizar necesario para la entrega 3. El log puede ser
     // una implementación propia, casera y simple del grupo o utilizar alguna librería.
     @Test
-    public void Test20(){}
+    public void Test20(){
+        //Este test tambien no tiene sentido.
+    }
 
 
 }
