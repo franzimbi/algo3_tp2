@@ -7,7 +7,7 @@ public class TorrePlateada extends Defensa {
 
     public TorrePlateada() {
         this.coste = new Creditos(20);
-        this.armas = new SistemaDeAtaque(new Energia(2),5);
+        this.armas = new SistemaDeAtaque(new Energia(2), 5);
         this.turnosRestantes = 2;
     }
 }

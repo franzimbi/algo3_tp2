@@ -24,16 +24,19 @@ public class Turnos {
         enemigosDelTurno.add(enemigo);
     }
 
-    public void generarEnemigos(Camino camino, Jugador jugador){
-        if (oleadas.size() == 0){
+    public void generarEnemigos(Camino camino, Jugador jugador) {
+        if (oleadas.size() == 0) {
             return;
         }
         ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
-        for (int i =0; i < enemigosDelTurno.size(); i++){
-            camino.generarEnemigo(enemigosDelTurno.get(i),  jugador);
+        for (int i = 0; i < enemigosDelTurno.size(); i++) {
+            camino.generarEnemigo(enemigosDelTurno.get(i), jugador);
         }
+        /* Fran fijate que esto tambien funciona asi, pero no entiendo nada ya 2:42 am
+        for (Enemigo enemigo : enemigosDelTurno) {
+            camino.generarEnemigo(enemigo, jugador);
+        }*/
         this.oleadas.remove(0);
-        return;
     }
 }
 
