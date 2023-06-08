@@ -16,6 +16,8 @@ public class Mapa {
     private final ArrayList<ArrayList<Parcela>> matriz;
     private final Camino camino;
 
+    private final ArrayList<Parcela> defensas;
+
     public Mapa(int tamanoHorizontal, int tamanoVertical) {
         this.tamanoVertical = tamanoVertical - 1;
         this.tamanoHorizontal = tamanoHorizontal - 1;
@@ -25,6 +27,7 @@ public class Mapa {
             this.matriz.add(aux);
         }
         this.camino = new Camino();
+        this.defensas = new ArrayList<>();
     }
 
     public void agregarParcela(int x, int y, Parcela parcela) throws RangoInvalidoMapeadoError {
@@ -44,10 +47,14 @@ public class Mapa {
         }
         var filaX = matriz.get(posicion.getX());
         var parcelaParaUbicar = filaX.get(posicion.getY());
-        return parcelaParaUbicar.ubicar(defensa, jugador);
+        boolean pudoUbicar = parcelaParaUbicar.ubicar(defensa, jugador);
+        if(pudoUbicar){
+            defensas.add(parcelaParaUbicar);
+        }
+        return pudoUbicar;
     }
 
-    public void defensasAtacar(Jugador jugador) {
+    /*public void defensasAtacar(Jugador jugador) {
         for (int f = 0; f < this.tamanoHorizontal; f++) {
             var filaX = this.matriz.get(f);
             for (int c = 0; c < this.tamanoVertical; c++) {
@@ -55,6 +62,12 @@ public class Mapa {
                     this.camino.atacar((Tierra) filaX.get(c), jugador);
                 }
             }
+        }
+    }*/
+
+    public void defensasAtacar(Jugador jugador){
+        for (int i=0;i<this.defensas.size();i++){
+            this.camino.atacar((Tierra) this.defensas.get(i), jugador);
         }
     }
 

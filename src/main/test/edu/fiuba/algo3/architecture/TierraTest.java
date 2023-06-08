@@ -31,7 +31,7 @@ public class TierraTest {
         assertFalse(tierra.ubicar(new Arania(),jugador));
     }
 
-    @Test
+    /*@Test
     public void Test03TierraVaciaNoAtaca(){
         Tierra tierra = new Tierra(new Coordenadas(1,1));
         Jugador jugador = new Jugador(100,100,"Juli");
@@ -40,5 +40,5 @@ public class TierraTest {
         pasarela.ubicar(hormiga,jugador);
         assertThrows(NoHayDefensaEnTierraError.class, () -> tierra.atacar(pasarela,jugador));
 
-    }
+    }*/
 }

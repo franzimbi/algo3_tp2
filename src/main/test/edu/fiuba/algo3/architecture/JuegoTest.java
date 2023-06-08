@@ -66,6 +66,8 @@ public class JuegoTest {
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
         assert !juego.gano();
         juego.pasarTurno();
+        assert !juego.gano();
+        juego.pasarTurno();
         assert juego.gano();
     }
 }

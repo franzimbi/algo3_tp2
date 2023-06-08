@@ -16,6 +16,24 @@ public class Camino {
     }
 
     public void atacar(Tierra tierra, Jugador jugador) {
+        Pasarela pasarelaCercana = pasarelas.get(0);
+        int distanciaMinima = tierra.distancia(pasarelaCercana);
+
+        for (int i = 1; i < pasarelas.size(); i++) {
+            Pasarela pasarelaActual = pasarelas.get(i);
+            int distanciaActual = tierra.distancia(pasarelaActual);
+            if (!pasarelaActual.estaVacia()) {
+                if (distanciaMinima > distanciaActual) {
+                    pasarelaCercana = pasarelaActual;
+                    distanciaMinima = distanciaActual;
+                }
+            }
+        }
+        tierra.atacar(pasarelaCercana, jugador);
+    }
+
+
+    /*public void atacar(Tierra tierra, Jugador jugador) {
         for (int i = pasarelas.size() - 1; i >= 0; i--) {
             Pasarela pasarelaActual = pasarelas.get(i);
             try {
@@ -24,7 +42,7 @@ public class Camino {
                 return;
             }
         }
-    }
+    }*/
 
     public void agregarPasarela(Pasarela pasarela) {
         this.pasarelas.add(pasarela);

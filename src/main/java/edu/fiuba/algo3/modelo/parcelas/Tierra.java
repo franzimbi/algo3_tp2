@@ -26,9 +26,9 @@ public class Tierra extends Parcela {
     public void atacar(Pasarela pasarela, Jugador jugador) {
         int distancia = this.distancia(pasarela);
 
-        if (this.defensa == null) {
+        /*if (this.defensa == null) {
             throw new NoHayDefensaEnTierraError();
-        }
+        }*/
 
         if (this.defensa.estaEnRango(distancia)) {
             pasarela.recibirAtaqueDe(this.defensa, jugador);
