@@ -59,12 +59,32 @@ public class Entrega2Test {
         assertTrue(mapa.agregarDefensa(t1, new Coordenadas(0, 2), jugador)); // mapa me deja agregar la torre en una tierra
         assertFalse(mapa.agregarDefensa(t1, new Coordenadas(0, 1), jugador));// no me deja agregarla en pasarela
         assertFalse(mapa.agregarDefensa(t1, new Coordenadas(0, 0), jugador));// no me deja agregarla en rocoso
+        assert (mapa.tamanoMapa() == 3 * 3);
     }
 
     @Test
     public void Test17SimularYVerificarQueElJuegoSeCreeCorrectamenteAcordeAlJSON() {
-        //TODO: test17 sin terminar
-        //por este test hay que agregar los getters
+        Lector lector = new Lector();
+        Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
+        Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
+        Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
+        Juego juego = new Juego(jugador, mapa, turnos);
+
+        assert (mapa.tamanoMapa() == 3 * 3);
+        assert (turnos.cantidadTurnos() == 2);
+        assert (mapa.cantidadEnemigos(0) == 0);
+        assert (mapa.cantidadEnemigos(1) == 0);
+        assert (mapa.cantidadEnemigos(2) == 0);
+
+        juego.juegoEmpezar();
+        assert (mapa.cantidadEnemigos(0) == 1);
+        juego.pasarTurno();
+        assert (mapa.cantidadEnemigos(0) == 2);
+        assert (mapa.cantidadEnemigos(1) == 1);
+        juego.pasarTurno();
+        assert (mapa.cantidadEnemigos(0) == 0);
+        assert (mapa.cantidadEnemigos(1) == 1);
+        assert (mapa.cantidadEnemigos(2) == 0);
     }
 
     @Test
@@ -100,13 +120,4 @@ public class Entrega2Test {
         juego.pasarTurno();
         assert juego.perdio();
     }
-
-    // Verificar el sistema de log a utilizar necesario para la entrega 3. El log puede ser
-    // una implementación propia, casera y simple del grupo o utilizar alguna librería.
-    @Test
-    public void Test20() {
-        //TODO: test20 sin terminar
-    }
-
-
 }

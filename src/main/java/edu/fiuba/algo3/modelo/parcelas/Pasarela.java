@@ -54,4 +54,7 @@ public class Pasarela extends Parcela {
         return this.enemigos.isEmpty();
     }
 
+    public int cantidadEnemigos() {
+        return this.enemigos.size();
+    }
 }

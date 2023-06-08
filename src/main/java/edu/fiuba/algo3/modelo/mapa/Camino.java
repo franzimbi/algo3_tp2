@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.excepciones.NoHayDefensaEnTierraError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.parcelas.Tierra;
@@ -17,7 +18,11 @@ public class Camino {
     public void atacar(Tierra tierra, Jugador jugador) {
         for (int i = pasarelas.size() - 1; i >= 0; i--) {
             Pasarela pasarelaActual = pasarelas.get(i);
-            tierra.atacar(pasarelaActual, jugador);
+            try {
+                tierra.atacar(pasarelaActual, jugador);
+            } catch (NoHayDefensaEnTierraError e){
+                return;
+            }
         }
     }
 
@@ -59,5 +64,9 @@ public class Camino {
 
     public boolean perdio(Jugador jugador) {
         return jugador.estaMuerto();
+    }
+
+    public int cantidadEnemigos(int posPasarela) {
+        return this.pasarelas.get(posPasarela).cantidadEnemigos();
     }
 }

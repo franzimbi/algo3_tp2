@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.turno.Turnos;
 public class Juego {
 
     private final Jugador jugador;
-    private final Mapa mapa; //mapa tiene q tener un camino.
+    private final Mapa mapa; //mapa tiene un camino.
     private final Turnos turnos;
 
     public Juego(Jugador jugador, Mapa mapa, Turnos turnos) {
@@ -23,6 +23,7 @@ public class Juego {
 
         if (this.mapa.perdio(this.jugador)) {
             System.out.println("Perdiste!");
+            return;
         }
         this.mapa.generarEnemigos(this.turnos, jugador);
     }

@@ -73,4 +73,11 @@ public class Mapa {
     public boolean gano(Jugador jugador) {
         return this.camino.gano(jugador);
     }
+
+    public int cantidadEnemigos(int posCamino){
+        return this.camino.cantidadEnemigos(posCamino);
+    }
+    public int tamanoMapa(){
+        return (this.tamanoVertical +1) * (this.tamanoHorizontal +1);
+    }
 }

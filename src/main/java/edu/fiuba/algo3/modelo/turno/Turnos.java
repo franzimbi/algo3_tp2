@@ -38,5 +38,8 @@ public class Turnos {
         }*/
         this.oleadas.remove(0);
     }
+    public int cantidadTurnos(){
+        return this.oleadas.size();
+    }
 }
 
