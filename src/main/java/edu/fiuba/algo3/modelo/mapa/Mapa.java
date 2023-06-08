@@ -14,7 +14,7 @@ public class Mapa {
     private final int tamanoHorizontal;
     private final int tamanoVertical;
     private final ArrayList<ArrayList<Parcela>> matriz;
-    private Camino camino;
+    private final Camino camino;
 
     public Mapa(int tamanoHorizontal, int tamanoVertical) {
         this.tamanoVertical = tamanoVertical - 1;
@@ -34,8 +34,8 @@ public class Mapa {
         var filaX = matriz.get(x);
         filaX.add(y, parcela);
         if (parcela instanceof Pasarela) {
-                this.camino.agregarPasarela((Pasarela) parcela);
-            }
+            this.camino.agregarPasarela((Pasarela) parcela);
+        }
     }
 
     public boolean agregarDefensa(Defensa defensa, Coordenadas posicion, Jugador jugador) {
@@ -58,7 +58,7 @@ public class Mapa {
         }
     }
 
-    public void mover(Jugador jugador){
+    public void mover(Jugador jugador) {
         this.camino.mover(jugador);
     }
 
@@ -66,19 +66,11 @@ public class Mapa {
         return this.camino.perdio(jugador);
     }
 
-    public void generarEnemigos(Turnos turnos, Jugador jugador){
-        turnos.generarEnemigos(this.camino, jugador);
+    public void generarEnemigos(Turnos oleada, Jugador jugador) {
+        oleada.generarEnemigos(this.camino, jugador);
     }
 
-    public boolean gano(Jugador jugador){
+    public boolean gano(Jugador jugador) {
         return this.camino.gano(jugador);
     }
 }
-
-/*
-
-     T x x x x
-     x x T x x
-     x x x x x
-
- */

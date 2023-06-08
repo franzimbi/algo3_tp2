@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.creditos.Creditos;
-import edu.fiuba.algo3.modelo.creditos.*;
+import edu.fiuba.algo3.modelo.creditos.RecompensaSimple;
 import edu.fiuba.algo3.modelo.vida.Energia;
 
 public class Hormiga extends Enemigo {

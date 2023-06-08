@@ -5,9 +5,9 @@ import edu.fiuba.algo3.modelo.vida.Energia;
 
 public class TorreBlanca extends Defensa {
 
-    public TorreBlanca(){
+    public TorreBlanca() {
         this.coste = new Creditos(10);
-        this.armas = new SistemaDeAtaque(new Energia(1),3);
+        this.armas = new SistemaDeAtaque(new Energia(1), 3);
         this.turnosRestantes = 1;
     }
 }

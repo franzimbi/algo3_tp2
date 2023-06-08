@@ -2,13 +2,7 @@ package edu.fiuba.algo3.modelo.enemigos;
 
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
-import edu.fiuba.algo3.modelo.excepciones.ParcelaInvalidaError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
-import edu.fiuba.algo3.modelo.parcelas.Rocoso;
-import edu.fiuba.algo3.modelo.parcelas.Tierra;
 import edu.fiuba.algo3.modelo.vida.Energia;
 
 import java.util.HashMap;
@@ -32,6 +26,7 @@ public abstract class Enemigo {
         }
         throw new EnemigoInvalidoError();
     }
+
     public void recibirDanio(Energia danioRecibido, Jugador jugador) {
         this.energia.reducir(danioRecibido);
         if (estaMuerto()) {

@@ -12,8 +12,6 @@ public class Juego {
     private final Mapa mapa; //mapa tiene q tener un camino.
     private final Turnos turnos;
 
-    // esta clase es la estructura simplificada implementada a traves del patron de diseño Facade.
-    // https://refactoring.guru/es/design-patterns/facade
     public Juego(Jugador jugador, Mapa mapa, Turnos turnos) {
         this.jugador = jugador;
         this.mapa = mapa;
@@ -21,11 +19,9 @@ public class Juego {
     }
 
     public void turnoEnemigos() {
-        // muevo enemigos
         this.mapa.mover(this.jugador);
 
         if (this.mapa.perdio(this.jugador)) {
-            //perdio. fin del juego
             System.out.println("Perdiste!");
         }
         this.mapa.generarEnemigos(this.turnos, jugador);
@@ -39,21 +35,19 @@ public class Juego {
         this.mapa.defensasAtacar(this.jugador);
         this.turnoEnemigos();
         if (this.mapa.gano(this.jugador)) {
-            // gano. fin del juego
             System.out.println("Ganaste!");
-            return;
         }
     }
 
-    public void juegoEmpezar(){
+    public void juegoEmpezar() {
         this.turnoEnemigos();
     }
 
-    public boolean gano(){
+    public boolean gano() {
         return this.mapa.gano(jugador);
     }
 
-    public boolean perdio(){
+    public boolean perdio() {
         return this.mapa.perdio(jugador);
     }
 
