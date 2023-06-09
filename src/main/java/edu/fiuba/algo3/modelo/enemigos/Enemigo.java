@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.Scorer;
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -51,4 +52,7 @@ public abstract class Enemigo {
         jugador.recibirAtaque(this.danio);
     }
 
+    public void agregarMuerto(Scorer scorer) {
+        scorer.agregarMuerto(this);
+    }
 }
