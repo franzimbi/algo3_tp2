@@ -37,11 +37,11 @@ public class Lector {
                 for (int j = 0; j < columnas; j++) {
                     Object elemento = filaArray.get(j);
                     Parcela aux = Parcela.construirParcela(elemento.toString(), new Coordenadas(i - 1, j));
-                    mapaLeido.agregarParcela(i - 1, j, aux);
+                    mapaLeido.agregarParcela(aux);
                 }
             }
             return mapaLeido;
-        } catch (IOException | RangoInvalidoMapeadoError | ParseException | ClassCastException e) {
+        } catch (IOException  | ParseException | ClassCastException e) {
             throw new NoSePuedeLeerElMapaError();
         }
     }

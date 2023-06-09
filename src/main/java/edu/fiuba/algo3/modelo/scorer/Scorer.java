@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.scorer;
 
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
 import edu.fiuba.algo3.modelo.creditos.RecompensaDoble;

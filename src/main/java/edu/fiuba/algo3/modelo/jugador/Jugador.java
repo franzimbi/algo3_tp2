@@ -1,13 +1,9 @@
 package edu.fiuba.algo3.modelo.jugador;
 
-import edu.fiuba.algo3.modelo.Scorer;
+import edu.fiuba.algo3.modelo.scorer.Scorer;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
-import edu.fiuba.algo3.modelo.creditos.RecompensaDoble;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.vida.Energia;
-
-import java.util.ArrayList;
 
 public class Jugador {
     private final String nombre;

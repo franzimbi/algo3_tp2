@@ -19,7 +19,7 @@ public class MapaTest {
         Lector lector = new Lector();
         Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
         Tierra tierra = new Tierra(new Coordenadas(0, 0));
-        assertDoesNotThrow(() -> mapa.agregarParcela(2, 2, tierra));
+        assertDoesNotThrow(() -> mapa.agregarParcela(tierra));
     }
 
     @Test
@@ -27,8 +27,8 @@ public class MapaTest {
         Lector lector = new Lector();
         Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
         Tierra tierra = new Tierra(new Coordenadas(0, 0));
-        assertDoesNotThrow(() -> mapa.agregarParcela(2, 2, tierra));
-        assertThrows(RangoInvalidoMapeadoError.class, () -> mapa.agregarParcela(3, 3, tierra));
+        assertDoesNotThrow(() -> mapa.agregarParcela(tierra));
+        assertThrows(RangoInvalidoMapeadoError.class, () -> mapa.agregarParcela(tierra));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class MapaTest {
         Jugador jugador = new Jugador(1, 100, "Jugador");
         Tierra tierra = new Tierra(new Coordenadas(0, 0));
         Defensa defensa = new TorrePlateada();
-        assertDoesNotThrow(() -> mapa.agregarParcela(2, 2, tierra));
+        assertDoesNotThrow(() -> mapa.agregarParcela(tierra));
         assertDoesNotThrow(() -> mapa.agregarDefensa(defensa, new Coordenadas(2, 2), jugador));
         assert !mapa.agregarDefensa(defensa, new Coordenadas(4, 4), jugador);
     }

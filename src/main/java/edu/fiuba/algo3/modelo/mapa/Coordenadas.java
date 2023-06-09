@@ -7,7 +7,9 @@ public class Coordenadas {
         this.x = x;
         this.y = y;
     }
-
+    public boolean equals(Coordenadas other){
+        return (this.x == other.x) && (this.y == other.y);
+    }
     public int distancia(Coordenadas other) {
         return Math.abs(this.x - other.x) + Math.abs(this.y - other.y);
     }

@@ -33,5 +33,7 @@ public abstract class Parcela {
     public int distancia(Parcela other) {
         return this.ubicacion.distancia(other.ubicacion);
     }
-
+    public Coordenadas getUbicacion(){
+        return this.ubicacion;
+    }
 }

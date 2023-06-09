@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.Scorer;
+import edu.fiuba.algo3.modelo.scorer.Scorer;
 import edu.fiuba.algo3.modelo.creditos.RecompensaRandom;
 import edu.fiuba.algo3.modelo.vida.Energia;
 

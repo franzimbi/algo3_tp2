@@ -7,51 +7,39 @@ import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.parcelas.Tierra;
 import edu.fiuba.algo3.modelo.turno.Turnos;
+import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
 
 import java.util.ArrayList;
 
 public class Mapa {
-    private final int tamanoHorizontal;
-    private final int tamanoVertical;
-    private final ArrayList<ArrayList<Parcela>> matriz;
+    private final ArrayList<Parcela> parcelas;
     private final Camino camino;
-
     private final ArrayList<Parcela> defensas;
 
     public Mapa(int tamanoHorizontal, int tamanoVertical) {
-        this.tamanoVertical = tamanoVertical - 1;
-        this.tamanoHorizontal = tamanoHorizontal - 1;
-        this.matriz = new ArrayList<>(tamanoHorizontal);
-        for (int i = 0; i < tamanoHorizontal; i++) {
-            ArrayList<Parcela> aux = new ArrayList<>(tamanoVertical);
-            this.matriz.add(aux);
-        }
+        //this.tamanoVertical = tamanoVertical - 1;
+        //this.tamanoHorizontal = tamanoHorizontal - 1;
+        this.parcelas = new ArrayList<>();
         this.camino = new Camino();
         this.defensas = new ArrayList<>();
     }
 
-    public void agregarParcela(int x, int y, Parcela parcela) throws RangoInvalidoMapeadoError {
-        if (x > this.tamanoHorizontal || y > this.tamanoVertical) {
-            throw new RangoInvalidoMapeadoError();
-        }
-        var filaX = matriz.get(x);
-        filaX.add(y, parcela);
+    public void agregarParcela(Parcela parcela){
+        this.parcelas.add(parcela);
         if (parcela instanceof Pasarela) {
             this.camino.agregarPasarela((Pasarela) parcela);
         }
     }
 
     public boolean agregarDefensa(Defensa defensa, Coordenadas posicion, Jugador jugador) {
-        if (posicion.getX() > this.tamanoHorizontal || posicion.getY() > this.tamanoVertical) {
-            return false;
+        for (Parcela parcela : this.parcelas) {
+            if (parcela.getUbicacion().equals(posicion)) {
+                boolean pudo = parcela.ubicar(defensa, jugador);
+                if (pudo) this.defensas.add(parcela);
+                return pudo;
+            }
         }
-        var filaX = matriz.get(posicion.getX());
-        var parcelaParaUbicar = filaX.get(posicion.getY());
-        boolean pudoUbicar = parcelaParaUbicar.ubicar(defensa, jugador);
-        if(pudoUbicar){
-            defensas.add(parcelaParaUbicar);
-        }
-        return pudoUbicar;
+        return false;
     }
 
     /*public void defensasAtacar(Jugador jugador) {
@@ -66,8 +54,8 @@ public class Mapa {
     }*/
 
     public void defensasAtacar(Jugador jugador){
-        for (int i=0;i<this.defensas.size();i++){
-            this.camino.atacar((Tierra) this.defensas.get(i), jugador);
+        for (Parcela defensa : this.defensas) {
+            this.camino.atacar((Tierra) defensa, jugador);
         }
     }
 
@@ -91,6 +79,6 @@ public class Mapa {
         return this.camino.cantidadEnemigos(posCamino);
     }
     public int tamanoMapa(){
-        return (this.tamanoVertical +1) * (this.tamanoHorizontal +1);
+        return this.parcelas.size();
     }
 }
