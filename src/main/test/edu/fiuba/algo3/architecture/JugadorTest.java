@@ -1,59 +1,72 @@
 package edu.fiuba.algo3.architecture;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import edu.fiuba.algo3.modelo.creditos.Creditos;
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.vida.Energia;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class JugadorTest {
-    /*@Test
+    @Test
     public void Test01UnJugadorComienzaEnUnEstadoValido() {
-        Jugador jugador = Jugador.getInstancia();
+        Jugador jugador = new Jugador(20, 100, "Jugador 1");
+        Energia vida = new Energia(20);
+        Creditos creditos = new Creditos(100);
 
-        assertEquals(20, jugador.getVida());
-
-        assertEquals(100, jugador.getCreditos());
-        Jugador.reiniciar();
+        Assertions.assertTrue(vida.equals(jugador.getVida()));
+        Assertions.assertTrue(creditos.equals(jugador.getCreditos()));
     }
 
+    //
     @Test
     public void Test02UnJugadorRecibeUnCreditoAlMatarUnaHormiga() {
-        Jugador jugador = Jugador.getInstancia();
+        Jugador jugador = new Jugador(20, 100, "Jugador 1");
         Enemigo hormiga = new Hormiga();
 
-        assertEquals(100, jugador.getCreditos());
+        Energia danio = new Energia(1);
+        hormiga.recibirDanio(danio, jugador);
 
-        hormiga.recibirDanio(1);
-        assertEquals(101, jugador.getCreditos());
-        Hormiga.reiniciar();
-        Jugador.reiniciar();
+        Creditos creditos = new Creditos(101);
+        Assertions.assertTrue(creditos.equals(jugador.getCreditos()));
     }
 
     @Test
     public void Test03UnJugadorRecibeElDobleDeCreditosAlMatarMasDe10Hormigas() {
-        Jugador jugador = Jugador.getInstancia();
+        Jugador jugador = new Jugador(20, 100, "Jugador 1");
+        Energia danio = new Energia(1);
+
         for (int i = 0; i < 10; i++) {
             Enemigo hormiga = new Hormiga();
-            hormiga.recibirDanio(1);
+            hormiga.recibirDanio(danio, jugador);
         }
 
-        assertEquals(110, jugador.getCreditos());
-
         Enemigo hormiga = new Hormiga();
-        hormiga.recibirDanio(1);
+        hormiga.recibirDanio(danio, jugador);
 
-        assertEquals(112, jugador.getCreditos());
-        Hormiga.reiniciar();
-        Jugador.reiniciar();
+        Creditos creditos = new Creditos(112);
+        Assertions.assertTrue(creditos.equals(jugador.getCreditos()));
     }
 
     @Test
     public void Test04UnJugadorPierdeVidaAlRecibirDaño() {
-        Jugador jugador = Jugador.getInstancia();
-        Enemigo hormiga = new Hormiga();
-        Camino camino = new Camino(new Coordenadas(2, 2));
-        camino.ubicar(hormiga);
-        hormiga.atacar();
-        hormiga.atacar();
+        Jugador jugador = new Jugador(20, 100, "Jugador 1");
+        Energia danio = new Energia(1);
 
-        assertEquals(18, jugador.getVida());
+        jugador.recibirAtaque(danio);
 
-    }*/
+        Energia vida = new Energia(19);
+        Assertions.assertTrue(vida.equals(jugador.getVida()));
+    }
+
+    @Test
+    public void Test05UnJugadorPuedeMorir() {
+        Jugador jugador = new Jugador(20, 100, "Jugador 1");
+        Energia danio = new Energia(20);
+
+        jugador.recibirAtaque(danio);
+
+        Assertions.assertTrue(jugador.estaMuerto());
+    }
 }
