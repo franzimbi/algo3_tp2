@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.juego;
 
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.lector.Lector;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.turno.Turnos;
@@ -9,20 +11,23 @@ import edu.fiuba.algo3.modelo.turno.Turnos;
 public class Juego {
 
     private final Jugador jugador;
-    private final Mapa mapa; //mapa tiene un camino.
+    private final Mapa mapa;
     private final Turnos turnos;
 
-    public Juego(Jugador jugador, Mapa mapa, Turnos turnos) {
+
+    public Juego(Jugador jugador, Lector lector, String rutaMapa, String rutaTurnos) {
         this.jugador = jugador;
-        this.mapa = mapa;
-        this.turnos = turnos;
+        this.mapa = lector.leerMapa(rutaMapa);
+        this.turnos = lector.leerEnemigos(rutaTurnos);
+        Logger.getInstancia().info("se creo un juego para el jugador:" +
+                jugador.nombre() + " con un mapa de " + mapa.tamanoMapa() + " y "
+                + turnos.cantidadTurnos() + "turnos");
     }
 
     public void turnoEnemigos() {
         this.mapa.mover(this.jugador);
-
         if (this.mapa.perdio(this.jugador)) {
-            System.out.println("Perdiste!");
+            Logger.getInstancia().info("Jugador perdio!");
             return;
         }
         this.mapa.generarEnemigos(this.turnos, jugador);
@@ -36,7 +41,7 @@ public class Juego {
         this.mapa.defensasAtacar(this.jugador);
         this.turnoEnemigos();
         if (this.mapa.gano(this.jugador)) {
-            System.out.println("Ganaste!");
+            Logger.getInstancia().info("Jugador gano!");
         }
     }
 
@@ -52,4 +57,13 @@ public class Juego {
         return this.mapa.perdio(jugador);
     }
 
+    public int tamanoMapa() {
+        return this.mapa.tamanoMapa();
+    }
+
+    public int cantidadTurnos() { return this.turnos.cantidadTurnos();
+    }
+
+    public int cantidadEnemigos(int i) { return this.mapa.cantidadEnemigos(i);
+    }
 }

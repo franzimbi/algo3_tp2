@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
-import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.parcelas.Tierra;
 import edu.fiuba.algo3.modelo.turno.Turnos;
-import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
 
 import java.util.ArrayList;
 
@@ -16,15 +15,13 @@ public class Mapa {
     private final Camino camino;
     private final ArrayList<Parcela> defensas;
 
-    public Mapa(int tamanoHorizontal, int tamanoVertical) {
-        //this.tamanoVertical = tamanoVertical - 1;
-        //this.tamanoHorizontal = tamanoHorizontal - 1;
+    public Mapa() {
         this.parcelas = new ArrayList<>();
         this.camino = new Camino();
         this.defensas = new ArrayList<>();
     }
 
-    public void agregarParcela(Parcela parcela){
+    public void agregarParcela(Parcela parcela) {
         this.parcelas.add(parcela);
         if (parcela instanceof Pasarela) {
             this.camino.agregarPasarela((Pasarela) parcela);
@@ -35,25 +32,17 @@ public class Mapa {
         for (Parcela parcela : this.parcelas) {
             if (parcela.getUbicacion().equals(posicion)) {
                 boolean pudo = parcela.ubicar(defensa, jugador);
-                if (pudo) this.defensas.add(parcela);
-                return pudo;
+                if (pudo) this.defensas.add(parcela);{
+                    Logger.getInstancia().info("se ubico un " + defensa.getNombre()
+                            + " en " + posicion.getX() + "," + posicion.getY());
+                    return pudo;
+                }
             }
         }
         return false;
     }
 
-    /*public void defensasAtacar(Jugador jugador) {
-        for (int f = 0; f < this.tamanoHorizontal; f++) {
-            var filaX = this.matriz.get(f);
-            for (int c = 0; c < this.tamanoVertical; c++) {
-                if (filaX.get(c) instanceof Tierra) {
-                    this.camino.atacar((Tierra) filaX.get(c), jugador);
-                }
-            }
-        }
-    }*/
-
-    public void defensasAtacar(Jugador jugador){
+    public void defensasAtacar(Jugador jugador) {
         for (Parcela defensa : this.defensas) {
             this.camino.atacar((Tierra) defensa, jugador);
         }
@@ -75,10 +64,11 @@ public class Mapa {
         return this.camino.gano(jugador);
     }
 
-    public int cantidadEnemigos(int posCamino){
+    public int cantidadEnemigos(int posCamino) {
         return this.camino.cantidadEnemigos(posCamino);
     }
-    public int tamanoMapa(){
+
+    public int tamanoMapa() {
         return this.parcelas.size();
     }
 }

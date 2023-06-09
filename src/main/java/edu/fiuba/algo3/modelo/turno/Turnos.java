@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.turno;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.excepciones.TurnoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Camino;
 
 import java.util.ArrayList;
@@ -26,16 +27,14 @@ public class Turnos {
 
     public void generarEnemigos(Camino camino, Jugador jugador) {
         if (oleadas.size() == 0) {
+            Logger.getInstancia().info(" no se spawnearon mas enemigos pq no hay");
             return;
         }
         ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
-        for (int i = 0; i < enemigosDelTurno.size(); i++) {
-            camino.generarEnemigo(enemigosDelTurno.get(i), jugador);
-        }
-        /* Fran fijate que esto tambien funciona asi, pero no entiendo nada ya 2:42 am
         for (Enemigo enemigo : enemigosDelTurno) {
             camino.generarEnemigo(enemigo, jugador);
-        }*/
+            Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
+        }
         this.oleadas.remove(0);
     }
     public int cantidadTurnos(){

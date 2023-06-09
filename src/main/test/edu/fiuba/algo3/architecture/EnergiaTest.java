@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.architecture;
 
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.energia.Energia;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

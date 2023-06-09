@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.energia.Energia;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

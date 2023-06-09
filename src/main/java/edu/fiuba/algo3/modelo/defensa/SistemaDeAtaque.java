@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.defensa;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.energia.Energia;
 
 public class SistemaDeAtaque {
     private final int rango;

@@ -4,13 +4,17 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 
 public class RecompensaDoble implements Recompensa {
 
-    private final int cantidadDoble = 2;
+    private int cantidadBase;
+    private int multiplicador = 2;
+
+    public RecompensaDoble(int base) {
+        this.cantidadBase = multiplicador * base;
+    }
 
     @Override
     public void otorgarRecompensa(Jugador jugador) {
-        jugador.recibirCreditos(new Creditos(cantidadDoble));
+        jugador.recibirCreditos(new Creditos(cantidadBase));
     }
-
 
 
 }

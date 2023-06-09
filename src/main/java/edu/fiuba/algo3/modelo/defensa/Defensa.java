@@ -31,4 +31,5 @@ public abstract class Defensa {
         return this.armas.estaEnRango(distancia);
     }
 
+    public abstract String getNombre();
 }
