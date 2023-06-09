@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.jugador;
 
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
@@ -16,7 +17,9 @@ public class Jugador {
         this.nombre = nombre;
         this.energia = new Energia(vida);
         this.creditos = new Creditos(creditos);
-        this.scorer = new Score();
+                this.scorer = new Score();
+        Logger.getInstancia().info("Creditos iniciales de \"" + this.nombre + "\" " + this.creditos.getCantidad()
+                + " con energia inicial " + this.energia.getCantidad());
     }
 
     public Energia getVida() {

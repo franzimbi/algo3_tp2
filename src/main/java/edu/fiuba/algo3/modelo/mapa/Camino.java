@@ -33,25 +33,13 @@ public class Camino {
         tierra.atacar(pasarelaCercana, jugador);
     }
 
-
-    /*public void atacar(Tierra tierra, Jugador jugador) {
-        for (int i = pasarelas.size() - 1; i >= 0; i--) {
-            Pasarela pasarelaActual = pasarelas.get(i);
-            try {
-                tierra.atacar(pasarelaActual, jugador);
-            } catch (NoHayDefensaEnTierraError e){
-                return;
-            }
-        }
-    }*/
-
     public void agregarPasarela(Pasarela pasarela) {
         this.pasarelas.add(pasarela);
     }
 
-    public void mover(Jugador jugador) {
+    public void mover(Jugador jugador, int cantidadDeTurnos) {
         for (int i = pasarelas.size() - 1; i >= 0; i--) {
-            pasarelas.get(i).mover(this, jugador);
+            pasarelas.get(i).mover(this, jugador, cantidadDeTurnos);
         }
     }
 
@@ -59,13 +47,20 @@ public class Camino {
         this.pasarelas.get(0).ubicar(enemigo, jugador);
     }
 
-    public void moverEnemigo(Enemigo enemigo, Pasarela pasarela, Jugador jugador) {
+    public void moverEnemigo(Enemigo enemigo, Pasarela pasarela, Jugador jugador, int cantidadDeTurnos) {
         int aux = pasarelas.indexOf(pasarela) + enemigo.getVelocidad();
         if (aux >= pasarelas.size() - 1) {
-            Logger.getInstancia().info(enemigo.getNombre() + " ataco al jugador");
-            enemigo.atacar(jugador);
+            Logger.getInstancia().info("Se movio un " + enemigo.getNombre() +
+                    " a (" + pasarelas.get(pasarelas.size()-1).ubicacion().getX() + "," +
+                    pasarelas.get(pasarelas.size()-1).ubicacion().getY()  + ")");
+            Logger.getInstancia().info(enemigo.getNombre() +
+                    " ataco al jugador. vida restante: " + jugador.getVida().getCantidad());
+            enemigo.atacar(jugador, cantidadDeTurnos);
             return;
         }
+        Logger.getInstancia().info("Se movio un " + enemigo.getNombre() +
+                " a (" + pasarelas.get(aux).ubicacion().getX() + "," +
+                pasarelas.get(aux).ubicacion().getY()  + ")");
         pasarelas.get(aux).ubicar(enemigo, jugador);
     }
 

@@ -10,7 +10,7 @@ public class RecompensaRandomTest {
     public void Test01RecompensaRandomDaLosCreditosCorrectos() {
         Jugador jugador = new Jugador(1, 0, "Vegeta");
         RecompensaRandomMock recompensaRandom = new RecompensaRandomMock();
-        Creditos creditos = new Creditos(2);
+        Creditos creditos = new Creditos(1);
         recompensaRandom.otorgarRecompensa(jugador);
         assert creditos.equals(jugador.getCreditos());
     }

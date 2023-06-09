@@ -25,10 +25,9 @@ public class Pasarela extends Parcela {
         return true;
     }
 
-    /* nunca se usa
     public Coordenadas ubicacion() {
         return this.ubicacion;
-    }*/
+    }
 
     public void recibirAtaqueDe(Defensa defensa, Jugador jugador) {
         if (enemigos.isEmpty()) {
@@ -42,12 +41,12 @@ public class Pasarela extends Parcela {
         }
     }
 
-    public void mover(Camino camino, Jugador jugador) {
+    public void mover(Camino camino, Jugador jugador, int cantidadDeTurnos) {
         int tam = enemigos.size();
 
         for (int i = 0; i < tam; i++) {
             Enemigo actual = enemigos.remove(0);
-            camino.moverEnemigo(actual, this, jugador);
+            camino.moverEnemigo(actual, this, jugador, cantidadDeTurnos);
         }
     }
 

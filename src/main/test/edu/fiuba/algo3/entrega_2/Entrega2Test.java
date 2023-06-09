@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Camino;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -88,6 +89,7 @@ public class Entrega2Test {
 
     @Test
     public void Test18SimularYVerificarPartidaGanada() {
+        Logger.getInstancia().activar();
         String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
         String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
         Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
@@ -102,6 +104,7 @@ public class Entrega2Test {
         assert !juego.gano();
         juego.pasarTurno();
         assert juego.gano();
+        Logger.getInstancia().desactivar();
     }
 
     @Test

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
@@ -31,6 +32,8 @@ public abstract class Enemigo {
     public void recibirDanio(Energia danioRecibido, Jugador jugador) {
         this.energia.reducir(danioRecibido);
         if (estaMuerto()) {
+            Logger.getInstancia().info("un " + this.getNombre() + " murio y " +
+                    "se lo envio al jugador");
             jugador.recibirMuerto(this);
             this.recompensa.otorgarRecompensa(jugador);
         }
@@ -48,7 +51,7 @@ public abstract class Enemigo {
         return velocidad;
     }
 
-    public void atacar(Jugador jugador) {
+    public void atacar(Jugador jugador, int cantidadDeTurnos) {
         jugador.recibirAtaque(this.danio);
     }
 

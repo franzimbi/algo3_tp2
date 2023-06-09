@@ -12,7 +12,6 @@ public class Hormiga extends Enemigo {
         this.energia = new Energia(1);
         this.danio = new Energia(1);
         this.velocidad = 1;
-
     }
 
     public void agregarMuerto(Score score){

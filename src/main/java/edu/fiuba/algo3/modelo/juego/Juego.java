@@ -19,18 +19,19 @@ public class Juego {
         this.jugador = jugador;
         this.mapa = lector.leerMapa(rutaMapa);
         this.turnos = lector.leerEnemigos(rutaTurnos);
-        Logger.getInstancia().info("se creo un juego para el jugador:" +
-                jugador.nombre() + " con un mapa de " + mapa.tamanoMapa() + " y "
-                + turnos.cantidadTurnos() + "turnos");
+        Logger.getInstancia().info("se creo un juego para el jugador: \"" +
+                jugador.nombre() + "\" con un mapa de tamanio " + mapa.tamanoMapa() + " y "
+                + turnos.cantidadOleadas() + " oleadas");
     }
 
     public void turnoEnemigos() {
-        this.mapa.mover(this.jugador);
+        this.turnos.moverEnemigos(this.jugador, mapa);
         if (this.mapa.perdio(this.jugador)) {
             Logger.getInstancia().info("Jugador perdio!");
             return;
         }
         this.mapa.generarEnemigos(this.turnos, jugador);
+        turnos.sumarTurnos();
     }
 
     public void agregarDefensa(Defensa defensa, Coordenadas coordenadas) {
@@ -61,7 +62,7 @@ public class Juego {
         return this.mapa.tamanoMapa();
     }
 
-    public int cantidadTurnos() { return this.turnos.cantidadTurnos();
+    public int cantidadTurnos() { return this.turnos.cantidadOleadas();
     }
 
     public int cantidadEnemigos(int i) { return this.mapa.cantidadEnemigos(i);

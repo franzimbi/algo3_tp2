@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.defensa;
 
+import edu.fiuba.algo3.modelo.ataque.SistemaDeAtaque;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;

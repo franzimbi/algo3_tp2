@@ -34,7 +34,7 @@ public class Mapa {
                 boolean pudo = parcela.ubicar(defensa, jugador);
                 if (pudo) this.defensas.add(parcela);{
                     Logger.getInstancia().info("se ubico un " + defensa.getNombre()
-                            + " en " + posicion.getX() + "," + posicion.getY());
+                            + " en (" + posicion.getX() + "," + posicion.getY() + ")");
                     return pudo;
                 }
             }
@@ -48,8 +48,8 @@ public class Mapa {
         }
     }
 
-    public void mover(Jugador jugador) {
-        this.camino.mover(jugador);
+    public void mover(Jugador jugador, int cantidadDeTurnos) {
+        this.camino.mover(jugador, cantidadDeTurnos);
     }
 
     public boolean perdio(Jugador jugador) {

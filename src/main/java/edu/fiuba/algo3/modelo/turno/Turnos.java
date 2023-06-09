@@ -5,14 +5,17 @@ import edu.fiuba.algo3.modelo.excepciones.TurnoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Camino;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 
 import java.util.ArrayList;
 
 public class Turnos {
     private final ArrayList<ArrayList<Enemigo>> oleadas;
+    private int cantidadDeTurnos;
 
     public Turnos() {
         this.oleadas = new ArrayList<>();
+        this.cantidadDeTurnos = 0;
     }
 
     public void agregarEnemigoATurno(int turno, Enemigo enemigo) {
@@ -27,7 +30,7 @@ public class Turnos {
 
     public void generarEnemigos(Camino camino, Jugador jugador) {
         if (oleadas.size() == 0) {
-            Logger.getInstancia().info(" no se spawnearon mas enemigos pq no hay");
+            Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
             return;
         }
         ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
@@ -37,8 +40,17 @@ public class Turnos {
         }
         this.oleadas.remove(0);
     }
-    public int cantidadTurnos(){
+
+    public int cantidadOleadas(){
         return this.oleadas.size();
+    }
+
+    public void sumarTurnos(){
+        this.cantidadDeTurnos++;
+    }
+
+    public void moverEnemigos(Jugador jugador, Mapa mapa){
+        mapa.mover(jugador,this.cantidadDeTurnos);
     }
 }
 
