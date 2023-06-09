@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.vida;
+package edu.fiuba.algo3.modelo.energia;
 
 public class Energia {
     private int cantidad;

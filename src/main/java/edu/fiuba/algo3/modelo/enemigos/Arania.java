@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.scorer.Scorer;
+import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.creditos.RecompensaRandom;
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.energia.Energia;
 
 public class Arania extends Enemigo {
 
@@ -14,7 +14,11 @@ public class Arania extends Enemigo {
         this.velocidad = 2;
     }
 
-    public void agregarMuerto(Scorer score){
+    public void agregarMuerto(Score score){
         score.agregarMuerto(this);
+    }
+
+    public String getNombre(){
+        return "Arania";
     }
 }

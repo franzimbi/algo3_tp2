@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.mapa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.excepciones.NoHayDefensaEnTierraError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.parcelas.Tierra;
 
@@ -61,6 +62,7 @@ public class Camino {
     public void moverEnemigo(Enemigo enemigo, Pasarela pasarela, Jugador jugador) {
         int aux = pasarelas.indexOf(pasarela) + enemigo.getVelocidad();
         if (aux >= pasarelas.size() - 1) {
+            Logger.getInstancia().info(enemigo.getNombre() + " ataco al jugador");
             enemigo.atacar(jugador);
             return;
         }

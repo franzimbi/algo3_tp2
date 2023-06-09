@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 public class RecompensaDobleTest {
     @Test
     public void Test01RecompensaDobleDaLaCantidadCorrecta() {
-        RecompensaDoble recompensa = new RecompensaDoble();
+        int base = 1;
+        RecompensaDoble recompensa = new RecompensaDoble(base);
         Jugador jugador = new Jugador(1, 0, "Gohan");
         recompensa.otorgarRecompensa(jugador);
         Creditos creditos = new Creditos(2);

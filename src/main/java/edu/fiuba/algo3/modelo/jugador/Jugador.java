@@ -1,22 +1,22 @@
 package edu.fiuba.algo3.modelo.jugador;
 
-import edu.fiuba.algo3.modelo.scorer.Scorer;
+import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.energia.Energia;
 
 public class Jugador {
     private final String nombre;
     private final Energia energia;
     private final Creditos creditos;
 
-    private final Scorer scorer;
+    private final Score scorer;
 
     public Jugador(int vida, int creditos, String nombre) {
         this.nombre = nombre;
         this.energia = new Energia(vida);
         this.creditos = new Creditos(creditos);
-        this.scorer = new Scorer();
+        this.scorer = new Score();
     }
 
     public Energia getVida() {
@@ -44,5 +44,9 @@ public class Jugador {
     }
 
     public void recibirMuerto(Enemigo enemigo) { this.scorer.agregarMuerto(enemigo);}
+
+    public String nombre() {
+        return this.nombre;
+    }
 }
 

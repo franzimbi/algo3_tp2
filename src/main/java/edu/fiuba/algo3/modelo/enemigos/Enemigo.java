@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.scorer.Scorer;
+import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.energia.Energia;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +52,9 @@ public abstract class Enemigo {
         jugador.recibirAtaque(this.danio);
     }
 
-    public void agregarMuerto(Scorer scorer) {
+    public void agregarMuerto(Score scorer) {
         scorer.agregarMuerto(this);
     }
+
+    public abstract String getNombre();
 }
