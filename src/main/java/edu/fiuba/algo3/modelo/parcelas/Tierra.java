@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 
 public class Tierra extends Parcela {
-    private Defensa defensa;
+
 
     public Tierra(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
@@ -16,6 +16,7 @@ public class Tierra extends Parcela {
     public boolean ubicar(Defensa defensa, Jugador jugador) {
         this.defensa = defensa;
         defensa.sacarCreditos(jugador);
+        jugador.recibirDefensa(this);
         return true;
     }
 

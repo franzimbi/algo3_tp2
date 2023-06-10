@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.danio.Danio;
+import edu.fiuba.algo3.modelo.danio.DanioSimple;
+import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.creditos.RecompensaSimple;
 import edu.fiuba.algo3.modelo.energia.Energia;
@@ -7,14 +10,15 @@ import edu.fiuba.algo3.modelo.energia.Energia;
 public class Hormiga extends Enemigo {
 
     private final int recompensaBase = 1;
+
     public Hormiga() {
         this.recompensa = new RecompensaSimple(recompensaBase);
-        this.energia = new Energia(1);
-        this.danio = new Energia(1);
+        this.energia = new EnergiaRoja(1);
+        this.danio = new DanioSimple(1);
         this.velocidad = 1;
     }
 
-    public void agregarMuerto(Score score){
+    public void agregarMuerto(Score score) {
         score.agregarMuerto(this);
     }
 
@@ -22,7 +26,7 @@ public class Hormiga extends Enemigo {
         this.recompensa = ((RecompensaSimple) recompensa).duplicarRecompensa();
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return "Hormiga";
     }
 }

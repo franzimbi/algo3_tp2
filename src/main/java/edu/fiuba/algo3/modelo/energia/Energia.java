@@ -3,9 +3,9 @@ package edu.fiuba.algo3.modelo.energia;
 public abstract class Energia {
     private int cantidad;
 
-    /*public Energia(int cantidadVida) {
-        this.cantidad = cantidadVida;
-    }*/
+//    public Energia(int cantidadVida) {
+//        this.cantidad = cantidadVida;
+//    }
 
     public boolean equals(Energia other) {
         return this.cantidad == other.cantidad;

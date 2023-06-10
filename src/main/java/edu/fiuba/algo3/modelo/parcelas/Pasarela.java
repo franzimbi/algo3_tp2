@@ -10,7 +10,6 @@ import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import java.util.ArrayList;
 
 public class Pasarela extends Parcela {
-    protected ArrayList<Enemigo> enemigos = new ArrayList<>();
 
     public Pasarela(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;

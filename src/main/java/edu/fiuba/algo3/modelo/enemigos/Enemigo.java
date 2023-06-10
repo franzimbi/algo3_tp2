@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.danio.Danio;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 public abstract class Enemigo {
     protected Energia energia;
-    protected Energia danio;
+    protected Danio danio;
     protected int velocidad;
     protected Recompensa recompensa;
 
@@ -21,6 +22,8 @@ public abstract class Enemigo {
         {
             enemigosPosibles.put("arana", new Arania());
             enemigosPosibles.put("hormiga", new Hormiga());
+            enemigosPosibles.put("topo", new Topo());
+            enemigosPosibles.put("lechuza", new Lechuza());
         }
         Enemigo aux = enemigosPosibles.get(enemigo);
         if (aux != null) {
@@ -52,7 +55,7 @@ public abstract class Enemigo {
     }
 
     public void atacar(Jugador jugador, int cantidadDeTurnos) {
-        jugador.recibirAtaque(this.danio);
+        this.danio.atacar(jugador, cantidadDeTurnos);
     }
 
     public void agregarMuerto(Score scorer) {

@@ -2,7 +2,7 @@ package edu.fiuba.algo3.entrega_3;
 
 public class Entrega3Test {
 
-        //TODO: TODAS las parcelas tienen una lista de enemigos y una defensa     **
+        //TODO: TODAS las parcelas tienen una lista de enemigos y una defensa     *terminado*
         //TODO: Turnos tiene que ir contando los turnos                           *terminado*
         //TODO: El atacar de los enemigos tiene que recibir la cantidad de turnos *terminado*
         //TODO: Cada enemigo tiene una cantidad de movimientos                    **
@@ -12,4 +12,5 @@ public class Entrega3Test {
         //TODO: Crear topo                                                        *falta la logica*
         //TODO: Crear lechuza                                                     *falta la logica*
         //TODO: Crear un objeto "vida util"                                       *falta la logica*
+        //TODO: Crear un sistema de ataque para los enemigos
 }

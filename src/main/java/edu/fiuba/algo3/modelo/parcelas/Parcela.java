@@ -6,11 +6,14 @@ import edu.fiuba.algo3.modelo.excepciones.ParcelaInvalidaError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Parcela {
     protected Coordenadas ubicacion;
+    protected ArrayList<Enemigo> enemigos = new ArrayList<>();
+    protected Defensa defensa;
 
     public static Parcela construirParcela(String parcela, Coordenadas coordenada) {
         Map<String, Parcela> parcelasPosibles = new HashMap<>();
