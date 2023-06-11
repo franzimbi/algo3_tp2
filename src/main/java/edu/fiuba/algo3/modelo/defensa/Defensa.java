@@ -4,9 +4,11 @@ import edu.fiuba.algo3.modelo.ataque.SistemaDeAtaque;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
 
 
 public abstract class Defensa {
+    protected VidaUtil vidaUtil;
     protected SistemaDeAtaque armas;
     protected int turnosRestantes;
     protected Creditos coste;
@@ -33,4 +35,8 @@ public abstract class Defensa {
     }
 
     public abstract String getNombre();
+
+    public boolean vidaUtil() {
+        return this.vidaUtil.vidaUtil();
+    }
 }

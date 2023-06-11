@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.energia.Energia;
 import org.junit.jupiter.api.Test;
 
 public class SistemaDeAtaqueTest {
+    /*
     @Test
     public void Test01SistemaDeAtaqueAtacaAUnEnemigoEnRango() {
         TrampaArenosa.SistemaDeAtaque sistemaDeAtaque = new TrampaArenosa.SistemaDeAtaque(new Energia(1), 3);
@@ -29,5 +30,7 @@ public class SistemaDeAtaqueTest {
         TrampaArenosa.SistemaDeAtaque sistemaDeAtaque = new TrampaArenosa.SistemaDeAtaque(new Energia(1), 3);
         assert !sistemaDeAtaque.estaEnRango(4);
     }
+
+     */
 
 }

@@ -1,15 +1,28 @@
 package edu.fiuba.algo3.modelo.velocidad;
 
 public class Velocidad {
-    //TODO: implementar velocidad
-    private int velocidad;
+    protected int velocidad;
+    protected float multiplicador;
 
-    public Velocidad(int velocidad){
+    public Velocidad(int velocidad) {
         this.velocidad = velocidad;
+        this.multiplicador = 1;
     }
 
-    public int obtenerVelocidad(){
-        return this.velocidad;
+    public int obtenerVelocidad() {
+        return (int) (this.velocidad * multiplicador);
+    }
+
+    public void reducir(float multiplicador) {
+        this.multiplicador = multiplicador;
+    }
+
+    public void restaurar() {
+        this.multiplicador = 1;
+    }
+
+    public void aumentarVelocidad(int velocidad) {
+        this.velocidad += velocidad;
     }
 }
 

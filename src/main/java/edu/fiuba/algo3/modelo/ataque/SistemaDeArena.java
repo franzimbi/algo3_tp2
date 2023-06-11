@@ -5,12 +5,15 @@ import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 
 public class SistemaDeArena extends SistemaDeAtaque {
-    public SistemaDeArena(Energia danio, int rango) {
+    public final float multiplicador;
+
+    public SistemaDeArena(Energia danio, int rango, float multiplicador) {
         this.rango = rango;
         this.danio = danio;
+        this.multiplicador = multiplicador;
     }
 
     public void atacar(Enemigo enemigo, Jugador jugador) {
-        //hay que que tocar la clase velocidad dentro del enemigo
+        enemigo.reducirVelocidad(multiplicador);
     }
 }

@@ -9,4 +9,8 @@ public class DanioSimple extends Danio {
     public DanioSimple(int danio) {
         this.energia = new EnergiaRoja(danio);
     }
+
+    public void atacar(Jugador jugador, int cantidadDeTurnos) {
+        jugador.recibirAtaque(this.energia);
+    }
 }

@@ -3,6 +3,8 @@ package edu.fiuba.algo3.architecture;
 import edu.fiuba.algo3.architecture.Mocks.RecompensaRandomMock;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
+import edu.fiuba.algo3.modelo.energia.EnergiaAzul;
+import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.energia.Energia;
 import org.junit.jupiter.api.Test;
@@ -19,10 +21,10 @@ public class AraniaTest {
     }
 
     @Test
-    public void Test2AranialRecibirDanioSeDestruye() {
+    public void Test02AranialRecibirDanioSeDestruye() {
         Arania arania = new Arania();
         Jugador jugador = new Jugador(10, 100, "Juli");
-        Energia danio = new Energia(2);
+        Energia danio = new EnergiaRoja(3);
         arania.recibirDanio(danio, jugador);
         assertTrue(arania.estaMuerto());
     }
@@ -33,7 +35,7 @@ public class AraniaTest {
         Jugador jugador = new Jugador(10, 10, "juli2");
 
         arania.setRecompensa(new RecompensaRandomMock());
-        arania.recibirDanio(new Energia(2), jugador);
+        arania.recibirDanio(new EnergiaRoja(2), jugador);
         assertTrue(new Creditos(11).equals(jugador.getCreditos()));
     }
 
@@ -41,9 +43,10 @@ public class AraniaTest {
     public void Test04AraniaAtacaCorrectamente() {
         Arania arania = new Arania();
         Jugador jugador = new Jugador(10, 10, "juli3");
-        arania.atacar(jugador);
-        assertTrue((new Energia(8)).equals(jugador.getVida()));
+        arania.atacar(jugador, 0);
+        assertTrue((new EnergiaRoja(8)).equals(jugador.getVida()));
     }
+
 
 }
 

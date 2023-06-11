@@ -1,11 +1,10 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.excepciones.NoHayDefensaEnTierraError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
-import edu.fiuba.algo3.modelo.parcelas.Tierra;
 
 import java.util.ArrayList;
 
@@ -16,13 +15,13 @@ public class Camino {
         this.pasarelas = new ArrayList<>();
     }
 
-    public void atacar(Tierra tierra, Jugador jugador) {
+    public void atacar(Parcela parcela, Jugador jugador) {
         Pasarela pasarelaCercana = pasarelas.get(0);
-        int distanciaMinima = tierra.distancia(pasarelaCercana);
+        int distanciaMinima = parcela.distancia(pasarelaCercana);
 
         for (int i = 1; i < pasarelas.size(); i++) {
             Pasarela pasarelaActual = pasarelas.get(i);
-            int distanciaActual = tierra.distancia(pasarelaActual);
+            int distanciaActual = parcela.distancia(pasarelaActual);
             if (!pasarelaActual.estaVacia()) {
                 if (distanciaMinima > distanciaActual) {
                     pasarelaCercana = pasarelaActual;
@@ -30,7 +29,7 @@ public class Camino {
                 }
             }
         }
-        tierra.atacar(pasarelaCercana, jugador);
+        parcela.defensaAtacar(pasarelaCercana, jugador);
     }
 
     public void agregarPasarela(Pasarela pasarela) {
@@ -51,8 +50,8 @@ public class Camino {
         int aux = pasarelas.indexOf(pasarela) + enemigo.getVelocidad();
         if (aux >= pasarelas.size() - 1) {
             Logger.getInstancia().info("Se movio un " + enemigo.getNombre() +
-                    " a (" + pasarelas.get(pasarelas.size()-1).ubicacion().getX() + "," +
-                    pasarelas.get(pasarelas.size()-1).ubicacion().getY()  + ")");
+                    " a (" + pasarelas.get(pasarelas.size() - 1).ubicacion().getX() + "," +
+                    pasarelas.get(pasarelas.size() - 1).ubicacion().getY() + ")");
             Logger.getInstancia().info(enemigo.getNombre() +
                     " ataco al jugador. vida restante: " + jugador.getVida().getCantidad());
             enemigo.atacar(jugador, cantidadDeTurnos);
@@ -60,8 +59,10 @@ public class Camino {
         }
         Logger.getInstancia().info("Se movio un " + enemigo.getNombre() +
                 " a (" + pasarelas.get(aux).ubicacion().getX() + "," +
-                pasarelas.get(aux).ubicacion().getY()  + ")");
+                pasarelas.get(aux).ubicacion().getY() + ")");
         pasarelas.get(aux).ubicar(enemigo, jugador);
+        enemigo.actualizarMovimientos();
+        enemigo.restaurarVelocidad();
     }
 
     public boolean tieneEnemigos() {
