@@ -30,7 +30,7 @@ public class Camino {
         }
         parcela.defensaAtacar(pasarelaCercana, jugador);
     }
-
+//
     public void agregarPasarela(Pasarela pasarela) {
         Logger.getInstancia().info("se agrego una " + pasarela.getNombre()
                 + "al camino en:(" + pasarela.getUbicacion().getX() + "," + pasarela.getUbicacion().getY()
