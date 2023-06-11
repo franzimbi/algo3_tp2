@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Camino;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 
 import java.util.ArrayList;
 
@@ -28,19 +29,30 @@ public class Turnos {
         enemigosDelTurno.add(enemigo);
     }
 
-    public void generarEnemigos(Camino camino, Jugador jugador) {
+    public void generarEnemigos(Pasarela ini, Jugador jugador) {
         if (oleadas.size() == 0) {
             Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
             return;
         }
         ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
         for (Enemigo enemigo : enemigosDelTurno) {
-            camino.generarEnemigo(enemigo, jugador);
+            ini.ubicar(enemigo, jugador);
             Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
         }
         this.oleadas.remove(0);
     }
-
+    public void generarEnemigos(Camino ini, Jugador jugador) {
+        if (oleadas.size() == 0) {
+            Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
+            return;
+        }
+        ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
+        for (Enemigo enemigo : enemigosDelTurno) {
+            ini.generarEnemigo(enemigo, jugador);
+            Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
+        }
+        this.oleadas.remove(0);
+    }
     public int cantidadOleadas() {
         return this.oleadas.size();
     }

@@ -57,6 +57,13 @@ public class Mapa {
     }
 
     public void generarEnemigos(Turnos oleada, Jugador jugador) {
+//        for (Parcela parcela : this.parcelas) {
+//            if (parcela instanceof Pasarela){
+//                oleada.generarEnemigos((Pasarela) parcela, jugador);
+//            }
+//        }
+        //TODO: HACER DESAPARECER CAMINO Y QUE TODO SEA MAPA. LO PIDE JOAQUIN. ESTA
+        // LO COMENTADO ES UN EJEMPLO DE COMO HACER
         oleada.generarEnemigos(this.camino, jugador);
     }
 

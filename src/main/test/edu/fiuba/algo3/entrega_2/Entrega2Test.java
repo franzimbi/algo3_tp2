@@ -40,7 +40,8 @@ public class Entrega2Test {
         Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
         Camino camino = new Camino();
         Jugador jugador = new Jugador(5, 1, "Leo Messi");
-        camino.agregarPasarela(new Pasarela(new Coordenadas(0, 0)));
+        Pasarela ini = new Pasarela(new Coordenadas(0, 0));
+        camino.agregarPasarela(ini);
         camino.agregarPasarela(new Pasarela(new Coordenadas(0, 1)));
         camino.agregarPasarela(new Pasarela(new Coordenadas(0, 2)));
 
