@@ -2,9 +2,10 @@ package edu.fiuba.algo3.modelo.enemigos;
 
 import edu.fiuba.algo3.modelo.danio.DanioTopal;
 import edu.fiuba.algo3.modelo.energia.EnergiaAzul;
+import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 
-public class Topo extends Enemigo {
+public class    Topo extends Enemigo {
 
     public Topo() {
         super();
@@ -25,6 +26,9 @@ public class Topo extends Enemigo {
         if (movimientos == 5 || movimientos == 11) {
             velocidad.aumentarVelocidad(1);
         }
+    }
+    public void agregarMuerto(Score score) {
+        score.agregarMuerto(this);
     }
 
 }

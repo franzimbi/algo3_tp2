@@ -21,6 +21,7 @@ public class Arania extends Enemigo {
         score.agregarMuerto(this);
     }
 
+
     public String getNombre() {
         return "Arania";
     }
