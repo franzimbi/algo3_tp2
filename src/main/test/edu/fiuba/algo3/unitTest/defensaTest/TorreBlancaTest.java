@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.architecture;
+package edu.fiuba.algo3.unitTest.defensaTest;
 
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.defensa.Defensa;

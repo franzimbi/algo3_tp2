@@ -15,5 +15,6 @@ public class EnergiaRoja extends Energia {
     }
 
     public void reducir(EnergiaAzul energiaRestada) {
+        return;
     }
 }

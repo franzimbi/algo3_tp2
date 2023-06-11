@@ -1,9 +1,8 @@
-package edu.fiuba.algo3.architecture;
+package edu.fiuba.algo3.unitTest.enemigosTest;
 
-import edu.fiuba.algo3.architecture.Mocks.RecompensaRandomMock;
+import edu.fiuba.algo3.unitTest.Mocks.RecompensaRandomMock;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
-import edu.fiuba.algo3.modelo.energia.EnergiaAzul;
 import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.energia.Energia;

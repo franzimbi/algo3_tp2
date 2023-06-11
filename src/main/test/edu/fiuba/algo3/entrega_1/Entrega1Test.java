@@ -7,8 +7,10 @@ import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Camino;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.parcelas.*;
@@ -18,7 +20,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega1Test {
-    /*
 
     //Verificar que jugador empieza con la vida y los créditos correspondientes.
     @Test
@@ -88,9 +89,9 @@ public class Entrega1Test {
         lejos.ubicar(enemigo2, jugador);
         tierra.ubicar(defensa, jugador);
 
-        tierra.atacar(lejos, jugador);
-        tierra.atacar(cerca, jugador); //esto pone la torre en operacion
-        tierra.atacar(cerca, jugador);
+        defensa.atacarEnemigo(enemigo2, jugador);
+        defensa.atacarEnemigo(enemigo1, jugador); //esto pone la torre en operacion
+        defensa.atacarEnemigo(enemigo1, jugador);
 
         assertTrue(enemigo1.estaMuerto());
         assertFalse(enemigo2.estaMuerto());
@@ -102,7 +103,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100, "a");
         Enemigo enemigo = new Arania();
 
-        Energia energia = new Energia(2);
+        Energia energia = new EnergiaRoja(2);
 
         enemigo.recibirDanio(energia, jugador);
         assertTrue(enemigo.estaMuerto());
@@ -130,7 +131,7 @@ public class Entrega1Test {
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
         Jugador jugador = new Jugador(10, 1, "Julian");
         Enemigo enemigo = new Hormiga();
-        Energia energia = new Energia(1);
+        Energia energia = new EnergiaRoja(1);
 
         enemigo.recibirDanio(energia, jugador);
 
@@ -158,7 +159,7 @@ public class Entrega1Test {
         pasarela.ubicar(hormiga, jugador);
         pasarela.ubicar(arania, jugador);
 
-        camino.mover(jugador);
+        camino.mover(jugador,0);
 
         assertTrue(pasarela.estaVacia());
 
@@ -188,12 +189,10 @@ public class Entrega1Test {
         Defensa defensa = new TorreBlanca();
         c1.ubicar(enemigo, jugador);
         t1.ubicar(defensa, jugador);
-        c1.recibirAtaqueDe(defensa, jugador); //esto pone la torre en operacion
-        c1.recibirAtaqueDe(defensa, jugador);
+        camino.atacar(t1, jugador); // pone operativa la torre
+        camino.atacar(t1, jugador);
 
         assertTrue(camino.gano(jugador));
-
-
     }
 
 
@@ -217,14 +216,13 @@ public class Entrega1Test {
         Enemigo enemigo = new Hormiga();
         c3.ubicar(enemigo, jugador);
 
-        camino.mover(jugador);
-
-        assertTrue((new Energia(19)).equals(jugador.getVida()));
+        camino.mover(jugador,0);
+        assertFalse(camino.tieneEnemigos()); ;
+        assert((new EnergiaRoja(19)).equals(jugador.getVida()));
         assertTrue(camino.gano(jugador));
-
     }
 
-    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
+//    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
     @Test
     public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
         Jugador jugador = new Jugador(1, 100, "Julian");
@@ -243,14 +241,12 @@ public class Entrega1Test {
         Enemigo enemigo = new Hormiga();
         c3.ubicar(enemigo, jugador);
 
-        camino.mover(jugador);
+        camino.mover(jugador,0);
 
         assertTrue(jugador.estaMuerto());
         assertFalse(camino.gano(jugador));
         assertTrue(camino.perdio(jugador));
     }
-
-     */
 }
 
 

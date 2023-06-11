@@ -26,10 +26,10 @@ public class Lechuza extends Enemigo {
     public void reducirVelocidad(float multiplicador) {
     }
 
-    @Override
-    public void atacar(Jugador jugador, int cantidadDeTurnos) {
-        jugador.destruirPrimeraDefensa();
-    }
+//    @Override
+//    public void atacar(Jugador jugador, int cantidadDeTurnos) {
+//        jugador.destruirPrimeraDefensa();
+//    }
 
     public void agregarMuerto(Score score) {
         score.agregarMuerto(this);

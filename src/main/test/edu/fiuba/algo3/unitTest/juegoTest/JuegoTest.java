@@ -1,12 +1,10 @@
-package edu.fiuba.algo3.architecture;
+package edu.fiuba.algo3.unitTest.juegoTest;
 
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.turno.Turnos;
 import org.junit.jupiter.api.Test;
 
 public class JuegoTest {

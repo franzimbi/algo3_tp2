@@ -1,13 +1,11 @@
-package edu.fiuba.algo3.architecture;
+package edu.fiuba.algo3.unitTest.parcelasTest;
 
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
 import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
-import edu.fiuba.algo3.modelo.excepciones.NoHayDefensaEnTierraError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.parcelas.Tierra;
 import org.junit.jupiter.api.Test;
 

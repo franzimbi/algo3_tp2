@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.architecture;
+package edu.fiuba.algo3.unitTest.creditosTest;
 
-import edu.fiuba.algo3.architecture.Mocks.RecompensaRandomMock;
+import edu.fiuba.algo3.unitTest.Mocks.RecompensaRandomMock;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;

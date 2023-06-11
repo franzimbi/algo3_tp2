@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.architecture;
+package edu.fiuba.algo3.unitTest.mapaTest;
 
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import org.junit.jupiter.api.Test;

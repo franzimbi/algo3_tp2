@@ -1,12 +1,4 @@
-package edu.fiuba.algo3.architecture;
-
-import edu.fiuba.algo3.modelo.creditos.Creditos;
-import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.energia.Energia;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+package edu.fiuba.algo3.unitTest.jugadorTest;
 
 public class JugadorTest {
     /*

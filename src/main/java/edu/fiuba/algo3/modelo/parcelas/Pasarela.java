@@ -20,6 +20,9 @@ public class Pasarela extends Parcela {
     }
 
     public boolean ubicar(Enemigo enemigo, Jugador jugador) {
+        Logger.getInstancia().info("se agrego un " +
+                enemigo.getNombre() + " en:(" + this.getUbicacion().getX() +
+                "," + this.getUbicacion().getY() + ")" );
         enemigos.add(enemigo);
         return true;
     }
@@ -44,4 +47,6 @@ public class Pasarela extends Parcela {
     public int cantidadEnemigos() {
         return this.enemigos.size();
     }
+
+    public String getNombre(){return "pasarela";}
 }

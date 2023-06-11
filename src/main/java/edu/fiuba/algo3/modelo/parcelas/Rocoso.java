@@ -20,4 +20,5 @@ public class Rocoso extends Parcela {
         return false;
     }
 
+    public String getNombre(){return "rocoso";}
 }

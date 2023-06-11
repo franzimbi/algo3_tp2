@@ -14,4 +14,5 @@ public class SistemaDeTorre extends SistemaDeAtaque {
     public void atacar(Enemigo enemigo, Jugador jugador) {
         enemigo.recibirDanio(this.danio, jugador);
     }
+
 }

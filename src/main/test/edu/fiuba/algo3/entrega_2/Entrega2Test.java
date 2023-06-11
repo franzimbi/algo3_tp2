@@ -89,7 +89,6 @@ public class Entrega2Test {
 
     @Test
     public void Test18SimularYVerificarPartidaGanada() {
-        Logger.getInstancia().activar();
         String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
         String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
         Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");

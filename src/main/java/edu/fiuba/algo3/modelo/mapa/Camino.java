@@ -19,8 +19,7 @@ public class Camino {
         Pasarela pasarelaCercana = pasarelas.get(0);
         int distanciaMinima = parcela.distancia(pasarelaCercana);
 
-        for (int i = 1; i < pasarelas.size(); i++) {
-            Pasarela pasarelaActual = pasarelas.get(i);
+        for (Pasarela pasarelaActual : pasarelas) {
             int distanciaActual = parcela.distancia(pasarelaActual);
             if (!pasarelaActual.estaVacia()) {
                 if (distanciaMinima > distanciaActual) {
@@ -33,6 +32,9 @@ public class Camino {
     }
 
     public void agregarPasarela(Pasarela pasarela) {
+        Logger.getInstancia().info("se agrego una " + pasarela.getNombre()
+                + "al camino en:(" + pasarela.getUbicacion().getX() + "," + pasarela.getUbicacion().getY()
+                + ")" );
         this.pasarelas.add(pasarela);
     }
 
@@ -85,4 +87,5 @@ public class Camino {
     public int cantidadEnemigos(int posPasarela) {
         return this.pasarelas.get(posPasarela).cantidadEnemigos();
     }
+
 }

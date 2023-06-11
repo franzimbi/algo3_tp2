@@ -22,5 +22,5 @@ public class Tierra extends Parcela {
     public boolean ubicar(Enemigo enemigo, Jugador jugador) {
         return false;
     }
-
+    public String getNombre(){return "tierra";}
 }

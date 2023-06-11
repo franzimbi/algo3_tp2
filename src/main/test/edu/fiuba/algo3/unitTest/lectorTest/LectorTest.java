@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.architecture;
+package edu.fiuba.algo3.unitTest.lectorTest;
 
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;

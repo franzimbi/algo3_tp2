@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.architecture.Mocks;
+package edu.fiuba.algo3.unitTest.Mocks;
 
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
