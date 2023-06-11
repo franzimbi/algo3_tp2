@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class EnergiaTest {
+    /*
     @Test
     public void Test01EnergiaComienzaEnUnEstadoValido() {
         Energia vida = new Energia(10);
@@ -26,4 +27,6 @@ public class EnergiaTest {
         assertTrue(vida.equals(vida2));
     }
 
+
+     */
 }

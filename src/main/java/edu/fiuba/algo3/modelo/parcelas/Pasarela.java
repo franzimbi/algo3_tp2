@@ -28,18 +28,6 @@ public class Pasarela extends Parcela {
         return this.ubicacion;
     }
 
-    public void recibirAtaqueDe(Defensa defensa, Jugador jugador) {
-        if (enemigos.isEmpty()) {
-            return;
-        }
-        Enemigo primerEnemigo = enemigos.get(0);
-        defensa.atacarEnemigo(primerEnemigo, jugador);
-        if (primerEnemigo.estaMuerto()) {
-            jugador.recibirMuerto(primerEnemigo);
-            enemigos.remove(primerEnemigo);
-        }
-    }
-
     public void mover(Camino camino, Jugador jugador, int cantidadDeTurnos) {
         int tam = enemigos.size();
 

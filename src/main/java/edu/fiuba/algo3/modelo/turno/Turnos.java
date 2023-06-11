@@ -41,16 +41,16 @@ public class Turnos {
         this.oleadas.remove(0);
     }
 
-    public int cantidadOleadas(){
+    public int cantidadOleadas() {
         return this.oleadas.size();
     }
 
-    public void sumarTurnos(){
+    public void sumarTurnos() {
         this.cantidadDeTurnos++;
     }
 
-    public void moverEnemigos(Jugador jugador, Mapa mapa){
-        mapa.mover(jugador,this.cantidadDeTurnos);
+    public void moverEnemigos(Jugador jugador, Mapa mapa) {
+        mapa.mover(jugador, this.cantidadDeTurnos);
     }
 }
 

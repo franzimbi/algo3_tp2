@@ -64,7 +64,7 @@ public class TorrePlateadaTest {
         torrePlateada.atacarEnemigo(hormiga, jugador);
 
         assert !pasarela.estaVacia();
-        tierra.atacar(pasarela, jugador);
+        tierra.defensaAtacar(pasarela, jugador);
         assert pasarela.estaVacia();
     }
 
@@ -81,7 +81,7 @@ public class TorrePlateadaTest {
         torreBlanca.atacarEnemigo(hormiga, jugador);
 
         assert !pasarela.estaVacia();
-        tierra.atacar(pasarela, jugador);
+        tierra.defensaAtacar(pasarela, jugador);
         assert !pasarela.estaVacia();
     }
 
