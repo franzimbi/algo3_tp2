@@ -222,7 +222,7 @@ public class Entrega1Test {
         assertTrue(camino.gano(jugador));
     }
 
-//    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
+    //    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
     @Test
     public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
         Jugador jugador = new Jugador(1, 100, "Julian");
