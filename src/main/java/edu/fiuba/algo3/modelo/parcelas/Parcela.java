@@ -12,8 +12,8 @@ import java.util.Map;
 
 public abstract class Parcela {
     protected Coordenadas ubicacion;
-    protected ArrayList<Enemigo> enemigos = new ArrayList<>();
-    protected Defensa defensa;
+//    protected ArrayList<Enemigo> enemigos = new ArrayList<>();
+//    protected Defensa defensa;
 
     public static Parcela construirParcela(String parcela, Coordenadas coordenada) {
         Map<String, Parcela> parcelasPosibles = new HashMap<>();
@@ -29,39 +29,39 @@ public abstract class Parcela {
         throw new ParcelaInvalidaError();
     }
 
-    public abstract boolean ubicar(Defensa defensa, Jugador jugador);
+    public abstract boolean ubicar(Defensa defensa);
+    public abstract boolean ubicar(Enemigo enemigo);
 
-    public abstract boolean ubicar(Enemigo enemigo, Jugador jugador);
 
-    public int distancia(Parcela other) {
-        return this.ubicacion.distancia(other.ubicacion);
+    public boolean tieneUbicacion(Coordenadas other){
+        return  this.ubicacion.equals(other);
     }
     public Coordenadas getUbicacion(){
         return this.ubicacion;
     }
 
-    public void defensaAtacar(Pasarela pasarela, Jugador jugador) {
-        int distancia = this.distancia(pasarela);
+//    public void defensaAtacar(Pasarela pasarela, Jugador jugador) {
+//        int distancia = this.distancia(pasarela);
+//
+//        if (this.defensa.estaEnRango(distancia)) {
+//            pasarela.enemigoRecibirAtaque(this.defensa, jugador);
+//        }
+//
+//        if (!this.defensa.vidaUtil()) {
+//            this.defensa = null;
+//        }
+//    }
 
-        if (this.defensa.estaEnRango(distancia)) {
-            pasarela.enemigoRecibirAtaque(this.defensa, jugador);
-        }
-
-        if (!this.defensa.vidaUtil()) {
-            this.defensa = null;
-        }
-    }
-
-    public void enemigoRecibirAtaque(Defensa defensa, Jugador jugador) {
-        if (enemigos.isEmpty()) {
-            return;
-        }
-        Enemigo primerEnemigo = enemigos.get(0);
-        defensa.atacarEnemigo(primerEnemigo, jugador);
-        if (primerEnemigo.estaMuerto()) {
-            jugador.recibirMuerto(primerEnemigo);
-            enemigos.remove(primerEnemigo);
-        }
-    }
+//    public void enemigoRecibirAtaque(Defensa defensa, Jugador jugador) {
+//        if (enemigos.isEmpty()) {
+//            return;
+//        }
+//        Enemigo primerEnemigo = enemigos.get(0);
+//        defensa.atacarEnemigo(primerEnemigo, jugador);
+//        if (primerEnemigo.estaMuerto()) {
+//            jugador.recibirMuerto(primerEnemigo);
+//            enemigos.remove(primerEnemigo);
+//        }
+//    }
 
 }

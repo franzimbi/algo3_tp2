@@ -59,12 +59,12 @@ public class LectorJSON implements Lector{
                 long cantidadHormigas = (Long) enemigosJSON.get("hormiga");
 
                 for (int i = 0; i < cantidadHormigas; i++) {
-                    enemigosPorTurno.agregarEnemigoATurno((int) turno - 1, new Hormiga());
+                    //enemigosPorTurno.agregarEnemigoATurno((int) turno - 1, new Hormiga());
                 }
                 long cantidadAranias = (Long) enemigosJSON.get("arana");
 
                 for (int i = 0; i < cantidadAranias; i++) {
-                    enemigosPorTurno.agregarEnemigoATurno((int) turno - 1, new Arania());
+                    //enemigosPorTurno.agregarEnemigoATurno((int) turno - 1, new Arania());
                 }
             }
             return enemigosPorTurno;

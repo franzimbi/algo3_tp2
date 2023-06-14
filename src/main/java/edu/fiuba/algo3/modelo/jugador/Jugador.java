@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.jugador;
 
 import edu.fiuba.algo3.modelo.creditos.Creditos;
+import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
@@ -15,13 +16,13 @@ public class Jugador {
     private final Energia energia;
     private final Creditos creditos;
     private final Score score;
-    private final ArrayList<Parcela> defensas;
+    private final ArrayList<Defensa> defensas;
 
     public Jugador(int vida, int creditos, String nombre) {
         this.nombre = nombre;
         this.energia = new EnergiaRoja(vida);
         this.creditos = new Creditos(creditos);
-        this.defensas = new ArrayList<Parcela>();
+        this.defensas = new ArrayList<Defensa>();
         this.score = new Score();
         Logger.getInstancia().info("Creditos iniciales de \"" + this.nombre + "\" " + this.creditos.getCantidad()
                 + " con energia inicial " + this.energia.getCantidad());
@@ -38,12 +39,11 @@ public class Jugador {
     public void recibirAtaque(Energia danio) {
         danio.reducir(this.energia);
     }
-
     public boolean estaMuerto() {
         return this.energia.estaMuerto();
     }
 
-    public void recibirDefensa(Parcela defensa) {
+    public void recibirDefensa(Defensa defensa) {
         this.defensas.add(defensa);
     }
 
@@ -51,7 +51,7 @@ public class Jugador {
         if (this.defensas.isEmpty()) {
             return;
         }
-        Parcela primeraDefensa = defensas.get(0);
+        Defensa primeraDefensa = defensas.get(0);
         this.defensas.remove(0);
         //primeraDefensa.sacarDefensa()
     }

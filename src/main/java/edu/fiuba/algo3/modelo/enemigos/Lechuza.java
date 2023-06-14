@@ -4,14 +4,15 @@ import edu.fiuba.algo3.modelo.creditos.RecompensaSimple;
 import edu.fiuba.algo3.modelo.danio.DanioLechuzal;
 import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 
 public class Lechuza extends Enemigo {
     //TODO: implementar lechuza
 
-    public Lechuza() {
-        super();
+    public Lechuza(Coordenadas ubicacion) {
+        super(ubicacion);
         this.recompensa = new RecompensaSimple(0);
         this.energia = new EnergiaRoja(5);
         this.danio = new DanioLechuzal();

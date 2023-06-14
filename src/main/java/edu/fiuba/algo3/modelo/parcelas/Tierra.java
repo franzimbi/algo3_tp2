@@ -7,20 +7,18 @@ import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 
 public class Tierra extends Parcela {
 
-
     public Tierra(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
     }
 
-    public boolean ubicar(Defensa defensa, Jugador jugador) {
-        this.defensa = defensa;
-        defensa.sacarCreditos(jugador);
-        jugador.recibirDefensa(this);
+    public boolean ubicar(Defensa defensa) {
+        defensa.ubicarEn(this.ubicacion);
         return true;
     }
 
-    public boolean ubicar(Enemigo enemigo, Jugador jugador) {
+    public boolean ubicar(Enemigo enemigo) {
         return false;
     }
+
     public String getNombre(){return "tierra";}
 }

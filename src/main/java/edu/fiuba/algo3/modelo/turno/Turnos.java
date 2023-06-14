@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.excepciones.TurnoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
-import edu.fiuba.algo3.modelo.mapa.Camino;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 
@@ -36,23 +35,23 @@ public class Turnos {
         }
         ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
         for (Enemigo enemigo : enemigosDelTurno) {
-            ini.ubicar(enemigo, jugador);
+            ini.ubicar(enemigo);
             Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
         }
         this.oleadas.remove(0);
     }
-    public void generarEnemigos(Camino ini, Jugador jugador) {
-        if (oleadas.size() == 0) {
-            Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
-            return;
-        }
-        ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
-        for (Enemigo enemigo : enemigosDelTurno) {
-            ini.generarEnemigo(enemigo, jugador);
-            Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
-        }
-        this.oleadas.remove(0);
-    }
+//    public void generarEnemigos(Camino ini, Jugador jugador) {
+//        if (oleadas.size() == 0) {
+//            Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
+//            return;
+//        }
+//        ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
+//        for (Enemigo enemigo : enemigosDelTurno) {
+//            ini.generarEnemigo(enemigo, jugador);
+//            Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
+//        }
+//        this.oleadas.remove(0);
+//    }
     public int cantidadOleadas() {
         return this.oleadas.size();
     }
