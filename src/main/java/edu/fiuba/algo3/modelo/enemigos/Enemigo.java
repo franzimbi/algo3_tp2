@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 
@@ -21,17 +22,17 @@ public abstract class Enemigo {
     protected int movimientos;
     protected Coordenadas ubicacion;
 
-    public Enemigo(Coordenadas ubicacion) {
+    public Enemigo() {
         this.movimientos = 0;
-        this.ubicacion = ubicacion;
+        this.ubicacion = new Coordenadas(0,0);
     }
-    public static Enemigo construirEnemigo(String enemigo, Coordenadas ubicacion) {
+    public static Enemigo construirEnemigo(String enemigo) {
         Map<String, Enemigo> enemigosPosibles = new HashMap<>();
         {
-            enemigosPosibles.put("arana", new Arania(ubicacion));
-            enemigosPosibles.put("hormiga", new Hormiga(ubicacion));
-            enemigosPosibles.put("topo", new Topo(ubicacion));
-            enemigosPosibles.put("lechuza", new Lechuza(ubicacion));
+            enemigosPosibles.put("arana", new Arania());
+            enemigosPosibles.put("hormiga", new Hormiga());
+            enemigosPosibles.put("topo", new Topo());
+            enemigosPosibles.put("lechuza", new Lechuza());
         }
         Enemigo aux = enemigosPosibles.get(enemigo);
         if (aux != null) {
@@ -66,6 +67,7 @@ public abstract class Enemigo {
     public int getVelocidad() {
         return velocidad.obtenerVelocidad();
     }
+    public Coordenadas getUbicacion(){return this.ubicacion;}
     public void atacar(Jugador jugador, int cantidadDeTurnos) {
         this.danio.atacar(jugador, cantidadDeTurnos);
     }
@@ -78,5 +80,9 @@ public abstract class Enemigo {
     }
     public void actualizarMovimientos() {
         this.movimientos += 1;
+    }
+
+    public void mover(Pasarela pasarelaActual){
+        this.ubicarEn(pasarelaActual.siguientePasarela(this.velocidad));
     }
 }

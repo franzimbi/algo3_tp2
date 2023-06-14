@@ -11,8 +11,8 @@ import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 public class Lechuza extends Enemigo {
     //TODO: implementar lechuza
 
-    public Lechuza(Coordenadas ubicacion) {
-        super(ubicacion);
+    public Lechuza() {
+        super();
         this.recompensa = new RecompensaSimple(0);
         this.energia = new EnergiaRoja(5);
         this.danio = new DanioLechuzal();

@@ -15,8 +15,8 @@ public abstract class Defensa {
     protected Creditos coste;
     protected Coordenadas ubicacion;
 
-    public Defensa(Coordenadas ubicacion){
-        this.ubicacion = ubicacion;
+    public Defensa(){
+        this.ubicacion = new Coordenadas(0,0);
     }
     public boolean estaOperativa() {
         return this.turnosRestantes == 0;

@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.excepciones.*;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.parcelas.Rocoso;
@@ -36,8 +37,8 @@ public class Entrega1Test {
     @Test
     public void Test02UnaDefensaSeConstruyeEnElTiempoCorrecto() {
         Jugador jugador = new Jugador(20, 100, "mati");
-        Enemigo enemigo = new Arania(new Coordenadas(0,0));
-        Defensa torre = new TorreBlanca(new Coordenadas(0,1));
+        Enemigo enemigo = new Arania();
+        Defensa torre = new TorreBlanca();
 
         assertFalse(torre.estaOperativa());
         torre.atacarEnemigo(enemigo, jugador);
@@ -48,19 +49,19 @@ public class Entrega1Test {
     @Test
     public void Test03UnJugadorDebeTenerCreditosSuficientesParaConstruirUnaTorre() {
         Jugador jugador = new Jugador(20, 2, "A");
-        Defensa torre = new TorrePlateada(new Coordenadas(0,0));
+        Defensa torre = new TorrePlateada();
+
         assertThrows(CreditosInsuficientesError.class, () -> torre.asignarAJugador(jugador));
     }
 
     //Verificar solo se pueda construir defensas sobre tierra (y verificar lo contrario)
     @Test
     public void Test04SoloSePuedeConstruirDefensasSobreTierra() {
-        Jugador jugador = new Jugador(20, 100, "a");
-        Defensa defensa = new TorreBlanca(new Coordenadas(0,0));
+        Defensa defensa = new TorreBlanca();
 
         Parcela tierra = new Tierra(new Coordenadas(0, 0));
-        Parcela roca = new Rocoso(new Coordenadas(1, 1));
-        Parcela pasarela = new Pasarela(new Coordenadas(0, 1));
+        Parcela roca = new Rocoso(new Coordenadas(0, 0));
+        Parcela pasarela = new Pasarela(new Coordenadas(0, 0));
 
         assertTrue(tierra.ubicar(defensa));
         assertFalse(roca.ubicar(defensa));
@@ -71,9 +72,9 @@ public class Entrega1Test {
     @Test
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
         Jugador jugador = new Jugador(20, 100, "a");
-        Defensa defensa = new TorreBlanca(new Coordenadas(0,0));
-        Enemigo enemigo1 = new Hormiga(new Coordenadas(0,3));
-        Enemigo enemigo2 = new Hormiga(new Coordenadas(0,5));
+        Defensa defensa = new TorreBlanca();
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Hormiga();
 
         Pasarela lejos = new Pasarela(new Coordenadas(0, 5));
         Pasarela cerca = new Pasarela(new Coordenadas(0, 3));
@@ -95,7 +96,7 @@ public class Entrega1Test {
     @Test
     public void Test06UnEnemigoRecibeElDanioCorrecto() {
         Jugador jugador = new Jugador(20, 100, "a");
-        Enemigo enemigo = new Arania(new Coordenadas(0,0));
+        Enemigo enemigo = new Arania();
 
         Energia energia = new EnergiaRoja(2);
 
@@ -107,8 +108,7 @@ public class Entrega1Test {
     //Verificar que las unidades enemigas solo se muevan por la parcela autorizada.
     @Test
     public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelaAutorizada() {
-        Jugador jugador = new Jugador(20, 100, "a");
-        Enemigo enemigo = new Arania(new Coordenadas(1,1));
+        Enemigo enemigo = new Arania();
 
         Parcela tierra = new Tierra(new Coordenadas(0, 0));
         Parcela piedra = new Rocoso(new Coordenadas(1, 0));
@@ -124,7 +124,7 @@ public class Entrega1Test {
     @Test
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
         Jugador jugador = new Jugador(10, 1, "Julian");
-        Enemigo enemigo = new Hormiga(new Coordenadas(0,0));
+        Enemigo enemigo = new Hormiga();
         Energia energia = new EnergiaRoja(1);
 
         enemigo.recibirDanio(energia, jugador);
@@ -135,56 +135,41 @@ public class Entrega1Test {
     //Verificar que al pasar un turno las unidades enemigas se hayan movido según sus capacidades.
     @Test
     public void Test09PasarUnTurnoMueveEnemigoSegunCapacidad() {
-        Jugador jugador = new Jugador(20, 100, "Julian");
-        Enemigo hormiga = new Hormiga(new Coordenadas(0, 0));
-        Enemigo arania = new Arania(new Coordenadas(0, 0));
+        Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
 
-        hormiga.moverse(Mapa mapa);
+        Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
+        Pasarela p2 = new Pasarela(new Coordenadas(0,1));
+        Pasarela p3 = new Pasarela(new Coordenadas(0,2));
 
-        // 0,0 0,1 0,2 0,3
-        // 1,0 1,1 1,2 1,3
-        // 2,0 2,1 2,2 2,3
-        // 3,0 3,1 3,2 3,3
+        p1.setSiguiente(p2);
+        p2.setSiguiente(p3);
 
-        // (0,0) (0,1) (0,2) (0,3) (1,0) (1,1) (1,2) (1,3) (2,0) (2,1) (2,2) (2,3) (3,0) (3,1) (3,2) (3,3)
-//        pasarela.ubicar(hormiga);
-//        pasarela.ubicar(arania);
-//
-//        camino.mover(jugador,0);
-//
-//        assertTrue(pasarela.estaVacia());
-//
-//        assertFalse(siguienteHormiga.estaVacia());
-//
-//        assertFalse(siguienteArania.estaVacia());
+        hormiga.mover(p1);
+        arania.mover(p1);
+        assert hormiga.getUbicacion().equals(new Coordenadas(0,1));
+        assert arania.getUbicacion().equals(new Coordenadas(0,2));
     }
 
     //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
-//    @Test
-//    public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
-//        Jugador jugador = new Jugador(20, 100, "Julian");
-//        Camino camino = new Camino();
-//
-//        Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
-//        Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
-//        Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
-//        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
-//        Parcela t1 = new Tierra(new Coordenadas(0, 0));
-//
-//        camino.agregarPasarela(c1);
-//        camino.agregarPasarela(c2);
-//        camino.agregarPasarela(c3);
-//        camino.agregarPasarela(c4);
-//
-//        Enemigo enemigo = new Hormiga();
-//        Defensa defensa = new TorreBlanca();
+    @Test
+    public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
+        Jugador jugador = new Jugador(20, 100, "Julian");
+        Mapa mapa = new Mapa();
+
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0,0)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0,1)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0,2)));
+
+        Enemigo enemigo = new Hormiga();
+        Defensa defensa = new TorreBlanca();
 //        c1.ubicar(enemigo, jugador);
 //        t1.ubicar(defensa, jugador);
 //        camino.atacar(t1, jugador); // pone operativa la torre
 //        camino.atacar(t1, jugador);
 //
 //        assertTrue(camino.gano(jugador));
-//    }
+    }
 
 
     //  Verificar que sin eliminar todas la unidades enemigas, pero las pocas que

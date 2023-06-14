@@ -61,7 +61,7 @@ public class Turnos {
     }
 
     public void moverEnemigos(Jugador jugador, Mapa mapa) {
-        mapa.mover(jugador, this.cantidadDeTurnos);
+        //mapa.mover(jugador, this.cantidadDeTurnos);
     }
 }
 

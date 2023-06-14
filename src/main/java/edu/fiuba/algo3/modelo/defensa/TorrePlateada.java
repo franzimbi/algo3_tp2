@@ -12,8 +12,8 @@ import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
 
 public class TorrePlateada extends Defensa {
 
-    public TorrePlateada(Coordenadas ubicacion) {
-        super(ubicacion);
+    public TorrePlateada() {
+        super();
         this.coste = new Creditos(20);
         this.armas = new SistemaDeTorre(new EnergiaRoja(2), 5);
         this.turnosRestantes = 2;

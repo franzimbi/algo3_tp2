@@ -12,8 +12,6 @@ import java.util.Map;
 
 public abstract class Parcela {
     protected Coordenadas ubicacion;
-//    protected ArrayList<Enemigo> enemigos = new ArrayList<>();
-//    protected Defensa defensa;
 
     public static Parcela construirParcela(String parcela, Coordenadas coordenada) {
         Map<String, Parcela> parcelasPosibles = new HashMap<>();

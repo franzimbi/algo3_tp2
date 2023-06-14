@@ -11,8 +11,8 @@ import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
 
 public class TorreBlanca extends Defensa {
 
-    public TorreBlanca(Coordenadas ubicacion) {
-        super(ubicacion);
+    public TorreBlanca() {
+        super();
         this.coste = new Creditos(10);
         this.armas = new SistemaDeTorre(new EnergiaRoja(1), 3);
         this.turnosRestantes = 1;

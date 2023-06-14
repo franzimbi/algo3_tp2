@@ -8,8 +8,8 @@ import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 
 public class    Topo extends Enemigo {
 
-    public Topo(Coordenadas ubicacion) {
-        super(ubicacion);
+    public Topo() {
+        super();
         this.velocidad = new Velocidad(1);
         this.danio = new DanioTopal(2, 5);
         this.energia = new EnergiaAzul(1);

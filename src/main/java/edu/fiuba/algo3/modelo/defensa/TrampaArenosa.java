@@ -8,8 +8,8 @@ import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
 
 public class TrampaArenosa extends Defensa {
 
-    public TrampaArenosa(Coordenadas ubicacion) {
-        super(ubicacion);
+    public TrampaArenosa() {
+        super();
         this.coste = new Creditos(25);
         this.armas = new SistemaDeArena(new EnergiaRoja(0), 0, 0.5f);
         this.turnosRestantes = 0;

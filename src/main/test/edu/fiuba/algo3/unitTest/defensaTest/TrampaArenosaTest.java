@@ -11,25 +11,25 @@ import org.junit.jupiter.api.Test;
 public class TrampaArenosaTest {
     @Test
     public void Test01TrampaDeArenaEstaEnRango() {
-        TrampaArenosa trampa = new TrampaArenosa(new Coordenadas(0,0));
+        TrampaArenosa trampa = new TrampaArenosa();
         assert (trampa.estaEnRango(0));
     }
 
     @Test
     public void Test02TrampaDeArenaEstaOperativa() {
-        TrampaArenosa trampa = new TrampaArenosa(new Coordenadas(0,0));
+        TrampaArenosa trampa = new TrampaArenosa();
         assert (trampa.estaOperativa());
     }
 
     @Test
     public void Test03TrampaDeArenaNoEstaEnRango() {
-        TrampaArenosa trampa = new TrampaArenosa(new Coordenadas(0,0));
+        TrampaArenosa trampa = new TrampaArenosa();
         assert (!trampa.estaEnRango(1));
     }
 
     @Test
     public void Test04TrampaDeArenaSacaCreditosCorrector() {
-        TrampaArenosa trampa = new TrampaArenosa(new Coordenadas(0,0));
+        TrampaArenosa trampa = new TrampaArenosa();
         Jugador jugador = new Jugador(10, 100, "Jugador");
         trampa.asignarAJugador(jugador);
         Creditos creditos = new Creditos(75);
@@ -38,18 +38,18 @@ public class TrampaArenosaTest {
 
     @Test
     public void Test04TrampaDeArenaNoMataAlEnemigo() {
-        TrampaArenosa trampa = new TrampaArenosa(new Coordenadas(0,0));
+        TrampaArenosa trampa = new TrampaArenosa();
         Jugador jugador = new Jugador(10, 100, "Jugador");
-        Hormiga hormiga = new Hormiga(new Coordenadas(0,0));
+        Hormiga hormiga = new Hormiga();
         trampa.atacarEnemigo(hormiga, jugador);
         assert !hormiga.estaMuerto();
     }
 
     @Test
     public void Test05TrampaDeArenaReduceLaVelocidad() {
-        TrampaArenosa trampa = new TrampaArenosa(new Coordenadas(0,0));
+        TrampaArenosa trampa = new TrampaArenosa();
         Jugador jugador = new Jugador(10, 100, "Jugador");
-        Hormiga hormiga = new Hormiga(new Coordenadas(0,0));
+        Hormiga hormiga = new Hormiga();
         trampa.atacarEnemigo(hormiga, jugador);
         assert hormiga.getVelocidad() == 0;
     }
