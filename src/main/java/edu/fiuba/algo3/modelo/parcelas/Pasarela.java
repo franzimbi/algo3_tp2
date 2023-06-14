@@ -3,8 +3,10 @@ package edu.fiuba.algo3.modelo.parcelas;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.excepciones.ParcelaInvalidaError;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 
 public class Pasarela extends Parcela {
@@ -29,15 +31,22 @@ public class Pasarela extends Parcela {
     public void setSiguiente(Pasarela siguiente){
         this.siguiente = siguiente;
     }
-    public Coordenadas siguientePasarela(Velocidad velocidad){
+
+    public void siguientePasarela(Velocidad velocidad, Enemigo enemigo, Jugador jugador, Mapa mapa){
         Pasarela actual = this;
-        for(int i=0; i<velocidad.obtenerVelocidad(); i++){
-            if (actual == null){
-                throw new ParcelaInvalidaError();
+        for(int i = 0; i < velocidad.obtenerVelocidad(); i++){
+            if(actual==null){
+                break;
             }
             actual = actual.siguiente;
         }
-        return actual.ubicacion;
+        if (actual == null){
+            enemigo.atacar(jugador, 0);
+            mapa.removerEnemigo(enemigo);
+        }else{
+            enemigo.ubicarEn(actual.ubicacion);
+        }
+
     }
 
     public Coordenadas ubicacion() {

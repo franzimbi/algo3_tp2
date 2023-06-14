@@ -9,6 +9,7 @@ public class Creditos {
     public Creditos(int cantidadCreditos) {
         this.cantidad = cantidadCreditos;
     }
+
     public int getCantidad(){
         return this.cantidad;
     }

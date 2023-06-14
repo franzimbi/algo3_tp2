@@ -11,8 +11,10 @@ public class SistemaDeTorre extends SistemaDeAtaque {
         this.danio = danio;
     }
 
-    public void atacar(Enemigo enemigo, Jugador jugador) {
-        enemigo.recibirDanio(this.danio, jugador);
+    public void atacar(Enemigo enemigo, int distancia){
+        if (this.estaEnRango(distancia)) {
+            enemigo.recibirDanio(this.danio);
+        }
     }
 
 }

@@ -25,7 +25,7 @@ public class AraniaTest {
         Arania arania = new Arania();
         Jugador jugador = new Jugador(10, 100, "Juli");
         Energia danio = new EnergiaRoja(3);
-        arania.recibirDanio(danio, jugador);
+        arania.recibirDanio(danio);
         assertTrue(arania.estaMuerto());
     }
 
@@ -35,7 +35,8 @@ public class AraniaTest {
         Jugador jugador = new Jugador(10, 10, "juli2");
 
         arania.setRecompensa(new RecompensaRandomMock());
-        arania.recibirDanio(new EnergiaRoja(2), jugador);
+        arania.recibirDanio(new EnergiaRoja(2));
+        jugador.recibirMuerto(arania);
         assertTrue(new Creditos(11).equals(jugador.getCreditos()));
     }
 

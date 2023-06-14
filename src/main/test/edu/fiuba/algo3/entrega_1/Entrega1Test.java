@@ -36,12 +36,12 @@ public class Entrega1Test {
     // tarda y que recién están “operativas” cuando ya se terminaron de construir.
     @Test
     public void Test02UnaDefensaSeConstruyeEnElTiempoCorrecto() {
-        Jugador jugador = new Jugador(20, 100, "mati");
+        //Jugador jugador = new Jugador(20, 100, "mati");
         Enemigo enemigo = new Arania();
         Defensa torre = new TorreBlanca();
 
         assertFalse(torre.estaOperativa());
-        torre.atacarEnemigo(enemigo, jugador);
+        torre.atacarEnemigo(enemigo);
         assertTrue(torre.estaOperativa());
     }
 
@@ -71,7 +71,7 @@ public class Entrega1Test {
     //Verificar que las defensas ataquen dentro del rango esperado (y verificar lo contrario)
     @Test
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
-        Jugador jugador = new Jugador(20, 100, "a");
+        //Jugador jugador = new Jugador(20, 100, "a");
         Defensa defensa = new TorreBlanca();
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Hormiga();
@@ -84,9 +84,9 @@ public class Entrega1Test {
         lejos.ubicar(enemigo2);
         tierra.ubicar(defensa);
 
-        defensa.atacarEnemigo(enemigo2, jugador);
-        defensa.atacarEnemigo(enemigo1, jugador); //esto pone la torre en operacion
-        defensa.atacarEnemigo(enemigo1, jugador);
+        defensa.atacarEnemigo(enemigo2);
+        defensa.atacarEnemigo(enemigo1); //esto pone la torre en operacion
+        defensa.atacarEnemigo(enemigo1);
 
         assertTrue(enemigo1.estaMuerto());
         assertFalse(enemigo2.estaMuerto());
@@ -95,12 +95,12 @@ public class Entrega1Test {
     //Verificar que las unidades enemigas son dañadas acorde al ataque recibido.
     @Test
     public void Test06UnEnemigoRecibeElDanioCorrecto() {
-        Jugador jugador = new Jugador(20, 100, "a");
+        //Jugador jugador = new Jugador(20, 100, "a");
         Enemigo enemigo = new Arania();
 
         Energia energia = new EnergiaRoja(2);
 
-        enemigo.recibirDanio(energia, jugador);
+        enemigo.recibirDanio(energia);
         assertTrue(enemigo.estaMuerto());
 
     }
@@ -127,7 +127,8 @@ public class Entrega1Test {
         Enemigo enemigo = new Hormiga();
         Energia energia = new EnergiaRoja(1);
 
-        enemigo.recibirDanio(energia, jugador);
+        enemigo.recibirDanio(energia);
+        jugador.recibirMuerto(enemigo);
 
         assertTrue(jugador.getCreditos().equals(new Creditos(2)));
     }
@@ -135,20 +136,22 @@ public class Entrega1Test {
     //Verificar que al pasar un turno las unidades enemigas se hayan movido según sus capacidades.
     @Test
     public void Test09PasarUnTurnoMueveEnemigoSegunCapacidad() {
+        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador(10, 1, "Julian");
         Enemigo hormiga = new Hormiga();
         Enemigo arania = new Arania();
 
         Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
-        Pasarela p2 = new Pasarela(new Coordenadas(0,1));
-        Pasarela p3 = new Pasarela(new Coordenadas(0,2));
+        Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
+        Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
 
         p1.setSiguiente(p2);
         p2.setSiguiente(p3);
 
-        hormiga.mover(p1);
-        arania.mover(p1);
-        assert hormiga.getUbicacion().equals(new Coordenadas(0,1));
-        assert arania.getUbicacion().equals(new Coordenadas(0,2));
+        hormiga.mover(p1, jugador, mapa);
+        arania.mover(p1, jugador, mapa);
+        assert hormiga.getUbicacion().equals(new Coordenadas(0, 1));
+        assert arania.getUbicacion().equals(new Coordenadas(0, 2));
     }
 
     //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
@@ -157,72 +160,83 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100, "Julian");
         Mapa mapa = new Mapa();
 
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0,0)));
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0,1)));
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0,2)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 0)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
+        mapa.agregarParcela(new Tierra(new Coordenadas(1, 1)));
 
         Enemigo enemigo = new Hormiga();
         Defensa defensa = new TorreBlanca();
-//        c1.ubicar(enemigo, jugador);
-//        t1.ubicar(defensa, jugador);
-//        camino.atacar(t1, jugador); // pone operativa la torre
-//        camino.atacar(t1, jugador);
-//
-//        assertTrue(camino.gano(jugador));
+        mapa.ubicar(enemigo, new Coordenadas(0, 0));
+        mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
+
+
+        assert !mapa.gano(jugador);
+        defensa.atacarEnemigo(enemigo);
+        defensa.atacarEnemigo(enemigo);
+        mapa.recolectarEnemigos(jugador);
+
+        assert mapa.gano(jugador);
     }
 
 
     //  Verificar que sin eliminar todas la unidades enemigas, pero las pocas que
     // llegaron a la meta no alcanzan para matar al jugador, este también gana el juego.
-//    @Test
-//    public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta() {
-//        Jugador jugador = new Jugador(20, 100, "Julian");
-//        Camino camino = new Camino();
-//
-//        Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
-//        Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
-//        Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
-//        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
-//
-//        camino.agregarPasarela(c1);
-//        camino.agregarPasarela(c2);
-//        camino.agregarPasarela(c3);
-//        camino.agregarPasarela(c4);
-//
-//        Enemigo enemigo = new Hormiga();
-//        c3.ubicar(enemigo, jugador);
-//
-//        camino.mover(jugador,0);
-//        assertFalse(camino.tieneEnemigos()); ;
-//        assert((new EnergiaRoja(19)).equals(jugador.getVida()));
-//        assertTrue(camino.gano(jugador));
-//    }
+    @Test
+    public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta() {
+        Jugador jugador = new Jugador(20, 100, "Julian");
+        Mapa mapa = new Mapa();
+
+        Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
+        Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
+        Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
+        Tierra p4 = new Tierra(new Coordenadas(1, 1));
+        mapa.agregarParcela(p1);
+        mapa.agregarParcela(p2);
+        mapa.agregarParcela(p3);
+        mapa.agregarParcela(p4);
+
+        p1.setSiguiente(p2);
+        p2.setSiguiente(p3);
+
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Hormiga();
+        Defensa defensa = new TorreBlanca();
+
+        mapa.ubicar(enemigo1, new Coordenadas(0, 0));
+        mapa.ubicar(enemigo2, new Coordenadas(0, 2));
+        mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
+        mapa.mover(jugador);
+        jugador.atacarEnemigo(mapa);
+        jugador.atacarEnemigo(mapa);
+        mapa.mover(jugador);
+        mapa.recolectarEnemigos(jugador);
+        assert mapa.gano(jugador);
+        assert jugador.getCreditos().equals(new Creditos(91));
+        assert jugador.getVida().equals(new EnergiaRoja(19));
+    }
 
     //    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
-//    @Test
-//    public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
-//        Jugador jugador = new Jugador(1, 100, "Julian");
-//        Camino camino = new Camino();
-//
-//        Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
-//        Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
-//        Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
-//        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
-//
-//        camino.agregarPasarela(c1);
-//        camino.agregarPasarela(c2);
-//        camino.agregarPasarela(c3);
-//        camino.agregarPasarela(c4);
-//
-//        Enemigo enemigo = new Hormiga();
-//        c3.ubicar(enemigo, jugador);
-//
-//        camino.mover(jugador,0);
-//
-//        assertTrue(jugador.estaMuerto());
-//        assertFalse(camino.gano(jugador));
-//        assertTrue(camino.perdio(jugador));
-//    }
+    @Test
+    public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
+        Jugador jugador = new Jugador(4, 100, "Julian");
+        Mapa mapa = new Mapa();
+
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 0)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
+        mapa.agregarParcela(new Tierra(new Coordenadas(1, 1)));
+
+        Enemigo enemigo1 = new Arania();
+        Enemigo enemigo2 = new Arania();
+
+        mapa.ubicar(enemigo1, new Coordenadas(0, 0));
+        mapa.ubicar(enemigo2, new Coordenadas(0, 0));
+        mapa.mover(jugador);
+
+        assert jugador.getVida().equals(new EnergiaRoja(0));
+        assert mapa.perdio(jugador);
+    }
 }
 
 

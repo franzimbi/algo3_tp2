@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.logger.Logger;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.score.Score;
 
@@ -51,7 +52,7 @@ public class Jugador {
         if (this.defensas.isEmpty()) {
             return;
         }
-        Defensa primeraDefensa = defensas.get(0);
+        //Defensa primeraDefensa = defensas.get(0); no se esta usando
         this.defensas.remove(0);
         //primeraDefensa.sacarDefensa()
     }
@@ -66,10 +67,17 @@ public class Jugador {
 
     public void recibirMuerto(Enemigo enemigo) {
         this.score.agregarMuerto(enemigo);
+        enemigo.recompensar(this);
     }
 
     public String nombre() {
         return this.nombre;
+    }
+
+    public void atacarEnemigo(Mapa mapa) {
+        for (Defensa defensa : this.defensas){
+            mapa.enemigoAtacar(defensa);
+        }
     }
 }
 

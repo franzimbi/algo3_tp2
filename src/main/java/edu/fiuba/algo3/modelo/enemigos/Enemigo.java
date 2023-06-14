@@ -2,11 +2,13 @@ package edu.fiuba.algo3.modelo.enemigos;
 
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
 import edu.fiuba.algo3.modelo.danio.Danio;
+import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
@@ -40,14 +42,13 @@ public abstract class Enemigo {
         }
         throw new EnemigoInvalidoError();
     }
-    public void recibirDanio(Energia danioRecibido, Jugador jugador) {
+
+    public void recibirDanio(Energia danioRecibido) {
         //this.energia.reducir(danioRecibido);
         danioRecibido.reducir(this.energia);
         if (estaMuerto()) {
-            Logger.getInstancia().info("un " + this.getNombre() + " murio y " +
-                    "se lo envio al jugador");
-            jugador.recibirMuerto(this);
-            this.recompensa.otorgarRecompensa(jugador);
+            Logger.getInstancia().info("un " + this.getNombre() + " murio");
+            //this.recompensa.otorgarRecompensa(jugador);
         }
     }
 
@@ -58,31 +59,47 @@ public abstract class Enemigo {
     public void reducirVelocidad(float multiplicador) {
         this.velocidad.reducir(multiplicador);
     }
+
     public void setRecompensa(Recompensa nuevaRecompensa) {
         this.recompensa = nuevaRecompensa;
     }
+
     public boolean estaMuerto() {
         return this.energia.estaMuerto();
     }
+
     public int getVelocidad() {
         return velocidad.obtenerVelocidad();
     }
+
     public Coordenadas getUbicacion(){return this.ubicacion;}
+
     public void atacar(Jugador jugador, int cantidadDeTurnos) {
         this.danio.atacar(jugador, cantidadDeTurnos);
     }
+
     public void agregarMuerto(Score scorer) {
         scorer.agregarMuerto(this);
     }
+
     public abstract String getNombre();
+
     public void restaurarVelocidad() {
         this.velocidad.restaurar();
     }
+
     public void actualizarMovimientos() {
         this.movimientos += 1;
     }
 
-    public void mover(Pasarela pasarelaActual){
-        this.ubicarEn(pasarelaActual.siguientePasarela(this.velocidad));
+    public void mover(Pasarela pasarelaActual, Jugador jugador, Mapa mapa){
+        pasarelaActual.siguientePasarela(this.velocidad, this, jugador, mapa);
+    }
+
+    public void recompensar(Jugador jugador) {
+        this.recompensa.otorgarRecompensa(jugador);
+    }
+    public int distancia(Defensa other) {
+        return this.ubicacion.distancia(other.getUbicacion());
     }
 }

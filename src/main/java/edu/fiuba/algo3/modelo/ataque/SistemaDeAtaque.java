@@ -13,5 +13,5 @@ public abstract class SistemaDeAtaque {
         return rango >= distancia;
     }
 
-    public abstract void atacar(Enemigo enemigo, Jugador jugador);
+    public abstract void atacar(Enemigo enemigo, int distancia);
 }

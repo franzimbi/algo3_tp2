@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
 
 
@@ -22,9 +23,9 @@ public abstract class Defensa {
         return this.turnosRestantes == 0;
     }
 
-    public void atacarEnemigo(Enemigo enemigo, Jugador jugador) {
+    public void atacarEnemigo(Enemigo enemigo) {
         if (this.estaOperativa()) {
-            this.armas.atacar(enemigo, jugador);
+            this.armas.atacar(enemigo, enemigo.distancia(this));
             return;
         }
         this.turnosRestantes--;
@@ -34,9 +35,10 @@ public abstract class Defensa {
         jugador.sacarCreditos(this.coste);
         jugador.recibirDefensa(this);
     }
-    public boolean estaEnRango(int distancia) {
+
+    /*public boolean estaEnRango(int distancia) {
         return this.armas.estaEnRango(distancia);
-    }
+    }*/
 
     public abstract String getNombre();
 
@@ -46,5 +48,9 @@ public abstract class Defensa {
 
     public void ubicarEn(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public Coordenadas getUbicacion() {
+        return ubicacion;
     }
 }
