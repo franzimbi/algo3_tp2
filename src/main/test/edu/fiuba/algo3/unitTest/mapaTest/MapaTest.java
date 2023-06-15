@@ -16,7 +16,7 @@ public class MapaTest {
     @Test
     public void Test01MapaSeCreaConTamanioCorrecto() {
         LectorJSON lector = new LectorJSON();
-        Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
+        Mapa mapa = lector.leerMapa("src/main/test/testResources/mapaValido.json");
         Tierra tierra = new Tierra(new Coordenadas(0, 0));
         assertDoesNotThrow(() -> mapa.agregarParcela(tierra));
     }
@@ -36,7 +36,7 @@ public class MapaTest {
     @Test
     public void Test03MapaDejaAgregarDefensaEnCoordenadasValidas() {
         LectorJSON lector = new LectorJSON();
-        Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
+        Mapa mapa = lector.leerMapa("src/main/test/testResources/mapaValido.json");
         Jugador jugador = new Jugador(1, 100, "Jugador");
         Tierra tierra = new Tierra(new Coordenadas(0, 0));
 //        Defensa defensa = new TorrePlateada();

@@ -53,8 +53,8 @@ public class JuegoTest {
     @Test
     public void Test03SimularYVerificarPartidaGanada() {
         LectorJSON lector = new LectorJSON();
-        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
-        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
+        String mapa = "src/main/test/testResources/mapaValido.json";
+        String turnos = "src/main/test/testResources/enemigosValidos.json";
         Jugador jugador = new Jugador(200, 300, "Cristiano Ronaldo");
         Juego juego = new Juego(jugador, lector, mapa, turnos);
 
