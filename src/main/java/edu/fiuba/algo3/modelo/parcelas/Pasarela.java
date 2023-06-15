@@ -42,6 +42,8 @@ public class Pasarela extends Parcela {
         }
         if (actual == null){
             enemigo.atacar(jugador, 0);
+            Logger.getInstancia().info(enemigo.getNombre()
+                    + " llego a la meta. jugador quedo con " + jugador.getVida().getCantidad() + " de vida");
             mapa.removerEnemigo(enemigo);
         }else{
             enemigo.ubicarEn(actual.ubicacion);

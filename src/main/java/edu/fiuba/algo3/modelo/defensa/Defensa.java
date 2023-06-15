@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.ataque.SistemaDeAtaque;
 import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
@@ -25,9 +26,12 @@ public abstract class Defensa {
 
     public void atacarEnemigo(Enemigo enemigo) {
         if (this.estaOperativa()) {
+            Logger.getInstancia().info("un " + this.getNombre() +
+                    "intenta atacar un " + enemigo.getNombre());
             this.armas.atacar(enemigo, enemigo.distancia(this));
             return;
         }
+        Logger.getInstancia().info(this.getNombre() + "no estaba operativa");
         this.turnosRestantes--;
     }
 
