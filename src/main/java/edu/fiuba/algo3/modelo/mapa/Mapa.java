@@ -9,7 +9,6 @@ import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Mapa {
     private final ArrayList<Parcela> parcelas;
@@ -34,6 +33,7 @@ public class Mapa {
     public void agregarParcela(Parcela parcela) {
         this.parcelas.add(parcela);
     }
+
     public void ubicar(Defensa defensa, Coordenadas posicion, Jugador jugador) {
         for (Parcela parcela : this.parcelas) {
             if (parcela.tieneUbicacion(posicion)) {
@@ -46,16 +46,20 @@ public class Mapa {
             }
         }
     }
-    public void setMeta(Pasarela ultima){
+
+    public void setMeta(Pasarela ultima) {
         this.meta = ultima;
     }
+
     public void mover(Jugador jugador) {
         List<Enemigo> enemigosCopia = new ArrayList<>(this.enemigos);
         for (Enemigo enemigo : enemigosCopia) {
-            enemigo.mover( this.encontrarParcela(enemigo.getUbicacion()),
-                    jugador, this);
+            //enemigo.mover(this.encontrarParcela(enemigo.getUbicacion()),
+            //        jugador, this);
+            enemigo.mover(this.encontrarParcela(enemigo), jugador, this);
         }
     }
+
     public void ubicar(Enemigo enemigo, Coordenadas posicion, Jugador jugador) {
         for (Parcela parcela : this.parcelas) {
             if (parcela.getUbicacion().equals(posicion)) { //esto rompe tell dont ask
@@ -68,6 +72,7 @@ public class Mapa {
             }
         }
     }
+
     public void recolectarEnemigos(Jugador jugador) {
         List<Enemigo> enemigosAEliminar = new ArrayList<>();
         for (Enemigo e : this.enemigos) {
@@ -78,21 +83,28 @@ public class Mapa {
         }
         this.enemigos.removeAll(enemigosAEliminar);
     }
+
     public void removerEnemigo(Enemigo enemigo) {
         this.enemigos.remove(enemigo);
     }
+
     public boolean gano(Jugador jugador) {
         return !jugador.estaMuerto() && this.enemigos.isEmpty();
     }
-    public boolean perdio(Jugador jugador) {return jugador.estaMuerto();}
-    private Parcela encontrarParcela(Coordenadas posicion) {
+
+    public boolean perdio(Jugador jugador) {
+        return jugador.estaMuerto();
+    }
+
+    private Parcela encontrarParcela(Enemigo enemigo) {
         for (Parcela parcela : this.parcelas) {
-            if (parcela.getUbicacion().equals(posicion)) {
+            if (enemigo.ubicacion(parcela)) {
                 return parcela;
             }
         }
         return null;
     }
+
     public void enemigosAtacados(Defensa defensa) {
         if (enemigos.isEmpty()) {
             return;
@@ -101,7 +113,7 @@ public class Mapa {
         int distanciaMinima = enemigoActual.distancia(defensa);
 
         for (Enemigo enemigo : enemigos) {
-            if(enemigo.estaMuerto()){
+            if (enemigo.estaMuerto()) {
                 continue;
             }
             int distanciaActual = enemigo.distancia(defensa);
@@ -112,21 +124,25 @@ public class Mapa {
         }
         defensa.atacarEnemigo(enemigoActual);
     }
+
     public void dejarEnRango(Coordenadas posicion) {
         posicion.chequearXY(this.meta.getUbicacion());
     }
-    public int cantidadEnemigos(){
+
+    public int cantidadEnemigos() {
         return this.enemigos.size();
     }
-    public void spawnear(Enemigo enemigo){
-        for(Parcela parcela : this.parcelas){
-            if(parcela.ubicar(enemigo)){
+
+    public void spawnear(Enemigo enemigo) {
+        for (Parcela parcela : this.parcelas) {
+            if (parcela.ubicar(enemigo)) {
                 this.enemigos.add(enemigo);
                 break;
             }
         }
     }
-    public int size(){
+
+    public int size() {
         return this.parcelas.size();
     }
 

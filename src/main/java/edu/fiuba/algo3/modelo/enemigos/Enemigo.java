@@ -106,4 +106,8 @@ public abstract class Enemigo {
     }
     public int distancia(Defensa other) {return this.ubicacion.distancia(other.getUbicacion());
     }
+
+    public boolean ubicacion(Parcela pasarela) {
+        return pasarela.ubicacion(this.ubicacion);
+    }
 }
