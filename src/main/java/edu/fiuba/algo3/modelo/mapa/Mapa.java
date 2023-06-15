@@ -39,6 +39,9 @@ public class Mapa {
             if (parcela.tieneUbicacion(posicion)) {
                 if (parcela.ubicar(defensa)) {
                     defensa.asignarAJugador(jugador);
+                    Logger.getInstancia().info("se ubica un " +
+                            defensa.getNombre() + " en (" + posicion.getX() + "," +
+                            posicion.getY() + ")");
                 }
             }
         }
@@ -49,7 +52,7 @@ public class Mapa {
     public void mover(Jugador jugador) {
         List<Enemigo> enemigosCopia = new ArrayList<>(this.enemigos);
         for (Enemigo enemigo : enemigosCopia) {
-            enemigo.mover((Pasarela) Objects.requireNonNull(this.encontrarParcela(enemigo.getUbicacion())),
+            enemigo.mover( this.encontrarParcela(enemigo.getUbicacion()),
                     jugador, this);
         }
     }
@@ -98,6 +101,9 @@ public class Mapa {
         int distanciaMinima = enemigoActual.distancia(defensa);
 
         for (Enemigo enemigo : enemigos) {
+            if(enemigo.estaMuerto()){
+                continue;
+            }
             int distanciaActual = enemigo.distancia(defensa);
             if (distanciaMinima > distanciaActual) {
                 enemigoActual = enemigo;

@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import edu.fiuba.algo3.modelo.excepciones.*;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
@@ -87,43 +89,52 @@ public class Entrega2Test {
         juego.pasarTurno();
         assertEquals (3, juego.cantidadEnemigos());
         juego.pasarTurno();
-        assertEquals (1, juego.cantidadEnemigos());
-        juego.pasarTurno();
         assertEquals (0, juego.cantidadEnemigos());
     }
 
-//    @Test
-//    public void Test18SimularYVerificarPartidaGanada() {
-//        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
-//        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
-//        Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
-//        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
-//
-//        juego.juegoEmpezar();
-//        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1, 0));
-//        juego.pasarTurno();
-//        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
-//        assert !juego.gano();
-//        juego.pasarTurno();
-//        assert !juego.gano();
-//        juego.pasarTurno();
-//        assert juego.gano();
-//        Logger.getInstancia().desactivar();
-//    }
+    @Test
+    public void Test18SimularYVerificarPartidaGanada() {
+        //Logger.getInstancia().activar();
+        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
+        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
+        Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
+        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
 
-//    @Test
-//    public void Test19SimularYVerificarPartidaPerdida() {
-//        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
-//        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
-//        Jugador jugador = new Jugador(2, 300, "Cristiano Ronaldo");
-//        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
-//
-//        juego.juegoEmpezar();
-//        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1, 0));
-//        juego.pasarTurno();
-//        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
-//        assert !juego.perdio();
-//        juego.pasarTurno();
-//        assert juego.perdio();
-//    }
+        juego.juegoEmpezar();
+        assertEquals (1, juego.cantidadEnemigos());
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1, 0));
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
+        juego.pasarTurno();
+        assertEquals (3, juego.cantidadEnemigos());
+        juego.pasarTurno();
+        assertEquals (1, juego.cantidadEnemigos());
+        juego.pasarTurno();
+        assertEquals (0, juego.cantidadEnemigos());
+        assert juego.gano();
+        assertEquals(282,jugador.getCreditos().getCantidad());
+        assertEquals(18,jugador.getVida().getCantidad());
+        //Logger.getInstancia().desactivar();
+    }
+
+    @Test
+    public void Test19SimularYVerificarPartidaPerdida() {
+        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
+        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
+        Jugador jugador = new Jugador(2, 300, "Cristiano Ronaldo");
+        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
+
+        juego.juegoEmpezar();
+        assertEquals (1, juego.cantidadEnemigos());
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1, 0));
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
+        juego.pasarTurno();
+        assertEquals (3, juego.cantidadEnemigos());
+        juego.pasarTurno();
+        assertEquals (1, juego.cantidadEnemigos());
+        juego.pasarTurno();
+        assertEquals (0, juego.cantidadEnemigos());
+        assert juego.perdio();
+        assertEquals(282,jugador.getCreditos().getCantidad());
+        assertEquals(0,jugador.getVida().getCantidad());
+    }
 }

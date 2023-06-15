@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
@@ -40,12 +41,12 @@ public class Lechuza extends Enemigo {
         score.agregarMuerto(this);
     }
 
-    @Override
-    public void mover(Pasarela pasarelaActual, Jugador jugador, Mapa mapa){
-//        if (this.energia > (new EnergiaRoja(5))) {
+//    @Override
+//    public void mover(Parcela actual, Jugador jugador, Mapa mapa){
+////        if (this.energia > (new EnergiaRoja(5))) {
+////
+////        }
+////        Coordenadas posicionMeta = mapa.meta();
 //
-//        }
-//        Coordenadas posicionMeta = mapa.meta();
-
-    }
+//    }
 }

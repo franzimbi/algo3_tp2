@@ -11,6 +11,7 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
@@ -48,11 +49,9 @@ public abstract class Enemigo {
     }
 
     public void recibirDanio(Energia danioRecibido) {
-        //this.energia.reducir(danioRecibido);
         danioRecibido.reducir(this.energia);
         if (estaMuerto()) {
             Logger.getInstancia().info("un " + this.getNombre() + " murio");
-            //this.recompensa.otorgarRecompensa(jugador);
         }
     }
 
@@ -96,8 +95,8 @@ public abstract class Enemigo {
         this.movimientos += 1;
     }
 
-    public void mover(Pasarela pasarelaActual, Jugador jugador, Mapa mapa){
-        this.direccion.mover(velocidad, this, pasarelaActual, jugador, mapa);
+    public void mover(Parcela actual, Jugador jugador, Mapa mapa){
+        this.direccion.mover(velocidad, this, actual, jugador, mapa);
     }
     public void setDireccion(Direccion nuevaDireccion){
         this.direccion = nuevaDireccion;
@@ -105,7 +104,6 @@ public abstract class Enemigo {
     public void recompensar(Jugador jugador) {
         this.recompensa.otorgarRecompensa(jugador);
     }
-    public int distancia(Defensa other) {
-        return this.ubicacion.distancia(other.getUbicacion());
+    public int distancia(Defensa other) {return this.ubicacion.distancia(other.getUbicacion());
     }
 }
