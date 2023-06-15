@@ -1,25 +1,27 @@
 package edu.fiuba.algo3.entrega_2;
 
+import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
-import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
-import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.lector.Lector;
-import edu.fiuba.algo3.modelo.mapa.Camino;
+import edu.fiuba.algo3.modelo.lector.LectorJSON;
+import edu.fiuba.algo3.modelo.excepciones.*;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
+import org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class Entrega2Test {
     @Test
     public void Test13LecturaDeEnemigosLanzaExcepcionSiElArchivoEsInvalido() {
-        Lector lector = new Lector();
+        LectorJSON lector = new LectorJSON();
         assertThrows(NoSePuedeLeerEnemigosError.class, () -> lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.txt"));
         assertThrows(NoSePuedeLeerEnemigosError.class, () -> lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.json"));
         assertDoesNotThrow(() -> lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json"));
@@ -27,7 +29,7 @@ public class Entrega2Test {
 
     @Test
     public void Test14LecturaDelMapaLanzaExcepcionSiElArchivoEsInvalido() {
-        Lector lector = new Lector();
+        LectorJSON lector = new LectorJSON();
         assertThrows(NoSePuedeLeerElMapaError.class, () -> lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.txt"));
         assertThrows(NoSePuedeLeerElMapaError.class, () -> lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.json"));
         assertDoesNotThrow(() -> lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json"));
@@ -35,91 +37,104 @@ public class Entrega2Test {
 
     @Test
     public void Test15VerificarConversionDelJSONDeEnemigos() {
-        Lector lector = new Lector();
+        LectorJSON lector = new LectorJSON();
         Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
-        Camino camino = new Camino();
-        Jugador jugador = new Jugador(5, 1, "Leo Messi");
-        camino.agregarPasarela(new Pasarela(new Coordenadas(0, 0)));
-        camino.agregarPasarela(new Pasarela(new Coordenadas(0, 1)));
-        camino.agregarPasarela(new Pasarela(new Coordenadas(0, 2)));
+        //Jugador jugador = new Jugador(5, 1, "Leo Messi");
+        Mapa mapa = new Mapa();
+        Pasarela ini = new Pasarela(new Coordenadas(0, 0));
+        mapa.agregarParcela(ini);
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
 
-        assertFalse(camino.tieneEnemigos()); // no debe tener enemigos en el camino
-        turnos.generarEnemigos(camino, jugador); // spawneo en el camino 2 veces
-        turnos.generarEnemigos(camino, jugador);
-        assertTrue(camino.tieneEnemigos());
+        assertEquals(0, mapa.cantidadEnemigos()); // no debe tener enemigos en el camino
+        turnos.generarEnemigos(mapa); // spawneo en el camino 2 veces
+        assertEquals(1, mapa.cantidadEnemigos());
+        turnos.generarEnemigos(mapa);
+        assertEquals(3, mapa.cantidadEnemigos());
     }
 
     @Test
     public void Test16VerificarConversionDelJSONDeMapa() {
-        Lector lector = new Lector();
+        LectorJSON lector = new LectorJSON();
         Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
         Defensa t1 = new TorreBlanca();
         Jugador jugador = new Jugador(1, 100, "Mbappe");
 
-        assertTrue(mapa.agregarDefensa(t1, new Coordenadas(0, 2), jugador)); // mapa me deja agregar la torre en una tierra
-        assertFalse(mapa.agregarDefensa(t1, new Coordenadas(0, 1), jugador));// no me deja agregarla en pasarela
-        assertFalse(mapa.agregarDefensa(t1, new Coordenadas(0, 0), jugador));// no me deja agregarla en rocoso
-        assert (mapa.tamanoMapa() == 3 * 3);
+        mapa.ubicar(t1, new Coordenadas(0, 2), jugador); // mapa me deja agregar la torre en una tierra
+        assert t1.getUbicacion().equals(new Coordenadas(0, 2));
+        mapa.ubicar(t1, new Coordenadas(0, 1), jugador);// no me deja agregarla en pasarela
+        assert !t1.getUbicacion().equals(new Coordenadas(0, 1));
+        assert t1.getUbicacion().equals(new Coordenadas(0, 2));
+        mapa.ubicar(t1, new Coordenadas(0, 0), jugador);// no me deja agregarla en rocoso
+        assert !t1.getUbicacion().equals(new Coordenadas(0, 0));
+        assert t1.getUbicacion().equals(new Coordenadas(0, 2));
     }
 
     @Test
     public void Test17SimularYVerificarQueElJuegoSeCreeCorrectamenteAcordeAlJSON() {
-        Lector lector = new Lector();
-        Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
-        Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
+        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
+        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
         Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
-        Juego juego = new Juego(jugador, mapa, turnos);
+        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
 
-        assert (mapa.tamanoMapa() == 3 * 3);
-        assert (turnos.cantidadTurnos() == 2);
-        assert (mapa.cantidadEnemigos(0) == 0);
-        assert (mapa.cantidadEnemigos(1) == 0);
-        assert (mapa.cantidadEnemigos(2) == 0);
-
+        assert (juego.tamanoMapa() == 3 * 3);
+        assert (juego.cantidadTurnos() == 2);
+        assertEquals(0, juego.cantidadEnemigos());
+        assertEquals(0, jugador.cantidadDefensas());
         juego.juegoEmpezar();
-        assert (mapa.cantidadEnemigos(0) == 1);
+        assertEquals(1, juego.cantidadEnemigos());
+        assertEquals(0, jugador.cantidadDefensas());
+        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(0,2));
+        assertEquals(1, jugador.cantidadDefensas());
         juego.pasarTurno();
-        assert (mapa.cantidadEnemigos(0) == 2);
-        assert (mapa.cantidadEnemigos(1) == 1);
+        assertEquals (3, juego.cantidadEnemigos());
         juego.pasarTurno();
-        assert (mapa.cantidadEnemigos(0) == 0);
-        assert (mapa.cantidadEnemigos(1) == 1);
-        assert (mapa.cantidadEnemigos(2) == 0);
+        assertEquals (0, juego.cantidadEnemigos());
     }
 
     @Test
     public void Test18SimularYVerificarPartidaGanada() {
-        Lector lector = new Lector();
-        Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
-        Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
+        //Logger.getInstancia().activar();
+        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
+        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
         Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
-        Juego juego = new Juego(jugador, mapa, turnos);
+        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
 
         juego.juegoEmpezar();
+        assertEquals (1, juego.cantidadEnemigos());
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1, 0));
-        juego.pasarTurno();
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
-        assert !juego.gano();
         juego.pasarTurno();
-        assert !juego.gano();
+        assertEquals (3, juego.cantidadEnemigos());
         juego.pasarTurno();
+        assertEquals (1, juego.cantidadEnemigos());
+        juego.pasarTurno();
+        assertEquals (0, juego.cantidadEnemigos());
         assert juego.gano();
+        assertEquals(282,jugador.getCreditos().getCantidad());
+        assertEquals(18,jugador.getVida().getCantidad());
+        //Logger.getInstancia().desactivar();
     }
 
     @Test
     public void Test19SimularYVerificarPartidaPerdida() {
-        Lector lector = new Lector();
-        Mapa mapa = lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json");
-        Turnos turnos = lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json");
+        String mapa = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaValido.json";
+        String turnos = "src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosValidos.json";
         Jugador jugador = new Jugador(2, 300, "Cristiano Ronaldo");
-        Juego juego = new Juego(jugador, mapa, turnos);
+        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
 
         juego.juegoEmpezar();
+        assertEquals (1, juego.cantidadEnemigos());
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1, 0));
-        juego.pasarTurno();
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
-        assert !juego.perdio();
         juego.pasarTurno();
+        assertEquals (3, juego.cantidadEnemigos());
+        juego.pasarTurno();
+        assertEquals (1, juego.cantidadEnemigos());
+        juego.pasarTurno();
+        assertEquals (0, juego.cantidadEnemigos());
         assert juego.perdio();
+        assertEquals(282,jugador.getCreditos().getCantidad());
+        assertEquals(0,jugador.getVida().getCantidad());
     }
 }

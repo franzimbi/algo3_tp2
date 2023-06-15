@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.excepciones.ParcelaInvalidaError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,12 +27,14 @@ public abstract class Parcela {
         throw new ParcelaInvalidaError();
     }
 
-    public abstract boolean ubicar(Defensa defensa, Jugador jugador);
+    public abstract boolean ubicar(Defensa defensa);
+    public abstract boolean ubicar(Enemigo enemigo);
 
-    public abstract boolean ubicar(Enemigo enemigo, Jugador jugador);
-
-    public int distancia(Parcela other) {
-        return this.ubicacion.distancia(other.ubicacion);
+    public boolean tieneUbicacion(Coordenadas other){
+        return  this.ubicacion.equals(other);
+    }
+    public Coordenadas getUbicacion(){
+        return this.ubicacion;
     }
 
 }

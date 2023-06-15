@@ -11,13 +11,11 @@ public class Rocoso extends Parcela {
     public Rocoso(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
     }
-
-    public boolean ubicar(Defensa defensa, Jugador jugador) {
+    public boolean ubicar(Defensa defensa) {
         return false;
     }
-
-    public boolean ubicar(Enemigo enemigo, Jugador jugador) {
+    public boolean ubicar(Enemigo enemigo) {
         return false;
     }
-
+    public String getNombre(){return "rocoso";}
 }

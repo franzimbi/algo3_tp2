@@ -1,96 +1,133 @@
 package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
-import edu.fiuba.algo3.modelo.excepciones.RangoInvalidoMapeadoError;
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.parcelas.Pasarela;
-import edu.fiuba.algo3.modelo.parcelas.Tierra;
-import edu.fiuba.algo3.modelo.turno.Turnos;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Mapa {
-    private final int tamanoHorizontal;
-    private final int tamanoVertical;
-    private final ArrayList<ArrayList<Parcela>> matriz;
-    private final Camino camino;
+    private final ArrayList<Parcela> parcelas;
+    private final ArrayList<Enemigo> enemigos;
+    private Parcela meta;
 
-    private final ArrayList<Parcela> defensas;
+    // REPRESENTACION DEL MAPA EN MATRIZ
+    // 0,0 0,1 0,2 0,3
+    // 1,0 1,1 1,2 1,3
+    // 2,0 2,1 2,2 2,3
+    // 3,0 3,1 3,2 3,3
 
-    public Mapa(int tamanoHorizontal, int tamanoVertical) {
-        this.tamanoVertical = tamanoVertical - 1;
-        this.tamanoHorizontal = tamanoHorizontal - 1;
-        this.matriz = new ArrayList<>(tamanoHorizontal);
-        for (int i = 0; i < tamanoHorizontal; i++) {
-            ArrayList<Parcela> aux = new ArrayList<>(tamanoVertical);
-            this.matriz.add(aux);
-        }
-        this.camino = new Camino();
-        this.defensas = new ArrayList<>();
+    // ARREGLO DE PARCELAS
+    // (0,0) (0,1) (0,2) (0,3) (1,0) (1,1) (1,2) (1,3) (2,0) (2,1) (2,2) (2,3) (3,0) (3,1) (3,2) (3,3)
+
+    public Mapa() {
+        this.parcelas = new ArrayList<>();
+        this.enemigos = new ArrayList<Enemigo>();
+        this.meta = null;
     }
 
-    public void agregarParcela(int x, int y, Parcela parcela) throws RangoInvalidoMapeadoError {
-        if (x > this.tamanoHorizontal || y > this.tamanoVertical) {
-            throw new RangoInvalidoMapeadoError();
-        }
-        var filaX = matriz.get(x);
-        filaX.add(y, parcela);
-        if (parcela instanceof Pasarela) {
-            this.camino.agregarPasarela((Pasarela) parcela);
-        }
+    public void agregarParcela(Parcela parcela) {
+        this.parcelas.add(parcela);
     }
-
-    public boolean agregarDefensa(Defensa defensa, Coordenadas posicion, Jugador jugador) {
-        if (posicion.getX() > this.tamanoHorizontal || posicion.getY() > this.tamanoVertical) {
-            return false;
-        }
-        var filaX = matriz.get(posicion.getX());
-        var parcelaParaUbicar = filaX.get(posicion.getY());
-        boolean pudoUbicar = parcelaParaUbicar.ubicar(defensa, jugador);
-        if(pudoUbicar){
-            defensas.add(parcelaParaUbicar);
-        }
-        return pudoUbicar;
-    }
-
-    /*public void defensasAtacar(Jugador jugador) {
-        for (int f = 0; f < this.tamanoHorizontal; f++) {
-            var filaX = this.matriz.get(f);
-            for (int c = 0; c < this.tamanoVertical; c++) {
-                if (filaX.get(c) instanceof Tierra) {
-                    this.camino.atacar((Tierra) filaX.get(c), jugador);
+    public void ubicar(Defensa defensa, Coordenadas posicion, Jugador jugador) {
+        for (Parcela parcela : this.parcelas) {
+            if (parcela.tieneUbicacion(posicion)) {
+                if (parcela.ubicar(defensa)) {
+                    defensa.asignarAJugador(jugador);
+                    Logger.getInstancia().info("se ubica un " +
+                            defensa.getNombre() + " en (" + posicion.getX() + "," +
+                            posicion.getY() + ")");
                 }
             }
         }
-    }*/
-
-    public void defensasAtacar(Jugador jugador){
-        for (int i=0;i<this.defensas.size();i++){
-            this.camino.atacar((Tierra) this.defensas.get(i), jugador);
+    }
+    public void setMeta(Pasarela ultima){
+        this.meta = ultima;
+    }
+    public void mover(Jugador jugador) {
+        List<Enemigo> enemigosCopia = new ArrayList<>(this.enemigos);
+        for (Enemigo enemigo : enemigosCopia) {
+            enemigo.mover( this.encontrarParcela(enemigo.getUbicacion()),
+                    jugador, this);
         }
     }
-
-    public void mover(Jugador jugador) {
-        this.camino.mover(jugador);
+    public void ubicar(Enemigo enemigo, Coordenadas posicion, Jugador jugador) {
+        for (Parcela parcela : this.parcelas) {
+            if (parcela.getUbicacion().equals(posicion)) { //esto rompe tell dont ask
+                boolean pudo = parcela.ubicar(enemigo);
+                if (pudo) {
+                    Logger.getInstancia().info("se ubico un " + enemigo.getNombre()
+                            + " en (" + posicion.getX() + "," + posicion.getY() + ")");
+                    this.enemigos.add(enemigo);
+                }
+            }
+        }
     }
-
-    public boolean perdio(Jugador jugador) {
-        return this.camino.perdio(jugador);
+    public void recolectarEnemigos(Jugador jugador) {
+        List<Enemigo> enemigosAEliminar = new ArrayList<>();
+        for (Enemigo e : this.enemigos) {
+            if (e.estaMuerto()) {
+                jugador.recibirMuerto(e);
+                enemigosAEliminar.add(e);
+            }
+        }
+        this.enemigos.removeAll(enemigosAEliminar);
     }
-
-    public void generarEnemigos(Turnos oleada, Jugador jugador) {
-        oleada.generarEnemigos(this.camino, jugador);
+    public void removerEnemigo(Enemigo enemigo) {
+        this.enemigos.remove(enemigo);
     }
-
     public boolean gano(Jugador jugador) {
-        return this.camino.gano(jugador);
+        return !jugador.estaMuerto() && this.enemigos.isEmpty();
+    }
+    public boolean perdio(Jugador jugador) {return jugador.estaMuerto();}
+    private Parcela encontrarParcela(Coordenadas posicion) {
+        for (Parcela parcela : this.parcelas) {
+            if (parcela.getUbicacion().equals(posicion)) {
+                return parcela;
+            }
+        }
+        return null;
+    }
+    public void enemigosAtacados(Defensa defensa) {
+        if (enemigos.isEmpty()) {
+            return;
+        }
+        Enemigo enemigoActual = enemigos.get(0);
+        int distanciaMinima = enemigoActual.distancia(defensa);
+
+        for (Enemigo enemigo : enemigos) {
+            if(enemigo.estaMuerto()){
+                continue;
+            }
+            int distanciaActual = enemigo.distancia(defensa);
+            if (distanciaMinima > distanciaActual) {
+                enemigoActual = enemigo;
+                distanciaMinima = distanciaActual;
+            }
+        }
+        defensa.atacarEnemigo(enemigoActual);
+    }
+    public void dejarEnRango(Coordenadas posicion) {
+        posicion.chequearXY(this.meta.getUbicacion());
+    }
+    public int cantidadEnemigos(){
+        return this.enemigos.size();
+    }
+    public void spawnear(Enemigo enemigo){
+        for(Parcela parcela : this.parcelas){
+            if(parcela.ubicar(enemigo)){
+                this.enemigos.add(enemigo);
+                break;
+            }
+        }
+    }
+    public int size(){
+        return this.parcelas.size();
     }
 
-    public int cantidadEnemigos(int posCamino){
-        return this.camino.cantidadEnemigos(posCamino);
-    }
-    public int tamanoMapa(){
-        return (this.tamanoVertical +1) * (this.tamanoHorizontal +1);
-    }
 }

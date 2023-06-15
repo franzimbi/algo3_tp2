@@ -7,12 +7,16 @@ import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
-import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
+import edu.fiuba.algo3.modelo.energia.Energia;
+import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.mapa.Camino;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.parcelas.*;
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.excepciones.*;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.parcelas.Parcela;
+import edu.fiuba.algo3.modelo.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.parcelas.Rocoso;
+import edu.fiuba.algo3.modelo.parcelas.Tierra;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,49 +36,42 @@ public class Entrega1Test {
     // tarda y que recién están “operativas” cuando ya se terminaron de construir.
     @Test
     public void Test02UnaDefensaSeConstruyeEnElTiempoCorrecto() {
-        Jugador jugador = new Jugador(20, 100, "mati");
+        //Jugador jugador = new Jugador(20, 100, "mati");
         Enemigo enemigo = new Arania();
         Defensa torre = new TorreBlanca();
 
         assertFalse(torre.estaOperativa());
-        torre.atacarEnemigo(enemigo, jugador);
+        torre.atacarEnemigo(enemigo);
         assertTrue(torre.estaOperativa());
     }
 
     //Verificar que se disponga de credito para realizar las construcciones.
     @Test
     public void Test03UnJugadorDebeTenerCreditosSuficientesParaConstruirUnaTorre() {
-        Jugador jugador = new Jugador(20, 30, "A");
-        //assertDoesNotThrow(TorrePlateada::new);
+        Jugador jugador = new Jugador(20, 2, "A");
         Defensa torre = new TorrePlateada();
-        Parcela t1 = new Tierra(new Coordenadas(0, 0));
-        Parcela t2 = new Tierra(new Coordenadas(1, 0));
 
-        assertDoesNotThrow(() -> t1.ubicar(torre, jugador));
-
-        assertThrows(CreditosInsuficientesError.class, () -> t2.ubicar(torre, jugador));
-
+        assertThrows(CreditosInsuficientesError.class, () -> torre.asignarAJugador(jugador));
     }
 
     //Verificar solo se pueda construir defensas sobre tierra (y verificar lo contrario)
     @Test
     public void Test04SoloSePuedeConstruirDefensasSobreTierra() {
-        Jugador jugador = new Jugador(20, 100, "a");
         Defensa defensa = new TorreBlanca();
 
         Parcela tierra = new Tierra(new Coordenadas(0, 0));
-        Parcela roca = new Rocoso(new Coordenadas(1, 1));
-        Parcela pasarela = new Pasarela(new Coordenadas(0, 1));
+        Parcela roca = new Rocoso(new Coordenadas(0, 0));
+        Parcela pasarela = new Pasarela(new Coordenadas(0, 0));
 
-        assertTrue(tierra.ubicar(defensa, jugador));
-        assertFalse(roca.ubicar(defensa, jugador));
-        assertFalse(pasarela.ubicar(defensa, jugador));
+        assertTrue(tierra.ubicar(defensa));
+        assertFalse(roca.ubicar(defensa));
+        assertFalse(pasarela.ubicar(defensa));
     }
 
     //Verificar que las defensas ataquen dentro del rango esperado (y verificar lo contrario)
     @Test
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
-        Jugador jugador = new Jugador(20, 100, "a");
+        //Jugador jugador = new Jugador(20, 100, "a");
         Defensa defensa = new TorreBlanca();
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Hormiga();
@@ -83,13 +80,13 @@ public class Entrega1Test {
         Pasarela cerca = new Pasarela(new Coordenadas(0, 3));
         Tierra tierra = new Tierra(new Coordenadas(0, 1));
 
-        cerca.ubicar(enemigo1, jugador);
-        lejos.ubicar(enemigo2, jugador);
-        tierra.ubicar(defensa, jugador);
+        cerca.ubicar(enemigo1);
+        lejos.ubicar(enemigo2);
+        tierra.ubicar(defensa);
 
-        tierra.atacar(lejos, jugador);
-        tierra.atacar(cerca, jugador); //esto pone la torre en operacion
-        tierra.atacar(cerca, jugador);
+        defensa.atacarEnemigo(enemigo2);
+        defensa.atacarEnemigo(enemigo1); //esto pone la torre en operacion
+        defensa.atacarEnemigo(enemigo1);
 
         assertTrue(enemigo1.estaMuerto());
         assertFalse(enemigo2.estaMuerto());
@@ -98,12 +95,12 @@ public class Entrega1Test {
     //Verificar que las unidades enemigas son dañadas acorde al ataque recibido.
     @Test
     public void Test06UnEnemigoRecibeElDanioCorrecto() {
-        Jugador jugador = new Jugador(20, 100, "a");
+        //Jugador jugador = new Jugador(20, 100, "a");
         Enemigo enemigo = new Arania();
 
-        Energia energia = new Energia(2);
+        Energia energia = new EnergiaRoja(2);
 
-        enemigo.recibirDanio(energia, jugador);
+        enemigo.recibirDanio(energia);
         assertTrue(enemigo.estaMuerto());
 
     }
@@ -111,16 +108,15 @@ public class Entrega1Test {
     //Verificar que las unidades enemigas solo se muevan por la parcela autorizada.
     @Test
     public void Test07LasUnidadesEnemigasSoloSeMuevanPorLaParcelaAutorizada() {
-        Jugador jugador = new Jugador(20, 100, "a");
         Enemigo enemigo = new Arania();
 
         Parcela tierra = new Tierra(new Coordenadas(0, 0));
         Parcela piedra = new Rocoso(new Coordenadas(1, 0));
         Parcela pasarela = new Pasarela(new Coordenadas(1, 1));
 
-        assertFalse(piedra.ubicar(enemigo, jugador));
-        assertFalse(tierra.ubicar(enemigo, jugador));
-        assertTrue(pasarela.ubicar(enemigo, jugador));
+        assertFalse(piedra.ubicar(enemigo));
+        assertFalse(tierra.ubicar(enemigo));
+        assertTrue(pasarela.ubicar(enemigo));
     }
 
 
@@ -129,9 +125,10 @@ public class Entrega1Test {
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
         Jugador jugador = new Jugador(10, 1, "Julian");
         Enemigo enemigo = new Hormiga();
-        Energia energia = new Energia(1);
+        Energia energia = new EnergiaRoja(1);
 
-        enemigo.recibirDanio(energia, jugador);
+        enemigo.recibirDanio(energia);
+        jugador.recibirMuerto(enemigo);
 
         assertTrue(jugador.getCreditos().equals(new Creditos(2)));
     }
@@ -139,60 +136,47 @@ public class Entrega1Test {
     //Verificar que al pasar un turno las unidades enemigas se hayan movido según sus capacidades.
     @Test
     public void Test09PasarUnTurnoMueveEnemigoSegunCapacidad() {
-        Jugador jugador = new Jugador(20, 100, "Julian");
+        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador(10, 1, "Julian");
         Enemigo hormiga = new Hormiga();
         Enemigo arania = new Arania();
 
-        Camino camino = new Camino();
-        Pasarela pasarela = new Pasarela(new Coordenadas(0, 0));
-        Pasarela siguienteHormiga = new Pasarela(new Coordenadas(0, 1));
-        Pasarela siguienteArania = new Pasarela(new Coordenadas(0, 2));
-        Pasarela meta = new Pasarela(new Coordenadas(0, 4));
+        Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
+        Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
+        Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
 
-        camino.agregarPasarela(pasarela);
-        camino.agregarPasarela(siguienteHormiga);
-        camino.agregarPasarela(siguienteArania);
-        camino.agregarPasarela(meta);
+        p1.setSiguiente(p2);
+        p2.setSiguiente(p3);
 
-        pasarela.ubicar(hormiga, jugador);
-        pasarela.ubicar(arania, jugador);
-
-        camino.mover(jugador);
-
-        assertTrue(pasarela.estaVacia());
-
-        assertFalse(siguienteHormiga.estaVacia());
-
-        assertFalse(siguienteArania.estaVacia());
+        hormiga.mover(p1, jugador, mapa);
+        arania.mover(p1, jugador, mapa);
+        assert hormiga.getUbicacion().equals(new Coordenadas(0, 1));
+        assert arania.getUbicacion().equals(new Coordenadas(0, 2));
     }
 
     //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
     @Test
     public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
         Jugador jugador = new Jugador(20, 100, "Julian");
-        Camino camino = new Camino();
+        Mapa mapa = new Mapa();
 
-        Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
-        Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
-        Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
-        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
-        Parcela t1 = new Tierra(new Coordenadas(0, 0));
-
-        camino.agregarPasarela(c1);
-        camino.agregarPasarela(c2);
-        camino.agregarPasarela(c3);
-        camino.agregarPasarela(c4);
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 0)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
+        mapa.agregarParcela(new Tierra(new Coordenadas(1, 1)));
 
         Enemigo enemigo = new Hormiga();
         Defensa defensa = new TorreBlanca();
-        c1.ubicar(enemigo, jugador);
-        t1.ubicar(defensa, jugador);
-        c1.recibirAtaqueDe(defensa, jugador); //esto pone la torre en operacion
-        c1.recibirAtaqueDe(defensa, jugador);
-
-        assertTrue(camino.gano(jugador));
+        mapa.ubicar(enemigo, new Coordenadas(0, 0), jugador);
+        mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
 
 
+        assert !mapa.gano(jugador);
+        defensa.atacarEnemigo(enemigo);
+        defensa.atacarEnemigo(enemigo);
+        mapa.recolectarEnemigos(jugador);
+
+        assert mapa.gano(jugador);
     }
 
 
@@ -201,52 +185,57 @@ public class Entrega1Test {
     @Test
     public void Test11ElJugadorGanaEliminandoTodosLosEnemigosAunqueAlgunosLleguenALaMeta() {
         Jugador jugador = new Jugador(20, 100, "Julian");
-        Camino camino = new Camino();
+        Mapa mapa = new Mapa();
 
-        Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
-        Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
-        Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
-        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
+        Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
+        Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
+        Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
+        Tierra p4 = new Tierra(new Coordenadas(1, 1));
+        mapa.agregarParcela(p1);
+        mapa.agregarParcela(p2);
+        mapa.agregarParcela(p3);
+        mapa.agregarParcela(p4);
 
-        camino.agregarPasarela(c1);
-        camino.agregarPasarela(c2);
-        camino.agregarPasarela(c3);
-        camino.agregarPasarela(c4);
+        p1.setSiguiente(p2);
+        p2.setSiguiente(p3);
 
-        Enemigo enemigo = new Hormiga();
-        c3.ubicar(enemigo, jugador);
+        Enemigo enemigo1 = new Hormiga();
+        Enemigo enemigo2 = new Hormiga();
+        Defensa defensa = new TorreBlanca();
 
-        camino.mover(jugador);
-
-        assertTrue((new Energia(19)).equals(jugador.getVida()));
-        assertTrue(camino.gano(jugador));
-
+        mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
+        mapa.ubicar(enemigo2, new Coordenadas(0, 2), jugador);
+        mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
+        mapa.mover(jugador);
+        jugador.atacarEnemigos(mapa);
+        jugador.atacarEnemigos(mapa);
+        mapa.mover(jugador);
+        mapa.recolectarEnemigos(jugador);
+        assert mapa.gano(jugador);
+        assert jugador.getCreditos().equals(new Creditos(91));
+        assert jugador.getVida().equals(new EnergiaRoja(19));
     }
 
-    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
+    //    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
     @Test
     public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
-        Jugador jugador = new Jugador(1, 100, "Julian");
-        Camino camino = new Camino();
+        Jugador jugador = new Jugador(4, 100, "Julian");
+        Mapa mapa = new Mapa();
 
-        Pasarela c1 = new Pasarela(new Coordenadas(0, 0));
-        Pasarela c2 = new Pasarela(new Coordenadas(0, 1));
-        Pasarela c3 = new Pasarela(new Coordenadas(0, 2));
-        Pasarela c4 = new Pasarela(new Coordenadas(0, 3));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 0)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
+        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
+        mapa.agregarParcela(new Tierra(new Coordenadas(1, 1)));
 
-        camino.agregarPasarela(c1);
-        camino.agregarPasarela(c2);
-        camino.agregarPasarela(c3);
-        camino.agregarPasarela(c4);
+        Enemigo enemigo1 = new Arania();
+        Enemigo enemigo2 = new Arania();
 
-        Enemigo enemigo = new Hormiga();
-        c3.ubicar(enemigo, jugador);
+        mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
+        mapa.ubicar(enemigo2, new Coordenadas(0, 0), jugador);
+        mapa.mover(jugador);
 
-        camino.mover(jugador);
-
-        assertTrue(jugador.estaMuerto());
-        assertFalse(camino.gano(jugador));
-        assertTrue(camino.perdio(jugador));
+        assert jugador.getVida().equals(new EnergiaRoja(0));
+        assert mapa.perdio(jugador);
     }
 }
 

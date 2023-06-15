@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.modelo.jugador;
 
 import edu.fiuba.algo3.modelo.creditos.Creditos;
-import edu.fiuba.algo3.modelo.creditos.RecompensaDoble;
+import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
-import edu.fiuba.algo3.modelo.vida.Energia;
+import edu.fiuba.algo3.modelo.energia.Energia;
+import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
+import edu.fiuba.algo3.modelo.logger.Logger;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.score.Score;
 
 import java.util.ArrayList;
 
@@ -12,12 +15,17 @@ public class Jugador {
     private final String nombre;
     private final Energia energia;
     private final Creditos creditos;
-    private final ArrayList<Enemigo> muertos = new ArrayList<>();
+    private final Score score;
+    private final ArrayList<Defensa> defensas;
 
     public Jugador(int vida, int creditos, String nombre) {
         this.nombre = nombre;
-        this.energia = new Energia(vida);
+        this.energia = new EnergiaRoja(vida);
         this.creditos = new Creditos(creditos);
+        this.defensas = new ArrayList<Defensa>();
+        this.score = new Score();
+        Logger.getInstancia().info("Creditos iniciales de \"" + this.nombre + "\" " + this.creditos.getCantidad()
+                + " con energia inicial " + this.energia.getCantidad());
     }
 
     public Energia getVida() {
@@ -29,11 +37,23 @@ public class Jugador {
     }
 
     public void recibirAtaque(Energia danio) {
-        this.energia.reducir(danio);
+        danio.reducir(this.energia);
     }
-
     public boolean estaMuerto() {
         return this.energia.estaMuerto();
+    }
+
+    public void recibirDefensa(Defensa defensa) {
+        this.defensas.add(defensa);
+    }
+
+    public void destruirPrimeraDefensa() {
+        if (this.defensas.isEmpty()) {
+            return;
+        }
+        //Defensa primeraDefensa = defensas.get(0); no se esta usando
+        this.defensas.remove(0);
+        //primeraDefensa.sacarDefensa()
     }
 
     public void recibirCreditos(Creditos creditos) {
@@ -45,21 +65,22 @@ public class Jugador {
     }
 
     public void recibirMuerto(Enemigo enemigo) {
-        this.muertos.add(enemigo);
-        this.asignarCreditos(enemigo);
+        this.score.agregarMuerto(enemigo);
+        enemigo.recompensar(this);
     }
 
-    public void asignarCreditos(Enemigo enemigo) {
-        int contador = 0;
-        for (int i = 0; i < muertos.size(); i++) {
-            if (enemigo instanceof Hormiga) {
-                contador++;
-                if (contador > 10) {
-                    enemigo.setRecompensa(new RecompensaDoble());
-                    return;
-                }
-            }
+    public String nombre() {
+        return this.nombre;
+    }
+
+    public void atacarEnemigos(Mapa mapa) {
+        for (Defensa defensa : this.defensas){
+            mapa.enemigosAtacados(defensa);
         }
+    }
+
+    public int cantidadDefensas() {
+        return this.defensas.size();
     }
 }
 

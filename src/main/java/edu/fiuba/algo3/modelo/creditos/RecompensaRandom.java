@@ -6,7 +6,11 @@ import java.util.Random;
 
 public class RecompensaRandom implements Recompensa {
 
-    private static final int rango = 10;
+    private int rango;
+
+    public RecompensaRandom(int rango) {
+        this.rango = rango;
+    }
 
     @Override
     public void otorgarRecompensa(Jugador jugador) {
