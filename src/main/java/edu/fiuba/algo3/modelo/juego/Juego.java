@@ -19,31 +19,31 @@ public class Juego {
         this.jugador = jugador;
         this.mapa = lector.leerMapa(rutaMapa);
         this.turnos = lector.leerEnemigos(rutaTurnos);
-//        Logger.getInstancia().info("se creo un juego para el jugador: \"" +
-//                jugador.nombre() + "\" con un mapa de tamanio " + mapa.tamanoMapa() + " y "
-//                + turnos.cantidadOleadas() + " oleadas");
+        Logger.getInstancia().info("se creo un juego para el jugador: \"" +
+                jugador.nombre() + "\" con un mapa de tamanio " + mapa.size() + " y "
+                + turnos.cantidadOleadas() + " oleadas");
     }
 
     public void turnoEnemigos() {
         this.turnos.moverEnemigos(this.jugador, mapa);
-//        if (this.mapa.perdio(this.jugador)) {
-//            Logger.getInstancia().info("Jugador perdio!");
-//            return;
-//        }
-        //this.mapa.generarEnemigos(this.turnos, jugador);
+        if (this.mapa.perdio(this.jugador)) {
+            Logger.getInstancia().info("Jugador perdio!");
+            return;
+        }
+        this.turnos.generarEnemigos(this.mapa);
         turnos.sumarTurnos();
     }
 
     public void agregarDefensa(Defensa defensa, Coordenadas coordenadas) {
-       // this.mapa.agregarDefensa(defensa, coordenadas, this.jugador);
+        this.mapa.ubicar(defensa, coordenadas, this.jugador);
     }
 
     public void pasarTurno() {
-//        this.mapa.defensasAtacar(this.jugador);
-//        this.turnoEnemigos();
-//        if (this.mapa.gano(this.jugador)) {
-//            Logger.getInstancia().info("Jugador gano!");
-//        }
+        this.jugador.atacarEnemigos(this.mapa);
+        this.turnoEnemigos();
+        if (this.mapa.gano(this.jugador)) {
+            Logger.getInstancia().info("Jugador gano!");
+        }
     }
 
     public void juegoEmpezar() {
@@ -51,21 +51,21 @@ public class Juego {
     }
 
     public boolean gano() {
-        //return this.mapa.gano(jugador);
-        return true;
+        return this.mapa.gano(jugador);
     }
 
     public boolean perdio() {
-        return false;//this.mapa.perdio(jugador);
+        return this.mapa.perdio(jugador);
     }
 
     public int tamanoMapa() {
-        return 1; //this.mapa.tamanoMapa();
+        return this.mapa.size();
     }
 
     public int cantidadTurnos() { return this.turnos.cantidadOleadas();
     }
 
-    public int cantidadEnemigos(int i) { return 1;// this.mapa.cantidadEnemigos(i);
+    public int cantidadEnemigos() {
+        return this.mapa.cantidadEnemigos();
     }
 }

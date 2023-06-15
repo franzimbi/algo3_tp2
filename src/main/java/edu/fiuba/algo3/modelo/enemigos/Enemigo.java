@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.Direccion.Direccion;
+import edu.fiuba.algo3.modelo.Direccion.DireccionCamino;
 import edu.fiuba.algo3.modelo.creditos.Recompensa;
 import edu.fiuba.algo3.modelo.danio.Danio;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
@@ -21,12 +23,14 @@ public abstract class Enemigo {
     protected Danio danio;
     protected Velocidad velocidad;
     protected Recompensa recompensa;
+    protected Direccion direccion;
     protected int movimientos;
     protected Coordenadas ubicacion;
 
     public Enemigo() {
         this.movimientos = 0;
         this.ubicacion = new Coordenadas(0,0);
+        this.direccion = new DireccionCamino();
     }
     public static Enemigo construirEnemigo(String enemigo) {
         Map<String, Enemigo> enemigosPosibles = new HashMap<>();
@@ -93,9 +97,11 @@ public abstract class Enemigo {
     }
 
     public void mover(Pasarela pasarelaActual, Jugador jugador, Mapa mapa){
-        pasarelaActual.siguientePasarela(this.velocidad, this, jugador, mapa);
+        this.direccion.mover(velocidad, this, pasarelaActual, jugador, mapa);
     }
-
+    public void setDireccion(Direccion nuevaDireccion){
+        this.direccion = nuevaDireccion;
+    }
     public void recompensar(Jugador jugador) {
         this.recompensa.otorgarRecompensa(jugador);
     }

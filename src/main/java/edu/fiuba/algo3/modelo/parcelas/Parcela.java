@@ -30,36 +30,11 @@ public abstract class Parcela {
     public abstract boolean ubicar(Defensa defensa);
     public abstract boolean ubicar(Enemigo enemigo);
 
-
     public boolean tieneUbicacion(Coordenadas other){
         return  this.ubicacion.equals(other);
     }
     public Coordenadas getUbicacion(){
         return this.ubicacion;
     }
-
-//    public void defensaAtacar(Pasarela pasarela, Jugador jugador) {
-//        int distancia = this.distancia(pasarela);
-//
-//        if (this.defensa.estaEnRango(distancia)) {
-//            pasarela.enemigoRecibirAtaque(this.defensa, jugador);
-//        }
-//
-//        if (!this.defensa.vidaUtil()) {
-//            this.defensa = null;
-//        }
-//    }
-
-//    public void enemigoRecibirAtaque(Defensa defensa, Jugador jugador) {
-//        if (enemigos.isEmpty()) {
-//            return;
-//        }
-//        Enemigo primerEnemigo = enemigos.get(0);
-//        defensa.atacarEnemigo(primerEnemigo, jugador);
-//        if (primerEnemigo.estaMuerto()) {
-//            jugador.recibirMuerto(primerEnemigo);
-//            enemigos.remove(primerEnemigo);
-//        }
-//    }
 
 }

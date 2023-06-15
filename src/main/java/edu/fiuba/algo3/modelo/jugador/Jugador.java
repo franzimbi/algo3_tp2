@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.score.Score;
 
 import java.util.ArrayList;
@@ -74,10 +73,14 @@ public class Jugador {
         return this.nombre;
     }
 
-    public void atacarEnemigo(Mapa mapa) {
+    public void atacarEnemigos(Mapa mapa) {
         for (Defensa defensa : this.defensas){
-            mapa.enemigoAtacar(defensa);
+            mapa.enemigosAtacados(defensa);
         }
+    }
+
+    public int cantidadDefensas() {
+        return this.defensas.size();
     }
 }
 

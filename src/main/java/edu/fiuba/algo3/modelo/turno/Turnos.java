@@ -28,30 +28,18 @@ public class Turnos {
         enemigosDelTurno.add(enemigo);
     }
 
-    public void generarEnemigos(Pasarela ini, Jugador jugador) {
+    public void generarEnemigos(Mapa mapa) {
         if (oleadas.size() == 0) {
             Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
             return;
         }
         ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
         for (Enemigo enemigo : enemigosDelTurno) {
-            ini.ubicar(enemigo);
+            mapa.spawnear(enemigo);
             Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
         }
         this.oleadas.remove(0);
     }
-//    public void generarEnemigos(Camino ini, Jugador jugador) {
-//        if (oleadas.size() == 0) {
-//            Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
-//            return;
-//        }
-//        ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);
-//        for (Enemigo enemigo : enemigosDelTurno) {
-//            ini.generarEnemigo(enemigo, jugador);
-//            Logger.getInstancia().info("se agrego un " + enemigo.getNombre() + " al camino");
-//        }
-//        this.oleadas.remove(0);
-//    }
     public int cantidadOleadas() {
         return this.oleadas.size();
     }
@@ -61,7 +49,7 @@ public class Turnos {
     }
 
     public void moverEnemigos(Jugador jugador, Mapa mapa) {
-        //mapa.mover(jugador, this.cantidadDeTurnos);
+        mapa.mover(jugador);
     }
 }
 

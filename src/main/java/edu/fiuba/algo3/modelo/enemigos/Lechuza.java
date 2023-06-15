@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.Direccion.DireccionHorizontal;
 import edu.fiuba.algo3.modelo.creditos.RecompensaSimple;
 import edu.fiuba.algo3.modelo.danio.DanioLechuzal;
 import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
@@ -19,6 +20,7 @@ public class Lechuza extends Enemigo {
         this.energia = new EnergiaRoja(5);
         this.danio = new DanioLechuzal();
         this.velocidad = new Velocidad(5);
+        this.direccion = new DireccionHorizontal();
     }
 
     public String getNombre() {
@@ -29,10 +31,10 @@ public class Lechuza extends Enemigo {
     public void reducirVelocidad(float multiplicador) {
     }
 
-//    @Override
-//    public void atacar(Jugador jugador, int cantidadDeTurnos) {
-//        jugador.destruirPrimeraDefensa();
-//    }
+    @Override
+    public void atacar(Jugador jugador, int cantidadDeTurnos) {
+        jugador.destruirPrimeraDefensa();
+    }
 
     public void agregarMuerto(Score score) {
         score.agregarMuerto(this);

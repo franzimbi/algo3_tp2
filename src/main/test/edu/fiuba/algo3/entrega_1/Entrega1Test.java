@@ -167,7 +167,7 @@ public class Entrega1Test {
 
         Enemigo enemigo = new Hormiga();
         Defensa defensa = new TorreBlanca();
-        mapa.ubicar(enemigo, new Coordenadas(0, 0));
+        mapa.ubicar(enemigo, new Coordenadas(0, 0), jugador);
         mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
 
 
@@ -203,12 +203,12 @@ public class Entrega1Test {
         Enemigo enemigo2 = new Hormiga();
         Defensa defensa = new TorreBlanca();
 
-        mapa.ubicar(enemigo1, new Coordenadas(0, 0));
-        mapa.ubicar(enemigo2, new Coordenadas(0, 2));
+        mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
+        mapa.ubicar(enemigo2, new Coordenadas(0, 2), jugador);
         mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
         mapa.mover(jugador);
-        jugador.atacarEnemigo(mapa);
-        jugador.atacarEnemigo(mapa);
+        jugador.atacarEnemigos(mapa);
+        jugador.atacarEnemigos(mapa);
         mapa.mover(jugador);
         mapa.recolectarEnemigos(jugador);
         assert mapa.gano(jugador);
@@ -230,8 +230,8 @@ public class Entrega1Test {
         Enemigo enemigo1 = new Arania();
         Enemigo enemigo2 = new Arania();
 
-        mapa.ubicar(enemigo1, new Coordenadas(0, 0));
-        mapa.ubicar(enemigo2, new Coordenadas(0, 0));
+        mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
+        mapa.ubicar(enemigo2, new Coordenadas(0, 0), jugador);
         mapa.mover(jugador);
 
         assert jugador.getVida().equals(new EnergiaRoja(0));
