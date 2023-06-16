@@ -18,7 +18,7 @@ public class Entrega3Test {
 
     @Test
     public void Test14LechuzaSeMueveEnL() {
-        Logger.getInstancia().activar();
+        //Logger.getInstancia().activar();
         String mapa = "src/main/test/edu/fiuba/algo3/entrega_3/jsonsTest/mapaValido.json";
         String turnos = "src/main/test/edu/fiuba/algo3/entrega_3/jsonsTest/enemigosValidos.json";
         Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
@@ -29,6 +29,6 @@ public class Entrega3Test {
         assertEquals(1, juego.cantidadEnemigos());
         juego.pasarTurno();
         juego.pasarTurno();
-        Logger.getInstancia().desactivar();
+        //Logger.getInstancia().desactivar();
     }
 }
