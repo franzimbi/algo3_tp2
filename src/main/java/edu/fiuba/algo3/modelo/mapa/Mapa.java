@@ -4,8 +4,8 @@ import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class Mapa {
 
     public void ubicar(Enemigo enemigo, Coordenadas posicion, Jugador jugador) {
         for (Parcela parcela : this.parcelas) {
-            if (parcela.ubicacion(posicion)) { //esto rompe tell don't ask, not anymore mate
+            if (parcela.ubicacion(posicion)) {
                 boolean pudo = parcela.ubicar(enemigo);
                 if (pudo) {
                     Logger.getInstancia().info("se ubico un " + enemigo.getNombre()

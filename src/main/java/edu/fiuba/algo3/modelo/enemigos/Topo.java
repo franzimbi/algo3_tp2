@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.danio.DanioTopal;
-import edu.fiuba.algo3.modelo.energia.Energia;
-import edu.fiuba.algo3.modelo.score.Score;
-import edu.fiuba.algo3.modelo.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.DanioTopal;
+import edu.fiuba.algo3.modelo.jugador.score.Score;
+import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 
 public class Topo extends Enemigo {
 
@@ -11,7 +10,7 @@ public class Topo extends Enemigo {
         super();
         this.velocidad = new Velocidad(1);
         this.danio = new DanioTopal(2, 5);
-        this.energia = new Energia(1);
+        this.energia = 1;
         this.recompensa = null;
 
     }

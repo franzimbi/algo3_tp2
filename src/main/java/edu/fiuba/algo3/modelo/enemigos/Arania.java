@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.creditos.RecompensaRandom;
-import edu.fiuba.algo3.modelo.danio.DanioSimple;
-import edu.fiuba.algo3.modelo.energia.Energia;
-import edu.fiuba.algo3.modelo.score.Score;
-import edu.fiuba.algo3.modelo.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.enemigos.recompensas.RecompensaRandom;
+import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.DanioSimple;
+import edu.fiuba.algo3.modelo.jugador.score.Score;
+import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 
 public class Arania extends Enemigo {
 
@@ -12,7 +11,7 @@ public class Arania extends Enemigo {
         super();
         int rango = 10;
         this.recompensa = new RecompensaRandom(rango);
-        this.energia = new Energia(2);
+        this.energia = 2;
         this.danio = new DanioSimple(2);
         this.velocidad = new Velocidad(2);
     }

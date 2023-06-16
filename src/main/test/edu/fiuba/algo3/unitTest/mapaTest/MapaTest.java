@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.unitTest.mapaTest;
 
-import edu.fiuba.algo3.modelo.defensa.Defensa;
-import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.parcelas.Tierra;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Tierra;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;

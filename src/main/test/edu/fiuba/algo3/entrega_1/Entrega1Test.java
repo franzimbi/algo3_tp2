@@ -1,21 +1,19 @@
 package edu.fiuba.algo3.entrega_1;
 
-import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
 import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
-import edu.fiuba.algo3.modelo.energia.Energia;
+import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.excepciones.*;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
-import edu.fiuba.algo3.modelo.parcelas.Rocoso;
-import edu.fiuba.algo3.modelo.parcelas.Tierra;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Rocoso;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Tierra;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,7 +26,7 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100, "mati");
 
         assertFalse(jugador.estaMuerto());
-        assertTrue(jugador.getCreditos().equals(new Creditos(100)));
+        assertEquals(100, jugador.getCreditos());
     }
 
     //Verificar que cada defensa tarde en construirse lo que dice que
@@ -43,6 +41,7 @@ public class Entrega1Test {
         torre.atacarEnemigo(enemigo);
         assertTrue(torre.estaOperativa());
     }
+
 
     //Verificar que se disponga de credito para realizar las construcciones.
     @Test
@@ -91,18 +90,17 @@ public class Entrega1Test {
         assertFalse(enemigo2.estaMuerto());
     }
 
+
     //Verificar que las unidades enemigas son dañadas acorde al ataque recibido.
     @Test
     public void Test06UnEnemigoRecibeElDanioCorrecto() {
         //Jugador jugador = new Jugador(20, 100, "a");
         Enemigo enemigo = new Arania();
-
-        Energia energia = new Energia(2);
-
-        enemigo.recibirDanio(energia);
+        enemigo.recibirDanio(2);
         assertTrue(enemigo.estaMuerto());
 
     }
+
 
     //Verificar que las unidades enemigas solo se muevan por la parcela autorizada.
     @Test
@@ -124,12 +122,11 @@ public class Entrega1Test {
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
         Jugador jugador = new Jugador(10, 1, "Julian");
         Enemigo enemigo = new Hormiga();
-        Energia energia = new Energia(1);
 
-        enemigo.recibirDanio(energia);
+        enemigo.recibirDanio(1);
         jugador.recibirMuerto(enemigo);
 
-        assertTrue(jugador.getCreditos().equals(new Creditos(2)));
+        assertEquals(2, jugador.getCreditos());
     }
 
     //Verificar que al pasar un turno las unidades enemigas se hayan movido según sus capacidades.
@@ -153,7 +150,7 @@ public class Entrega1Test {
         assert arania.getUbicacion().equals(new Coordenadas(0, 2));
     }
 
-    //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
+   //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
     @Test
     public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
         Jugador jugador = new Jugador(20, 100, "Julian");
@@ -211,8 +208,8 @@ public class Entrega1Test {
         mapa.mover(jugador);
         mapa.recolectarEnemigos(jugador);
         assert mapa.gano(jugador);
-        assert jugador.getCreditos().equals(new Creditos(91));
-        assert jugador.getVida().equals(new Energia(19));
+        assertEquals(91 ,jugador.getCreditos());
+        assertEquals(19, jugador.getVida());
     }
 
     //    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
@@ -233,7 +230,7 @@ public class Entrega1Test {
         mapa.ubicar(enemigo2, new Coordenadas(0, 0), jugador);
         mapa.mover(jugador);
 
-        assert jugador.getVida().equals(new Energia(0));
+        assertEquals(0, jugador.getVida());
         assert mapa.perdio(jugador);
     }
 }

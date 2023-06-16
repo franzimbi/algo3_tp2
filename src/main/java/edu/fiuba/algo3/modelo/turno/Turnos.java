@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.excepciones.TurnoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
 
 import java.util.ArrayList;
 

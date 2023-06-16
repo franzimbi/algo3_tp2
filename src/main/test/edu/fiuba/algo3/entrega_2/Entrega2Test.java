@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
 import org.junit.Test;
 
@@ -109,8 +109,8 @@ public class Entrega2Test {
         juego.pasarTurno();
         assertEquals(0, juego.cantidadEnemigos());
         assert juego.gano();
-        assertEquals(282, jugador.getCreditos().getCantidad());
-        assertEquals(18, jugador.getVida().getCantidad());
+        assertEquals(282, jugador.getCreditos());
+        assertEquals(18, jugador.getVida());
         //Logger.getInstancia().desactivar();
     }
 
@@ -132,7 +132,7 @@ public class Entrega2Test {
         juego.pasarTurno();
         assertEquals(0, juego.cantidadEnemigos());
         assert juego.perdio();
-        assertEquals(282, jugador.getCreditos().getCantidad());
-        assertEquals(0, jugador.getVida().getCantidad());
+        assertEquals(282, jugador.getCreditos());
+        assertEquals(0, jugador.getVida());
     }
 }

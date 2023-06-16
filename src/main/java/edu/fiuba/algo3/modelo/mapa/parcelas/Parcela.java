@@ -1,0 +1,45 @@
+package edu.fiuba.algo3.modelo.mapa.parcelas;
+
+import edu.fiuba.algo3.modelo.defensa.Defensa;
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.excepciones.ParcelaInvalidaError;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public abstract class Parcela {
+    protected Coordenadas ubicacion;
+
+    public static Parcela construirParcela(String parcela, Coordenadas coordenada) {
+        Map<String, Parcela> parcelasPosibles = new HashMap<>();
+        {
+            parcelasPosibles.put("Tierra", new Tierra(coordenada));
+            parcelasPosibles.put("Rocoso", new Rocoso(coordenada));
+            parcelasPosibles.put("Pasarela", new Pasarela(coordenada));
+        }
+        Parcela aux = parcelasPosibles.get(parcela);
+        if (aux != null) {
+            return aux;
+        }
+        throw new ParcelaInvalidaError();
+    }
+
+    public abstract boolean ubicar(Defensa defensa);
+
+    public abstract boolean ubicar(Enemigo enemigo);
+
+    public boolean tieneUbicacion(Coordenadas other) {
+        return this.ubicacion.equals(other);
+    }
+
+    public Coordenadas getUbicacion() {
+        return this.ubicacion;
+    }
+
+    //compara la ubicacion del enemigo con la parcela
+    public boolean ubicacion(Coordenadas coordenadas) {
+        return this.ubicacion.equals(coordenadas);
+    }
+
+}

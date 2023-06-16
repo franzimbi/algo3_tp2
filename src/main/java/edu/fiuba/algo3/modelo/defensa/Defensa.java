@@ -1,19 +1,17 @@
 package edu.fiuba.algo3.modelo.defensa;
 
-import edu.fiuba.algo3.modelo.ataque.SistemaDeAtaque;
-import edu.fiuba.algo3.modelo.creditos.Creditos;
+import edu.fiuba.algo3.modelo.defensa.sistemaDeDefensa.SistemaDeDefensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
 
 
 public abstract class Defensa {
-    protected VidaUtil vidaUtil;
-    protected SistemaDeAtaque armas;
+    protected int vidaUtil;
+    protected SistemaDeDefensa armas;
     protected int turnosRestantes;
-    protected Creditos coste;
+    protected int coste;
     protected Coordenadas ubicacion;
 
     public Defensa() {
@@ -47,7 +45,7 @@ public abstract class Defensa {
     public abstract String getNombre();
 
     public boolean vidaUtil() {
-        return this.vidaUtil.vidaUtil();
+        return this.vidaUtil > 0;
     }
 
     public void ubicarEn(Coordenadas ubicacion) {

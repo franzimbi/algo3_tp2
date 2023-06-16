@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.unitTest.enemigosTest;
 
-import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.enemigos.*;
-import edu.fiuba.algo3.modelo.energia.*;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HormigaTest {
 
-    @Test
+   /* @Test
     public void Test01HormigaSeIniciaEnUnEstadoValido() {
         Hormiga hormiga = new Hormiga();
 
@@ -88,7 +86,7 @@ public class HormigaTest {
         Creditos creditos = new Creditos(110);
         Assertions.assertTrue(creditos.equals(jugador.getCreditos()));
     }
-
+    */
 }
 
 

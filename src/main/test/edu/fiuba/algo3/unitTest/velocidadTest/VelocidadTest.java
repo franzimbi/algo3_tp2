@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.unitTest.velocidadTest;
 
-import edu.fiuba.algo3.modelo.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 import org.junit.jupiter.api.Test;
 
 public class VelocidadTest {
