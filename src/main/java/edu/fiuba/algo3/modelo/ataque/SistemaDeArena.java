@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.ataque;
 
-import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Lechuza;
+import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 
@@ -22,6 +21,27 @@ public class SistemaDeArena extends SistemaDeAtaque {
         if (this.estaEnRango(distancia)) {
             enemigo.reducirVelocidad(multiplicador);
         }
+    }
+
+    public void atacar(Hormiga hormiga, int distancia) {
+        if (this.estaEnRango(distancia)) {
+            hormiga.reducirVelocidad(multiplicador);
+        }
+    }
+
+    public void atacar(Arania arania, int distancia) {
+        if (this.estaEnRango(distancia)) {
+            arania.reducirVelocidad(multiplicador);
+        }
+    }
+
+    public void atacar(Topo topo, int distancia) {
+        if (this.estaEnRango(distancia)) {
+            topo.reducirVelocidad(multiplicador);
+        }
+    }
+
+    public void atacar(Lechuza lechuza) {
     }
 
 }

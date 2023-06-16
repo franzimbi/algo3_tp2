@@ -23,8 +23,7 @@ public class HormigaTest {
     @Test
     public void Test2HormigaAlRecibirDanioSeDestruye() {
         Hormiga hormiga = new Hormiga();
-        Jugador jugador = new Jugador(10, 100, "Juli");
-        Energia danio = new EnergiaRoja(1);
+        Energia danio = new Energia(1);
         hormiga.recibirDanio(danio);
 
         assertTrue(hormiga.estaMuerto());
@@ -34,7 +33,7 @@ public class HormigaTest {
     public void Test03HormigaDaCreditosCorrectos() {
         Hormiga hormiga = new Hormiga();
         Jugador jugador = new Jugador(10, 10, "juli2");
-        Energia danio = new EnergiaRoja(1);
+        Energia danio = new Energia(1);
         hormiga.recibirDanio(danio);
         jugador.recibirMuerto(hormiga);
         Creditos creditos = new Creditos(11);
@@ -49,13 +48,13 @@ public class HormigaTest {
         Jugador jugador = new Jugador(10, 10, "juli3");
         hormiga.atacar(jugador,0);
 
-        assertTrue((new EnergiaRoja(9)).equals(jugador.getVida()));
+        assertTrue((new Energia(9)).equals(jugador.getVida()));
     }
 
     @Test
     public void Test05HormigaPuedeDarElDobleDeCreditosPasado10Muertes() {
         Jugador jugador = new Jugador(20, 100, "Jugador 1");
-        Energia danio = new EnergiaRoja(1);
+        Energia danio = new Energia(1);
 
         for (int i = 0; i < 10; i++) {
             Enemigo hormiga = new Hormiga();
@@ -74,7 +73,7 @@ public class HormigaTest {
     @Test
     public void Test05HormigaSigueDando1CreditoAntesDeSuperarLas10Muertes() {
         Jugador jugador = new Jugador(20, 100, "Jugador 1");
-        Energia danio = new EnergiaRoja(1);
+        Energia danio = new Energia(1);
 
         for (int i = 0; i < 9; i++) {
             Enemigo hormiga = new Hormiga();

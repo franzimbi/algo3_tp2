@@ -2,10 +2,7 @@ package edu.fiuba.algo3.modelo.enemigos;
 
 import edu.fiuba.algo3.modelo.creditos.RecompensaSimple;
 import edu.fiuba.algo3.modelo.danio.DanioSimple;
-import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
-import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 
@@ -15,7 +12,7 @@ public class Hormiga extends Enemigo {
         super();
         int recompensaBase = 1;
         this.recompensa = new RecompensaSimple(recompensaBase);
-        this.energia = new EnergiaRoja(1);
+        this.energia = new Energia(1);
         this.danio = new DanioSimple(1);
         this.velocidad = new Velocidad(1);
     }

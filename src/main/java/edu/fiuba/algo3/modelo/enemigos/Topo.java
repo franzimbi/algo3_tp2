@@ -1,18 +1,17 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
 import edu.fiuba.algo3.modelo.danio.DanioTopal;
-import edu.fiuba.algo3.modelo.energia.EnergiaAzul;
-import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.energia.Energia;
 import edu.fiuba.algo3.modelo.score.Score;
 import edu.fiuba.algo3.modelo.velocidad.Velocidad;
 
-public class    Topo extends Enemigo {
+public class Topo extends Enemigo {
 
     public Topo() {
         super();
         this.velocidad = new Velocidad(1);
         this.danio = new DanioTopal(2, 5);
-        this.energia = new EnergiaAzul(1);
+        this.energia = new Energia(1);
         this.recompensa = null;
 
     }
@@ -28,6 +27,7 @@ public class    Topo extends Enemigo {
             velocidad.aumentarVelocidad(1);
         }
     }
+
     public void agregarMuerto(Score score) {
         score.agregarMuerto(this);
     }

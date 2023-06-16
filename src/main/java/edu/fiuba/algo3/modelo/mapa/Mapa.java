@@ -26,7 +26,7 @@ public class Mapa {
 
     public Mapa() {
         this.parcelas = new ArrayList<>();
-        this.enemigos = new ArrayList<Enemigo>();
+        this.enemigos = new ArrayList<>();
         this.meta = null;
     }
 
@@ -62,7 +62,7 @@ public class Mapa {
 
     public void ubicar(Enemigo enemigo, Coordenadas posicion, Jugador jugador) {
         for (Parcela parcela : this.parcelas) {
-            if (parcela.getUbicacion().equals(posicion)) { //esto rompe tell dont ask
+            if (parcela.ubicacion(posicion)) { //esto rompe tell don't ask, not anymore mate
                 boolean pudo = parcela.ubicar(enemigo);
                 if (pudo) {
                     Logger.getInstancia().info("se ubico un " + enemigo.getNombre()

@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.energia.Energia;
-import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.excepciones.*;
@@ -98,7 +97,7 @@ public class Entrega1Test {
         //Jugador jugador = new Jugador(20, 100, "a");
         Enemigo enemigo = new Arania();
 
-        Energia energia = new EnergiaRoja(2);
+        Energia energia = new Energia(2);
 
         enemigo.recibirDanio(energia);
         assertTrue(enemigo.estaMuerto());
@@ -125,7 +124,7 @@ public class Entrega1Test {
     public void Test08DestruirUnEnemigoDaLosCreditosCorrectos() {
         Jugador jugador = new Jugador(10, 1, "Julian");
         Enemigo enemigo = new Hormiga();
-        Energia energia = new EnergiaRoja(1);
+        Energia energia = new Energia(1);
 
         enemigo.recibirDanio(energia);
         jugador.recibirMuerto(enemigo);
@@ -213,7 +212,7 @@ public class Entrega1Test {
         mapa.recolectarEnemigos(jugador);
         assert mapa.gano(jugador);
         assert jugador.getCreditos().equals(new Creditos(91));
-        assert jugador.getVida().equals(new EnergiaRoja(19));
+        assert jugador.getVida().equals(new Energia(19));
     }
 
     //    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
@@ -234,7 +233,7 @@ public class Entrega1Test {
         mapa.ubicar(enemigo2, new Coordenadas(0, 0), jugador);
         mapa.mover(jugador);
 
-        assert jugador.getVida().equals(new EnergiaRoja(0));
+        assert jugador.getVida().equals(new Energia(0));
         assert mapa.perdio(jugador);
     }
 }

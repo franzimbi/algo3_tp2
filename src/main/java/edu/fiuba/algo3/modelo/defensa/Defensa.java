@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.vidaUtil.VidaUtil;
 
 
@@ -17,9 +16,10 @@ public abstract class Defensa {
     protected Creditos coste;
     protected Coordenadas ubicacion;
 
-    public Defensa(){
-        this.ubicacion = new Coordenadas(0,0);
+    public Defensa() {
+        this.ubicacion = new Coordenadas(0, 0);
     }
+
     public boolean estaOperativa() {
         return this.turnosRestantes == 0;
     }
@@ -57,4 +57,6 @@ public abstract class Defensa {
     public Coordenadas getUbicacion() {
         return ubicacion;
     }
+
+
 }
