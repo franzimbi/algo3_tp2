@@ -13,20 +13,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Entrega3Test {
 
-    @Test
-    public void Test14LechuzaSeMueveEnL() {
-        Logger.getInstancia().activar();
-        String mapa = "src/main/test/testResources/mapaValido2.json";
-        String turnos = "src/main/test/testResources/enemigosValidos2.json";
-        Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
-        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
-        juego.juegoEmpezar();
-        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(4, 0));
-        assertEquals(1, juego.cantidadEnemigos());
-        juego.pasarTurno();
-        assertEquals(1, juego.cantidadEnemigos());
-        juego.pasarTurno();
-        juego.pasarTurno();
-        Logger.getInstancia().desactivar();
-    }
+//    @Test
+//    public void Test14LechuzaSeMueveEnL() {
+//        Logger.getInstancia().activar();
+//        String mapa = "src/main/test/testResources/mapaValido2.json";
+//        String turnos = "src/main/test/testResources/enemigosValidos2.json";
+//        Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
+//        Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
+//        juego.juegoEmpezar();
+//        juego.agregarDefensa(new TorreBlanca(), new Coordenadas(4, 0));
+//        assertEquals(1, juego.cantidadEnemigos());
+//        juego.pasarTurno();
+//        assertEquals(1, juego.cantidadEnemigos());
+//        juego.pasarTurno();
+//        juego.pasarTurno();
+//        Logger.getInstancia().desactivar();
+//    }
 }

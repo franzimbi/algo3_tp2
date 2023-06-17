@@ -16,7 +16,7 @@ public class Score {
     public void agregarMuerto(Hormiga hormiga) {
         this.cantidadHormigas++;
         if (cantidadHormigas > 10) {
-            hormiga.duplicarRecompensa();
+            hormiga.cambiarRecompensa();
         }
     }
 

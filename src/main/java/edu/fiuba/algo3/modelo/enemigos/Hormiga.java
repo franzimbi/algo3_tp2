@@ -20,8 +20,8 @@ public class Hormiga extends Enemigo {
         score.agregarMuerto(this);
     }
 
-    public void duplicarRecompensa() {
-        ((RecompensaSimple) this.recompensa).duplicarRecompensa();
+    public void cambiarRecompensa() {
+         this.recompensa.duplicarRecompensa();
     }
 
     public String getNombre() {

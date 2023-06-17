@@ -25,7 +25,7 @@ public class Juego {
 
     public void turnoEnemigos() {
         this.turnos.moverEnemigos(this.jugador, mapa);
-        if (this.mapa.perdio(this.jugador)) {
+        if (this.perdio()) {
             Logger.getInstancia().info("Jugador perdio!");
             return;
         }
@@ -42,7 +42,7 @@ public class Juego {
         this.jugador.atacarEnemigos(this.mapa);
         this.mapa.recolectarEnemigos(this.jugador);
         this.turnoEnemigos();
-        if (this.mapa.gano(this.jugador)) {
+        if (this.gano()) {
             Logger.getInstancia().info("Jugador gano!");
         }
     }
@@ -52,11 +52,11 @@ public class Juego {
     }
 
     public boolean gano() {
-        return this.mapa.gano(jugador);
+        return this.mapa.sinEnemigos() && !this.jugador.estaMuerto();
     }
 
     public boolean perdio() {
-        return this.mapa.perdio(jugador);
+        return this.jugador.estaMuerto();
     }
 
     public int tamanoMapa() {

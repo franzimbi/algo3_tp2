@@ -12,5 +12,7 @@ public class RecompensaRandomMock implements Recompensa {
             jugador.recibirCreditos(rango);
         }
 
+    public void duplicarRecompensa(){}
+
 
 }

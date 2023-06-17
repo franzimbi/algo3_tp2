@@ -31,21 +31,6 @@ public abstract class Enemigo {
         this.movimiento = new MovimientoCamino();
     }
 
-    public static Enemigo construirEnemigo(String enemigo) {
-        Map<String, Enemigo> enemigosPosibles = new HashMap<>();
-        {
-            enemigosPosibles.put("arana", new Arania());
-            enemigosPosibles.put("hormiga", new Hormiga());
-            enemigosPosibles.put("topo", new Topo());
-            enemigosPosibles.put("lechuza", new Lechuza());
-        }
-        Enemigo aux = enemigosPosibles.get(enemigo);
-        if (aux != null) {
-            return aux;
-        }
-        throw new EnemigoInvalidoError();
-    }
-
     public void recibirDanio(int danioRecibido) {
         this.energia -= danioRecibido;
         if (estaMuerto()) {

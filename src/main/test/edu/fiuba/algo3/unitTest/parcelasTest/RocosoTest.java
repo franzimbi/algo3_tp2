@@ -6,11 +6,13 @@ import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Rocoso;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RocosoTest {
     @Test
@@ -19,8 +21,8 @@ public class RocosoTest {
         Defensa torrePlateada = new TorrePlateada();
 
         Rocoso rocoso = new Rocoso(new Coordenadas(1, 1));
-        assertFalse(rocoso.ubicar(torreBlanca));
-        assertFalse(rocoso.ubicar(torrePlateada));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->rocoso.ubicar(torreBlanca));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->rocoso.ubicar(torrePlateada));
     }
 
     @Test
@@ -30,8 +32,8 @@ public class RocosoTest {
 
         Rocoso rocoso = new Rocoso(new Coordenadas(1, 1));
 
-        assertFalse(rocoso.ubicar(hormiga));
-        assertFalse(rocoso.ubicar(arania));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->rocoso.ubicar(hormiga));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->rocoso.ubicar(arania));
     }
 
 }

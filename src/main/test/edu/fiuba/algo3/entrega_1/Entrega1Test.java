@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
+import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
@@ -61,9 +62,9 @@ public class Entrega1Test {
         Parcela roca = new Rocoso(new Coordenadas(0, 0));
         Parcela pasarela = new Pasarela(new Coordenadas(0, 0));
 
-        assertTrue(tierra.ubicar(defensa));
-        assertFalse(roca.ubicar(defensa));
-        assertFalse(pasarela.ubicar(defensa));
+        assertDoesNotThrow(()->tierra.ubicar(defensa));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->roca.ubicar(defensa));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->pasarela.ubicar(defensa));
     }
 
     //Verificar que las defensas ataquen dentro del rango esperado (y verificar lo contrario)
@@ -111,9 +112,9 @@ public class Entrega1Test {
         Parcela piedra = new Rocoso(new Coordenadas(1, 0));
         Parcela pasarela = new Pasarela(new Coordenadas(1, 1));
 
-        assertFalse(piedra.ubicar(enemigo));
-        assertFalse(tierra.ubicar(enemigo));
-        assertTrue(pasarela.ubicar(enemigo));
+        assertDoesNotThrow(()->pasarela.ubicar(enemigo));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->piedra.ubicar(enemigo));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(enemigo));
     }
 
 
@@ -167,12 +168,12 @@ public class Entrega1Test {
         mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
 
 
-        assert !mapa.gano(jugador);
+        assert !mapa.sinEnemigos();
         defensa.atacarEnemigo(enemigo);
         defensa.atacarEnemigo(enemigo);
         mapa.recolectarEnemigos(jugador);
 
-        assert mapa.gano(jugador);
+        assert mapa.sinEnemigos();
     }
 
 
@@ -207,7 +208,7 @@ public class Entrega1Test {
         jugador.atacarEnemigos(mapa);
         mapa.mover(jugador);
         mapa.recolectarEnemigos(jugador);
-        assert mapa.gano(jugador);
+        assert mapa.sinEnemigos();
         assertEquals(91 ,jugador.getCreditos());
         assertEquals(19, jugador.getVida());
     }
@@ -231,7 +232,7 @@ public class Entrega1Test {
         mapa.mover(jugador);
 
         assertEquals(0, jugador.getVida());
-        assert mapa.perdio(jugador);
+        assert jugador.estaMuerto();
     }
 }
 

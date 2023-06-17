@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.modelo.lector;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.enemigos.EnemigosFactory;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.ParcelasFactory;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
 import org.json.simple.JSONArray;
@@ -39,7 +41,7 @@ public class LectorJSON implements Lector {
                 JSONArray filaArray = (JSONArray) mapaObject.get(String.valueOf(i));
                 for (int j = 0; j < columnas; j++) {
                     Object elemento = filaArray.get(j);
-                    Parcela aux = Parcela.construirParcela(elemento.toString(), new Coordenadas(i - 1, j));
+                    Parcela aux = ParcelasFactory.crearParcela(elemento.toString(), i - 1, j);
                     mapaLeido.agregarParcela(aux);
                     if (aux instanceof Pasarela) {
                         pasarelasLeidas.add((Pasarela) aux);
@@ -75,7 +77,7 @@ public class LectorJSON implements Lector {
                     long cantidadEnemigo = (Long) enemigosJSON.get(enemigoKey);
 
                     for (int i = 0; i < cantidadEnemigo; i++) {
-                        Enemigo enemigo = Enemigo.construirEnemigo(nombreEnemigo);
+                        Enemigo enemigo = EnemigosFactory.crearEnemigo(nombreEnemigo);
                         enemigosPorTurno.agregarEnemigoATurno((int) turno - 1, enemigo);
                     }
                 }

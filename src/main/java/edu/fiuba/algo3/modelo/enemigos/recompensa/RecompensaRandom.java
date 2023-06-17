@@ -17,4 +17,5 @@ public class RecompensaRandom implements Recompensa {
         Random rand = new Random();
         jugador.recibirCreditos(rand.nextInt(rango));
     }
+    public void duplicarRecompensa(){}
 }
