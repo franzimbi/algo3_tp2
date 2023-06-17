@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Direccion;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.jugador.score.Score;
@@ -80,6 +81,9 @@ public abstract class Enemigo {
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
         this.movimiento.mover(velocidad, this, actual, jugador, mapa);
     }
+//    public void moverA(Direccion siguiente){
+//        this.ubicarEn(this.ubicacion.mover(siguiente));
+//    }
 
     public void setDireccion(Movimiento nuevaDireccion) {
         this.movimiento = nuevaDireccion;

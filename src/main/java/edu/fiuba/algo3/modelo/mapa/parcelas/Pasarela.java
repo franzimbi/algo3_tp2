@@ -6,10 +6,12 @@ import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Direccion;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 public class Pasarela extends Parcela {
     protected Pasarela siguiente;
+    //protected Direccion siguiente;
 
     public Pasarela(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
@@ -33,6 +35,7 @@ public class Pasarela extends Parcela {
 
     public void siguientePasarela(Velocidad velocidad, Enemigo enemigo, Jugador jugador, Mapa mapa) {
         Pasarela actual = this;
+
         for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
             if (actual==null) {
                 break;
@@ -48,6 +51,9 @@ public class Pasarela extends Parcela {
             enemigo.ubicarEn(actual.ubicacion);
         }
     }
+//    public void moverEnemigoASiguiente(Enemigo enemigo, Jugador jugador, Mapa mapa) {
+//        enemigo.moverA(this.siguiente);
+//    }
 
 //    public Coordenadas ubicacion() {
 //        return this.ubicacion;

@@ -43,4 +43,8 @@ public class Coordenadas {
             this.y = other.y;
         }
     }
+    public void mover(Direccion direccion){
+        this.x += direccion.enX;
+        this.y += direccion.enY;
+    }
 }
