@@ -4,13 +4,16 @@ import edu.fiuba.algo3.unitTest.Mocks.RecompensaRandomMock;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class RecompensaRandomTest {
-    /*@Test
+    @Test
     public void Test01RecompensaRandomDaLosCreditosCorrectos() {
         Jugador jugador = new Jugador(1, 0, "Vegeta");
         RecompensaRandomMock recompensaRandom = new RecompensaRandomMock();
-        Creditos creditos = new Creditos(1);
+
         recompensaRandom.otorgarRecompensa(jugador);
-        assert creditos.equals(jugador.getCreditos());
-    }*/
+
+        assertEquals(1, jugador.getCreditos());
+    }
 }

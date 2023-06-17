@@ -14,7 +14,6 @@ public class Juego {
     private final Mapa mapa;
     private final Turnos turnos;
 
-
     public Juego(Jugador jugador, Lector lector, String rutaMapa, String rutaTurnos) {
         this.jugador = jugador;
         this.mapa = lector.leerMapa(rutaMapa);
