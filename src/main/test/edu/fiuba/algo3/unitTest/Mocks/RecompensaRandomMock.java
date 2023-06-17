@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.unitTest.Mocks;
 
-import edu.fiuba.algo3.modelo.enemigos.recompensas.Recompensa;
+import edu.fiuba.algo3.modelo.enemigos.recompensa.Recompensa;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 
 public class RecompensaRandomMock implements Recompensa {

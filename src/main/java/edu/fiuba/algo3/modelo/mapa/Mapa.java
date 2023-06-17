@@ -146,4 +146,12 @@ public class Mapa {
         return this.parcelas.size();
     }
 
+    public boolean estaEnEjeYConMeta(int y) {
+        return this.meta.getUbicacion().getY() == y;
+    }
+
+
+    public boolean estaEnMeta(Coordenadas posicion) {
+        return posicion.equals(this.meta.getUbicacion());
+    }
 }

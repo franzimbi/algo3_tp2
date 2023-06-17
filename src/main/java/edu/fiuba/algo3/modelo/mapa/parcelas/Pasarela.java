@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.turno.Turnos;
 
 public class Pasarela extends Parcela {
     private Pasarela siguiente;
@@ -47,20 +48,10 @@ public class Pasarela extends Parcela {
         }else{
             enemigo.ubicarEn(actual.ubicacion);
         }
-
     }
-
     public Coordenadas ubicacion() {
         return this.ubicacion;
     }
 
-//    public void mover(Camino camino, Jugador jugador, int cantidadDeTurnos) {
-//        int tam = enemigos.size();
-//
-//        for (int i = 0; i < tam; i++) {
-//            Enemigo actual = enemigos.remove(0);
-//            camino.moverEnemigo(actual, this, jugador, cantidadDeTurnos);
-//        }
-//    }
     public String getNombre(){return "pasarela";}
 }

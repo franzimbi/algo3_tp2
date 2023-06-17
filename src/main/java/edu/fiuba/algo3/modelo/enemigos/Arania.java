@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.enemigos.recompensas.RecompensaRandom;
+import edu.fiuba.algo3.modelo.enemigos.recompensa.RecompensaRandom;
 import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.DanioSimple;
 import edu.fiuba.algo3.modelo.jugador.score.Score;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;

@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.enemigos.Movimientos.Movimiento;
-import edu.fiuba.algo3.modelo.enemigos.Movimientos.MovimientoCamino;
-import edu.fiuba.algo3.modelo.enemigos.recompensas.Recompensa;
+import edu.fiuba.algo3.modelo.enemigos.movimiento.Movimiento;
+import edu.fiuba.algo3.modelo.enemigos.movimiento.MovimientoCamino;
+import edu.fiuba.algo3.modelo.enemigos.recompensa.Recompensa;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.jugador.score.Score;
 import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.Danio;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.turno.Turnos;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,14 +23,12 @@ public abstract class Enemigo {
     protected Danio danio;
     protected Velocidad velocidad;
     protected Recompensa recompensa;
-    protected Movimiento direccion;
-    protected int movimientos;
+    protected Movimiento movimiento;
     protected Coordenadas ubicacion;
 
     public Enemigo() {
-        this.movimientos = 0;
         this.ubicacion = new Coordenadas(0, 0);
-        this.direccion = new MovimientoCamino();
+        this.movimiento = new MovimientoCamino();
     }
 
     public static Enemigo construirEnemigo(String enemigo) {
@@ -92,16 +91,13 @@ public abstract class Enemigo {
         this.velocidad.restaurar();
     }
 
-    public void actualizarMovimientos() {
-        this.movimientos += 1;
-    }
 
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
-        this.direccion.mover(velocidad, this, actual, jugador, mapa);
+        this.movimiento.mover(velocidad, this, actual, jugador, mapa);
     }
 
     public void setDireccion(Movimiento nuevaDireccion) {
-        this.direccion = nuevaDireccion;
+        this.movimiento = nuevaDireccion;
     }
 
     public void recompensar(Jugador jugador) {

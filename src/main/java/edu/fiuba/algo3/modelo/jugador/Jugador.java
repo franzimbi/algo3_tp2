@@ -48,11 +48,12 @@ public class Jugador {
 
     public void destruirPrimeraDefensa() {
         if (this.defensas.isEmpty()) {
+            Logger.getInstancia().info("no se borro una defensa de jugador pq no habia mas");
+            this.defensas.remove(0);
             return;
         }
-        //Defensa primeraDefensa = defensas.get(0); no se esta usando
+        Logger.getInstancia().info("Se elimino un " + this.defensas.get(0).getNombre() + " del jugador.");
         this.defensas.remove(0);
-        //primeraDefensa.sacarDefensa()
     }
 
     public void recibirCreditos(int creditos) {

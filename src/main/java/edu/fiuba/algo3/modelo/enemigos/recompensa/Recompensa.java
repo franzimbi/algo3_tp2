@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.enemigos.recompensas;
+package edu.fiuba.algo3.modelo.enemigos.recompensa;
 
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 

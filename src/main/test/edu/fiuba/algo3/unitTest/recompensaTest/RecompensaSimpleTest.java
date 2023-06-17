@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.unitTest.recompensaTest;
 
-import edu.fiuba.algo3.modelo.enemigos.recompensas.RecompensaSimple;
+import edu.fiuba.algo3.modelo.enemigos.recompensa.RecompensaSimple;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
