@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.defensa;
 
 import edu.fiuba.algo3.modelo.enemigos.*;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 
 public class TrampaArenosa extends Defensa {
     float multiplicador;
@@ -18,8 +18,35 @@ public class TrampaArenosa extends Defensa {
         return "Trampa de arena";
     }
 
-    public void atacar(Lechuza lechuza, Jugador jugador){
-        //"No atacamos a las lechuza, Harry Potter esta en contra de eso"
+    public void atacarEnemigo(Enemigo enemigo) {
+        if (this.estaOperativa()) {
+            enemigo.atacarEnemigo(this);
+        } else {
+            Logger.getInstancia().info(this.getNombre() + "no estaba operativa");
+            this.turnosRestantes--;
+        }
+    }
+
+    public void atacarEnemigo(Hormiga hormiga) {
+        Logger.getInstancia().info("un " + this.getNombre() +
+                "intenta atacar un " + hormiga.getNombre());
+        this.atacar(hormiga, hormiga.distancia(this));
+    }
+
+    public void atacarEnemigo(Arania arania) {
+        Logger.getInstancia().info("un " + this.getNombre() +
+                "intenta atacar un " + arania.getNombre());
+        this.atacar(arania, arania.distancia(this));
+    }
+
+    public void atacarEnemigo(Topo topo) {
+        Logger.getInstancia().info("La " + this.getNombre() +
+                "no puede atacar al " + topo.getNombre());
+    }
+
+    public void atacarEnemigo(Lechuza lechuza) {
+        Logger.getInstancia().info("una " + this.getNombre() +
+                "no puede relentizar una " + lechuza.getNombre());
     }
 
     @Override
@@ -27,27 +54,5 @@ public class TrampaArenosa extends Defensa {
         if (this.estaEnRango(distancia)) {
             enemigo.reducirVelocidad(multiplicador);
         }
-    }
-
-
-    public void atacar(Hormiga hormiga, int distancia) {
-        if (this.estaEnRango(distancia)) {
-            hormiga.reducirVelocidad(multiplicador);
-        }
-    }
-
-    public void atacar(Arania arania, int distancia) {
-        if (this.estaEnRango(distancia)) {
-            arania.reducirVelocidad(multiplicador);
-        }
-    }
-
-    public void atacar(Topo topo, int distancia) {
-        if (this.estaEnRango(distancia)) {
-            topo.reducirVelocidad(multiplicador);
-        }
-    }
-
-    public void atacar(Lechuza lechuza) {
     }
 }

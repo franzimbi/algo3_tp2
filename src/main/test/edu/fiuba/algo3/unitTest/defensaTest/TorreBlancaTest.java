@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TorreBlancaTest {
-
     @Test
     public void Test01AlCrearUnaTorreBlancaNoEstaOperativa() {
         Defensa torreBlanca = new TorreBlanca();
@@ -24,15 +23,16 @@ public class TorreBlancaTest {
     @Test
     public void Test02Pasado1TurnoLaTorreBlancaEstaOperativa() {
         Defensa torreBlanca = new TorreBlanca();
-        torreBlanca.atacarEnemigo(null);
+        Enemigo hormiga = new Hormiga();
+        torreBlanca.atacarEnemigo(hormiga);
         assert torreBlanca.estaOperativa();
     }
 
     @Test
     public void Test03TorreBlancaAtacaDentroDelRangoEsperado() {
         Defensa torreBlanca = new TorreBlanca();
-        torreBlanca.atacarEnemigo(null);
         Enemigo hormiga = new Hormiga();
+        torreBlanca.atacarEnemigo(hormiga);
         torreBlanca.atacarEnemigo(hormiga);
         assert hormiga.estaMuerto();
 
@@ -41,8 +41,8 @@ public class TorreBlancaTest {
     @Test
     public void Test04TorreBlancaNoAtacaFueraDelRangoEsperado() {
         Defensa torreBlanca = new TorreBlanca();
-        torreBlanca.atacarEnemigo(null);
         Enemigo hormiga = new Hormiga();
+        torreBlanca.atacarEnemigo(hormiga);
         hormiga.ubicarEn(new Coordenadas(0, 4));
         torreBlanca.atacarEnemigo(hormiga);
         assert !hormiga.estaMuerto();
@@ -51,8 +51,8 @@ public class TorreBlancaTest {
     @Test
     public void Test06TorreBlancaPuedeMatarUnEnemigo() {
         Defensa torreBlanca = new TorreBlanca();
-        torreBlanca.atacarEnemigo(null);
         Enemigo hormiga = new Hormiga();
+        torreBlanca.atacarEnemigo(hormiga);
 
         torreBlanca.atacarEnemigo(hormiga);
         assert hormiga.estaMuerto();
@@ -60,9 +60,9 @@ public class TorreBlancaTest {
 
     @Test
     public void Test07TorreBlancaMataUnEnemigoDentroDelRangoEsperado() {
-        Defensa torreBlanca = new TorreBlanca();
-        torreBlanca.atacarEnemigo(null);
         Enemigo hormiga = new Hormiga();
+        Defensa torreBlanca = new TorreBlanca();
+        torreBlanca.atacarEnemigo(hormiga);
 
         torreBlanca.atacarEnemigo(hormiga);
         assert hormiga.estaMuerto();
@@ -71,8 +71,8 @@ public class TorreBlancaTest {
     @Test
     public void test08TorreBlancaNoMataUnEnemigoFueraDeRango() {
         Defensa torreBlanca = new TorreBlanca();
-        torreBlanca.atacarEnemigo(null);
         Enemigo hormiga = new Hormiga();
+        torreBlanca.atacarEnemigo(hormiga);
         hormiga.ubicarEn(new Coordenadas(0, 4));
 
         torreBlanca.atacarEnemigo(hormiga);
@@ -91,12 +91,12 @@ public class TorreBlancaTest {
     @Test
     public void test10ToreBlancaPuedeAtacarCorrectamenteALosEnemigos() {
         Defensa torreBlanca = new TorreBlanca();
-        torreBlanca.atacarEnemigo(null);
         Enemigo hormiga = new Hormiga(); // 1
         Enemigo arania = new Arania(); // 2
         Enemigo topo = new Topo(); // inmune
         Enemigo lechuza = new Lechuza(); // 5
 
+        torreBlanca.atacarEnemigo(hormiga);
         torreBlanca.atacarEnemigo(hormiga);
         torreBlanca.atacarEnemigo(arania);
         torreBlanca.atacarEnemigo(arania);
@@ -107,8 +107,8 @@ public class TorreBlancaTest {
         }
 
         assert hormiga.estaMuerto();
-//        assert arania.estaMuerto();
-//        assert !topo.estaMuerto();
-//        assert lechuza.estaMuerto();
+        assert arania.estaMuerto();
+        assert !topo.estaMuerto();
+        assert lechuza.estaMuerto();
     }
 }

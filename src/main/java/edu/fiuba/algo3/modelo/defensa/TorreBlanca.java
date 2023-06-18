@@ -14,44 +14,39 @@ public class TorreBlanca extends Defensa {
         this.rango = 3;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return "Torre Blanca";
     }
 
-    public void atacar(Enemigo enemigo, int distancia) {
-        if (this.estaEnRango(distancia)) {
-            Logger.getInstancia().info("un " + enemigo.getNombre() + " recibe el daño");
-            enemigo.recibirDanioDos(this, distancia);
-            return;
+    public void atacarEnemigo(Enemigo enemigo) {
+        if (this.estaOperativa()) {
+            enemigo.atacarEnemigo(this);
+        } else {
+            Logger.getInstancia().info(this.getNombre() + "no estaba operativa");
+            this.turnosRestantes--;
         }
-        Logger.getInstancia().info(enemigo.getNombre() + " no estaba en rango");
     }
 
-
-    public void atacar(Hormiga hormiga, int distancia) {
-        if (this.estaEnRango(distancia)) {
-            Logger.getInstancia().info("un " + hormiga.getNombre() + " recibe el daño");
-            hormiga.recibirDanio(this.danio);
-            return;
-        }
-        Logger.getInstancia().info(hormiga.getNombre() + " no estaba en rango");
+    public void atacarEnemigo(Hormiga hormiga) {
+        Logger.getInstancia().info("un " + this.getNombre() +
+                "intenta atacar un " + hormiga.getNombre());
+        this.atacar(hormiga, hormiga.distancia(this));
     }
 
+    public void atacarEnemigo(Arania arania) {
+        Logger.getInstancia().info("un " + this.getNombre() +
+                "intenta atacar un " + arania.getNombre());
+        this.atacar(arania, arania.distancia(this));
+    }
 
-//    public void atacar(Arania arania, int distancia) {
-//        Logger.getInstancia().info("un " + arania.getNombre() + " recibe el daño");
-//        arania.recibirDanio(this.danio);
-//
-//    }
-//
-//    public void atacar(Topo topo, int distancia) {
-//
-//    }
-//
-//    public void atacar(Lechuza lechuza, int distancia) {
-//        Logger.getInstancia().info("un " + lechuza.getNombre() + " recibe el daño");
-//        lechuza.recibirDanio(this.danio);
-//    }
+    public void atacarEnemigo(Topo topo) {
+        Logger.getInstancia().info("La " + this.getNombre() +
+                "no puede atacar al " + topo.getNombre());
+    }
 
-
+    public void atacarEnemigo(Lechuza lechuza) {
+        Logger.getInstancia().info("un " + this.getNombre() +
+                "intenta atacar un " + lechuza.getNombre());
+        this.atacar(lechuza, lechuza.distancia(this));
+    }
 }

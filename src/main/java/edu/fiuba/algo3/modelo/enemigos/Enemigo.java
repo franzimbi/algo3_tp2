@@ -1,23 +1,20 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.defensa.Defensa;
+import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
+import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
+import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.enemigos.movimiento.MovimientoCamino;
 import edu.fiuba.algo3.modelo.enemigos.recompensa.Recompensa;
-import edu.fiuba.algo3.modelo.defensa.Defensa;
-import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.logger.Logger;
-import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.mapa.Direccion;
-import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.jugador.score.Score;
 import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.Danio;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
-import edu.fiuba.algo3.modelo.turno.Turnos;
-
-import java.util.HashMap;
-import java.util.Map;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.jugador.score.Score;
+import edu.fiuba.algo3.modelo.logger.Logger;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 public abstract class Enemigo {
     protected int energia;
@@ -33,16 +30,12 @@ public abstract class Enemigo {
     }
 
     public void recibirDanio(int danioRecibido) {
-
         this.energia -= danioRecibido;
         if (estaMuerto()) {
             Logger.getInstancia().info("un " + this.getNombre() + " murio");
         }
     }
 
-    public void recibirDanioDos(Defensa defensa) {
-        defensa.atacarEnemigo(this);
-    }
 
     public void ubicarEn(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
@@ -106,7 +99,10 @@ public abstract class Enemigo {
         return pasarela.ubicacion(this.ubicacion);
     }
 
-    public void recibirDanioDos(Defensa torre, int distancia) {
-        torre.atacar(this, distancia);
-    }
+
+    public abstract void atacarEnemigo(TorreBlanca torreBlanca);
+
+    public abstract void atacarEnemigo(TorrePlateada torrePlateada);
+
+    public abstract void atacarEnemigo(TrampaArenosa trampaArenosa);
 }

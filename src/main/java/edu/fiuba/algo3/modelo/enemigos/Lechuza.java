@@ -1,13 +1,15 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
+import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
+import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
+import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.movimiento.MovimientoDiagonal;
-import edu.fiuba.algo3.modelo.enemigos.movimiento.MovimientoHorizontal;
 import edu.fiuba.algo3.modelo.enemigos.movimiento.MovimientoVertical;
 import edu.fiuba.algo3.modelo.enemigos.recompensa.RecompensaSimple;
 import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.DanioLechuzal;
+import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.jugador.score.Score;
-import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 import edu.fiuba.algo3.modelo.logger.Logger;
 
 public class Lechuza extends Enemigo {
@@ -49,9 +51,21 @@ public class Lechuza extends Enemigo {
         if (estaMuerto()) {
             Logger.getInstancia().info("un " + this.getNombre() + " murio");
         }
-        if(this.energia <= this.energiaInicial/2 && !this.yaCambie){
+        if (this.energia <= this.energiaInicial / 2 && !this.yaCambie) {
             this.movimiento = new MovimientoDiagonal();
             this.yaCambie = true;
         }
+    }
+
+    public void atacarEnemigo(TorreBlanca torre) {
+        torre.atacarEnemigo(this);
+    }
+
+    public void atacarEnemigo(TorrePlateada torrePlateada) {
+        torrePlateada.atacarEnemigo(this);
+    }
+
+    public void atacarEnemigo(TrampaArenosa trampaArenosa) {
+        trampaArenosa.atacarEnemigo(this);
     }
 }

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.unitTest.defensaTest;
 
 import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
@@ -38,5 +38,26 @@ public class TrampaArenosaTest {
         Hormiga hormiga = new Hormiga();
         trampa.atacarEnemigo(hormiga);
         assert hormiga.getVelocidad() == 0;
+    }
+
+    @Test
+    public void Test06TrampaDeArenaAtacaCorrectamenteATodosLosEnemigos() {
+        Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
+        Enemigo topo = new Topo();
+        Enemigo lechuza = new Lechuza();
+
+        TrampaArenosa trampa = new TrampaArenosa();
+
+        trampa.atacarEnemigo(hormiga);
+        trampa.atacarEnemigo(arania);
+        trampa.atacarEnemigo(topo);
+        trampa.atacarEnemigo(lechuza);
+
+        assert hormiga.getVelocidad() == 0; //este hdp no tiene que ser 0
+        assert arania.getVelocidad() == 1;
+        assert topo.getVelocidad() == 1;
+        assert lechuza.getVelocidad() == 5;
+
     }
 }
