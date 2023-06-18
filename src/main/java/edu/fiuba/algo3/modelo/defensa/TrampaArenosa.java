@@ -42,6 +42,7 @@ public class TrampaArenosa extends Defensa {
     public void atacarEnemigo(Topo topo) {
         Logger.getInstancia().info("La " + this.getNombre() +
                 "no puede atacar al " + topo.getNombre());
+        this.atacar(topo, topo.distancia(this));
     }
 
     public void atacarEnemigo(Lechuza lechuza) {
