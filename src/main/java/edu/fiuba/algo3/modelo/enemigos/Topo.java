@@ -12,11 +12,11 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 public class Topo extends Enemigo {
-    protected int movimientos;
+    protected int turnos;
 
     public Topo() {
         super();
-        this.movimientos = 0;
+        this.turnos = 0;
         this.velocidad = new Velocidad(1);
         this.danio = new DanioTopal(2, 5);
         this.energia = 1;
@@ -27,12 +27,6 @@ public class Topo extends Enemigo {
         return "Topo";
     }
 
-    public void actualizarMovimientos() {
-        this.movimientos += 1;
-        if (movimientos == 5 || movimientos == 11) {
-            velocidad.aumentarVelocidad(1);
-        }
-    }
 
     public void agregarMuerto(Score score) {
         score.agregarMuerto(this);
@@ -42,11 +36,23 @@ public class Topo extends Enemigo {
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
         //2
         this.movimiento.mover(velocidad, this, actual, jugador, mapa); //5
-        this.actualizarMovimientos(); //7
+        this.turnos++;
+        this.actualizarVelocidad(); //7
     }
 
-    public boolean turnoPar() {
-        return this.movimientos % 2 == 0;
+//    public boolean turnoPar() {
+//        return this.turnos % 2 == 0;
+//    }
+
+    private void actualizarVelocidad(){
+
+        if(this.turnos == 5 || this.turnos == 11){
+            this.velocidad.aumentarVelocidad(1);
+        }
+    }
+
+    public void atacar(Jugador jugador, int cantidadDeTurnos) {
+        this.danio.atacar(jugador, cantidadDeTurnos);
     }
 
     public void atacarEnemigo(TorreBlanca torre) {

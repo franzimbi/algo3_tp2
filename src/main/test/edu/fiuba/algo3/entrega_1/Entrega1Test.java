@@ -11,10 +11,8 @@ import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
-import edu.fiuba.algo3.modelo.mapa.parcelas.Rocoso;
-import edu.fiuba.algo3.modelo.mapa.parcelas.Tierra;
+import edu.fiuba.algo3.modelo.mapa.direcciones.Abajo;
+import edu.fiuba.algo3.modelo.mapa.parcelas.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -140,11 +138,14 @@ public class Entrega1Test {
 
         Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
         Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
-        Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
+        Pasarela p3 = new Meta(new Coordenadas(0, 2));
 
-        p1.setSiguiente(p2);
-        p2.setSiguiente(p3);
-
+        p1.setSiguiente(new Abajo());
+        p2.setSiguiente(new Abajo());
+        mapa.setMeta(p3);
+        mapa.agregarParcela(p1);
+        mapa.agregarParcela(p2);
+        mapa.agregarParcela(p3);
         hormiga.mover(p1, jugador, mapa);
         arania.mover(p1, jugador, mapa);
         assert hormiga.getUbicacion().equals(new Coordenadas(0, 1));
@@ -193,8 +194,8 @@ public class Entrega1Test {
         mapa.agregarParcela(p3);
         mapa.agregarParcela(p4);
 
-        p1.setSiguiente(p2);
-        p2.setSiguiente(p3);
+        p1.setSiguiente(new Abajo());
+        p2.setSiguiente(new Abajo());
 
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Hormiga();

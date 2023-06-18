@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.enemigos.movimiento;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
@@ -14,18 +15,21 @@ public class MovimientoDiagonal implements Movimiento {
 
 
     private ArrayList<Coordenadas> movimientos = new ArrayList<Coordenadas>();
-
+    private boolean arranco = false;
 
     @Override
     public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa){
-        if (movimientos.size() == 0) {
-            bresenghamAlgorithm(mapa, enemigo);
+        if (movimientos.size() == 0 && !arranco) {
+            Logger.getInstancia().info("un " + enemigo.getNombre() + " cambio su movimiento a diagonal.");
+            lozanoAlgorithm(mapa, enemigo);
+            this.arranco = true;
         }
-
-//        for (Coordenadas coord : movimientos) {
-//            System.out.printf("x = %d, y = %d \n", coord.getX(), coord.getY());
-//        }
-
+        if (movimientos.size() == 0 && arranco){
+            Logger.getInstancia().info("una " + enemigo.getNombre() +
+                    " ataco al jugador. vida restante: " + jugador.getVida());
+            enemigo.atacar(jugador, 0);
+            mapa.removerEnemigo(enemigo);
+        }
         Coordenadas posicion = movimientos.get(0);
         movimientos.remove(0);
 
@@ -33,7 +37,7 @@ public class MovimientoDiagonal implements Movimiento {
         enemigo.ubicarEn(posicion);
     }
 
-    private void bresenghamAlgorithm(Mapa mapa, Enemigo enemigo) {
+    private void lozanoAlgorithm(Mapa mapa, Enemigo enemigo) {
         Coordenadas meta = mapa.getMeta();
         Coordenadas origen = enemigo.getUbicacion();
 

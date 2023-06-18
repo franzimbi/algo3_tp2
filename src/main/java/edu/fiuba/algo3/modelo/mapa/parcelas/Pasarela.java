@@ -6,19 +6,17 @@ import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.mapa.Direccion;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
-import edu.fiuba.algo3.modelo.mapa.direcciones.Direc;
+import edu.fiuba.algo3.modelo.mapa.direcciones.Derecha;
+import edu.fiuba.algo3.modelo.mapa.direcciones.Direccion;
+
 public class Pasarela extends Parcela {
-    protected Pasarela siguiente;
-    //protected Direccion siguiente;\
-    protected Direc direccion;
+    protected Direccion direccion;
 
     public Pasarela(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
-        this.siguiente = null;
-
+        this.direccion = new Derecha();
     }
 
     public void ubicar(Defensa defensa) {
@@ -32,38 +30,34 @@ public class Pasarela extends Parcela {
                 "," + this.getUbicacion().getY() + ")");
     }
 
-    public void setSiguiente(Pasarela siguiente) {
-        this.siguiente = siguiente;
+    public void setSiguiente(Direccion siguiente) {
+        this.direccion = siguiente;
     }
 
-//  public void setDireccion(Direc direccion) {this.direccion = direccion;}
+//  public void setDireccion(Direccion direccion) {this.direccion = direccion;}
 
-    public void siguientePasarela(Velocidad velocidad, Enemigo enemigo, Jugador jugador, Mapa mapa) {
-        Pasarela actual = this;
-
-        for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
-            if (actual==null) {
-                break;
-            }
-            actual = actual.siguiente;
-//          actual = actual.direccion.siguiente(this.ubicacion);
-        }
-        if (actual == null){
-            enemigo.atacar(jugador, 0);
-            Logger.getInstancia().info(enemigo.getNombre()
-                    + " llego a la meta. jugador quedo con " + jugador.getVida() + " de vida");
-            mapa.removerEnemigo(enemigo);
-        }else{
-            enemigo.ubicarEn(actual.ubicacion);
-        }
+//    public void siguientePasarela(Velocidad velocidad, Enemigo enemigo, Jugador jugador, Mapa mapa) {
+//        Pasarela actual = this;
+//
+//        for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
+//            if (actual==null) {
+//                break;
+//            }
+//            actual = actual.siguiente;
+////          actual = actual.direccion.siguiente(this.ubicacion);
+//        }
+//        if (actual == null){
+//            enemigo.atacar(jugador, 0);
+//            Logger.getInstancia().info(enemigo.getNombre()
+//                    + " llego a la meta. jugador quedo con " + jugador.getVida() + " de vida");
+//            mapa.removerEnemigo(enemigo);
+//        }else{
+//            enemigo.ubicarEn(actual.ubicacion);
+//        }
+//    }
+    public void moverASiguiente(Enemigo enemigo, Jugador jugador, Mapa mapa){
+        mapa.ubicar(enemigo, this.direccion.siguiente(this.ubicacion), jugador);
     }
-//    public void moverEnemigoASiguiente(Enemigo enemigo, Jugador jugador, Mapa mapa) {
-//        enemigo.moverA(this.siguiente);
-//    }
-
-//    public Coordenadas ubicacion() {
-//        return this.ubicacion;
-//    }
 
     public String getNombre() {
         return "pasarela";

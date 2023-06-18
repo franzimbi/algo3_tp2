@@ -52,6 +52,14 @@ public class Mapa {
             }
         }
     }
+    private void agregarEnemigo(Enemigo enemigoAgregado){
+        for (Enemigo enemigo : this.enemigos){
+            if( enemigo.equals(enemigoAgregado)){
+                return;
+            }
+        }
+        this.enemigos.add(enemigoAgregado);
+    }
 
     public void setMeta(Pasarela ultima) {
         this.meta = ultima;
@@ -73,11 +81,12 @@ public class Mapa {
                     parcela.ubicar(enemigo);
                     Logger.getInstancia().info("se ubico un " + enemigo.getNombre()
                             + " en (" + posicion.getX() + "," + posicion.getY() + ")");
-                    this.enemigos.add(enemigo);
+                    agregarEnemigo(enemigo);
+                    break;
                 }catch (ParcelaNoPuedeUbicarError e){
                     Logger.getInstancia().info("no se pudo ubicar un " + enemigo.getNombre()
                             + " en (" + posicion.getX() + "," + posicion.getY() + ")");
-                    this.enemigos.add(enemigo);
+                    agregarEnemigo(enemigo);
                 }
             }
         }

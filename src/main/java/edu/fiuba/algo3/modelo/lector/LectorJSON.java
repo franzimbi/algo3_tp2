@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Meta;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.mapa.parcelas.ParcelasFactory;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
@@ -34,25 +35,27 @@ public class LectorJSON implements Lector {
             int filas = mapaObject.size();
             int columnas = ((JSONArray) mapaObject.get("1")).size(); // Suponiendo que todas las filas tienen la misma longitud
 
-            ArrayList<Pasarela> pasarelasLeidas = new ArrayList<Pasarela>();
+            ArrayList<Coordenadas> coordenadasPasarelas = new ArrayList<Coordenadas>();
             Mapa mapaLeido = new Mapa();
 
             for (int i = 1; i <= filas; i++) {
                 JSONArray filaArray = (JSONArray) mapaObject.get(String.valueOf(i));
                 for (int j = 0; j < columnas; j++) {
                     Object elemento = filaArray.get(j);
-                    Parcela aux = ParcelasFactory.crearParcela(elemento.toString(), i - 1, j);
-                    mapaLeido.agregarParcela(aux);
-                    if (aux instanceof Pasarela) {
-                        pasarelasLeidas.add((Pasarela) aux);
+                    if (elemento.toString().equals("Pasarela")) {
+                        coordenadasPasarelas.add(new Coordenadas(i-1, j));
+                    }else{
+                        Parcela aux = ParcelasFactory.crearParcela(elemento.toString(), i - 1, j);
+                        mapaLeido.agregarParcela(aux);
                     }
                 }
             }
-            for (int i = 0; i < pasarelasLeidas.size() - 2; i++) {
-                pasarelasLeidas.get(i).setSiguiente(pasarelasLeidas.get(i + 1));
+            mapaLeido.setMeta(new Meta(coordenadasPasarelas.get(coordenadasPasarelas.size()-1)));
+            for(int i=coordenadasPasarelas.size()-1; i>=0; i--){
+                Pasarela aux = new Pasarela(coordenadasPasarelas.get(i));
+                mapaLeido.agregarParcela(aux);
             }
 
-            mapaLeido.setMeta(pasarelasLeidas.get(pasarelasLeidas.size() - 1));
             return mapaLeido;
         } catch (IOException | ParseException | ClassCastException e) {
             throw new NoSePuedeLeerElMapaError();
