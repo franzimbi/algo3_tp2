@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.defensa;
 
-import edu.fiuba.algo3.modelo.defensa.sistemaDeDefensa.SistemaDeDefensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
@@ -9,10 +8,11 @@ import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 
 public abstract class Defensa {
     protected int vidaUtil;
-    protected SistemaDeDefensa armas;
     protected int turnosRestantes;
     protected int coste;
     protected Coordenadas ubicacion;
+    protected int rango;
+    protected int danio;
 
     public Defensa() {
         this.ubicacion = new Coordenadas(0, 0);
@@ -26,7 +26,7 @@ public abstract class Defensa {
         if (this.estaOperativa()) {
             Logger.getInstancia().info("un " + this.getNombre() +
                     "intenta atacar un " + enemigo.getNombre());
-            this.armas.atacar(enemigo, enemigo.distancia(this));
+            this.atacar(enemigo, enemigo.distancia(this));
             return;
         }
         Logger.getInstancia().info(this.getNombre() + "no estaba operativa");
@@ -38,9 +38,6 @@ public abstract class Defensa {
         jugador.recibirDefensa(this);
     }
 
-    /*public boolean estaEnRango(int distancia) {
-        return this.armas.estaEnRango(distancia);
-    }*/
 
     public abstract String getNombre();
 
@@ -56,5 +53,10 @@ public abstract class Defensa {
         return ubicacion;
     }
 
+    public boolean estaEnRango(int distancia) {
+        return rango >= distancia;
+    }
+
+    public abstract void atacar(Enemigo enemigo, int distancia);
 
 }

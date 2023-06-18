@@ -9,13 +9,16 @@ import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Direccion;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.mapa.direcciones.Direc;
 public class Pasarela extends Parcela {
     protected Pasarela siguiente;
-    //protected Direccion siguiente;
+    //protected Direccion siguiente;\
+    protected Direc direccion;
 
     public Pasarela(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
         this.siguiente = null;
+
     }
 
     public void ubicar(Defensa defensa) {
@@ -33,6 +36,8 @@ public class Pasarela extends Parcela {
         this.siguiente = siguiente;
     }
 
+//  public void setDireccion(Direc direccion) {this.direccion = direccion;}
+
     public void siguientePasarela(Velocidad velocidad, Enemigo enemigo, Jugador jugador, Mapa mapa) {
         Pasarela actual = this;
 
@@ -41,6 +46,7 @@ public class Pasarela extends Parcela {
                 break;
             }
             actual = actual.siguiente;
+//          actual = actual.direccion.siguiente(this.ubicacion);
         }
         if (actual == null){
             enemigo.atacar(jugador, 0);

@@ -170,4 +170,6 @@ public class Mapa {
     public boolean estaEnMeta(Coordenadas posicion) {
         return posicion.equals(this.meta.getUbicacion());
     }
+
+    public Coordenadas getMeta() {return this.meta.getUbicacion();}
 }

@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.logger.Logger;
 
 public class Lechuza extends Enemigo {
     int energiaInicial;
+    private Boolean yaCambie = false;
 
     public Lechuza() {
         super();
@@ -21,6 +22,7 @@ public class Lechuza extends Enemigo {
         this.danio = new DanioLechuzal();
         this.velocidad = new Velocidad(5);
         this.movimiento = new MovimientoVertical();
+
     }
 
     public String getNombre() {
@@ -47,8 +49,9 @@ public class Lechuza extends Enemigo {
         if (estaMuerto()) {
             Logger.getInstancia().info("un " + this.getNombre() + " murio");
         }
-        if(this.energia <= this.energiaInicial/2){
+        if(this.energia <= this.energiaInicial/2 && !this.yaCambie){
             this.movimiento = new MovimientoDiagonal();
+            this.yaCambie = true;
         }
     }
 }

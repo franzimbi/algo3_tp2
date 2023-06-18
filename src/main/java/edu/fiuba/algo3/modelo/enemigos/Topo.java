@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.DanioTopal;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.jugador.score.Score;
 import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
@@ -43,4 +44,5 @@ public class Topo extends Enemigo {
     public boolean turnoPar(){
         return this.movimientos%2 == 0;
     }
+
 }

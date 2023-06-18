@@ -33,10 +33,15 @@ public abstract class Enemigo {
     }
 
     public void recibirDanio(int danioRecibido) {
+
         this.energia -= danioRecibido;
         if (estaMuerto()) {
             Logger.getInstancia().info("un " + this.getNombre() + " murio");
         }
+    }
+
+    public void recibirDanioDos(Defensa defensa) {
+        defensa.atacarEnemigo(this);
     }
 
     public void ubicarEn(Coordenadas ubicacion) {
@@ -99,5 +104,9 @@ public abstract class Enemigo {
 
     public boolean ubicacion(Parcela pasarela) {
         return pasarela.ubicacion(this.ubicacion);
+    }
+
+    public void recibirDanioDos(Defensa torre, int distancia) {
+        torre.atacar(this, distancia);
     }
 }

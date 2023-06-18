@@ -47,4 +47,5 @@ public class Coordenadas {
         this.x += direccion.enX;
         this.y += direccion.enY;
     }
+
 }
