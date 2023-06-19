@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.interfaz;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -26,13 +26,16 @@ public class App extends Application {
 
         TextField texto = new TextField();
 
-        Button botonInit = new Button("** PLAY **");
-        BotonInit iniciarEvent = new BotonInit(stage, texto);
+        Button botonInit = new Button("JUGAR!");
+
+        Main iniciarEvent = new Main(stage,texto);
         botonInit.setOnAction(iniciarEvent);
         botonInit.setMinSize(25, 25);
 
         TextoEventHandler textoEvent = new TextoEventHandler(botonInit);
         texto.setOnKeyPressed(textoEvent);
+
+
 
         HBox datosIniciales = new HBox(label, texto);
         datosIniciales.setSpacing(5);
@@ -46,7 +49,5 @@ public class App extends Application {
         stage.setScene(menu);
         stage.show();
     }
-
-
 
 }

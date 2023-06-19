@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.interfaz;
 
 public class SystemInfo {
 

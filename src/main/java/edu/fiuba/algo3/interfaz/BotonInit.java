@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.interfaz;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -34,6 +34,7 @@ public class BotonInit implements EventHandler<ActionEvent> {
             return;
         }
 
+
         FileInputStream inputstream = null;
         try {
             inputstream = new FileInputStream("src/main/java/edu/fiuba/algo3/imagenes/fiesta.png");
@@ -43,6 +44,7 @@ public class BotonInit implements EventHandler<ActionEvent> {
 
         Image img = new Image(inputstream);
         ImageView view = new ImageView(img);
+
         view.setFitHeight(50);
         view.setFitWidth(50);
         ImageView view2 = new ImageView(img);

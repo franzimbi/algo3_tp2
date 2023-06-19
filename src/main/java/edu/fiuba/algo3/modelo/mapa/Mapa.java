@@ -29,7 +29,9 @@ public class Mapa {
         this.enemigos = new ArrayList<>();
         this.meta = null;
     }
-
+    public ArrayList<Parcela> getParcelas(){
+        return this.parcelas.clone();
+    }
     public void agregarParcela(Parcela parcela) {
         this.parcelas.add(parcela);
     }

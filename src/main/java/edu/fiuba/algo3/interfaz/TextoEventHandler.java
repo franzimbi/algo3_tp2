@@ -1,4 +1,4 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.interfaz;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -22,4 +22,5 @@ public class TextoEventHandler implements EventHandler<KeyEvent> {
         }
 
     }
+
 }
