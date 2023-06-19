@@ -38,7 +38,7 @@ public class App extends Application {
 
         Button botonInit = new Button("JUGAR!");
 
-        Main iniciarEvent = new Main(stage,texto);
+        Main iniciarEvent = new Main(stage,texto,mediaPlayer);
         botonInit.setOnAction(iniciarEvent);
         botonInit.setMinSize(25, 25);
 
