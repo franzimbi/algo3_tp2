@@ -29,6 +29,6 @@ public abstract class Parcela {
     public boolean ubicacion(Coordenadas coordenadas) {
         return this.ubicacion.equals(coordenadas);
     }
-
+    public abstract String getNombre();
 
 }

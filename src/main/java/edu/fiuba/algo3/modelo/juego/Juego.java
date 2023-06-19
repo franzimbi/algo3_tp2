@@ -6,7 +6,10 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.Lector;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
+
+import java.util.ArrayList;
 
 public class Juego {
 
@@ -65,8 +68,18 @@ public class Juego {
 
     public int cantidadTurnos() { return this.turnos.cantidadOleadas();
     }
-
     public int cantidadEnemigos() {
         return this.mapa.cantidadEnemigos();
+    }
+
+    public ArrayList<Parcela> getParcelasMapa(){
+        return this.mapa.getParcelas();
+    }
+
+    public int vidaJugador(){
+        return this.jugador.getVida();
+    }
+    public int creditosJugador(){
+        return this.jugador.getCreditos();
     }
 }

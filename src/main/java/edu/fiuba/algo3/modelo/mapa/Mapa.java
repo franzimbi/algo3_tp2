@@ -30,7 +30,7 @@ public class Mapa {
         this.meta = null;
     }
     public ArrayList<Parcela> getParcelas(){
-        return this.parcelas.clone();
+        return this.parcelas;
     }
     public void agregarParcela(Parcela parcela) {
         this.parcelas.add(parcela);

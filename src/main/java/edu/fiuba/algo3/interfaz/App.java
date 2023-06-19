@@ -8,7 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.io.File;
 
 /**
  * JavaFX App
@@ -20,7 +25,12 @@ public class App extends Application {
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage){
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/musica/inicioKahoot.mp3").toURI().toString()));
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        //MediaView mediaView = new MediaView(mediaPlayer);
+        // Reproducir la música
+        mediaPlayer.play();
 
         Label label = new Label("Ingrese su nombre: ");
 

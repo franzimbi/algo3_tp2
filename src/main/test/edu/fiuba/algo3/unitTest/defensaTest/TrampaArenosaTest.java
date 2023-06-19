@@ -3,6 +3,7 @@ package edu.fiuba.algo3.unitTest.defensaTest;
 import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -60,5 +61,4 @@ public class TrampaArenosaTest {
         assert lechuza.getVelocidad() == 5;
 
     }
-
 }

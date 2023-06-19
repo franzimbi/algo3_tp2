@@ -1,5 +1,4 @@
 package edu.fiuba.algo3.interfaz;
-import edu.fiuba.algo3.interfaz.Input;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
@@ -7,6 +6,7 @@ import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -16,9 +16,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -38,7 +40,7 @@ public class Main implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         this.nombre.setEditable(false);
-        StackPane disposicion = new StackPane();
+        StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
         String turnos = "src/main/test/testResources/enemigosValidos.json";
         Jugador jugador = new Jugador(20, 300, "Cristiano Ronaldo");
@@ -48,9 +50,9 @@ public class Main implements EventHandler<ActionEvent> {
         disposicion.getChildren().add(tablero);
         disposicion.setPadding(new Insets(20,0,0,50));
 
-        HBox tablero1 = new HBox(disposicion,this.nombre);
+        HBox todo = new HBox(ventana,informacion);
+        todo.setStyle("-fx-background-color: #070d26;");
 
-        VBox columnas = new VBox(tablero1);
 
         Scene escena = new Scene(columnas,500,500);
         stage.setScene(escena);
