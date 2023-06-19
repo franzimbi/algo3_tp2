@@ -1,82 +1,72 @@
 package edu.fiuba.algo3.unitTest.enemigosTest;
 
-import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.enemigos.Topo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.mapa.direcciones.Abajo;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TopoTest {
     @Test
     public void Test01TopoSeIniciaEnUnEstadoValido() {
-        Hormiga hormiga = new Hormiga();
+        Topo topo = new Topo();
 
-        assertFalse(hormiga.estaMuerto());
-        assertEquals(1, hormiga.getVelocidad());
-
+        assertFalse(topo.estaMuerto());
+        assertEquals(1, topo.getVelocidad());
     }
 
     @Test
-    public void Test2HormigaAlRecibirDanioSeDestruye() {
-        Hormiga hormiga = new Hormiga();
-
-        hormiga.recibirDanio(1);
-
-        assertTrue(hormiga.estaMuerto());
-    }
-
-    @Test
-    public void Test03HormigaDaCreditosCorrectos() {
-        Hormiga hormiga = new Hormiga();
-        Jugador jugador = new Jugador(10, 10, "juli2");
-        hormiga.recibirDanio(1);
-        jugador.recibirMuerto(hormiga);
-
-        assertEquals(11, jugador.getCreditos());
-    }
-
-    @Test
-    public void Test04HormigaAtacaCorrectamente() {
-        Hormiga hormiga = new Hormiga();
+    public void Test02TopoAtacaCorrectamenteEnUnTurnoPar() {
+        Topo topo = new Topo();
         Jugador jugador = new Jugador(10, 10, "juli3");
-        hormiga.atacar(jugador, 0);
+        topo.atacar(jugador, 2);
 
-        assertEquals(9, jugador.getVida());
+        assertEquals(8, jugador.getVida());
     }
 
     @Test
-    public void Test05HormigaPuedeDarElDobleDeCreditosPasado10Muertes() {
-        Jugador jugador = new Jugador(20, 100, "Jugador 1");
+    public void Test03TopoAtacaCorrectamenteEnUnTurnoImpar() {
+        Topo topo = new Topo();
+        Jugador jugador = new Jugador(10, 10, "juli3");
+        topo.atacar(jugador, 1);
 
-        for (int i = 0; i < 10; i++) {
-            Enemigo hormiga = new Hormiga();
-            hormiga.recibirDanio(1);
-            jugador.recibirMuerto(hormiga);
-        }
-
-        Enemigo hormiga = new Hormiga();
-        hormiga.recibirDanio(1);
-        jugador.recibirMuerto(hormiga);
-
-        assertEquals(112, jugador.getCreditos());
+        assertEquals(5, jugador.getVida());
     }
 
     @Test
-    public void Test05HormigaSigueDando1CreditoAntesDeSuperarLas10Muertes() {
-        Jugador jugador = new Jugador(20, 100, "Jugador 1");
+    public void Test04TopoPasado5TurnosActualizaSuVelocidadCorrectamente() {
+        Jugador jugador = new Jugador(10, 10, "juli3");
+        Mapa mapa = new Mapa();
 
-        for (int i = 0; i < 9; i++) {
-            Enemigo hormiga = new Hormiga();
-            hormiga.recibirDanio(1);
-            jugador.recibirMuerto(hormiga);
+        for (int i = 0; i < 11; i++) {
+            Pasarela p = new Pasarela(new Coordenadas(0, i));
+            mapa.agregarParcela(p);
+            p.setSiguiente(new Abajo());
         }
 
-        Enemigo hormiga = new Hormiga();
-        hormiga.recibirDanio(1);
-        jugador.recibirMuerto(hormiga);
+        Topo topo = new Topo();
+        mapa.ubicar(topo, new Coordenadas(0, 0), jugador);
 
-        assertEquals(110, jugador.getCreditos());
+        //velocidad inicial es 1
+        assert topo.getVelocidad() == 1;
+
+        for (int i = 0; i < 5; i++) {
+            mapa.mover(jugador);
+        }
+        //pasado 5 movimientos la velocidad deberia ser 2
+        assert topo.getVelocidad() == 2;
+
+        for (int i = 0; i <= 5; i++) {
+            mapa.mover(jugador);
+        }
+        //pasado 10 movimientos la velocidad deberia ser 3
+        assert topo.getVelocidad() == 3;
+
     }
+
 }

@@ -54,10 +54,11 @@ public class TrampaArenosaTest {
         trampa.atacarEnemigo(topo);
         trampa.atacarEnemigo(lechuza);
 
-        assert hormiga.getVelocidad() == 0; // si estas leyendo esto estoy en disney
+        assert hormiga.getVelocidad() == 0;
         assert arania.getVelocidad() == 1;
         assert topo.getVelocidad() == 0;
         assert lechuza.getVelocidad() == 5;
 
     }
+
 }

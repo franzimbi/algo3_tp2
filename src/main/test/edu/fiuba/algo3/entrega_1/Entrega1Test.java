@@ -60,9 +60,9 @@ public class Entrega1Test {
         Parcela roca = new Rocoso(new Coordenadas(0, 0));
         Parcela pasarela = new Pasarela(new Coordenadas(0, 0));
 
-        assertDoesNotThrow(()->tierra.ubicar(defensa));
-        assertThrows(ParcelaNoPuedeUbicarError.class, ()->roca.ubicar(defensa));
-        assertThrows(ParcelaNoPuedeUbicarError.class, ()->pasarela.ubicar(defensa));
+        assertDoesNotThrow(() -> tierra.ubicar(defensa));
+        assertThrows(ParcelaNoPuedeUbicarError.class, () -> roca.ubicar(defensa));
+        assertThrows(ParcelaNoPuedeUbicarError.class, () -> pasarela.ubicar(defensa));
     }
 
     //Verificar que las defensas ataquen dentro del rango esperado (y verificar lo contrario)
@@ -110,9 +110,9 @@ public class Entrega1Test {
         Parcela piedra = new Rocoso(new Coordenadas(1, 0));
         Parcela pasarela = new Pasarela(new Coordenadas(1, 1));
 
-        assertDoesNotThrow(()->pasarela.ubicar(enemigo));
-        assertThrows(ParcelaNoPuedeUbicarError.class, ()->piedra.ubicar(enemigo));
-        assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(enemigo));
+        assertDoesNotThrow(() -> pasarela.ubicar(enemigo));
+        assertThrows(ParcelaNoPuedeUbicarError.class, () -> piedra.ubicar(enemigo));
+        assertThrows(ParcelaNoPuedeUbicarError.class, () -> tierra.ubicar(enemigo));
     }
 
 
@@ -142,7 +142,7 @@ public class Entrega1Test {
 
         p1.setSiguiente(new Abajo());
         p2.setSiguiente(new Abajo());
-        mapa.setMeta(p3);
+        mapa.agregarParcela(p3);
         mapa.agregarParcela(p1);
         mapa.agregarParcela(p2);
         mapa.agregarParcela(p3);
@@ -152,7 +152,7 @@ public class Entrega1Test {
         assert arania.getUbicacion().equals(new Coordenadas(0, 2));
     }
 
-   //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
+    //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
     @Test
     public void Test10ElJugadorGanaEliminandoTodosLosEnemigos() {
         Jugador jugador = new Jugador(20, 100, "Julian");
@@ -162,6 +162,7 @@ public class Entrega1Test {
         mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
         mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
         mapa.agregarParcela(new Tierra(new Coordenadas(1, 1)));
+
 
         Enemigo enemigo = new Hormiga();
         Defensa defensa = new TorreBlanca();
@@ -189,13 +190,18 @@ public class Entrega1Test {
         Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
         Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
         Tierra p4 = new Tierra(new Coordenadas(1, 1));
+        Meta p5 = new Meta(new Coordenadas(0, 3));
+
+
         mapa.agregarParcela(p1);
         mapa.agregarParcela(p2);
         mapa.agregarParcela(p3);
         mapa.agregarParcela(p4);
+        mapa.agregarParcela(p5);
 
-        p1.setSiguiente(new Abajo());
-        p2.setSiguiente(new Abajo());
+        p1.setSiguiente(new Abajo()); //(0,0) -> (0,1)
+        p2.setSiguiente(new Abajo()); //(0,1) -> (0,2)
+        p3.setSiguiente(new Abajo()); //(0,2) -> (0,3)
 
         Enemigo enemigo1 = new Hormiga();
         Enemigo enemigo2 = new Hormiga();
@@ -204,36 +210,48 @@ public class Entrega1Test {
         mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
         mapa.ubicar(enemigo2, new Coordenadas(0, 2), jugador);
         mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
+
         mapa.mover(jugador);
         jugador.atacarEnemigos(mapa);
         jugador.atacarEnemigos(mapa);
         mapa.mover(jugador);
         mapa.recolectarEnemigos(jugador);
+
         assert mapa.sinEnemigos();
-        assertEquals(91 ,jugador.getCreditos());
+        assertEquals(91, jugador.getCreditos());
         assertEquals(19, jugador.getVida());
     }
 
-    //    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
+
+    //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
     @Test
     public void Test12ElJugadorPierdeSiLosEnemigosQueLlegaronALaMetaYLoMatan() {
         Jugador jugador = new Jugador(4, 100, "Julian");
         Mapa mapa = new Mapa();
 
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 0)));
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
-        mapa.agregarParcela(new Tierra(new Coordenadas(1, 1)));
+        Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
+        Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
+        Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
+        Meta p4 = new Meta(new Coordenadas(0, 3));
+
+        mapa.agregarParcela(p1);
+        mapa.agregarParcela(p2);
+        mapa.agregarParcela(p3);
+        mapa.agregarParcela(p4);
+
+        p1.setSiguiente(new Abajo()); //(0,0) -> (0,1)
+        p2.setSiguiente(new Abajo()); //(0,1) -> (0,2)
+        p3.setSiguiente(new Abajo()); //(0,2) -> (0,3)
 
         Enemigo enemigo1 = new Arania();
         Enemigo enemigo2 = new Arania();
 
         mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
-        mapa.ubicar(enemigo2, new Coordenadas(0, 0), jugador);
+        mapa.ubicar(enemigo2, new Coordenadas(0, 2), jugador);
         mapa.mover(jugador);
-
-        assertEquals(0, jugador.getVida());
+        mapa.mover(jugador);
         assert jugador.estaMuerto();
+
     }
 }
 

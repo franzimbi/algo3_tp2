@@ -9,6 +9,7 @@ public class DanioLechuzal extends Danio {
         this.danio = 0;
     }
 
-
-    public void atacar(Jugador jugador, int cantidadDeTurnos) {jugador.destruirPrimeraDefensa();}
+    public void atacar(Jugador jugador, int cantidadDeTurnos) {
+        jugador.destruirPrimeraDefensa();
+    }
 }

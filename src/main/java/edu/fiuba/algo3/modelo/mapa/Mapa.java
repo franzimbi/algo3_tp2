@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,8 +60,9 @@ public class Mapa {
         this.enemigos.add(enemigoAgregado);
     }
 
-    public void setMeta(Pasarela ultima) {
-        this.meta = ultima;
+    public void setMeta(Parcela parcela) {
+        this.parcelas.add(parcela);
+        this.meta = parcela;
     }
 
     public void mover(Jugador jugador) {
@@ -180,5 +180,8 @@ public class Mapa {
         return posicion.equals(this.meta.getUbicacion());
     }
 
-    public Coordenadas getMeta() {return this.meta.getUbicacion();}
+    public Coordenadas getMeta() {
+
+        return this.meta.getUbicacion();
+    }
 }
