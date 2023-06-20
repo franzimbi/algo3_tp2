@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.juego;
 
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -76,6 +77,9 @@ public class Juego {
 
     public ArrayList<Parcela> getParcelasMapa(){
         return this.mapa.getParcelas();
+    }
+    public ArrayList<Enemigo> getEnemigosMapa(){
+        return this.mapa.getEnemigos();
     }
 
     public int vidaJugador(){

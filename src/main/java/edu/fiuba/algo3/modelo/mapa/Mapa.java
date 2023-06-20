@@ -8,7 +8,9 @@ import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Mapa {
     private final ArrayList<Parcela> parcelas;
@@ -33,6 +35,26 @@ public class Mapa {
     public ArrayList<Parcela> getParcelas() {
         return this.parcelas;
     }
+    public ArrayList<Enemigo> getEnemigos() {
+        return this.enemigos;
+    }
+
+//    public Map<Coordenadas, Parcela> getParcelas(){
+//        Map<Coordenadas, Parcela> aux = new HashMap<>();
+//            for (Parcela p : this.parcelas){
+//                aux.put(p.getUbicacion(), p);
+//            }
+//            return aux;
+//    }
+
+//    public Map<Coordenadas, Enemigo> getEnemigos(){
+//        Map<Coordenadas, Enemigo> aux = new HashMap<>();
+//        for (Enemigo p : this.enemigos){
+//            aux.put(p.getUbicacion(), p);
+//        }
+//        return aux;
+//    }
+
 
     public void agregarParcela(Parcela parcela) {
         this.parcelas.add(parcela);

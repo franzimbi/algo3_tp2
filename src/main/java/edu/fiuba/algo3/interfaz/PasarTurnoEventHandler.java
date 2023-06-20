@@ -3,6 +3,7 @@ package edu.fiuba.algo3.interfaz;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -11,6 +12,7 @@ public class PasarTurnoEventHandler implements EventHandler<ActionEvent>  {
     private final Juego juego;
     private final Stage stage;
     private final Main main;
+
 
 
     public PasarTurnoEventHandler(Stage stage, Juego juego, Main main){
@@ -24,7 +26,6 @@ public class PasarTurnoEventHandler implements EventHandler<ActionEvent>  {
     public void handle(ActionEvent actionEvent) {
         this.juego.pasarTurno();
         stage.getScene().setRoot(main.actualizar(juego,stage));
-       
-
+        stage.setMaximized(true);
     }
 }
