@@ -38,7 +38,12 @@ public abstract class Enemigo {
 
 
     public void ubicarEn(Coordenadas ubicacion) {
-        this.ubicacion = ubicacion;
+
+        try {
+            this.ubicacion = ubicacion.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void reducirVelocidad(float multiplicador) {

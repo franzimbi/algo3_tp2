@@ -70,8 +70,9 @@ public class Mapa {
     public void mover(Jugador jugador) {
         List<Enemigo> enemigosCopia = new ArrayList<>(this.enemigos);
         for (Enemigo enemigo : enemigosCopia) {
-            //enemigo.mover(this.encontrarParcela(enemigo.getUbicacion()),
-            //        jugador, this);
+            if (enemigo.estaMuerto()){
+                continue;
+            }
             enemigo.mover(this.encontrarParcela(enemigo), jugador, this);
         }
     }
@@ -129,12 +130,16 @@ public class Mapa {
     }
 
     public void enemigosAtacados(Defensa defensa) {
-        if (enemigos.isEmpty()) {
-            return;
+        Enemigo enemigoActual = null;
+        int distanciaMinima = 0;
+        for(Enemigo enemigo : enemigos){
+            if (enemigo.estaMuerto()) {
+                continue;
+            }
+            enemigoActual = enemigo;
+            distanciaMinima = enemigo.distancia(defensa);
+            break;
         }
-        Enemigo enemigoActual = enemigos.get(0);
-        int distanciaMinima = enemigoActual.distancia(defensa);
-
         for (Enemigo enemigo : enemigos) {
             if (enemigo.estaMuerto()) {
                 continue;
@@ -145,7 +150,9 @@ public class Mapa {
                 distanciaMinima = distanciaActual;
             }
         }
+        if (enemigoActual != null){
         defensa.atacarEnemigo(enemigoActual);
+        }
     }
 
     public void dejarEnRango(Coordenadas posicion) {

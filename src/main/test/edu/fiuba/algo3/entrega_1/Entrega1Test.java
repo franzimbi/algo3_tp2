@@ -158,17 +158,27 @@ public class Entrega1Test {
         Jugador jugador = new Jugador(20, 100, "Julian");
         Mapa mapa = new Mapa();
 
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 0)));
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
-        mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
-        mapa.agregarParcela(new Tierra(new Coordenadas(1, 1)));
+        Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
+        Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
+        Pasarela p3 = new Pasarela(new Coordenadas(0, 2));
+        Tierra p4 = new Tierra(new Coordenadas(1, 1));
+        Meta p5 = new Meta(new Coordenadas(0, 3));
+
+        mapa.agregarParcela(p1);
+        mapa.agregarParcela(p2);
+        mapa.agregarParcela(p3);
+        mapa.agregarParcela(p4);
+        mapa.agregarParcela(p5);
+
+        p1.setSiguiente(new Abajo());
+        p2.setSiguiente(new Abajo());
+        p3.setSiguiente(new Abajo());
 
 
         Enemigo enemigo = new Hormiga();
         Defensa defensa = new TorreBlanca();
-        mapa.ubicar(enemigo, new Coordenadas(0, 0), jugador);
+        mapa.spawnear(enemigo);
         mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
-
 
         assert !mapa.sinEnemigos();
         defensa.atacarEnemigo(enemigo);
@@ -192,7 +202,6 @@ public class Entrega1Test {
         Tierra p4 = new Tierra(new Coordenadas(1, 1));
         Meta p5 = new Meta(new Coordenadas(0, 3));
 
-
         mapa.agregarParcela(p1);
         mapa.agregarParcela(p2);
         mapa.agregarParcela(p3);
@@ -203,17 +212,17 @@ public class Entrega1Test {
         p2.setSiguiente(new Abajo()); //(0,1) -> (0,2)
         p3.setSiguiente(new Abajo()); //(0,2) -> (0,3)
 
-        Enemigo enemigo1 = new Hormiga();
-        Enemigo enemigo2 = new Hormiga();
         Defensa defensa = new TorreBlanca();
 
-        mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
-        mapa.ubicar(enemigo2, new Coordenadas(0, 2), jugador);
+        mapa.spawnear(new Hormiga());
+        mapa.spawnear(new Hormiga());
         mapa.ubicar(defensa, new Coordenadas(1, 1), jugador);
 
         mapa.mover(jugador);
         jugador.atacarEnemigos(mapa);
         jugador.atacarEnemigos(mapa);
+        mapa.mover(jugador);
+        mapa.mover(jugador);
         mapa.mover(jugador);
         mapa.recolectarEnemigos(jugador);
 
@@ -221,7 +230,6 @@ public class Entrega1Test {
         assertEquals(91, jugador.getCreditos());
         assertEquals(19, jugador.getVida());
     }
-
 
     //Verificar que si las unidades enemigas llegadas a la meta matan al jugador, este pierde el juego
     @Test
@@ -246,8 +254,8 @@ public class Entrega1Test {
         Enemigo enemigo1 = new Arania();
         Enemigo enemigo2 = new Arania();
 
-        mapa.ubicar(enemigo1, new Coordenadas(0, 0), jugador);
-        mapa.ubicar(enemigo2, new Coordenadas(0, 2), jugador);
+        mapa.spawnear(enemigo1);
+        mapa.spawnear(enemigo2);
         mapa.mover(jugador);
         mapa.mover(jugador);
         assert jugador.estaMuerto();

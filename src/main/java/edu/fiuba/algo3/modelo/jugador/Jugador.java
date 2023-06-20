@@ -36,6 +36,9 @@ public class Jugador {
 
     public void recibirAtaque(int danio) {
         this.vida -= danio;
+        if (this.vida<=0){
+            this.vida = 0;
+        }
     }
 
     public boolean estaMuerto() {
@@ -49,7 +52,6 @@ public class Jugador {
     public void destruirPrimeraDefensa() {
         if (this.defensas.isEmpty()) {
             Logger.getInstancia().info("no se borro una defensa de jugador porque no habia mas");
-            this.defensas.remove(0);
             return;
         }
         Logger.getInstancia().info("Se elimino un " + this.defensas.get(0).getNombre() + " del jugador.");

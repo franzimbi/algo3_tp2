@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.mapa;
 
-public class Coordenadas {
+public class Coordenadas implements Cloneable{
     private int x;
     private int y;
 
@@ -23,9 +23,8 @@ public class Coordenadas {
         return this.y;
     }
 
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public Coordenadas clone() throws CloneNotSupportedException {
+        return (Coordenadas) super.clone();
     }
 
     public void aumentarX() {

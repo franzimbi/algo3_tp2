@@ -55,10 +55,10 @@ public class Main implements EventHandler<ActionEvent> {
             return;
         }
 
-        this.media.stop();
+        //this.media.stop();
         StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
-        String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigosTest.json";
+        String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigos.json";
         Jugador jugador = new Jugador(20, 100, nombre.getText());
         Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
 
@@ -100,6 +100,7 @@ public class Main implements EventHandler<ActionEvent> {
         Button pasarTurno = new Button("Pasar turno");
         pasarTurno.setStyle("-fx-background-color: #000080; -fx-text-fill: #FFFFFF; -fx-font-size: 20px;");
         pasarTurno.setMinSize(25, 25);
+
         DropShadow shadow = new DropShadow();
         pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED,
                 e -> pasarTurno.setEffect(shadow));

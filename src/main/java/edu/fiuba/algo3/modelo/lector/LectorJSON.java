@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.mapa.direcciones.Abajo;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Meta;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.mapa.parcelas.ParcelasFactory;
@@ -50,13 +51,14 @@ public class LectorJSON implements Lector {
                     }
                 }
             }
-
             for (int i = 0; i <= coordenadasPasarelas.size() - 2; i++) {
                 Pasarela aux = new Pasarela(coordenadasPasarelas.get(i));
+                if(coordenadasPasarelas.get(i).getX() == coordenadasPasarelas.get(i+1).getX() ){
+                    aux.setSiguiente(new Abajo());
+                }
                 mapaLeido.agregarParcela(aux);
             }
             mapaLeido.setMeta(new Meta(coordenadasPasarelas.get(coordenadasPasarelas.size() - 1)));
-
             return mapaLeido;
         } catch (IOException | ParseException | ClassCastException e) {
             throw new NoSePuedeLeerElMapaError();

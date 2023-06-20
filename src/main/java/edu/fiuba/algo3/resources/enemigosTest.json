@@ -34,8 +34,8 @@
           "enemigos": {
             "hormiga": 0,
             "arana": 0,
-            "topo": 1,
-            "lechuza": 0
+            "topo": 0,
+            "lechuza": 1,
           }
 
     },
