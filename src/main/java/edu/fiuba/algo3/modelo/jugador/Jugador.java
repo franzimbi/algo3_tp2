@@ -48,7 +48,7 @@ public class Jugador {
 
     public void destruirPrimeraDefensa() {
         if (this.defensas.isEmpty()) {
-            Logger.getInstancia().info("no se borro una defensa de jugador pq no habia mas");
+            Logger.getInstancia().info("no se borro una defensa de jugador porque no habia mas");
             this.defensas.remove(0);
             return;
         }

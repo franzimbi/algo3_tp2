@@ -34,27 +34,6 @@ public class Pasarela extends Parcela {
         this.direccion = siguiente;
     }
 
-//  public void setDireccion(Direccion direccion) {this.direccion = direccion;}
-
-//    public void siguientePasarela(Velocidad velocidad, Enemigo enemigo, Jugador jugador, Mapa mapa) {
-//        Pasarela actual = this;
-//
-//        for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
-//            if (actual==null) {
-//                break;
-//            }
-//            actual = actual.siguiente;
-////          actual = actual.direccion.siguiente(this.ubicacion);
-//        }
-//        if (actual == null){
-//            enemigo.atacar(jugador, 0);
-//            Logger.getInstancia().info(enemigo.getNombre()
-//                    + " llego a la meta. jugador quedo con " + jugador.getVida() + " de vida");
-//            mapa.removerEnemigo(enemigo);
-//        }else{
-//            enemigo.ubicarEn(actual.ubicacion);
-//        }
-//    }
     public void moverASiguiente(Enemigo enemigo, Jugador jugador, Mapa mapa){
         mapa.ubicar(enemigo, this.direccion.siguiente(this.ubicacion), jugador);
     }

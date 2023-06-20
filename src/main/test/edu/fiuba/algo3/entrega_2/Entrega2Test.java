@@ -76,7 +76,7 @@ public class Entrega2Test {
         Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
 
         assert (juego.tamanoMapa() == 3 * 3);
-        assert (juego.cantidadTurnos() == 2);
+        assert (juego.cantidadDeOleadas() == 2);
         assertEquals(0, juego.cantidadEnemigos());
         assertEquals(0, jugador.cantidadDefensas());
         juego.juegoEmpezar();

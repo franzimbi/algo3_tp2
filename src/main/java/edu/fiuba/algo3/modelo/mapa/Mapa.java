@@ -81,9 +81,6 @@ public class Mapa {
             if (parcela.ubicacion(posicion)) {
                 try {
                     parcela.ubicar(enemigo);
-                    Logger.getInstancia().info("se ubico un " + enemigo.getNombre()
-                            + " en (" + posicion.getX() + "," + posicion.getY() + ")");
-                    agregarEnemigo(enemigo);
                     break;
                 }catch (ParcelaNoPuedeUbicarError e){
                     Logger.getInstancia().info("no se pudo ubicar un " + enemigo.getNombre()

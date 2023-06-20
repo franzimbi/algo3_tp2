@@ -5,14 +5,17 @@ import edu.fiuba.algo3.modelo.lector.LectorJSON;
 
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
+import edu.fiuba.algo3.interfaz.PasarTurnoEventHandler;
+import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -26,6 +29,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -52,48 +56,76 @@ public class Main implements EventHandler<ActionEvent> {
         }
 
         this.media.stop();
-        this.nombre.setEditable(false);
         StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
-        String turnos = "src/main/test/testResources/enemigosValidos.json";
+        String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigosTest.json";
         Jugador jugador = new Jugador(20, 100, nombre.getText());
         Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
 
         Parent tablero = createBoard(juego.tamanoMapa(),juego.getParcelasMapa());
         ventana.getChildren().add(tablero);
-        //ventana.setPadding(new Insets(20,0,0,50));
+        ventana.setPadding(new Insets(20,0,0,50));
+
+        Font font = new Font("Minecraftia", 22);
 
         //informacion del jugador
-        TextField vida = new TextField("vida: " + Integer.toString(juego.vidaJugador()));
-        TextField creditos = new TextField(Integer.toString(juego.creditosJugador()));
-        TextField cantEnemigos = new TextField(Integer.toString(juego.cantidadEnemigos()));
+        Label labelNombre = new Label("Jugador:" + nombre.getText());
+        labelNombre.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 45px;");
+        labelNombre.setFont(font);
 
-        Font font = new Font("Arial", 16);
-        this.nombre.setStyle("-fx-background-color: #333333; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
-        vida.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
-        creditos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
-        cantEnemigos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
-
-
+        TextField vida = new TextField("Vida: " + Integer.toString(juego.vidaJugador()));
+        vida.setStyle("-fx-background-color: #333333; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
         vida.setFont(font);
+        vida.setFocusTraversable(false);
+        vida.setEditable(false);
+
+        TextField creditos = new TextField("Creditos: " + Integer.toString(juego.creditosJugador()));
+        creditos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        creditos.setFont(font);
+        creditos.setFocusTraversable(false);
+        creditos.setEditable(false);
+
+        TextField cantEnemigos = new TextField("Enemigos: " + Integer.toString(juego.cantidadEnemigos()));
+        cantEnemigos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        cantEnemigos.setFont(font);
+        cantEnemigos.setFocusTraversable(false);
+        cantEnemigos.setEditable(false);
+
+        TextField cantTurnos = new TextField("Turnos: " + Integer.toString(juego.cantidadDeTurnos()));
+        cantTurnos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        cantTurnos.setFont(font);
+        cantTurnos.setFocusTraversable(false);
+        cantTurnos.setEditable(false);
+
+        Button pasarTurno = new Button("Pasar turno");
+        pasarTurno.setStyle("-fx-background-color: #000080; -fx-text-fill: #FFFFFF; -fx-font-size: 20px;");
+        pasarTurno.setMinSize(25, 25);
+        DropShadow shadow = new DropShadow();
+        pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED,
+                e -> pasarTurno.setEffect(shadow));
+        pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
 
 
+        pasarTurno.setOnAction(new PasarTurnoEventHandler(stage,juego,this));
 
-        VBox informacion = new VBox( this.nombre, vida, creditos, cantEnemigos);
-        informacion.setMargin(this.nombre,new Insets(50,0,0,50));
+        VBox informacion = new VBox( labelNombre, vida, creditos, cantEnemigos, cantTurnos, pasarTurno);
+        informacion.setMargin(labelNombre,new Insets(100,0,0,50));
         informacion.setMargin(vida,new Insets(50,0,0,50));
         informacion.setMargin(creditos,new Insets(50,0,0,50));
         informacion.setMargin(cantEnemigos,new Insets(50,0,0,50));
+        informacion.setMargin(cantTurnos,new Insets(50,0,0,50));
+        informacion.setMargin(pasarTurno,new Insets(50,0,0,50));
 
 
         HBox todo = new HBox(ventana,informacion);
         todo.setStyle("-fx-background-color: #070d26;");
 
 
-        Scene escena = new Scene(todo,500,500);
+        Scene escena = new Scene(todo);
 
         //escena.setFill(javafx.scene.paint.Color.BLACK);
         stage.setScene(escena);
+        stage.setMaximized(true);
         stage.show();
     }
 
@@ -141,6 +173,78 @@ public class Main implements EventHandler<ActionEvent> {
             }
         }
         return gameBoard;
+    }
+
+    public void actualizar(Juego juego, Stage stage1){
+        StackPane ventana = new StackPane();
+
+        Parent tablero = createBoard(juego.tamanoMapa(),juego.getParcelasMapa());
+        ventana.getChildren().add(tablero);
+        ventana.setPadding(new Insets(20,0,0,50));
+
+        Font font = new Font("Minecraftia", 22);
+
+        //informacion del jugador
+        Label labelNombre = new Label("Jugador:" + nombre.getText());
+        labelNombre.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 45px;");
+        labelNombre.setFont(font);
+
+
+        TextField vida = new TextField("Vida: " + Integer.toString(juego.vidaJugador()));
+        vida.setStyle("-fx-background-color: #333333; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        vida.setFont(font);
+        vida.setFocusTraversable(false);
+        vida.setEditable(false);
+
+        TextField creditos = new TextField("Creditos: " + Integer.toString(juego.creditosJugador()));
+        creditos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        creditos.setFont(font);
+        creditos.setFocusTraversable(false);
+        creditos.setEditable(false);
+
+        TextField cantEnemigos = new TextField("Enemigos: " + Integer.toString(juego.cantidadEnemigos()));
+        cantEnemigos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        cantEnemigos.setFont(font);
+        cantEnemigos.setFocusTraversable(false);
+        cantEnemigos.setEditable(false);
+
+        TextField cantTurnos = new TextField("Turnos: " + Integer.toString(juego.cantidadDeTurnos()));
+        cantTurnos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        cantTurnos.setFont(font);
+        cantTurnos.setFocusTraversable(false);
+        cantTurnos.setEditable(false);
+
+        Button pasarTurno = new Button("Pasar turno");
+        pasarTurno.setStyle("-fx-background-color: #000080; -fx-text-fill: #FFFFFF; -fx-font-size: 20px;");
+        pasarTurno.setMinSize(25, 25);
+        DropShadow shadow = new DropShadow();
+        pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED,
+                e -> pasarTurno.setEffect(shadow));
+        pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
+
+
+        pasarTurno.setOnAction(new PasarTurnoEventHandler(stage,juego,this));
+
+        VBox informacion = new VBox( labelNombre, vida, creditos, cantEnemigos, cantTurnos, pasarTurno);
+        informacion.setMargin(labelNombre,new Insets(100,0,0,50));
+        informacion.setMargin(vida,new Insets(50,0,0,50));
+        informacion.setMargin(creditos,new Insets(50,0,0,50));
+        informacion.setMargin(cantEnemigos,new Insets(50,0,0,50));
+        informacion.setMargin(cantTurnos,new Insets(50,0,0,50));
+        informacion.setMargin(pasarTurno,new Insets(50,0,0,50));
+
+
+        HBox todo = new HBox(ventana,informacion);
+        todo.setStyle("-fx-background-color: #070d26;");
+
+
+        Scene escena = new Scene(todo);
+
+        //escena.setFill(javafx.scene.paint.Color.BLACK);
+        stage.setScene(escena);
+        stage.setMaximized(false);
+        stage.setMaximized(true);
+        stage.show();
     }
 
 

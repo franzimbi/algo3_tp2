@@ -66,8 +66,10 @@ public class Juego {
         return this.mapa.size();
     }
 
-    public int cantidadTurnos() { return this.turnos.cantidadOleadas();
+    public int cantidadDeOleadas() {
+        return this.turnos.cantidadOleadas();
     }
+
     public int cantidadEnemigos() {
         return this.mapa.cantidadEnemigos();
     }
@@ -81,5 +83,8 @@ public class Juego {
     }
     public int creditosJugador(){
         return this.jugador.getCreditos();
+    }
+    public int cantidadDeTurnos(){
+        return this.turnos.getCantidadDeTurnos();
     }
 }

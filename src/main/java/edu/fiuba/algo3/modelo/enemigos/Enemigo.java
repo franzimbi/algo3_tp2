@@ -79,9 +79,7 @@ public abstract class Enemigo {
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
         this.movimiento.mover(velocidad, this, actual, jugador, mapa);
     }
-//    public void moverA(Direccion siguiente){
-//        this.ubicarEn(this.ubicacion.mover(siguiente));
-//    }
+
 
     public void setDireccion(Movimiento nuevaDireccion) {
         this.movimiento = nuevaDireccion;
