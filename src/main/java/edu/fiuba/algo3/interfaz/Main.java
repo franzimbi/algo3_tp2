@@ -30,7 +30,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.util.ArrayList;
 
 import static java.lang.Math.sqrt;
@@ -49,7 +48,6 @@ public class Main implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-
         if(this.nombre.getLength()<6){
             this.tratarError("El nombre esta mal flaco");
             return;
