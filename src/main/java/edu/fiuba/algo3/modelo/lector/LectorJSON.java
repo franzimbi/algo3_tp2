@@ -29,12 +29,11 @@ public class LectorJSON implements Lector {
         try {
             FileReader archivoDeLectura = new FileReader(mapa);
             JSONParser parser = new JSONParser();
-            // Leer y procesar el archivo de mapa
             JSONObject mapaJSON = (JSONObject) parser.parse(archivoDeLectura);
             JSONObject mapaObject = (JSONObject) mapaJSON.get("Mapa");
 
             int filas = mapaObject.size();
-            int columnas = ((JSONArray) mapaObject.get("1")).size(); // Suponiendo que todas las filas tienen la misma longitud
+            int columnas = ((JSONArray) mapaObject.get("1")).size();
 
             ArrayList<Coordenadas> coordenadasPasarelas = new ArrayList<>();
             Mapa mapaLeido = new Mapa();

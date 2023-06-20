@@ -32,45 +32,31 @@ public class App extends Application {
     @Override
     public void start(Stage stage){
         Logger.getInstancia().activar();
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/musica/inicioKahoot.mp3").toURI().toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/inicioKahoot.mp3").toURI().toString()));
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         //MediaView mediaView = new MediaView(mediaPlayer);
         // Reproducir la música
         mediaPlayer.play();
 
         Label label = new Label("Ingrese su nombre: ");
+        label.setStyle("-fx-font-size: 10px; -fx-background-color: #ffffff; -fx-text-fill: #000080;");
 
         TextField texto = new TextField();
+        texto.setStyle("-fx-font-size: 14px; -fx-background-color: #ffffff; -fx-text-fill: #000080;");
+
 
         Button botonInit = new Button("JUGAR!");
-        botonInit.setStyle("-fx-background-color: #000080; -fx-text-fill: #FFFFFF; -fx-font-size: 14px;");
-        botonInit.setOnAction(event -> {
-            // Crear la animación de escala
-            ScaleTransition transition = new ScaleTransition(Duration.seconds(0.2), botonInit);
-            transition.setToX(0.8); // Reducir la escala horizontalmente
-            transition.setToY(0.8); // Reducir la escala verticalmente
-            transition.setAutoReverse(true);
-            transition.setCycleCount(2);
-            transition.play();
-        });
-        botonInit.setOnMouseClicked(event -> {
-            // Aplicar el efecto al hacer clic
-            botonInit.setStyle("-fx-background-color: #FF0000; -fx-text-fill: #FFFFFF;");
-        });
+        botonInit.setStyle("-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px;");
         DropShadow shadow = new DropShadow();
-        ScaleTransition scaleTransition = new ScaleTransition();
-        botonInit.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED,
-                e -> botonInit.setEffect(shadow));
+        botonInit.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> botonInit.setEffect(shadow));
         botonInit.addEventHandler(MouseEvent.MOUSE_EXITED, e -> botonInit.setEffect(null));
 
         Main iniciarEvent = new Main(stage,texto,mediaPlayer);
         botonInit.setOnAction(iniciarEvent);
-        botonInit.setMinSize(25, 25);
+        botonInit.setMinSize(80, 70);
 
         TextoEventHandler textoEvent = new TextoEventHandler(botonInit);
         texto.setOnKeyPressed(textoEvent);
-
-
 
         HBox datosIniciales = new HBox(label, texto);
         datosIniciales.setSpacing(5);
@@ -82,6 +68,7 @@ public class App extends Application {
         var menu = new Scene(botones, 300, 150);
 
         stage.setScene(menu);
+        //stage.setMaximized(true);
         stage.show();
     }
 

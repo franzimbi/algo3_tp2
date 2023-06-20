@@ -43,6 +43,10 @@ public abstract class Defensa {
         return this.vidaUtil > 0;
     }
 
+    public void reducirVidaUtil() {
+        this.vidaUtil--;
+    }
+
     public void ubicarEn(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
     }
@@ -63,5 +67,4 @@ public abstract class Defensa {
         }
         Logger.getInstancia().info(enemigo.getNombre() + " no estaba en rango");
     }
-
 }

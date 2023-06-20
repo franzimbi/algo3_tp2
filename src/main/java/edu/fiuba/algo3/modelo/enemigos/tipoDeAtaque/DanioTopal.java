@@ -3,9 +3,9 @@ package edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 
 public class DanioTopal extends Danio {
-    public int turnos = 0;
     private final int danioPar;
     private final int danioImpar;
+    public int turnos = 0;
 
     public DanioTopal(int danioPar, int danioImpar) {
         this.danioPar = danioPar;

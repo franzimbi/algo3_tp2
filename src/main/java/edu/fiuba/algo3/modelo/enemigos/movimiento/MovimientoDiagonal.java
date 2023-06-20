@@ -1,30 +1,29 @@
 package edu.fiuba.algo3.modelo.enemigos.movimiento;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
-import edu.fiuba.algo3.modelo.turno.Turnos;
 
 import java.util.ArrayList;
 
 public class MovimientoDiagonal implements Movimiento {
 
 
-    private ArrayList<Coordenadas> movimientos = new ArrayList<Coordenadas>();
+    private final ArrayList<Coordenadas> movimientos = new ArrayList<Coordenadas>();
     private boolean arranco = false;
 
     @Override
-    public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa){
+    public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa) {
         if (movimientos.size() == 0 && !arranco) {
             Logger.getInstancia().info("un " + enemigo.getNombre() + " cambio su movimiento a diagonal.");
             lozanoAlgorithm(mapa, enemigo);
             this.arranco = true;
         }
-        if (movimientos.size() == 0 && arranco){
+        if (movimientos.size() == 0 && arranco) {
             Logger.getInstancia().info("una " + enemigo.getNombre() +
                     " ataco al jugador. vida restante: " + jugador.getVida());
             enemigo.atacar(jugador, 0);
@@ -51,10 +50,10 @@ public class MovimientoDiagonal implements Movimiento {
         int dx = coordenadasFin.getX() - coordenadasInicio.getX();
         int dy = coordenadasFin.getY() - coordenadasInicio.getY();
 
-        int variableDecision = 2*dy - dx;
+        int variableDecision = 2 * dy - dx;
 
-        int coordenadaEste = 2*dy;
-        int coordenadaNorEste = 2*(dy - dx);
+        int coordenadaEste = 2 * dy;
+        int coordenadaNorEste = 2 * (dy - dx);
 
         while (x != xFin) {
             if (variableDecision <= 0) {

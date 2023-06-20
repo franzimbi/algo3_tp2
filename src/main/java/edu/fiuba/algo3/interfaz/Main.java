@@ -53,7 +53,7 @@ public class Main implements EventHandler<ActionEvent> {
             return;
         }
 
-        //this.media.stop();
+
         StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
         String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigos.json";
@@ -66,8 +66,8 @@ public class Main implements EventHandler<ActionEvent> {
 
         Font font = new Font("Minecraftia", 22);
 
-        //informacion del jugador
-        Label labelNombre = new Label("Jugador:" + nombre.getText());
+        //informacion del menu
+        Label labelNombre = new Label("Jugador: " + nombre.getText());
         labelNombre.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 45px;");
         labelNombre.setFont(font);
 
@@ -95,15 +95,14 @@ public class Main implements EventHandler<ActionEvent> {
         cantTurnos.setFocusTraversable(false);
         cantTurnos.setEditable(false);
 
-        Button pasarTurno = new Button("Pasar turno");
-        pasarTurno.setStyle("-fx-background-color: #000080; -fx-text-fill: #FFFFFF; -fx-font-size: 20px;");
+        Button pasarTurno = new Button("callate Martu");
+        cantTurnos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
         pasarTurno.setMinSize(25, 25);
 
         DropShadow shadow = new DropShadow();
         pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED,
                 e -> pasarTurno.setEffect(shadow));
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
-
 
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage,juego,this));
 
@@ -119,12 +118,12 @@ public class Main implements EventHandler<ActionEvent> {
         HBox todo = new HBox(ventana,informacion);
         todo.setStyle("-fx-background-color: #070d26;");
 
-
         Scene escena = new Scene(todo);
 
         //escena.setFill(javafx.scene.paint.Color.BLACK);
         stage.setScene(escena);
         stage.setMaximized(true);
+        this.media.stop();
         stage.show();
     }
 
@@ -174,7 +173,7 @@ public class Main implements EventHandler<ActionEvent> {
         return gameBoard;
     }
 
-    public void actualizar(Juego juego, Stage stage1){
+    public Scene actualizar(Juego juego, Stage stage){
         StackPane ventana = new StackPane();
 
         Parent tablero = createBoard(juego.tamanoMapa(),juego.getParcelasMapa());
@@ -187,13 +186,8 @@ public class Main implements EventHandler<ActionEvent> {
         Label labelNombre = new Label("Jugador:" + nombre.getText());
         labelNombre.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 45px;");
         labelNombre.setFont(font);
-
-
-        TextField vida = new TextField("Vida: " + Integer.toString(juego.vidaJugador()));
-        vida.setStyle("-fx-background-color: #333333; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
-        vida.setFont(font);
-        vida.setFocusTraversable(false);
-        vida.setEditable(false);
+        labelNombre.setText()
+            labelNombre.setText()
 
         TextField creditos = new TextField("Creditos: " + Integer.toString(juego.creditosJugador()));
         creditos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
@@ -214,7 +208,7 @@ public class Main implements EventHandler<ActionEvent> {
         cantTurnos.setEditable(false);
 
         Button pasarTurno = new Button("Pasar turno");
-        pasarTurno.setStyle("-fx-background-color: #000080; -fx-text-fill: #FFFFFF; -fx-font-size: 20px;");
+        pasarTurno.setStyle("-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 20px;");
         pasarTurno.setMinSize(25, 25);
         DropShadow shadow = new DropShadow();
         pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED,
@@ -237,13 +231,16 @@ public class Main implements EventHandler<ActionEvent> {
         todo.setStyle("-fx-background-color: #070d26;");
 
 
-        Scene escena = new Scene(todo);
+        //Scene escena = new Scene(todo);
+        Parent nuevo = New
+    return new Parent(todo);
 
         //escena.setFill(javafx.scene.paint.Color.BLACK);
-        stage.setScene(escena);
-        stage.setMaximized(false);
-        stage.setMaximized(true);
-        stage.show();
+        //stage.setScene(escena);
+        /*stage.setMaximized(false);
+        stage.setMaximized(true);*/
+
+
     }
 
 

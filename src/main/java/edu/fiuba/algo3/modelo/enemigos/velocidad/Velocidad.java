@@ -24,7 +24,6 @@ public class Velocidad {
     public void aumentarVelocidad(int velocidad) {
         this.velocidad += velocidad;
     }
-
-    public Boolean le(Velocidad otra) {return this.velocidad <= otra.obtenerVelocidad();}
+    
 }
 

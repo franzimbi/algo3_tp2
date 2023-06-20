@@ -29,9 +29,11 @@ public class Mapa {
         this.enemigos = new ArrayList<>();
         this.meta = null;
     }
-    public ArrayList<Parcela> getParcelas(){
+
+    public ArrayList<Parcela> getParcelas() {
         return this.parcelas;
     }
+
     public void agregarParcela(Parcela parcela) {
         this.parcelas.add(parcela);
     }
@@ -45,7 +47,7 @@ public class Mapa {
                     Logger.getInstancia().info("se ubica un " +
                             defensa.getNombre() + " en (" + posicion.getX() + "," +
                             posicion.getY() + ")");
-                } catch (ParcelaNoPuedeUbicarError e){
+                } catch (ParcelaNoPuedeUbicarError e) {
                     Logger.getInstancia().info("no se pudo ubicar un " +
                             defensa.getNombre() + " en (" + posicion.getX() + "," +
                             posicion.getY() + ")");
@@ -53,24 +55,20 @@ public class Mapa {
             }
         }
     }
-    private void agregarEnemigo(Enemigo enemigoAgregado){
-        for (Enemigo enemigo : this.enemigos){
-            if( enemigo.equals(enemigoAgregado)){
+
+    private void agregarEnemigo(Enemigo enemigoAgregado) {
+        for (Enemigo enemigo : this.enemigos) {
+            if (enemigo.equals(enemigoAgregado)) {
                 return;
             }
         }
         this.enemigos.add(enemigoAgregado);
     }
 
-    public void setMeta(Parcela parcela) {
-        this.parcelas.add(parcela);
-        this.meta = parcela;
-    }
-
     public void mover(Jugador jugador) {
         List<Enemigo> enemigosCopia = new ArrayList<>(this.enemigos);
         for (Enemigo enemigo : enemigosCopia) {
-            if (enemigo.estaMuerto()){
+            if (enemigo.estaMuerto()) {
                 continue;
             }
             enemigo.mover(this.encontrarParcela(enemigo), jugador, this);
@@ -83,7 +81,7 @@ public class Mapa {
                 try {
                     parcela.ubicar(enemigo);
                     break;
-                }catch (ParcelaNoPuedeUbicarError e){
+                } catch (ParcelaNoPuedeUbicarError e) {
                     Logger.getInstancia().info("no se pudo ubicar un " + enemigo.getNombre()
                             + " en (" + posicion.getX() + "," + posicion.getY() + ")");
                     agregarEnemigo(enemigo);
@@ -111,7 +109,6 @@ public class Mapa {
         return this.enemigos.isEmpty();
     }
 
-
     private Parcela encontrarParcela(Enemigo enemigo) {
         for (Parcela parcela : this.parcelas) {
             if (enemigo.ubicacion(parcela)) {
@@ -120,7 +117,8 @@ public class Mapa {
         }
         return null;
     }
-    public Parcela encontrarParcela(Coordenadas ubicacion){
+
+    public Parcela encontrarParcela(Coordenadas ubicacion) {
         for (Parcela parcela : this.parcelas) {
             if (parcela.ubicacion(ubicacion)) {
                 return parcela;
@@ -132,7 +130,7 @@ public class Mapa {
     public void enemigosAtacados(Defensa defensa) {
         Enemigo enemigoActual = null;
         int distanciaMinima = 0;
-        for(Enemigo enemigo : enemigos){
+        for (Enemigo enemigo : enemigos) {
             if (enemigo.estaMuerto()) {
                 continue;
             }
@@ -150,9 +148,10 @@ public class Mapa {
                 distanciaMinima = distanciaActual;
             }
         }
-        if (enemigoActual != null){
-        defensa.atacarEnemigo(enemigoActual);
+        if (enemigoActual != null) {
+            defensa.atacarEnemigo(enemigoActual);
         }
+        defensa.reducirVidaUtil();
     }
 
     public void dejarEnRango(Coordenadas posicion) {
@@ -169,7 +168,8 @@ public class Mapa {
                 parcela.ubicar(enemigo);
                 this.enemigos.add(enemigo);
                 break;
-            }catch (ParcelaNoPuedeUbicarError ignored){}
+            } catch (ParcelaNoPuedeUbicarError ignored) {
+            }
         }
     }
 
@@ -181,7 +181,6 @@ public class Mapa {
         return this.meta.getUbicacion().getY() == y;
     }
 
-
     public boolean estaEnMeta(Coordenadas posicion) {
         return posicion.equals(this.meta.getUbicacion());
     }
@@ -189,5 +188,10 @@ public class Mapa {
     public Coordenadas getMeta() {
 
         return this.meta.getUbicacion();
+    }
+
+    public void setMeta(Parcela parcela) {
+        this.parcelas.add(parcela);
+        this.meta = parcela;
     }
 }

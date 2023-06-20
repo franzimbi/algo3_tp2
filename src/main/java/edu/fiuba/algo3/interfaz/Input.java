@@ -15,9 +15,9 @@ public class Input {
 
     public Input(){
         mapa = new HashMap<>();
-        mapa.put("tierra","src/main/java/edu/fiuba/algo3/imagenes/tierra.jpg");
-        mapa.put("rocoso","src/main/java/edu/fiuba/algo3/imagenes/rocoso.jpg");
-        mapa.put("pasarela","src/main/java/edu/fiuba/algo3/imagenes/camino.jpg");
+        mapa.put("tierra","src/main/java/edu/fiuba/algo3/resources/imagenes/tierra.jpg");
+        mapa.put("rocoso","src/main/java/edu/fiuba/algo3/resources/imagenes/rocoso.jpg");
+        mapa.put("pasarela","src/main/java/edu/fiuba/algo3/resources/imagenes/camino.jpg");
     }
 
     public FileInputStream imagenParcela(String parcela) {

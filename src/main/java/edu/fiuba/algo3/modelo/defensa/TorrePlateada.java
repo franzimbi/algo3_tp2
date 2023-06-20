@@ -49,4 +49,9 @@ public class TorrePlateada extends Defensa {
                 "intenta atacar un " + lechuza.getNombre());
         this.atacar(lechuza, lechuza.distancia(this));
     }
+
+    @Override
+    public void reducirVidaUtil() {
+
+    }
 }

@@ -17,6 +17,10 @@ public class TrampaArenosa extends Defensa {
     public String getNombre() {
         return "Trampa de arena";
     }
+    @Override
+    public boolean estaOperativa() {
+        return this.vidaUtil > 0;
+    }
 
     public void atacarEnemigo(Enemigo enemigo) {
         if (this.estaOperativa()) {

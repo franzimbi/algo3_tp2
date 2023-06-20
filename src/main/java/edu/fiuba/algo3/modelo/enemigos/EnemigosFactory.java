@@ -3,8 +3,8 @@ package edu.fiuba.algo3.modelo.enemigos;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 
 public class EnemigosFactory {
-    public static Enemigo crearEnemigo(String tipoEnemigo){
-        switch (tipoEnemigo){
+    public static Enemigo crearEnemigo(String tipoEnemigo) {
+        switch (tipoEnemigo) {
             case "arana":
                 return new Arania();
             case "hormiga":

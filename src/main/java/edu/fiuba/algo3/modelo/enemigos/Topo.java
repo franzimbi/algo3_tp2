@@ -39,9 +39,9 @@ public class Topo extends Enemigo {
         this.actualizarVelocidad(); //7
     }
 
-    private void actualizarVelocidad(){
+    private void actualizarVelocidad() {
 
-        if(this.turnos == 5 || this.turnos == 11){
+        if (this.turnos == 5 || this.turnos == 11) {
             this.velocidad.aumentarVelocidad(1);
         }
     }

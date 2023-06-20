@@ -61,4 +61,19 @@ public class TrampaArenosaTest {
         assert lechuza.getVelocidad() == 5;
 
     }
+
+    @Test
+    public void Test07TrampaDeArenaDuraSolo3Turnos() {
+        TrampaArenosa trampa = new TrampaArenosa();
+
+        Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
+        Enemigo topo = new Topo();
+
+        trampa.atacarEnemigo(hormiga);
+        trampa.atacarEnemigo(arania);
+        trampa.atacarEnemigo(topo);
+
+        assert trampa.estaOperativa();
+    }
 }

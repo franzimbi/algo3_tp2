@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 
 public class Rocoso extends Parcela {
 
-
     public Rocoso(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
     }

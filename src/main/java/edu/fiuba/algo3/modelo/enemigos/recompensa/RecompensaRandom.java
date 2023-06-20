@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class RecompensaRandom implements Recompensa {
 
-    private int rango;
+    private final int rango;
 
     public RecompensaRandom(int rango) {
         this.rango = rango;
@@ -17,5 +17,7 @@ public class RecompensaRandom implements Recompensa {
         Random rand = new Random();
         jugador.recibirCreditos(rand.nextInt(rango));
     }
-    public void duplicarRecompensa(){}
+
+    public void duplicarRecompensa() {
+    }
 }

@@ -12,16 +12,19 @@ public class PasarTurnoEventHandler implements EventHandler<ActionEvent>  {
     private final Stage stage;
     private final Main main;
 
+
     public PasarTurnoEventHandler(Stage stage, Juego juego, Main main){
         this.stage = stage;
         this.juego = juego;
         this.main = main;
+
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
         this.juego.pasarTurno();
+        stage.getScene().setRoot(main.actualizar(juego,stage));
+       
 
-        main.actualizar(juego,stage);
     }
 }
