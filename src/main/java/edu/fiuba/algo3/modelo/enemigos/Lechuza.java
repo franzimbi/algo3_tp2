@@ -33,6 +33,7 @@ public class Lechuza extends Enemigo {
 
     @Override
     public void reducirVelocidad(float multiplicador) {
+
     }
 
 

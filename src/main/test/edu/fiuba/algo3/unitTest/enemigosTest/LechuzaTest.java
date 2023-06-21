@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.unitTest.enemigosTest;
 
+import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.enemigos.Lechuza;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
-import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Meta;
@@ -14,48 +13,83 @@ import org.junit.jupiter.api.Test;
 public class LechuzaTest {
 
     @Test
-    public void TestPasarUnTurnoMueveEnemigoSegunCapacidad() {
-        Mapa mapa = new Mapa();
-        Jugador jugador = new Jugador(10, 1, "Julian");
-        Enemigo lechuza = new Lechuza();
-        Pasarela p;
+    public void Test01LechuzaSeIniciaEnUnestadoValido() {
+        Lechuza lechuza = new Lechuza();
 
-        for (int i=0; i<7; i++) {
-            for (int j=0; j<7; j++) {
-                p= new Pasarela(new Coordenadas(i,j));
-                mapa.agregarParcela(p);
-            }
-        }
-
-        mapa.setMeta(new Pasarela(new Coordenadas(6,6)));
-        p = new Pasarela(new Coordenadas(0,3));
-        mapa.ubicar(lechuza, new Coordenadas(0,3), jugador);
-        lechuza.recibirDanio(3);
-        lechuza.mover(p, jugador,mapa);
+        assert !lechuza.estaMuerto();
+        assert lechuza.getVelocidad() == 5;
     }
 
     @Test
-    public void Test02LaLechuzaRompeTodo() {
+    public void Test02LechuzaAlRecibirDanioSeDestruye() {
+        Lechuza lechuza = new Lechuza();
+
+        lechuza.recibirDanio(5);
+
+        assert lechuza.estaMuerto();
+    }
+
+    @Test
+    public void Test03LechuzaAtacaCorrectamente() {
+        Lechuza lechuza = new Lechuza();
+        Jugador jugador = new Jugador(10, 10, "juli3");
+
+        jugador.recibirDefensa(new TorrePlateada());
+        assert jugador.cantidadDefensas() == 1;
+
+        lechuza.atacar(jugador, 0);
+        assert jugador.cantidadDefensas() == 0;
+    }
+
+    @Test
+    public void Test4LechuzaSeMueveCorrectamenteCon100DeVida() {
         Mapa mapa = new Mapa();
         Jugador jugador = new Jugador(10, 1, "Martu");
         Enemigo lechuza = new Lechuza();
-        Pasarela p;
 
-        for (int i=0; i<7; i++) {
-            for (int j=0; j<7; j++) {
-                p = new Pasarela(new Coordenadas(i,j));
-
-                mapa.agregarParcela(p);
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                mapa.agregarParcela(new Pasarela(new Coordenadas(i, j)));
             }
         }
 
-        Meta meta = new Meta(new Coordenadas(6,6));
+        Meta meta = new Meta(new Coordenadas(6, 6));
         mapa.setMeta(meta);
         mapa.spawnear(lechuza);
+
+        assert lechuza.getUbicacion().equals(new Coordenadas(0, 0));
+
         mapa.mover(jugador);
-        assert lechuza.getUbicacion().equals(new Coordenadas(0,5));
-        Hormiga hormiga = new Hormiga();
-        mapa.spawnear(hormiga);
-        assert hormiga.getUbicacion().equals(new Coordenadas(0,0));
+        assert lechuza.getUbicacion().equals(new Coordenadas(0, 5));
+
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(4, 6));
+    }
+
+    @Test
+    public void Test05LechuzaSeMueveEnDiagonalCorrectamente() {
+        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador(10, 1, "Julian");
+
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                mapa.agregarParcela(new Pasarela(new Coordenadas(i, j)));
+            }
+        }
+
+        mapa.setMeta(new Pasarela(new Coordenadas(15, 15)));
+
+        Enemigo lechuza = new Lechuza();
+        mapa.spawnear(lechuza);
+        lechuza.recibirDanio(3);
+
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(5, 5));
+
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(10, 10));
+
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(15, 15));
     }
 }

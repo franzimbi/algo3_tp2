@@ -2,13 +2,9 @@ package edu.fiuba.algo3.unitTest.defensaTest;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
-import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.enemigos.Arania;
-import edu.fiuba.algo3.modelo.enemigos.Topo;
-import edu.fiuba.algo3.modelo.enemigos.Lechuza;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -91,10 +87,10 @@ public class TorreBlancaTest {
     @Test
     public void test10ToreBlancaPuedeAtacarCorrectamenteALosEnemigos() {
         Defensa torreBlanca = new TorreBlanca();
-        Enemigo hormiga = new Hormiga(); // 1
-        Enemigo arania = new Arania(); // 2
-        Enemigo topo = new Topo(); // inmune
-        Enemigo lechuza = new Lechuza(); // 5
+        Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
+        Enemigo topo = new Topo();
+        Enemigo lechuza = new Lechuza();
 
         torreBlanca.atacarEnemigo(hormiga);
         torreBlanca.atacarEnemigo(hormiga);

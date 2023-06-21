@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.defensa;
 
 import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.logger.Logger;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 public class TorrePlateada extends Defensa {
 
@@ -53,5 +54,9 @@ public class TorrePlateada extends Defensa {
     @Override
     public void reducirVidaUtil() {
 
+    }
+
+    public void ubicarDefensa(Parcela parcela) {
+        parcela.ubicar(this);
     }
 }

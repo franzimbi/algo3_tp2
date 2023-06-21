@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.unitTest.parcelasTest;
 
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
-import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
+import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
@@ -25,5 +25,11 @@ public class TierraTest {
         Tierra tierra = new Tierra(new Coordenadas(0, 0));
         assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(new Hormiga()));
         assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(new Arania()));
+    }
+
+    @Test
+    public void Test03TierraNoDejaUbicarTrampaDeArena() {
+        Tierra tierra = new Tierra(new Coordenadas(0, 0));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(new TrampaArenosa()));
     }
 }

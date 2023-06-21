@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.defensa;
 
 import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.logger.Logger;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 public class TrampaArenosa extends Defensa {
     float multiplicador;
@@ -59,5 +60,9 @@ public class TrampaArenosa extends Defensa {
         if (this.estaEnRango(distancia)) {
             enemigo.reducirVelocidad(multiplicador);
         }
+    }
+
+    public void ubicarDefensa(Parcela parcela) {
+        parcela.ubicar(this);
     }
 }

@@ -11,7 +11,6 @@ import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Rocoso;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RocosoTest {
@@ -19,10 +18,12 @@ public class RocosoTest {
     public void Test01EnRocosoNoEsPosibleConstruirDefensas() {
         Defensa torreBlanca = new TorreBlanca();
         Defensa torrePlateada = new TorrePlateada();
+        Defensa trampaArenosa = new TorrePlateada();
 
         Rocoso rocoso = new Rocoso(new Coordenadas(1, 1));
         assertThrows(ParcelaNoPuedeUbicarError.class, ()->rocoso.ubicar(torreBlanca));
         assertThrows(ParcelaNoPuedeUbicarError.class, ()->rocoso.ubicar(torrePlateada));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->rocoso.ubicar(trampaArenosa));
     }
 
     @Test

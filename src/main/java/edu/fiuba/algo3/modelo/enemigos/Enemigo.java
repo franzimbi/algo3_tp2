@@ -102,7 +102,6 @@ public abstract class Enemigo {
         return pasarela.ubicacion(this.ubicacion);
     }
 
-
     public abstract void atacarEnemigo(TorreBlanca torreBlanca);
 
     public abstract void atacarEnemigo(TorrePlateada torrePlateada);

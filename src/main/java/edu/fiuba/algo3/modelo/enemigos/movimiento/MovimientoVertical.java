@@ -13,7 +13,11 @@ public class MovimientoVertical implements Movimiento {
     public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa) {
         Coordenadas posicion = enemigo.getUbicacion();
         for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
-            posicion.aumentarY();
+            if (mapa.estaEnEjeYConMeta(posicion.getY())) {
+                posicion.aumentarX();
+            } else {
+                posicion.aumentarY();
+            }
         }
         mapa.dejarEnRango(posicion);
         enemigo.ubicarEn(posicion);

@@ -52,19 +52,18 @@ public class TopoTest {
         Topo topo = new Topo();
         mapa.ubicar(topo, new Coordenadas(0, 0), jugador);
 
-        //velocidad inicial es 1
         assert topo.getVelocidad() == 1;
 
         for (int i = 0; i < 5; i++) {
             mapa.mover(jugador);
         }
-        //pasado 5 movimientos la velocidad deberia ser 2
+
         assert topo.getVelocidad() == 2;
 
         for (int i = 0; i <= 5; i++) {
             mapa.mover(jugador);
         }
-        //pasado 10 movimientos la velocidad deberia ser 3
+
         assert topo.getVelocidad() == 3;
 
     }

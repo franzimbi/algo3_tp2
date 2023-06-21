@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 
 public abstract class Defensa {
@@ -50,6 +51,8 @@ public abstract class Defensa {
     public void ubicarEn(Coordenadas ubicacion) {
         this.ubicacion = ubicacion;
     }
+
+    public abstract void ubicarDefensa(Parcela parcela);
 
     public Coordenadas getUbicacion() {
         return ubicacion;

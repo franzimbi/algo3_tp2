@@ -21,7 +21,6 @@ public class TorrePlateadaTest {
         Defensa torrePlateada = new TorrePlateada();
         Enemigo hormiga = new Hormiga();
 
-        // 2 turnos para que la torre se active
         torrePlateada.atacarEnemigo(hormiga);
         torrePlateada.atacarEnemigo(hormiga);
 
@@ -39,7 +38,6 @@ public class TorrePlateadaTest {
         torrePlateada.atacarEnemigo(hormiga);
         assert hormiga.estaMuerto();
     }
-
 
     @Test
     public void Test04TorrePlateadaNoAtacaFueraDelRangoEsperado() {
@@ -99,12 +97,11 @@ public class TorrePlateadaTest {
     @Test
     public void test10TorePlateadaPuedeAtacarCorrectamenteALosEnemigos() {
         Defensa torrePlateada = new TorrePlateada();
-        Enemigo hormiga = new Hormiga(); // 1
-        Enemigo arania = new Arania(); // 2
-        Enemigo topo = new Topo(); // inmune
-        Enemigo lechuza = new Lechuza(); // 5
+        Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
+        Enemigo topo = new Topo();
+        Enemigo lechuza = new Lechuza();
 
-        // 2 turnos para que la torre se active
         torrePlateada.atacarEnemigo(hormiga);
         torrePlateada.atacarEnemigo(hormiga);
 
