@@ -32,15 +32,19 @@ public class App extends Application {
     @Override
     public void start(Stage stage){
         Logger.getInstancia().activar();
-        MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/AgeOfEmpires.mp3").toURI().toString()));
+        MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/inicioKahoot.mp3").toURI().toString()));
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         //MediaView mediaView = new MediaView(mediaPlayer);
         // Reproducir la música
         mediaPlayer.play();
+
+
         Label label = new Label("Ingrese su nombre: ");
+
         label.setStyle("-fx-font-size: 10px; -fx-background-color: #ffffff; -fx-text-fill: #000080;");
         TextField texto = new TextField();
         texto.setStyle("-fx-font-size: 14px; -fx-background-color: #ffffff; -fx-text-fill: #000080;");
+
         Button botonInit = new Button("JUGAR!");
         botonInit.setStyle("-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px;");
         DropShadow shadow = new DropShadow();

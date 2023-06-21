@@ -75,20 +75,27 @@ public class Juego {
         return this.mapa.cantidadEnemigos();
     }
 
-    public ArrayList<Parcela> getParcelasMapa(){
+    public ArrayList<Parcela> getParcelasMapa() {
         return this.mapa.getParcelas();
     }
-    public ArrayList<Enemigo> getEnemigosMapa(){
+
+    public ArrayList<Enemigo> getEnemigosMapa() {
         return this.mapa.getEnemigos();
     }
 
-    public int vidaJugador(){
+    public ArrayList<Defensa> getDefensasJugador() {
+        return this.jugador.getDefensas();
+    }
+
+    public int vidaJugador() {
         return this.jugador.getVida();
     }
-    public int creditosJugador(){
+
+    public int creditosJugador() {
         return this.jugador.getCreditos();
     }
-    public int cantidadDeTurnos(){
+
+    public int cantidadDeTurnos() {
         return this.turnos.getCantidadDeTurnos();
     }
 }

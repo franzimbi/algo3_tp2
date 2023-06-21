@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.mapa.parcelas;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
+import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
@@ -23,6 +24,11 @@ public class Pasarela extends Parcela {
         throw new ParcelaNoPuedeUbicarError();
     }
 
+    public void ubicar(TrampaArenosa trampa) {
+        //TODO: agregar el double dispatch, trampa de arena no
+        // puede ubicarse en tierra pero si en pasarela
+    }
+
     public void ubicar(Enemigo enemigo) {
         enemigo.ubicarEn(this.ubicacion);
         Logger.getInstancia().info("se ubico un " +
@@ -41,4 +47,5 @@ public class Pasarela extends Parcela {
     public String getNombre() {
         return "pasarela";
     }
+
 }

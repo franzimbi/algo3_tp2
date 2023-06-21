@@ -89,5 +89,9 @@ public class Jugador {
     public int cantidadDefensas() {
         return this.defensas.size();
     }
+
+    public ArrayList<Defensa> getDefensas() {
+        return this.defensas;
+    }
 }
 

@@ -15,7 +15,7 @@ public class TrampaArenosa extends Defensa {
     }
 
     public String getNombre() {
-        return "Trampa de arena";
+        return "Trampa De Arena";
     }
     @Override
     public boolean estaOperativa() {

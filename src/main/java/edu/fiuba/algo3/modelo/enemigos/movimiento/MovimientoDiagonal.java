@@ -28,9 +28,14 @@ public class MovimientoDiagonal implements Movimiento {
                     " ataco al jugador. vida restante: " + jugador.getVida());
             enemigo.atacar(jugador, 0);
             mapa.removerEnemigo(enemigo);
+            return;
         }
         Coordenadas posicion = movimientos.get(0);
-        movimientos.remove(0);
+        for(int i=0; i< enemigo.getVelocidad(); i++){
+            try {
+                posicion =  movimientos.remove(0);
+            }catch (IndexOutOfBoundsException ignored) {}
+        }
 
         mapa.dejarEnRango(posicion);
         enemigo.ubicarEn(posicion);

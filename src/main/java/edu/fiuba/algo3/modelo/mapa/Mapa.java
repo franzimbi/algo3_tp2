@@ -35,26 +35,10 @@ public class Mapa {
     public ArrayList<Parcela> getParcelas() {
         return this.parcelas;
     }
+
     public ArrayList<Enemigo> getEnemigos() {
         return this.enemigos;
     }
-
-//    public Map<Coordenadas, Parcela> getParcelas(){
-//        Map<Coordenadas, Parcela> aux = new HashMap<>();
-//            for (Parcela p : this.parcelas){
-//                aux.put(p.getUbicacion(), p);
-//            }
-//            return aux;
-//    }
-
-//    public Map<Coordenadas, Enemigo> getEnemigos(){
-//        Map<Coordenadas, Enemigo> aux = new HashMap<>();
-//        for (Enemigo p : this.enemigos){
-//            aux.put(p.getUbicacion(), p);
-//        }
-//        return aux;
-//    }
-
 
     public void agregarParcela(Parcela parcela) {
         this.parcelas.add(parcela);
