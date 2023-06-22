@@ -1,14 +1,16 @@
 package edu.fiuba.algo3.modelo.lector;
 
-import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.enemigos.EnemigosFactory;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.mapa.direcciones.Abajo;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Meta;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.ParcelasFactory;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -19,7 +21,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LectorJSON implements Lector{
+public class LectorJSON implements Lector {
     public Mapa leerMapa(String mapa) {
         if (!mapa.endsWith(".json")) {
             throw new NoSePuedeLeerElMapaError();
@@ -27,30 +29,37 @@ public class LectorJSON implements Lector{
         try {
             FileReader archivoDeLectura = new FileReader(mapa);
             JSONParser parser = new JSONParser();
-            // Leer y procesar el archivo de mapa
             JSONObject mapaJSON = (JSONObject) parser.parse(archivoDeLectura);
             JSONObject mapaObject = (JSONObject) mapaJSON.get("Mapa");
+
             int filas = mapaObject.size();
-            int columnas = ((JSONArray) mapaObject.get("1")).size(); // Suponiendo que todas las filas tienen la misma longitud
-            ArrayList<Pasarela> pasarelasLeidas = new ArrayList<Pasarela>();
+            int columnas = ((JSONArray) mapaObject.get("1")).size();
+
+            ArrayList<Coordenadas> coordenadasPasarelas = new ArrayList<>();
             Mapa mapaLeido = new Mapa();
+
             for (int i = 1; i <= filas; i++) {
                 JSONArray filaArray = (JSONArray) mapaObject.get(String.valueOf(i));
                 for (int j = 0; j < columnas; j++) {
                     Object elemento = filaArray.get(j);
-                    Parcela aux = Parcela.construirParcela(elemento.toString(), new Coordenadas(i - 1, j));
-                    mapaLeido.agregarParcela(aux);
-                    if(aux instanceof Pasarela){
-                        pasarelasLeidas.add((Pasarela) aux);
+                    if (elemento.toString().equals("Pasarela")) {
+                        coordenadasPasarelas.add(new Coordenadas(i - 1, j));
+                    } else {
+                        Parcela aux = ParcelasFactory.crearParcela(elemento.toString(), i - 1, j);
+                        mapaLeido.agregarParcela(aux);
                     }
                 }
             }
-            for(int i=0; i<pasarelasLeidas.size()-2;i++){
-                pasarelasLeidas.get(i).setSiguiente(pasarelasLeidas.get(i+1));
+            for (int i = 0; i <= coordenadasPasarelas.size() - 2; i++) {
+                Pasarela aux = new Pasarela(coordenadasPasarelas.get(i));
+                if (coordenadasPasarelas.get(i).getX() == coordenadasPasarelas.get(i + 1).getX()) {
+                    aux.setSiguiente(new Abajo());
+                }
+                mapaLeido.agregarParcela(aux);
             }
-            mapaLeido.setMeta(pasarelasLeidas.get(pasarelasLeidas.size()-1));
+            mapaLeido.setMeta(new Meta(coordenadasPasarelas.get(coordenadasPasarelas.size() - 1)));
             return mapaLeido;
-        } catch (IOException  | ParseException | ClassCastException e) {
+        } catch (IOException | ParseException | ClassCastException e) {
             throw new NoSePuedeLeerElMapaError();
         }
     }
@@ -73,7 +82,7 @@ public class LectorJSON implements Lector{
                     long cantidadEnemigo = (Long) enemigosJSON.get(enemigoKey);
 
                     for (int i = 0; i < cantidadEnemigo; i++) {
-                        Enemigo enemigo = Enemigo.construirEnemigo(nombreEnemigo);
+                        Enemigo enemigo = EnemigosFactory.crearEnemigo(nombreEnemigo);
                         enemigosPorTurno.agregarEnemigoATurno((int) turno - 1, enemigo);
                     }
                 }

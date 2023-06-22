@@ -1,46 +1,48 @@
 package edu.fiuba.algo3.modelo.jugador;
 
-import edu.fiuba.algo3.modelo.creditos.Creditos;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.energia.Energia;
-import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
+import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.score.Score;
+import edu.fiuba.algo3.modelo.jugador.score.Score;
 
 import java.util.ArrayList;
 
 public class Jugador {
     private final String nombre;
-    private final Energia energia;
-    private final Creditos creditos;
+    private int creditos;
     private final Score score;
     private final ArrayList<Defensa> defensas;
+    private int vida;
 
     public Jugador(int vida, int creditos, String nombre) {
         this.nombre = nombre;
-        this.energia = new EnergiaRoja(vida);
-        this.creditos = new Creditos(creditos);
-        this.defensas = new ArrayList<Defensa>();
+        this.vida = vida;
+        this.creditos = creditos;
+        this.defensas = new ArrayList<>();
         this.score = new Score();
-        Logger.getInstancia().info("Creditos iniciales de \"" + this.nombre + "\" " + this.creditos.getCantidad()
-                + " con energia inicial " + this.energia.getCantidad());
+        Logger.getInstancia().info("Creditos iniciales de \"" + this.nombre + "\" " + this.creditos
+                + " con vida inicial " + this.vida);
     }
 
-    public Energia getVida() {
-        return this.energia;
+    public int getVida() {
+        return this.vida;
     }
 
-    public Creditos getCreditos() {
+    public int getCreditos() {
         return this.creditos;
     }
 
-    public void recibirAtaque(Energia danio) {
-        danio.reducir(this.energia);
+    public void recibirAtaque(int danio) {
+        this.vida -= danio;
+        if (this.vida<=0){
+            this.vida = 0;
+        }
     }
+
     public boolean estaMuerto() {
-        return this.energia.estaMuerto();
+        return this.vida <= 0;
     }
 
     public void recibirDefensa(Defensa defensa) {
@@ -49,19 +51,24 @@ public class Jugador {
 
     public void destruirPrimeraDefensa() {
         if (this.defensas.isEmpty()) {
+            Logger.getInstancia().info("no se borro una defensa de jugador porque no habia mas");
             return;
         }
-        //Defensa primeraDefensa = defensas.get(0); no se esta usando
+        Logger.getInstancia().info("Se elimino un " + this.defensas.get(0).getNombre() + " del jugador.");
         this.defensas.remove(0);
-        //primeraDefensa.sacarDefensa()
     }
 
-    public void recibirCreditos(Creditos creditos) {
-        this.creditos.agregarCreditos(creditos);
+    public void recibirCreditos(int creditos) {
+        this.creditos += creditos;
     }
 
-    public void sacarCreditos(Creditos creditos) {
-        this.creditos.sacarCreditos(creditos);
+    public void sacarCreditos(int creditos) {
+        if (this.creditos < creditos) {
+            Logger.getInstancia().error("Creditos insuficientes");
+            throw new CreditosInsuficientesError();
+        }
+        this.creditos -= creditos;
+        Logger.getInstancia().info("Se restaron " + creditos + " creditos. Creditos restantes: " + this.creditos);
     }
 
     public void recibirMuerto(Enemigo enemigo) {
@@ -74,13 +81,17 @@ public class Jugador {
     }
 
     public void atacarEnemigos(Mapa mapa) {
-        for (Defensa defensa : this.defensas){
+        for (Defensa defensa : this.defensas) {
             mapa.enemigosAtacados(defensa);
         }
     }
 
     public int cantidadDefensas() {
         return this.defensas.size();
+    }
+
+    public ArrayList<Defensa> getDefensas() {
+        return this.defensas;
     }
 }
 

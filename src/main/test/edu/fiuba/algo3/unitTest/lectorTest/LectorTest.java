@@ -12,8 +12,8 @@ public class LectorTest {
     @Test
     public void Test14LecturaDelMapaLanzaExcepcionSiElArchivoEsInvalido() {
         LectorJSON lector = new LectorJSON();
-        assertThrows(NoSePuedeLeerElMapaError.class, () -> lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.txt"));
-        assertThrows(NoSePuedeLeerElMapaError.class, () -> lector.leerMapa("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/mapaInvalido.json"));
+        assertThrows(NoSePuedeLeerElMapaError.class, () -> lector.leerMapa("src/main/test/testResources/mapaInvalido.txt"));
+        assertThrows(NoSePuedeLeerElMapaError.class, () -> lector.leerMapa("src/main/test/testResources/mapaInvalido.json"));
     }
 
     @Test
@@ -25,8 +25,8 @@ public class LectorTest {
     @Test
     public void Test04LecturaDeEnemigosLanzaExcepcionSiElArchivoEsInvalido() {
         LectorJSON lector = new LectorJSON();
-        assertThrows(NoSePuedeLeerEnemigosError.class, () -> lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.txt"));
-        assertThrows(NoSePuedeLeerEnemigosError.class, () -> lector.leerEnemigos("src/main/test/edu/fiuba/algo3/entrega_2/jsonsTest/enemigosInvalidos.json"));
+        assertThrows(NoSePuedeLeerEnemigosError.class, () -> lector.leerEnemigos("src/main/test/testResources/enemigosInvalidos.txt"));
+        assertThrows(NoSePuedeLeerEnemigosError.class, () -> lector.leerEnemigos("src/main/test/testResources/enemigosInvalidos.json"));
     }
 
     @Test

@@ -1,66 +1,66 @@
 package edu.fiuba.algo3.unitTest.jugadorTest;
 
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.enemigos.Hormiga;
+import edu.fiuba.algo3.modelo.jugador.Jugador;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class JugadorTest {
-    /*
+
     @Test
     public void Test01UnJugadorComienzaEnUnEstadoValido() {
         Jugador jugador = new Jugador(20, 100, "Jugador 1");
-        Energia vida = new Energia(20);
-        Creditos creditos = new Creditos(100);
 
-        Assertions.assertTrue(vida.equals(jugador.getVida()));
-        Assertions.assertTrue(creditos.equals(jugador.getCreditos()));
+        assertEquals(20, jugador.getVida());
+        assertEquals(100, jugador.getCreditos());
     }
 
-    //
+
     @Test
     public void Test02UnJugadorRecibeUnCreditoAlMatarUnaHormiga() {
         Jugador jugador = new Jugador(20, 100, "Jugador 1");
         Enemigo hormiga = new Hormiga();
 
-        Energia danio = new Energia(1);
-        hormiga.recibirDanio(danio, jugador);
+        hormiga.recibirDanio(1);
+        jugador.recibirMuerto(hormiga);
 
-        Creditos creditos = new Creditos(101);
-        Assertions.assertTrue(creditos.equals(jugador.getCreditos()));
+        assertEquals(101, jugador.getCreditos());
     }
 
     @Test
     public void Test03UnJugadorRecibeElDobleDeCreditosAlMatarMasDe10Hormigas() {
         Jugador jugador = new Jugador(20, 100, "Jugador 1");
-        Energia danio = new Energia(1);
 
         for (int i = 0; i < 10; i++) {
             Enemigo hormiga = new Hormiga();
-            hormiga.recibirDanio(danio, jugador);
+            hormiga.recibirDanio(1);
+            jugador.recibirMuerto(hormiga);
         }
 
         Enemigo hormiga = new Hormiga();
-        hormiga.recibirDanio(danio, jugador);
+        hormiga.recibirDanio(1);
+        jugador.recibirMuerto(hormiga);
 
-        Creditos creditos = new Creditos(112);
-        Assertions.assertTrue(creditos.equals(jugador.getCreditos()));
+        assertEquals(112, jugador.getCreditos());
     }
 
     @Test
-    public void Test04UnJugadorPierdeVidaAlRecibirDaño() {
+    public void Test04UnJugadorPierdeVidaAlRecibirDanio() {
         Jugador jugador = new Jugador(20, 100, "Jugador 1");
-        Energia danio = new Energia(1);
 
-        jugador.recibirAtaque(danio);
+        jugador.recibirAtaque(1);
 
-        Energia vida = new Energia(19);
-        Assertions.assertTrue(vida.equals(jugador.getVida()));
+        assertEquals(19, jugador.getVida());
     }
 
     @Test
     public void Test05UnJugadorPuedeMorir() {
         Jugador jugador = new Jugador(20, 100, "Jugador 1");
-        Energia danio = new Energia(20);
 
-        jugador.recibirAtaque(danio);
+        jugador.recibirAtaque(20);
 
-        Assertions.assertTrue(jugador.estaMuerto());
+        assert jugador.estaMuerto();
     }
-    */
 }

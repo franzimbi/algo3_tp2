@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.enemigos;
 
-import edu.fiuba.algo3.modelo.creditos.RecompensaSimple;
-import edu.fiuba.algo3.modelo.danio.DanioSimple;
-import edu.fiuba.algo3.modelo.energia.EnergiaRoja;
-import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
-import edu.fiuba.algo3.modelo.score.Score;
-import edu.fiuba.algo3.modelo.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
+import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
+import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
+import edu.fiuba.algo3.modelo.enemigos.recompensa.RecompensaSimple;
+import edu.fiuba.algo3.modelo.enemigos.tipoDeAtaque.DanioSimple;
+import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
+import edu.fiuba.algo3.modelo.jugador.score.Score;
 
 public class Hormiga extends Enemigo {
 
@@ -15,7 +14,7 @@ public class Hormiga extends Enemigo {
         super();
         int recompensaBase = 1;
         this.recompensa = new RecompensaSimple(recompensaBase);
-        this.energia = new EnergiaRoja(1);
+        this.energia = 1;
         this.danio = new DanioSimple(1);
         this.velocidad = new Velocidad(1);
     }
@@ -24,13 +23,24 @@ public class Hormiga extends Enemigo {
         score.agregarMuerto(this);
     }
 
-    public void duplicarRecompensa() {
-        this.recompensa = ((RecompensaSimple) recompensa).duplicarRecompensa();
+    public void cambiarRecompensa() {
+        this.recompensa.duplicarRecompensa();
     }
 
     public String getNombre() {
         return "Hormiga";
     }
 
+    public void atacarEnemigo(TorreBlanca torre) {
+        torre.atacarEnemigo(this);
+    }
+
+    public void atacarEnemigo(TorrePlateada torrePlateada) {
+        torrePlateada.atacarEnemigo(this);
+    }
+
+    public void atacarEnemigo(TrampaArenosa trampaArenosa) {
+        trampaArenosa.atacarEnemigo(this);
+    }
 
 }

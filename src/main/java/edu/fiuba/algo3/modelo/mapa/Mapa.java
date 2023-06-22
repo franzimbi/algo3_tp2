@@ -2,10 +2,10 @@ package edu.fiuba.algo3.modelo.mapa;
 
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
+import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
-import edu.fiuba.algo3.modelo.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.parcelas.Pasarela;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,19 +15,18 @@ public class Mapa {
     private final ArrayList<Enemigo> enemigos;
     private Parcela meta;
 
-    // REPRESENTACION DEL MAPA EN MATRIZ
-    // 0,0 0,1 0,2 0,3
-    // 1,0 1,1 1,2 1,3
-    // 2,0 2,1 2,2 2,3
-    // 3,0 3,1 3,2 3,3
-
-    // ARREGLO DE PARCELAS
-    // (0,0) (0,1) (0,2) (0,3) (1,0) (1,1) (1,2) (1,3) (2,0) (2,1) (2,2) (2,3) (3,0) (3,1) (3,2) (3,3)
-
     public Mapa() {
         this.parcelas = new ArrayList<>();
-        this.enemigos = new ArrayList<Enemigo>();
+        this.enemigos = new ArrayList<>();
         this.meta = null;
+    }
+
+    public ArrayList<Parcela> getParcelas() {
+        return this.parcelas;
+    }
+
+    public ArrayList<Enemigo> getEnemigos() {
+        return this.enemigos;
     }
 
     public void agregarParcela(Parcela parcela) {
@@ -37,9 +36,14 @@ public class Mapa {
     public void ubicar(Defensa defensa, Coordenadas posicion, Jugador jugador) {
         for (Parcela parcela : this.parcelas) {
             if (parcela.tieneUbicacion(posicion)) {
-                if (parcela.ubicar(defensa)) {
+                try {
+                    parcela.ubicar(defensa);
                     defensa.asignarAJugador(jugador);
                     Logger.getInstancia().info("se ubica un " +
+                            defensa.getNombre() + " en (" + posicion.getX() + "," +
+                            posicion.getY() + ")");
+                } catch (ParcelaNoPuedeUbicarError e) {
+                    Logger.getInstancia().info("no se pudo ubicar un " +
                             defensa.getNombre() + " en (" + posicion.getX() + "," +
                             posicion.getY() + ")");
                 }
@@ -47,27 +51,35 @@ public class Mapa {
         }
     }
 
-    public void setMeta(Pasarela ultima) {
-        this.meta = ultima;
+    private void agregarEnemigo(Enemigo enemigoAgregado) {
+        for (Enemigo enemigo : this.enemigos) {
+            if (enemigo.equals(enemigoAgregado)) {
+                return;
+            }
+        }
+        this.enemigos.add(enemigoAgregado);
     }
 
     public void mover(Jugador jugador) {
         List<Enemigo> enemigosCopia = new ArrayList<>(this.enemigos);
         for (Enemigo enemigo : enemigosCopia) {
-            //enemigo.mover(this.encontrarParcela(enemigo.getUbicacion()),
-            //        jugador, this);
+            if (enemigo.estaMuerto()) {
+                continue;
+            }
             enemigo.mover(this.encontrarParcela(enemigo), jugador, this);
         }
     }
 
     public void ubicar(Enemigo enemigo, Coordenadas posicion, Jugador jugador) {
         for (Parcela parcela : this.parcelas) {
-            if (parcela.getUbicacion().equals(posicion)) { //esto rompe tell dont ask
-                boolean pudo = parcela.ubicar(enemigo);
-                if (pudo) {
-                    Logger.getInstancia().info("se ubico un " + enemigo.getNombre()
+            if (parcela.ubicacion(posicion)) {
+                try {
+                    parcela.ubicar(enemigo);
+                    break;
+                } catch (ParcelaNoPuedeUbicarError e) {
+                    Logger.getInstancia().info("no se pudo ubicar un " + enemigo.getNombre()
                             + " en (" + posicion.getX() + "," + posicion.getY() + ")");
-                    this.enemigos.add(enemigo);
+                    agregarEnemigo(enemigo);
                 }
             }
         }
@@ -88,12 +100,8 @@ public class Mapa {
         this.enemigos.remove(enemigo);
     }
 
-    public boolean gano(Jugador jugador) {
-        return !jugador.estaMuerto() && this.enemigos.isEmpty();
-    }
-
-    public boolean perdio(Jugador jugador) {
-        return jugador.estaMuerto();
+    public boolean sinEnemigos() {
+        return this.enemigos.isEmpty();
     }
 
     private Parcela encontrarParcela(Enemigo enemigo) {
@@ -105,13 +113,26 @@ public class Mapa {
         return null;
     }
 
-    public void enemigosAtacados(Defensa defensa) {
-        if (enemigos.isEmpty()) {
-            return;
+    public Parcela encontrarParcela(Coordenadas ubicacion) {
+        for (Parcela parcela : this.parcelas) {
+            if (parcela.ubicacion(ubicacion)) {
+                return parcela;
+            }
         }
-        Enemigo enemigoActual = enemigos.get(0);
-        int distanciaMinima = enemigoActual.distancia(defensa);
+        return null;
+    }
 
+    public void enemigosAtacados(Defensa defensa) {
+        Enemigo enemigoActual = null;
+        int distanciaMinima = 0;
+        for (Enemigo enemigo : enemigos) {
+            if (enemigo.estaMuerto()) {
+                continue;
+            }
+            enemigoActual = enemigo;
+            distanciaMinima = enemigo.distancia(defensa);
+            break;
+        }
         for (Enemigo enemigo : enemigos) {
             if (enemigo.estaMuerto()) {
                 continue;
@@ -122,7 +143,10 @@ public class Mapa {
                 distanciaMinima = distanciaActual;
             }
         }
-        defensa.atacarEnemigo(enemigoActual);
+        if (enemigoActual != null) {
+            defensa.atacarEnemigo(enemigoActual);
+        }
+        defensa.reducirVidaUtil();
     }
 
     public void dejarEnRango(Coordenadas posicion) {
@@ -135,9 +159,11 @@ public class Mapa {
 
     public void spawnear(Enemigo enemigo) {
         for (Parcela parcela : this.parcelas) {
-            if (parcela.ubicar(enemigo)) {
+            try {
+                parcela.ubicar(enemigo);
                 this.enemigos.add(enemigo);
                 break;
+            } catch (ParcelaNoPuedeUbicarError ignored) {
             }
         }
     }
@@ -146,4 +172,21 @@ public class Mapa {
         return this.parcelas.size();
     }
 
+    public boolean estaEnEjeYConMeta(int y) {
+        return this.meta.getUbicacion().getY() == y;
+    }
+
+    public boolean estaEnMeta(Coordenadas posicion) {
+        return posicion.equals(this.meta.getUbicacion());
+    }
+
+    public Coordenadas getMeta() {
+
+        return this.meta.getUbicacion();
+    }
+
+    public void setMeta(Parcela parcela) {
+        this.parcelas.add(parcela);
+        this.meta = parcela;
+    }
 }

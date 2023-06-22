@@ -1,19 +1,22 @@
 package edu.fiuba.algo3.modelo.juego;
 
-import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
+import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.Lector;
+import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
+
+import java.util.ArrayList;
 
 public class Juego {
 
     private final Jugador jugador;
     private final Mapa mapa;
     private final Turnos turnos;
-
 
     public Juego(Jugador jugador, Lector lector, String rutaMapa, String rutaTurnos) {
         this.jugador = jugador;
@@ -26,7 +29,7 @@ public class Juego {
 
     public void turnoEnemigos() {
         this.turnos.moverEnemigos(this.jugador, mapa);
-        if (this.mapa.perdio(this.jugador)) {
+        if (this.perdio()) {
             Logger.getInstancia().info("Jugador perdio!");
             return;
         }
@@ -43,7 +46,7 @@ public class Juego {
         this.jugador.atacarEnemigos(this.mapa);
         this.mapa.recolectarEnemigos(this.jugador);
         this.turnoEnemigos();
-        if (this.mapa.gano(this.jugador)) {
+        if (this.gano()) {
             Logger.getInstancia().info("Jugador gano!");
         }
     }
@@ -53,21 +56,46 @@ public class Juego {
     }
 
     public boolean gano() {
-        return this.mapa.gano(jugador);
+        return this.mapa.sinEnemigos() && !this.jugador.estaMuerto();
     }
 
     public boolean perdio() {
-        return this.mapa.perdio(jugador);
+        return this.jugador.estaMuerto();
     }
 
     public int tamanoMapa() {
         return this.mapa.size();
     }
 
-    public int cantidadTurnos() { return this.turnos.cantidadOleadas();
+    public int cantidadDeOleadas() {
+        return this.turnos.cantidadOleadas();
     }
 
     public int cantidadEnemigos() {
         return this.mapa.cantidadEnemigos();
+    }
+
+    public ArrayList<Parcela> getParcelasMapa() {
+        return this.mapa.getParcelas();
+    }
+
+    public ArrayList<Enemigo> getEnemigosMapa() {
+        return this.mapa.getEnemigos();
+    }
+
+    public ArrayList<Defensa> getDefensasJugador() {
+        return this.jugador.getDefensas();
+    }
+
+    public int vidaJugador() {
+        return this.jugador.getVida();
+    }
+
+    public int creditosJugador() {
+        return this.jugador.getCreditos();
+    }
+
+    public int cantidadDeTurnos() {
+        return this.turnos.getCantidadDeTurnos();
     }
 }

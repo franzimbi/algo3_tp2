@@ -1,42 +1,35 @@
 package edu.fiuba.algo3.unitTest.parcelasTest;
 
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
-import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
+import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.Arania;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
-import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import edu.fiuba.algo3.modelo.parcelas.Tierra;
+import edu.fiuba.algo3.modelo.mapa.parcelas.Tierra;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TierraTest {
-//    @Test
-//    public void Test01TierraUbicarDefensasCorrectamente() {
-//        Jugador jugador = new Jugador(100,100,"Juli");
-//        Tierra tierra = new Tierra(new Coordenadas(1,1));
-//        Tierra tierra1 = new Tierra(new Coordenadas(1,2));
-//        assertTrue(tierra.ubicar(new TorreBlanca(new Coordenadas(0,0)),jugador));
-//        assertTrue(tierra1.ubicar(new TorrePlateada(new Coordenadas(0,0)),jugador));
-//    }
-//
-//    @Test
-//    public void Test02NoSePuedeUbicarEnemigosEnTierra() {
-//        Tierra tierra = new Tierra(new Coordenadas(0, 0));
-//        Jugador jugador = new Jugador(100,100,"Juli");
-//        assertFalse(tierra.ubicar(new Hormiga(new Coordenadas(0,0)),jugador));
-//        assertFalse(tierra.ubicar(new Arania(new Coordenadas(0,0)),jugador));
-//    }
-//
-//    /*@Test
-//    public void Test03TierraVaciaNoAtaca(){
-//        Tierra tierra = new Tierra(new Coordenadas(1,1));
-//        Jugador jugador = new Jugador(100,100,"Juli");
-//        Pasarela pasarela = new Pasarela(new Coordenadas(1,2));
-//        Hormiga hormiga = new Hormiga();
-//        pasarela.ubicar(hormiga,jugador);
-//        assertThrows(NoHayDefensaEnTierraError.class, () -> tierra.atacar(pasarela,jugador));
-//
-//    }*/
+    @Test
+    public void Test01TierraUbicarDefensasCorrectamente() {
+        Tierra tierra = new Tierra(new Coordenadas(1, 1));
+        Tierra tierra1 = new Tierra(new Coordenadas(1, 2));
+        assertDoesNotThrow(()->tierra.ubicar(new TorreBlanca()));
+        assertDoesNotThrow(()->tierra1.ubicar(new TorreBlanca()));
+    }
+
+    @Test
+    public void Test02NoSePuedeUbicarEnemigosEnTierra() {
+        Tierra tierra = new Tierra(new Coordenadas(0, 0));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(new Hormiga()));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(new Arania()));
+    }
+
+    @Test
+    public void Test03TierraNoDejaUbicarTrampaDeArena() {
+        Tierra tierra = new Tierra(new Coordenadas(0, 0));
+        assertThrows(ParcelaNoPuedeUbicarError.class, ()->tierra.ubicar(new TrampaArenosa()));
+    }
 }
