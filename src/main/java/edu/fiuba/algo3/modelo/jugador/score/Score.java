@@ -11,7 +11,8 @@ public class Score {
         enemigo.agregarMuerto(this);
     }
 
-    public void agregarMuerto(Arania arania){}
+    public void agregarMuerto(Arania arania) {
+    }
 
     public void agregarMuerto(Hormiga hormiga) {
         this.cantidadHormigas++;
@@ -20,11 +21,11 @@ public class Score {
         }
     }
 
-    public void agregarMuerto(Lechuza lechuza){
+    public void agregarMuerto(Lechuza lechuza) {
 
     }
 
-    public void agregarMuerto(Topo topo){
+    public void agregarMuerto(Topo topo) {
 
     }
 }

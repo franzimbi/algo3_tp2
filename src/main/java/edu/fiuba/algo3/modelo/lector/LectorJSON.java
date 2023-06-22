@@ -52,7 +52,7 @@ public class LectorJSON implements Lector {
             }
             for (int i = 0; i <= coordenadasPasarelas.size() - 2; i++) {
                 Pasarela aux = new Pasarela(coordenadasPasarelas.get(i));
-                if(coordenadasPasarelas.get(i).getX() == coordenadasPasarelas.get(i+1).getX() ){
+                if (coordenadasPasarelas.get(i).getX() == coordenadasPasarelas.get(i + 1).getX()) {
                     aux.setSiguiente(new Abajo());
                 }
                 mapaLeido.agregarParcela(aux);

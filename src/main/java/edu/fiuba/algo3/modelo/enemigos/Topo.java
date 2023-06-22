@@ -34,9 +34,9 @@ public class Topo extends Enemigo {
 
     @Override
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
-        this.movimiento.mover(velocidad, this, actual, jugador, mapa); //5
+        this.movimiento.mover(velocidad, this, actual, jugador, mapa);
         this.turnos++;
-        this.actualizarVelocidad(); //7
+        this.actualizarVelocidad();
     }
 
     private void actualizarVelocidad() {
@@ -44,10 +44,6 @@ public class Topo extends Enemigo {
         if (this.turnos == 5 || this.turnos == 11) {
             this.velocidad.aumentarVelocidad(1);
         }
-    }
-
-    public void atacar(Jugador jugador, int cantidadDeTurnos) {
-        this.danio.atacar(jugador, cantidadDeTurnos);
     }
 
     public void atacarEnemigo(TorreBlanca torre) {

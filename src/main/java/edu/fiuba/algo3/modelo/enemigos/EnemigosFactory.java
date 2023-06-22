@@ -16,6 +16,5 @@ public class EnemigosFactory {
             default:
                 throw new EnemigoInvalidoError();
         }
-
     }
 }

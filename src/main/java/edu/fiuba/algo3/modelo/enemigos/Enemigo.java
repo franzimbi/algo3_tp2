@@ -80,11 +80,9 @@ public abstract class Enemigo {
         this.velocidad.restaurar();
     }
 
-
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
         this.movimiento.mover(velocidad, this, actual, jugador, mapa);
     }
-
 
     public void setDireccion(Movimiento nuevaDireccion) {
         this.movimiento = nuevaDireccion;

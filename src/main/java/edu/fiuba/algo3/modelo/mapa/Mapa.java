@@ -8,23 +8,12 @@ import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Mapa {
     private final ArrayList<Parcela> parcelas;
     private final ArrayList<Enemigo> enemigos;
     private Parcela meta;
-
-    // REPRESENTACION DEL MAPA EN MATRIZ
-    // 0,0 0,1 0,2 0,3
-    // 1,0 1,1 1,2 1,3
-    // 2,0 2,1 2,2 2,3
-    // 3,0 3,1 3,2 3,3
-
-    // ARREGLO DE PARCELAS
-    // (0,0) (0,1) (0,2) (0,3) (1,0) (1,1) (1,2) (1,3) (2,0) (2,1) (2,2) (2,3) (3,0) (3,1) (3,2) (3,3)
 
     public Mapa() {
         this.parcelas = new ArrayList<>();

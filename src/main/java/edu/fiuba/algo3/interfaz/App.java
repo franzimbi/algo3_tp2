@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.interfaz;
 
 import edu.fiuba.algo3.modelo.logger.Logger;
-import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,11 +11,9 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 import java.io.File;
 
@@ -34,8 +31,6 @@ public class App extends Application {
         Logger.getInstancia().activar();
         MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/inicioKahoot.mp3").toURI().toString()));
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        //MediaView mediaView = new MediaView(mediaPlayer);
-        // Reproducir la música
         mediaPlayer.play();
 
 

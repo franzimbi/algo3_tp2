@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MovimientoDiagonal implements Movimiento {
 
 
-    private final ArrayList<Coordenadas> movimientos = new ArrayList<Coordenadas>();
+    private final ArrayList<Coordenadas> movimientos = new ArrayList<>();
     private boolean arranco = false;
 
     @Override
@@ -31,10 +31,11 @@ public class MovimientoDiagonal implements Movimiento {
             return;
         }
         Coordenadas posicion = movimientos.get(0);
-        for(int i=0; i< enemigo.getVelocidad(); i++){
+        for (int i = 0; i < enemigo.getVelocidad(); i++) {
             try {
-                posicion =  movimientos.remove(0);
-            }catch (IndexOutOfBoundsException ignored) {}
+                posicion = movimientos.remove(0);
+            } catch (IndexOutOfBoundsException ignored) {
+            }
         }
 
         mapa.dejarEnRango(posicion);
