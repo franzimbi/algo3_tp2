@@ -1,42 +1,32 @@
 package edu.fiuba.algo3.interfaz;
 
-import javafx.css.converter.EffectConverter;
+import edu.fiuba.algo3.modelo.juego.Juego;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import edu.fiuba.algo3.modelo.juego.Juego;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 
 public class Datos {
-    public VBox generarDatos(Juego juego, TextField nombre, Button pasarTurno, MediaPlayer media){
+    public VBox generarDatos(Juego juego, TextField nombre, Button pasarTurno, MediaPlayer media) {
         Font font = new Font("Minecraftia", 22);
-        //informacion del menu
-        Label labelNombre = new Label("Jugador: " + nombre.getText());
-        labelNombre.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 45px;");
-        labelNombre.setFont(font);
-        TextField vida = new TextField("Vida: " + Integer.toString(juego.vidaJugador()));
-        vida.setStyle("-fx-background-color: #333333; -fx-text-fill: #ffffff; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
-        vida.setFont(font);
-        vida.setFocusTraversable(false);
-        vida.setEditable(false);
+        String infoStyle = "-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;";
+
 
         if (juego.perdio()) {
             Stage casoPerdio = new Stage();
@@ -56,31 +46,39 @@ public class Datos {
 
             StackPane ventana = new StackPane(disney);
             HBox caja = new HBox(ventana);
-            label.setPadding(new Insets(0,0,0,150));
+            label.setPadding(new Insets(0, 0, 0, 150));
             Scene scene = new Scene(caja);
 
             casoPerdio.setScene(scene);
             casoPerdio.showAndWait();
         }
 
-
-        TextField creditos = new TextField("Creditos: " + Integer.toString(juego.creditosJugador()));
-        creditos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        //informacion del menu
+        Label labelNombre = new Label("Jugador: " + nombre.getText());
+        labelNombre.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 40px;");
+        labelNombre.setFont(font);
+        TextField vida = new TextField("Vida: " + juego.vidaJugador());
+        vida.setStyle(infoStyle);
+        vida.setFont(font);
+        vida.setFocusTraversable(false);
+        vida.setEditable(false);
+        TextField creditos = new TextField("Creditos: " + juego.creditosJugador());
+        creditos.setStyle(infoStyle);
         creditos.setFont(font);
         creditos.setFocusTraversable(false);
         creditos.setEditable(false);
-        TextField cantEnemigos = new TextField("Enemigos: " + Integer.toString(juego.cantidadEnemigos()));
-        cantEnemigos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        TextField cantEnemigos = new TextField("Enemigos: " + juego.cantidadEnemigos());
+        cantEnemigos.setStyle(infoStyle);
         cantEnemigos.setFont(font);
         cantEnemigos.setFocusTraversable(false);
         cantEnemigos.setEditable(false);
-        TextField cantTurnos = new TextField("Turnos: " + Integer.toString(juego.cantidadDeTurnos()));
-        cantTurnos.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        TextField cantTurnos = new TextField("Turnos: " + juego.cantidadDeTurnos());
+        cantTurnos.setStyle(infoStyle);
         cantTurnos.setFont(font);
         cantTurnos.setFocusTraversable(false);
         cantTurnos.setEditable(false);
 
-        Button botonMusica= new Button("MUTE");
+        Button botonMusica = new Button("MUTE");
         botonMusica.setStyle("-fx-background-color: green; -fx-text-fill: black;");
         botonMusica.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             if (media.getStatus() == MediaPlayer.Status.PLAYING) {
@@ -92,16 +90,16 @@ public class Datos {
                 botonMusica.setText("MUTE");
                 botonMusica.setStyle("-fx-background-color: green; -fx-text-fill: black;");
             }
-        } );
+        });
 
-        VBox informacion = new VBox( labelNombre, vida, creditos, cantEnemigos, cantTurnos, pasarTurno, botonMusica);
-        informacion.setMargin(labelNombre,new Insets(100,0,0,50));
-        informacion.setMargin(vida,new Insets(50,0,0,50));
-        informacion.setMargin(creditos,new Insets(50,0,0,50));
-        informacion.setMargin(cantEnemigos,new Insets(50,0,0,50));
-        informacion.setMargin(cantTurnos,new Insets(50,0,0,50));
-        informacion.setMargin(pasarTurno,new Insets(50,0,0,50));
-        informacion.setMargin(botonMusica,new Insets(50,0,0,50));
+        VBox informacion = new VBox(botonMusica, labelNombre, vida, creditos, cantEnemigos, cantTurnos, pasarTurno);
+        VBox.setMargin(labelNombre, new Insets(30, 0, 0, 50));
+        VBox.setMargin(vida, new Insets(50, 0, 0, 50));
+        VBox.setMargin(creditos, new Insets(50, 0, 0, 50));
+        VBox.setMargin(cantEnemigos, new Insets(50, 0, 0, 50));
+        VBox.setMargin(cantTurnos, new Insets(50, 0, 0, 50));
+        VBox.setMargin(pasarTurno, new Insets(50, 0, 0, 50));
+        VBox.setMargin(botonMusica, new Insets(20, 0, 0, 50));
         return informacion;
     }
 

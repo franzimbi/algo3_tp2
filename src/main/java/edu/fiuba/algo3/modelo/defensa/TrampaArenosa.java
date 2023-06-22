@@ -23,12 +23,11 @@ public class TrampaArenosa extends Defensa {
         return this.vidaUtil > 0;
     }
 
+    @Override
     public void atacarEnemigo(Enemigo enemigo) {
         if (this.estaOperativa()) {
             enemigo.atacarEnemigo(this);
-        } else {
-            Logger.getInstancia().info(this.getNombre() + "no estaba operativa");
-            this.turnosRestantes--;
+            this.vidaUtil--;
         }
     }
 

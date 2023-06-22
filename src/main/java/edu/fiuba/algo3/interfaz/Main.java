@@ -17,7 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -60,7 +60,7 @@ public class Main implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         if (this.nombre.getLength() < 6) {
-            this.tratarError("El nombre esta mal como el orto boludito. A Disney!");
+            this.tratarError("El nombre esta mal, a Disney!");
             return;
         }
         StackPane ventana = new StackPane();
@@ -76,7 +76,7 @@ public class Main implements EventHandler<ActionEvent> {
         Button pasarTurno = new Button("Empezar Juego");
         pasarTurno.setStyle("-fx-background-color: #ffffff; -fx-text-fill: #000080; -fx-font-size: 20px;");
         pasarTurno.setMinSize(25, 25);
-        DropShadow shadow = new DropShadow();
+        InnerShadow shadow = new InnerShadow();
         pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> pasarTurno.setEffect(shadow));
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage, juego, this));
@@ -89,6 +89,7 @@ public class Main implements EventHandler<ActionEvent> {
         Scene escena = new Scene(todo);
         stage.setScene(escena);
         stage.setMaximized(true);
+        stage.setTitle("Tower Defense");
         stage.show();
     }
 
@@ -96,7 +97,7 @@ public class Main implements EventHandler<ActionEvent> {
         GridPane gameBoard = new GridPane();
         gameBoard.setPrefSize(500, 500);
         for (Parcela p : parcelas) {
-            Rectangle tile = new Rectangle(50, 50);
+            Rectangle tile = new Rectangle(45, 45);
             Image img = new Image((new Input()).imagenParcela(p.getNombre()));
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
@@ -112,7 +113,7 @@ public class Main implements EventHandler<ActionEvent> {
         ventana.getChildren().add(actualizarTablero(juego, (GridPane) this.tablero));
         ventana.setPadding(new Insets(20, 0, 0, 50));
 
-        DropShadow shadow = new DropShadow();
+        InnerShadow shadow = new InnerShadow();
         Button pasarTurno = new Button("Pasar turno");
         pasarTurno.setStyle("-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 20px;");
         pasarTurno.setMinSize(25, 25);
@@ -136,9 +137,10 @@ public class Main implements EventHandler<ActionEvent> {
     public void tratarError(String mensaje) {
         Stage casoError = new Stage();
         var label = new Label(mensaje);
-        label.setPadding(new Insets(0, 0, 0, 150));
-        Scene scene = new Scene(label, 400, 100);
+        label.setPadding(new Insets(0, 0, 0, 20));
+        Scene scene = new Scene(label, 200, 100);
         casoError.setScene(scene);
+        casoError.setTitle("Error");
         casoError.showAndWait();
     }
 
@@ -160,7 +162,7 @@ public class Main implements EventHandler<ActionEvent> {
         this.coordenadas2 = new ArrayList<>();
 
         for (Defensa e : juego.getDefensasJugador()) {
-            Rectangle tile = new Rectangle(50, 50);
+            Rectangle tile = new Rectangle(45, 45);
             Image img = new Image((new Input()).imagenDefensa(e.getNombre()), 50, 50, false, true);
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
@@ -173,7 +175,7 @@ public class Main implements EventHandler<ActionEvent> {
         }
 
         for (Enemigo e : juego.getEnemigosMapa()) {
-            Rectangle tile = new Rectangle(50, 50);
+            Rectangle tile = new Rectangle(45, 45);
             Image img = new Image((new Input()).imagenEnemigo(e.getNombre()), 50, 50, false, true);
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);

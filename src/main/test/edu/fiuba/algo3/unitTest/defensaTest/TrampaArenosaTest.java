@@ -74,6 +74,6 @@ public class TrampaArenosaTest {
         trampa.atacarEnemigo(arania);
         trampa.atacarEnemigo(topo);
 
-        assert trampa.estaOperativa();
+        assert !trampa.estaOperativa();
     }
 }
