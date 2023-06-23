@@ -31,42 +31,31 @@ public class Login extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Tower Defense");
         String infoStyle = "-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;";
-        String loginStyle = "-fx-background-color: #239000; -fx-text-fill: #ffffff; -fx-font-size: 14px";
+        String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         String musicStyle = "-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         DropShadow shadow = new DropShadow();
 
         // Crear controles
-        Label usernameLabel = new Label();
+        Label usernameLabel = new Label(" ingrese su nombre para comenzar ");
+        usernameLabel.setStyle("-fx-background-color: white;");
         TextField usernameField = new TextField();
-        usernameField.setPromptText("Username");
+        usernameField.setPromptText("nombre");
         usernameField.setStyle(infoStyle);
         usernameField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> usernameField.setEffect(shadow));
         usernameField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> usernameField.setEffect(null));
 
-        Label passwordLabel = new Label();
-        PasswordField passwordField = new PasswordField();
-        passwordField.setPromptText("Password");
-        passwordField.setStyle(infoStyle);
-        passwordField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> passwordField.setEffect(shadow));
-        passwordField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> passwordField.setEffect(null));
+//        Label passwordLabel = new Label();
+//        PasswordField passwordField = new PasswordField();
+//        passwordField.setPromptText("Password");
+//        passwordField.setStyle(infoStyle);
+//        passwordField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> passwordField.setEffect(shadow));
+//        passwordField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> passwordField.setEffect(null));
 
-        Button loginButton = new Button("Login");
-        loginButton.setStyle(loginStyle);
-        loginButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> loginButton.setEffect(shadow));
-        loginButton.addEventHandler(MouseEvent.MOUSE_EXITED, e -> loginButton.setEffect(null));
-        loginButton.setOnAction(event -> {
-            // Lógica de verificación de credenciales aquí
-            String username = usernameField.getText();
-            String password = passwordField.getText();
-            // Realizar la autenticación y verificar las credenciales ingresadas
-            if (authenticate(username) && authenticatePassword(password)){
-                // Credenciales válidas, mostrar otra pantalla o realizar alguna acción
-                System.out.println("Login successful");
-            } else {
-                // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción
-                System.out.println("Login failed");
-            }
-        });
+        Button empezarButton = new Button("Empezar el juego");
+        empezarButton.setStyle(loginStyle);
+        empezarButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> empezarButton.setEffect(shadow));
+        empezarButton.addEventHandler(MouseEvent.MOUSE_EXITED, e -> empezarButton.setEffect(null));
+
 
         // Information button
         Button informacion = new Button("INFORMACION");
@@ -109,20 +98,20 @@ public class Login extends Application {
         // Agregar los controles al diseño
         gridPane.add(usernameLabel, 0, 0);
         gridPane.add(usernameField, 1, 0);
-        gridPane.add(passwordLabel, 0, 1);
-        gridPane.add(passwordField, 1, 1);
-        gridPane.add(loginButton, 1, 2);
+//        gridPane.add(passwordLabel, 0, 1);
+//        gridPane.add(passwordField, 1, 1);
+        gridPane.add(empezarButton, 1, 2);
 
 
         // Cargar Video
-        String videoPath = "src/main/java/edu/fiuba/algo3/resources/musica/disney.mp4"; // Ruta del archivo de video
+        String videoPath = "src/main/java/edu/fiuba/algo3/resources/musica/towerDefense.mp4"; // Ruta del archivo de video
         Media media = new Media(new File(videoPath).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Reproducir en bucle
 
         // Cargar Musica
-        String musicPath = "src/main/java/edu/fiuba/algo3/resources/musica/disneyMusic.mp3"; // Ruta del archivo de video
+        String musicPath = "src/main/java/edu/fiuba/algo3/resources/musica/theHorde.mp3"; // Ruta del archivo de video
         Media sound = new Media(new File(musicPath).toURI().toString());
         MediaPlayer music = new MediaPlayer(sound);
         music.setCycleCount(MediaPlayer.INDEFINITE);
@@ -174,8 +163,8 @@ public class Login extends Application {
         return username.length() > 6 && username.length() < 10;
     }
 
-    private boolean authenticatePassword(String password) {
-        // Devuelve true si 6 < username < 10
-        return Objects.equals(password, "Disney");
-    }
+//    private boolean authenticatePassword(String password) {
+//        // Devuelve true si 6 < username < 10
+//        return Objects.equals(password, "Disney");
+//    }
 }
