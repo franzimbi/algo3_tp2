@@ -31,7 +31,7 @@ public class Datos {
         if (juego.perdio()) {
             Stage casoPerdio = new Stage();
 
-            Rectangle disney = new Rectangle(50, 50);
+            Rectangle disney = new Rectangle(500, 500);
             FileInputStream inputStream = null;
             try {
                 inputStream = new FileInputStream("src/main/java/edu/fiuba/algo3/resources/imagenes/disney.jpg");
