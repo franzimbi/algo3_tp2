@@ -7,8 +7,6 @@ import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
-import edu.fiuba.algo3.interfaz.PasarTurnoEventHandler;
-import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -17,29 +15,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.*;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
-import java.io.File;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import static java.lang.Math.sqrt;
 
 public class Main implements EventHandler<ActionEvent> {
     private final TextField nombre;
@@ -98,10 +88,10 @@ public class Main implements EventHandler<ActionEvent> {
         gameBoard.setPrefSize(500, 500);
         for (Parcela p : parcelas) {
             Rectangle tile = new Rectangle(45, 45);
-            Image img = new Image((new Input()).imagenParcela(p.getNombre()));
+            Image img = (Input.getInstance()).imagenParcela(p.getNombre()).getImage();
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
-            tile.addEventHandler(MouseEvent.MOUSE_CLICKED, new ParcelaEventHandler(stage, p.getUbicacion(), juego,this));
+            tile.addEventHandler(MouseEvent.MOUSE_CLICKED, new ParcelaEventHandler(stage, p.getUbicacion(), juego, this));
             Text text = new Text();
             gameBoard.add(new StackPane(tile, text), p.getUbicacion().getX(), p.getUbicacion().getY());
         }
@@ -145,7 +135,7 @@ public class Main implements EventHandler<ActionEvent> {
     }
 
     public Image enemigos(Enemigo enemigo) {
-        return new Image((new Input()).imagenEnemigo(enemigo.getNombre()));
+        return Input.getInstance().imagenEnemigo(enemigo.getNombre()).getImage();
     }
 
     public Parent actualizarTablero(Juego juego, GridPane tablero) {
@@ -163,7 +153,7 @@ public class Main implements EventHandler<ActionEvent> {
 
         for (Defensa e : juego.getDefensasJugador()) {
             Rectangle tile = new Rectangle(45, 45);
-            Image img = new Image((new Input()).imagenDefensa(e.getNombre()), 50, 50, false, true);
+            Image img = (Input.getInstance().imagenDefensa(e.getNombre())).getImage();
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, e1 -> System.out.println("No se puede..."));
@@ -176,7 +166,7 @@ public class Main implements EventHandler<ActionEvent> {
 
         for (Enemigo e : juego.getEnemigosMapa()) {
             Rectangle tile = new Rectangle(45, 45);
-            Image img = new Image((new Input()).imagenEnemigo(e.getNombre()), 50, 50, false, true);
+            Image img = Input.getInstance().imagenEnemigo(e.getNombre()).getImage();
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, e1 -> System.out.println("No se puede..."));
@@ -194,7 +184,6 @@ public class Main implements EventHandler<ActionEvent> {
             System.out.println("No se puede...");
         }
     }
-
 
 
 }
