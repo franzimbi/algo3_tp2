@@ -65,6 +65,13 @@ public class Login extends Application {
             if (authenticate(username)) {
                 // Credenciales válidas, mostrar otra pantalla o realizar alguna acción
                 System.out.println("Login successful");
+                Stage casoError = new Stage();
+                var label = new Label("El nombre esta mal, a Disney!");
+                label.setPadding(new Insets(0, 0, 0, 20));
+                Scene scene = new Scene(label, 200, 100);
+                casoError.setScene(scene);
+                casoError.setTitle("Error");
+                casoError.showAndWait();
             } else {
                 // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción
                 System.out.println("Login failed");
@@ -75,79 +82,10 @@ public class Login extends Application {
         // Information button
         Button informacion = new Button("INFORMACION");
         informacion.setStyle(loginStyle);
-
         Stage popUpMenu = new Stage();
         popUpMenu.getIcons().add(icon);
+        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu));
 
-
-        informacion.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> {
-            Stage popUpMenu1 = new Stage();
-            popUpMenu1.getIcons().add(icon);
-
-            GridPane gridMenu = new GridPane();
-            gridMenu.setAlignment(Pos.CENTER);
-            gridMenu.setPadding(new Insets(10));
-            gridMenu.setHgap(10);
-            gridMenu.setVgap(10);
-
-            Button comoJugar = new Button("COMO JUGAR");
-            Button defensas = new Button("DEFENSAS");
-            Button enemigos = new Button("ENEMIGOS");
-            Button acercaDe = new Button("ACERCA DE");
-            Button creditos = new Button("CREDITOS");
-
-            comoJugar.setStyle(loginStyle);
-            defensas.setStyle(loginStyle);
-            enemigos.setStyle(loginStyle);
-            acercaDe.setStyle(loginStyle);
-            creditos.setStyle(loginStyle);
-
-            double buttonWidth = 120;
-            double buttonHeight = 50;
-            comoJugar.setPrefSize(buttonWidth, buttonHeight);
-            defensas.setPrefSize(buttonWidth, buttonHeight);
-            enemigos.setPrefSize(buttonWidth, buttonHeight);
-            acercaDe.setPrefSize(buttonWidth, buttonHeight);
-            creditos.setPrefSize(buttonWidth, buttonHeight);
-
-            enemigos.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, en -> {
-                GridPane enemigosMenu = new GridPane();
-
-                TextField arania = new TextField("Arania");
-                arania.setFocusTraversable(false);
-                arania.setEditable(false);
-
-                //informacion 2do popUp
-                enemigosMenu.add(arania, 0, 0);
-
-                StackPane stackPane = new StackPane(enemigosMenu);
-                Scene scene = new Scene(stackPane, 200, 200);
-                popUpMenu1.setScene(scene);
-                popUpMenu1.show();
-            });
-            enemigos.addEventHandler(MouseEvent.MOUSE_EXITED, en -> popUpMenu1.close());
-
-            //botones primer popUp
-            gridMenu.add(comoJugar, 0, 0);
-            gridMenu.add(defensas, 0, 1);
-            gridMenu.add(enemigos, 0, 2);
-            gridMenu.add(acercaDe, 0, 3);
-            gridMenu.add(creditos, 0, 4);
-            gridMenu.setHgrow(comoJugar, Priority.ALWAYS);
-            gridMenu.setHalignment(comoJugar, HPos.CENTER);
-            gridMenu.setHalignment(defensas, HPos.CENTER);
-            gridMenu.setHalignment(enemigos, HPos.CENTER);
-            gridMenu.setHalignment(acercaDe, HPos.CENTER);
-            gridMenu.setHalignment(creditos, HPos.CENTER);
-
-
-            StackPane stackPane1 = new StackPane(gridMenu);
-            stackPane1.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, null, null))); // Establecer el fondo
-
-            Scene scene1 = new Scene(stackPane1, 190, 250);
-            popUpMenu.setScene(scene1);
-            popUpMenu.show();
-        });
 
         // Crear el diseño del formulario
         GridPane gridPane = new GridPane();
@@ -214,7 +152,7 @@ public class Login extends Application {
 
     private boolean authenticate(String username) {
         // Devuelve true si 6 < username < 10
-        return username.length() > 6 && username.length() < 10;
+        return username.length() < 6; //&& username.length() < 10;
     }
 
     // Centrar la ventana

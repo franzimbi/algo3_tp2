@@ -14,7 +14,7 @@ public class MovimientoHorizontal implements Movimiento {
     public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa) {
         Coordenadas posicion = enemigo.getUbicacion();
         for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
-            Coordenadas aux = posicion.coordenadaConDireccion(new Derecha());
+            Coordenadas aux = (new Derecha()).direccionParaCoordenada(posicion);
             enemigo.ubicarEn(aux);
         }
         mapa.dejarEnRango(posicion);

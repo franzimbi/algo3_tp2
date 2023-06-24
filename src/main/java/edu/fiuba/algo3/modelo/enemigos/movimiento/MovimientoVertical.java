@@ -17,10 +17,10 @@ public class MovimientoVertical implements Movimiento {
         for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
             posicion = enemigo.getUbicacion();
             if (mapa.estaEnEjeYConMeta(posicion.getY())) {
-                Coordenadas aux = posicion.coordenadaConDireccion(new Derecha());
+                Coordenadas aux = (new Derecha()).direccionParaCoordenada(posicion);
                 enemigo.ubicarEn(aux);
             } else {
-                Coordenadas aux = posicion.coordenadaConDireccion(new Abajo());
+                Coordenadas aux = (new Abajo()).direccionParaCoordenada(posicion);
                 enemigo.ubicarEn(aux);
             }
         }

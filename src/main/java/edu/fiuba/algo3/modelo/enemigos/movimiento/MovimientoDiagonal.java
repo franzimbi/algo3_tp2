@@ -73,5 +73,9 @@ public class MovimientoDiagonal implements Movimiento {
             movimientos.add(new Coordenadas(x, y));
         }
     }
+
+
+
+
 }
 

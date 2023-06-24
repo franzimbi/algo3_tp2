@@ -5,8 +5,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,21 +41,10 @@ public class Input {
         this.mediaPlayer = new HashMap<>();
         this.mediaPlayer.put("loginMusic", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/theHorde.mp3").toURI().toString())));
         this.mediaPlayer.put("loginVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/towerDefense.mp4").toURI().toString())));
-
     }
 
     public static Input getInstance() {
         return instance;
-    }
-
-    private FileInputStream imagenAStream(String url) {
-        FileInputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream(url);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return inputStream;
     }
 
     public ImageView imagenEnemigo(String enemigo) {

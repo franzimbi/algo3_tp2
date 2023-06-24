@@ -41,15 +41,19 @@ public class Coordenadas implements Cloneable {
             this.y = other.y;
         }
     }
-    public Coordenadas coordenadaConDireccion(Direccion direccion) {
-        return direccion.direccionParaCoordenada(this);
-    }
+//    public Coordenadas coordenadaConDireccion(Direccion direccion) {
+//        return direccion.direccionParaCoordenada(this);
+//    }
+//
+//    public Coordenadas coordenadaConDireccion(Derecha derecha) {
+//        return new Coordenadas(this.x + 1, this.y);
+//    }
+//
+//    public Coordenadas coordenadaConDireccion(Abajo abajo) {
+//        return new Coordenadas(this.x, this.y + 1);
+//    }
 
-    public Coordenadas coordenadaConDireccion(Derecha derecha) {
-        return new Coordenadas(this.x + 1, this.y);
-    }
-
-    public Coordenadas coordenadaConDireccion(Abajo abajo) {
-        return new Coordenadas(this.x, this.y + 1);
+    public Coordenadas coordenadasMovidasEn(int movX, int movY){
+        return new Coordenadas(this.x + movX, this.y + movY);
     }
 }
