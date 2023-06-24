@@ -23,6 +23,12 @@ public abstract class Defensa {
         return this.turnosRestantes == 0;
     }
 
+    public void actualizar(Jugador jugador) {
+        if (!vidaUtil()) {
+            jugador.destruirDefensa(this);
+        }
+    }
+
     public abstract void atacarEnemigo(Enemigo enemigo);
 
     public abstract void atacarEnemigo(Hormiga hormiga);

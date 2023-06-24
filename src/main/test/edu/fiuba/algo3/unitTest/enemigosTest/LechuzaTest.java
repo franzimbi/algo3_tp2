@@ -56,7 +56,6 @@ public class LechuzaTest {
         Meta meta = new Meta(new Coordenadas(6, 6));
         mapa.setMeta(meta);
         mapa.spawnear(lechuza);
-
         assert lechuza.getUbicacion().equals(new Coordenadas(0, 0));
 
         mapa.mover(jugador);

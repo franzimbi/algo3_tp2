@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.lector;
 
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.enemigos.EnemigosFactory;
+import edu.fiuba.algo3.modelo.factory.EnemigosFactory;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerElMapaError;
 import edu.fiuba.algo3.modelo.excepciones.NoSePuedeLeerEnemigosError;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.mapa.Mapa;
 import edu.fiuba.algo3.modelo.mapa.direcciones.Abajo;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Meta;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
-import edu.fiuba.algo3.modelo.mapa.parcelas.ParcelasFactory;
+import edu.fiuba.algo3.modelo.factory.ParcelasFactory;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Pasarela;
 import edu.fiuba.algo3.modelo.turno.Turnos;
 import org.json.simple.JSONArray;

@@ -44,6 +44,7 @@ public class Juego {
     public void pasarTurno() {
         Logger.getInstancia().info("\nNUEVO TURNO:\n\n");
         this.jugador.atacarEnemigos(this.mapa);
+        this.jugador.recolectarDefensas();
         this.mapa.recolectarEnemigos(this.jugador);
         this.turnoEnemigos();
         if (this.gano()) {

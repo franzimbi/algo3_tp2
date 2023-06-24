@@ -21,8 +21,8 @@ public class MovimientoDiagonal implements Movimiento {
         if (movimientos.size() == 0 && !arranco) {
             Logger.getInstancia().info("un " + enemigo.getNombre() + " cambio su movimiento a diagonal.");
             lozanoAlgorithm(mapa, enemigo);
-            this.arranco = true;
         }
+
         if (movimientos.size() == 0 && arranco) {
             Logger.getInstancia().info("una " + enemigo.getNombre() +
                     " ataco al jugador. vida restante: " + jugador.getVida());
@@ -30,6 +30,7 @@ public class MovimientoDiagonal implements Movimiento {
             mapa.removerEnemigo(enemigo);
             return;
         }
+
         Coordenadas posicion = movimientos.get(0);
         for (int i = 0; i < enemigo.getVelocidad(); i++) {
             try {

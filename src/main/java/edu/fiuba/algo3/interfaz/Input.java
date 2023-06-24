@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.interfaz;
 
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +15,8 @@ public class Input {
     private final Map<String, ImageView> mapa;
     private final Map<String, ImageView> enemigos;
     private final Map<String, ImageView> defensas;
-    private final Map<String, ImageView> media;
+    private final Map<String, ImageView> mediaView;
+    private final Map<String, MediaPlayer> mediaPlayer;
 
     private Input() {
         mapa = new HashMap<>();
@@ -32,10 +35,15 @@ public class Input {
         defensas.put("Torre Plateada", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TorrePlateada.png").toURI().toString())));
         defensas.put("Trampa De Arena", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TrampaArena.png").toURI().toString())));
 
-        this.media = new HashMap<>();
-        this.media.put("musicOff", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/musicOff.png")).toURI().toString()));
-        this.media.put("musicOn", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/musicOn.png")).toURI().toString()));
-        this.media.put("questionMark", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/questionMark.png")).toURI().toString()));
+        this.mediaView = new HashMap<>();
+        this.mediaView.put("musicOff", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/musicOff.png")).toURI().toString()));
+        this.mediaView.put("musicOn", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/musicOn.png")).toURI().toString()));
+        this.mediaView.put("questionMark", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/questionMark.png")).toURI().toString()));
+
+        this.mediaPlayer = new HashMap<>();
+        this.mediaPlayer.put("loginMusic", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/theHorde.mp3").toURI().toString())));
+        this.mediaPlayer.put("loginVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/towerDefense.mp4").toURI().toString())));
+
     }
 
     public static Input getInstance() {
@@ -65,9 +73,12 @@ public class Input {
     }
 
     public ImageView media(String media) {
-        return this.media.get(media);
+        return this.mediaView.get(media);
     }
 
+    public MediaPlayer mediaPlayer(String loginMusic) {
+        return this.mediaPlayer.get(loginMusic);
+    }
 }
 
 

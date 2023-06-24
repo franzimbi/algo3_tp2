@@ -38,7 +38,6 @@ public abstract class Enemigo {
 
 
     public void ubicarEn(Coordenadas ubicacion) {
-
         try {
             this.ubicacion = ubicacion.clone();
         } catch (CloneNotSupportedException e) {
@@ -70,17 +69,14 @@ public abstract class Enemigo {
         this.danio.atacar(jugador, cantidadDeTurnos);
     }
 
-    public void agregarMuerto(Score scorer) {
-        scorer.agregarMuerto(this);
-    }
+    public abstract void agregarMuerto(Score scorer);
 
     public abstract String getNombre();
 
-    public void restaurarVelocidad() {
-        this.velocidad.restaurar();
-    }
-
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
+        if (this.estaMuerto()){
+            return;
+        }
         this.movimiento.mover(velocidad, this, actual, jugador, mapa);
     }
 

@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.enemigos;
+package edu.fiuba.algo3.modelo.factory;
 
+import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
 
 public class EnemigosFactory {

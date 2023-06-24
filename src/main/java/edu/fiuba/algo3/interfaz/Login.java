@@ -3,23 +3,20 @@ package edu.fiuba.algo3.interfaz;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import java.io.File;
-import java.util.Objects;
 
 public class Login extends Application {
 
@@ -36,25 +33,31 @@ public class Login extends Application {
         DropShadow shadow = new DropShadow();
 
         // Crear controles
-        Label usernameLabel = new Label(" ingrese su nombre para comenzar ");
-        usernameLabel.setStyle("-fx-background-color: white;");
+        Label usernameLabel = new Label();
+        //usernameLabel.setStyle("-fx-background-color: white;");
         TextField usernameField = new TextField();
-        usernameField.setPromptText("nombre");
+        usernameField.setPromptText("Nombre");
         usernameField.setStyle(infoStyle);
         usernameField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> usernameField.setEffect(shadow));
         usernameField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> usernameField.setEffect(null));
 
-//        Label passwordLabel = new Label();
-//        PasswordField passwordField = new PasswordField();
-//        passwordField.setPromptText("Password");
-//        passwordField.setStyle(infoStyle);
-//        passwordField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> passwordField.setEffect(shadow));
-//        passwordField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> passwordField.setEffect(null));
-
+        // Boton Empezar
         Button empezarButton = new Button("Empezar el juego");
         empezarButton.setStyle(loginStyle);
         empezarButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> empezarButton.setEffect(shadow));
         empezarButton.addEventHandler(MouseEvent.MOUSE_EXITED, e -> empezarButton.setEffect(null));
+        empezarButton.setOnAction(event -> {
+            // Lógica de verificación de credenciales aquí
+            String username = usernameField.getText();
+            // Realizar la autenticación y verificar las credenciales ingresadas
+            if (authenticate(username)) {
+                // Credenciales válidas, mostrar otra pantalla o realizar alguna acción
+                System.out.println("Login successful");
+            } else {
+                // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción
+                System.out.println("Login failed");
+            }
+        });
 
 
         // Information button
@@ -81,7 +84,7 @@ public class Login extends Application {
             });
             enemigos.addEventHandler(MouseEvent.MOUSE_EXITED, en -> popUpMenu1.close());
 
-            gridMenu.add(enemigos, 0 , 0);
+            gridMenu.add(enemigos, 0, 0);
             StackPane stackPane1 = new StackPane(gridMenu);
             Scene scene1 = new Scene(stackPane1, 200, 200);
             popUpMenu.setScene(scene1);
@@ -94,29 +97,23 @@ public class Login extends Application {
         gridPane.setPadding(new Insets(10));
         gridPane.setHgap(10);
         gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(10));
 
         // Agregar los controles al diseño
         gridPane.add(usernameLabel, 0, 0);
         gridPane.add(usernameField, 1, 0);
-//        gridPane.add(passwordLabel, 0, 1);
-//        gridPane.add(passwordField, 1, 1);
-        gridPane.add(empezarButton, 1, 2);
-
+        gridPane.add(empezarButton, 1, 1);
 
         // Cargar Video
-        String videoPath = "src/main/java/edu/fiuba/algo3/resources/musica/towerDefense.mp4"; // Ruta del archivo de video
-        Media media = new Media(new File(videoPath).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        MediaPlayer mediaPlayer = Input.getInstance().mediaPlayer("loginVideo");
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Reproducir en bucle
 
         // Cargar Musica
-        String musicPath = "src/main/java/edu/fiuba/algo3/resources/musica/theHorde.mp3"; // Ruta del archivo de video
-        Media sound = new Media(new File(musicPath).toURI().toString());
-        MediaPlayer music = new MediaPlayer(sound);
+        MediaPlayer music = Input.getInstance().mediaPlayer("loginMusic");
         music.setCycleCount(MediaPlayer.INDEFINITE);
+        music.setVolume(0.1);
         music.play();
-
 
         // Boton Musica
         Button botonMusica = new Button();
@@ -131,7 +128,7 @@ public class Login extends Application {
 
         botonMusica.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
             if (music.getStatus() == MediaPlayer.Status.PLAYING) {
-                music.stop();
+                music.pause();
                 botonMusica.setGraphic(musicaOff);
             } else {
                 music.play();
@@ -139,14 +136,14 @@ public class Login extends Application {
             }
         });
 
-        GridPane gridPane1 = new GridPane();
-        gridPane1.setAlignment(Pos.TOP_RIGHT);
-        gridPane1.add(botonMusica, 0, 0);
-        gridPane1.add(informacion, 1, 0);
-        gridPane.setPadding(new Insets(10));
+        //GridPane gridPane1 = new GridPane();
+        gridPane.setAlignment(Pos.TOP_RIGHT);
+        gridPane.add(botonMusica, 2, 2);
+        gridPane.add(informacion, 3, 3);
+
 
         MediaView mediaView = new MediaView(mediaPlayer);
-        StackPane stackPane = new StackPane(mediaView, new MediaView(music), gridPane, gridPane1); // Apilar el video y el formulario
+        StackPane stackPane = new StackPane(mediaView, new MediaView(music), gridPane); // Apilar el video y el formulario
 
 
         // Crear la escena y mostrarla en el escenario
@@ -155,6 +152,7 @@ public class Login extends Application {
         primaryStage.setFullScreen(false);
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(1024);
+        centerStageOnScreen(primaryStage);
         primaryStage.show();
     }
 
@@ -163,8 +161,17 @@ public class Login extends Application {
         return username.length() > 6 && username.length() < 10;
     }
 
-//    private boolean authenticatePassword(String password) {
-//        // Devuelve true si 6 < username < 10
-//        return Objects.equals(password, "Disney");
-//    }
+    // Centrar la ventana
+    private void centerStageOnScreen(Stage stage) {
+        // Obtener el tamaño de la pantalla
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+
+        // Calcular las coordenadas para centrar la ventana
+        double centerX = screenBounds.getMinX() + (screenBounds.getWidth() - stage.getWidth()) / 2;
+        double centerY = screenBounds.getMinY() + (screenBounds.getHeight() - stage.getHeight()) / 2;
+
+        // Establecer las coordenadas para centrar la ventana
+        stage.setX(centerX);
+        stage.setY(centerY);
+    }
 }
