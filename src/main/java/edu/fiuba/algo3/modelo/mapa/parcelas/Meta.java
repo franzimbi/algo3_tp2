@@ -26,7 +26,7 @@ public class Meta extends Pasarela {
         mapa.removerEnemigo(enemigo);
         Logger.getInstancia().info(enemigo.getNombre()
                 + " llego a la meta. jugador quedo con " + jugador.getVida() + " de vida");
-        throw new LlegoAMetaException();
+        //throw new LlegoAMetaException();
     }
 
     public void ubicar(TrampaArenosa trampa) {

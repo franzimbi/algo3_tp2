@@ -245,19 +245,21 @@ public class Entrega1Test {
         mapa.agregarParcela(p1);
         mapa.agregarParcela(p2);
         mapa.agregarParcela(p3);
-        mapa.agregarParcela(p4);
+        mapa.setMeta(p4);
 
-        p1.setSiguiente(new Abajo()); //(0,0) -> (0,1)
-        p2.setSiguiente(new Abajo()); //(0,1) -> (0,2)
-        p3.setSiguiente(new Abajo()); //(0,2) -> (0,3)
+        p1.setSiguiente(new Abajo());
+        p2.setSiguiente(new Abajo());
+        p3.setSiguiente(new Abajo());
 
         Enemigo enemigo1 = new Arania();
         Enemigo enemigo2 = new Arania();
 
         mapa.spawnear(enemigo1);
         mapa.spawnear(enemigo2);
+
         mapa.mover(jugador);
         mapa.mover(jugador);
+
         assert jugador.estaMuerto();
 
     }

@@ -61,6 +61,11 @@ public abstract class Enemigo {
         return velocidad.obtenerVelocidad();
     }
 
+    public int getEnergia() {
+        return this.energia;
+    }
+
+
     public Coordenadas getUbicacion() {
         return this.ubicacion;
     }
@@ -77,7 +82,9 @@ public abstract class Enemigo {
         if (this.estaMuerto()){
             return;
         }
-        this.movimiento.mover(velocidad, this, actual, jugador, mapa);
+        for (int i=0; i < this.velocidad.obtenerVelocidad(); i++) {
+            this.movimiento.mover( this,  jugador, mapa);
+        }
     }
 
     public void setDireccion(Movimiento nuevaDireccion) {

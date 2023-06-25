@@ -49,10 +49,6 @@ public class Main implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        if (this.nombre.getLength() < 6) {
-            this.tratarError("El nombre esta mal, a Disney!");
-            return;
-        }
         StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
         String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigos.json";

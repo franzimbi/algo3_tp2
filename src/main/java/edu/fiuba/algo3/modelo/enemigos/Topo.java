@@ -34,7 +34,7 @@ public class Topo extends Enemigo {
 
     @Override
     public void mover(Parcela actual, Jugador jugador, Mapa mapa) {
-        this.movimiento.mover(velocidad, this, actual, jugador, mapa);
+        this.movimiento.mover( this,  jugador, mapa);
         this.turnos++;
         this.actualizarVelocidad();
     }

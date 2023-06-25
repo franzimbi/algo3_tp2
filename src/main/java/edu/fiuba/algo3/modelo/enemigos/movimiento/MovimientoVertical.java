@@ -12,24 +12,17 @@ import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 public class MovimientoVertical implements Movimiento {
     @Override
-    public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa) {
+    public void mover(Enemigo enemigo,  Jugador jugador, Mapa mapa) {
         Coordenadas posicion;
-        for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
-            posicion = enemigo.getUbicacion();
-            if (mapa.estaEnEjeYConMeta(posicion.getY())) {
-                Coordenadas aux = (new Derecha()).direccionParaCoordenada(posicion);
-                enemigo.ubicarEn(aux);
-            } else {
-                Coordenadas aux = (new Abajo()).direccionParaCoordenada(posicion);
-                enemigo.ubicarEn(aux);
-            }
-        }
+
         posicion = enemigo.getUbicacion();
-        mapa.dejarEnRango(posicion);
-        enemigo.ubicarEn(posicion);
+        Coordenadas aux = (new Abajo()).direccionParaCoordenada(posicion);
+        enemigo.ubicarEn(aux);
+
+        mapa.dejarEnRango(aux);
         Logger.getInstancia().info(enemigo.getNombre() +
-                " se movio a (" + posicion.getX() + "," + posicion.getY() + ")");
-        if (mapa.estaEnEjeYConMeta(posicion.getY())) {
+                " se movio a (" + aux.getX() + "," + aux.getY() + ")");
+        if (mapa.estaEnEjeYConMeta(aux.getY())) {
             enemigo.setDireccion(new MovimientoHorizontal());
         }
     }

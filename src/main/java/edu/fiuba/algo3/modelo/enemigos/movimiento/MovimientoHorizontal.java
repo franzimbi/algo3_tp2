@@ -10,15 +10,14 @@ import edu.fiuba.algo3.modelo.mapa.direcciones.Derecha;
 import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 
 public class MovimientoHorizontal implements Movimiento {
-    @Override
-    public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa) {
+    public void mover(Enemigo enemigo,  Jugador jugador, Mapa mapa) {
         Coordenadas posicion = enemigo.getUbicacion();
-        for (int i = 0; i < velocidad.obtenerVelocidad(); i++) {
-            Coordenadas aux = (new Derecha()).direccionParaCoordenada(posicion);
-            enemigo.ubicarEn(aux);
-        }
+
+        Coordenadas aux = (new Derecha()).direccionParaCoordenada(posicion);
+        enemigo.ubicarEn(aux);
+
+
         mapa.dejarEnRango(posicion);
-        enemigo.ubicarEn(posicion);
         Logger.getInstancia().info(enemigo.getNombre() +
                 " se movio a (" + posicion.getX() + "," + posicion.getY() + ")");
         if (mapa.estaEnMeta(posicion)) {

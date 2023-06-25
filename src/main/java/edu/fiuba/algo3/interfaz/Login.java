@@ -21,6 +21,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Stack;
 
 public class Login extends Application {
 
@@ -37,62 +38,6 @@ public class Login extends Application {
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         String musicStyle = "-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         DropShadow shadow = new DropShadow();
-
-        // Crear controles
-
-        //Titulo
-        Label titulo = new Label("Ingrese un nombre de usuario");
-        titulo.setStyle(loginStyle);
-
-        // Username
-        Label usernameLabel = new Label();
-        usernameLabel.setStyle("-fx-background-color: white;");
-        TextField usernameField = new TextField();
-        usernameField.setPromptText("Minimo 6 digitos.");
-        usernameField.setStyle(infoStyle);
-        usernameField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> usernameField.setEffect(shadow));
-        usernameField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> usernameField.setEffect(null));
-
-        // Boton Empezar
-        Button empezarButton = new Button("Empezar el juego");
-        empezarButton.setStyle(loginStyle);
-        empezarButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> empezarButton.setEffect(shadow));
-        empezarButton.addEventHandler(MouseEvent.MOUSE_EXITED, e -> empezarButton.setEffect(null));
-        empezarButton.setOnAction(event -> {
-            // Lógica de verificación de credenciales aquí
-            String username = usernameField.getText();
-            // Realizar la autenticación y verificar las credenciales ingresadas
-            if (authenticate(username)) {
-                // Credenciales válidas, mostrar otra pantalla o realizar alguna acción
-                System.out.println("Login successful");
-                Stage casoError = new Stage();
-                var label = new Label("El nombre esta mal, a Disney!");
-                label.setPadding(new Insets(0, 0, 0, 20));
-                Scene scene = new Scene(label, 200, 100);
-                casoError.setScene(scene);
-                casoError.setTitle("Error");
-                casoError.showAndWait();
-            } else {
-                // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción
-                System.out.println("Login failed");
-            }
-        });
-
-
-        // Information button
-        Button informacion = new Button("INFORMACION");
-        informacion.setStyle(loginStyle);
-        Stage popUpMenu = new Stage();
-        popUpMenu.getIcons().add(icon);
-        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu));
-
-
-        // Crear el diseño del formulario
-        GridPane gridPane = new GridPane();
-        gridPane.setAlignment(Pos.CENTER); // Centrar el GridPane en medio de la pantalla
-        gridPane.setPadding(new Insets(10));
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
 
         // Cargar Video
         MediaPlayer mediaPlayer = Input.getInstance().mediaPlayer("loginVideo");
@@ -125,6 +70,63 @@ public class Login extends Application {
             }
         });
 
+        // Crear controles
+        //Titulo
+        Label titulo = new Label("Ingrese un nombre de usuario");
+        titulo.setStyle(loginStyle);
+
+        // Username
+        Label usernameLabel = new Label();
+        usernameLabel.setStyle("-fx-background-color: white;");
+        TextField usernameField = new TextField();
+        usernameField.setPromptText("Minimo 6 digitos.");
+        usernameField.setStyle(infoStyle);
+        usernameField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> usernameField.setEffect(shadow));
+        usernameField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> usernameField.setEffect(null));
+
+        // Boton Empezar
+        Button empezarButton = new Button("Empezar el juego");
+        empezarButton.setStyle(loginStyle);
+        empezarButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> empezarButton.setEffect(shadow));
+        empezarButton.addEventHandler(MouseEvent.MOUSE_EXITED, e -> empezarButton.setEffect(null));
+        empezarButton.setOnAction(event -> {
+            // Lógica de verificación de credenciales aquí
+            String username = usernameField.getText();
+            // Realizar la autenticación y verificar las credenciales ingresadas
+            if (authenticate(username)) {
+                // Credenciales válidas, mostrar otra pantalla o realizar alguna acción
+                System.out.println("Login successful");
+                Main iniciarEvent = new Main(primaryStage,new TextField(username),mediaPlayer);
+                iniciarEvent.handle(event);
+            } else {
+                // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción
+                System.out.println("Login failed");
+                Stage casoError = new Stage();
+                var label = new Label("El nombre debe ser mayor a 0 y menor a 6 digitos.");
+                StackPane layout = new StackPane(label);
+                Scene scene = new Scene(layout, 200, 100);
+                casoError.setScene(scene);
+                casoError.setTitle("Error");
+                casoError.showAndWait();
+            }
+        });
+
+
+        // Information button
+        Button informacion = new Button("INFORMACION");
+        informacion.setStyle(loginStyle);
+        Stage popUpMenu = new Stage();
+        popUpMenu.getIcons().add(icon);
+        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu));
+
+
+        // Crear el diseño del formulario
+        GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.CENTER); // Centrar el GridPane en medio de la pantalla
+        gridPane.setPadding(new Insets(10));
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+
         // Agregar los controles al diseño
         gridPane.add(titulo, 0, 1);
         gridPane.add(usernameLabel, 0, 1);
@@ -152,7 +154,7 @@ public class Login extends Application {
 
     private boolean authenticate(String username) {
         // Devuelve true si 6 < username < 10
-        return username.length() < 6; //&& username.length() < 10;
+        return (username.length() > 0 && username.length() < 6);
     }
 
     // Centrar la ventana
@@ -169,3 +171,4 @@ public class Login extends Application {
         stage.setY(centerY);
     }
 }
+

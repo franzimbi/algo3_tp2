@@ -12,9 +12,13 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
@@ -25,24 +29,13 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
     private final Image icon;
     private final String loginStyle;
     private final Stage popUpMenu;
-    private final ArrayList<Defensa> defensas;
-    private final ArrayList<Enemigo> enemigosArray;
+
 
     public InformacionEventHandle(Image icon, String loginStyle, Stage popUpMenu) {
         this.icon = icon;
         this.loginStyle = loginStyle;
         this.popUpMenu = popUpMenu;
 
-        this.defensas = new ArrayList<>();
-        defensas.add(new TorreBlanca());
-        defensas.add(new TorrePlateada());
-        defensas.add(new TrampaArenosa());
-
-        this.enemigosArray = new ArrayList<>();
-        enemigosArray.add(new Arania());
-        enemigosArray.add(new Hormiga());
-        enemigosArray.add(new Topo());
-        enemigosArray.add(new Lechuza());
     }
 
     @Override
@@ -76,26 +69,8 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         acercaDe.setPrefSize(buttonWidth, buttonHeight);
         creditos.setPrefSize(buttonWidth, buttonHeight);
 
-        enemigos.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, en -> {
-            GridPane enemigosMenu = new GridPane();
-
-            for (Enemigo enemigo: enemigosArray) {
-
-            }
-
-            TextField arania = new TextField("Hola Fran");
-            arania.setFocusTraversable(false);
-            arania.setEditable(false);
-
-            //informacion 2do popUp
-            enemigosMenu.add(arania, 0, 0);
-
-            StackPane stackPane = new StackPane(enemigosMenu);
-            Scene scene = new Scene(stackPane, 200, 200);
-            popUpMenu1.setScene(scene);
-            popUpMenu1.show();
-        });
-//        enemigos.addEventHandler(MouseEvent.MOUSE_EXITED, en -> popUpMenu1.close());
+        enemigos.addEventHandler(MouseEvent.MOUSE_CLICKED, new EnemigoInformacionEventHandler(popUpMenu1));
+        defensas.addEventHandler(MouseEvent.MOUSE_CLICKED, new DefensaInformacionEventHandler(popUpMenu1));
 
         //botones primer popUp
         gridMenu.add(comoJugar, 0, 0);
