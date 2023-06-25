@@ -3,6 +3,7 @@ package edu.fiuba.algo3.interfaz;
 import edu.fiuba.algo3.modelo.enemigos.*;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -34,6 +35,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
     @Override
     public void handle(javafx.scene.input.MouseEvent mouseEvent){
         GridPane enemigosMenu = new GridPane();
+        enemigosMenu.setAlignment(Pos.CENTER);
         enemigosMenu.setGridLinesVisible(true);
         int columna = 0;
 
@@ -66,7 +68,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
         }
 
         StackPane stackPane = new StackPane(enemigosMenu);
-        Scene scene = new Scene(stackPane, 455,315);
+        Scene scene = new Scene(stackPane, 435,315);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }

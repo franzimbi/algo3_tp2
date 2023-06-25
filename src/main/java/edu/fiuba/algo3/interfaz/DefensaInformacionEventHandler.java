@@ -83,7 +83,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
         }
 
         StackPane stackPane = new StackPane(enemigosMenu);
-        Scene scene = new Scene(stackPane, 300, 300);
+        Scene scene = new Scene(stackPane, 458, 270);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }

@@ -44,6 +44,8 @@ public class Input {
         this.mediaPlayer = new HashMap<>();
         this.mediaPlayer.put("loginMusic", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/theHorde.mp3").toURI().toString())));
         this.mediaPlayer.put("loginVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/towerDefense.mp4").toURI().toString())));
+        this.mediaPlayer.put("perdioMusic", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/disneyMusic.mp3").toURI().toString())));
+        this.mediaPlayer.put("perdioVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/disney.mp4").toURI().toString())));
 
         this.informacion = new HashMap<>();
         Map lechuza = new HashMap<String, String>();
@@ -57,7 +59,7 @@ public class Input {
         topo.put("Energia", "Inmune");
         topo.put("Velocidad", "1/2/3");
         topo.put("Recompensa", "0");
-        topo.put("Info", "Informacion:\nel topo aumenta su\n velocidad en 1\ncada 5 turnos\n hasta un maximo\nde 3, es inmune a las\na las torres y pega un\ndanio dependiendo\nde si el turnos es\npar/impar (5/2)");
+        topo.put("Info", "Informacion:\naumenta su\n velocidad en 1\ncada 5 turnos\n hasta un maximo\nde 3, inmune a las\ntorres y eldanio\ndependiendo de si\nel turnos es\npar/impar (5/2)");
         this.informacion.put("Topo",topo);
 
         Map hormiga = new HashMap<String, String>();

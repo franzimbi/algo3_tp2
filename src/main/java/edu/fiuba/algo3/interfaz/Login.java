@@ -36,7 +36,7 @@ public class Login extends Application {
         primaryStage.setTitle("Tower Defense");
         String infoStyle = "-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;";
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
-        String musicStyle = "-fx-background-color: transparent; -fx-text-fill: #ffffff; -fx-font-size: 14px";
+        String musicStyle = "-fx-background-color: #333333; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         DropShadow shadow = new DropShadow();
 
         // Cargar Video
@@ -70,6 +70,13 @@ public class Login extends Application {
             }
         });
 
+        // Information button
+        Button informacion = new Button("INFORMACION");
+        informacion.setStyle(loginStyle);
+        Stage popUpMenu = new Stage();
+        popUpMenu.getIcons().add(icon);
+        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu));
+
         // Crear controles
         //Titulo
         Label titulo = new Label("Ingrese un nombre de usuario");
@@ -79,7 +86,7 @@ public class Login extends Application {
         Label usernameLabel = new Label();
         usernameLabel.setStyle("-fx-background-color: white;");
         TextField usernameField = new TextField();
-        usernameField.setPromptText("Minimo 6 digitos.");
+        usernameField.setPromptText("Max 6 digitos.");
         usernameField.setStyle(infoStyle);
         usernameField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> usernameField.setEffect(shadow));
         usernameField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> usernameField.setEffect(null));
@@ -96,7 +103,7 @@ public class Login extends Application {
             if (authenticate(username)) {
                 // Credenciales válidas, mostrar otra pantalla o realizar alguna acción
                 System.out.println("Login successful");
-                Main iniciarEvent = new Main(primaryStage,new TextField(username),mediaPlayer);
+                Main iniciarEvent = new Main(primaryStage,new TextField(username), botonMusica, informacion);
                 iniciarEvent.handle(event);
             } else {
                 // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción
@@ -112,12 +119,7 @@ public class Login extends Application {
         });
 
 
-        // Information button
-        Button informacion = new Button("INFORMACION");
-        informacion.setStyle(loginStyle);
-        Stage popUpMenu = new Stage();
-        popUpMenu.getIcons().add(icon);
-        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu));
+
 
 
         // Crear el diseño del formulario
@@ -141,6 +143,7 @@ public class Login extends Application {
         stackPane.getChildren().add(botonMusica);
         stackPane.getChildren().add(informacion);
         StackPane.setMargin(informacion, new Insets(5));
+        StackPane.setMargin(botonMusica, new Insets(5));
 
         // Crear la escena y mostrarla en el escenario
         Scene scene = new Scene(stackPane);

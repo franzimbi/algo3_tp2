@@ -22,7 +22,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -34,15 +33,18 @@ import java.util.ArrayList;
 public class Main implements EventHandler<ActionEvent> {
     private final TextField nombre;
     private final Stage stage;
-    private final MediaPlayer media;
+    private final Button botonMusica;
+    private final Button botonInformacion;
+
     private Parent tablero;
     private ArrayList<StackPane> coordenadas;
     private ArrayList<StackPane> coordenadas2;
 
-    public Main(Stage stage, TextField nombre, MediaPlayer mediaPlayer) {
+    public Main(Stage stage, TextField nombre, Button botonMusica, Button botonInformacion) {
         this.stage = stage;
         this.nombre = nombre;
-        this.media = mediaPlayer;
+        this.botonMusica = botonMusica;
+        this.botonInformacion = botonInformacion;
         this.coordenadas = new ArrayList<>();
         this.coordenadas2 = new ArrayList<>();
     }
@@ -67,10 +69,14 @@ public class Main implements EventHandler<ActionEvent> {
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage, juego, this));
 
+        VBox informacion = datos.generarDatos(juego, nombre, pasarTurno, stage);
+        HBox botones = new HBox(this.botonMusica, this.botonInformacion);
+        HBox todo = new HBox(ventana, informacion, botones);
+        HBox.setMargin(botones, new Insets(5, 5, 5, 100));
+        HBox.setMargin(this.botonMusica, new Insets(5, 5, 5, 5));
+        HBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 5));
 
-        VBox informacion = datos.generarDatos(juego, nombre, pasarTurno, media);
-
-        HBox todo = new HBox(ventana, informacion);
+        // Main juego pre pasar turno
         todo.setStyle("-fx-background-color: #070d26;");
         Scene escena = new Scene(todo);
         stage.setScene(escena);
@@ -107,17 +113,15 @@ public class Main implements EventHandler<ActionEvent> {
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage, juego, this));
 
-        VBox informacion = new Datos().generarDatos(juego, nombre, pasarTurno, media);
-        HBox todo = new HBox(ventana, informacion);
+        VBox informacion = new Datos().generarDatos(juego, nombre, pasarTurno, stage);
+        HBox botones = new HBox(this.botonMusica, this.botonInformacion);
+        HBox todo = new HBox(ventana, informacion, botones);
+        HBox.setMargin(botones, new Insets(5, 5, 5, 100));
+        HBox.setMargin(this.botonMusica, new Insets(5, 5, 5, 5));
+        HBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 5));
         todo.setStyle("-fx-background-color: #070d26;");
 
-        //Scene escena = new Scene(todo);
-        Parent parent = todo;
-        return parent;
-        //escena.setFill(javafx.scene.paint.Color.BLACK);
-        //stage.setScene(escena);
-        /*stage.setMaximized(false);
-        stage.setMaximized(true);*/
+        return todo;
     }
 
     public void tratarError(String mensaje) {
