@@ -25,7 +25,7 @@
 			"hormiga": 12,
 			"arana": 3,
 			"topo": 0,
-			"lechuza": 1
+			"lechuza": 0
 		}
 
 	},
@@ -73,7 +73,7 @@
 		"hormiga": 0,
 		"arana": 1,
 		"topo": 0,
-		"lechuza": 1
+		"lechuza": 0
 	}
 
 },	{
@@ -106,19 +106,19 @@
 },	{
 	"turno": 12,
 	"enemigos": {
-		"hormiga": 0,
+		"hormiga": 1,
 		"arana": 0,
 		"topo": 0,
-		"lechuza": 1
+		"lechuza": 0
 	}
 
 },	{
 	"turno": 13,
 	"enemigos": {
-		"hormiga": 0,
+		"hormiga": 1,
 		"arana": 1,
 		"topo": 0,
-		"lechuza": 1
+		"lechuza": 0
 	}
 
 },	{
@@ -142,10 +142,10 @@
 },	{
 	"turno": 16,
 	"enemigos": {
-		"hormiga": 0,
+		"hormiga": 1,
 		"arana": 0,
 		"topo": 0,
-		"lechuza": 2
+		"lechuza": 0
 	}
 
 },	{
@@ -208,7 +208,7 @@
 		"hormiga": 1,
 		"arana": 0,
 		"topo": 0,
-		"lechuza": 1
+		"lechuza": 0
 	}
 
 },	{
@@ -316,7 +316,7 @@
 		"hormiga": 0,
 		"arana": 1,
 		"topo": 0,
-		"lechuza": 3
+		"lechuza": 1
 	}
 
 },	{
@@ -325,7 +325,7 @@
 		"hormiga": 0,
 		"arana": 1,
 		"topo": 0,
-		"lechuza": 3
+		"lechuza": 1
 	}
 
 },	{
@@ -334,7 +334,7 @@
 		"hormiga": 0,
 		"arana": 0,
 		"topo": 0,
-		"lechuza": 4
+		"lechuza": 1
 	}
 
 },	{
@@ -379,7 +379,7 @@
 		"hormiga": 0,
 		"arana": 5,
 		"topo": 0,
-		"lechuza": 3
+		"lechuza": 0
 	}
 
 },	{
@@ -388,7 +388,7 @@
 		"hormiga": 0,
 		"arana": 5,
 		"topo": 0,
-		"lechuza": 3
+		"lechuza": 1
 	}
 
 },	{
@@ -397,7 +397,7 @@
 		"hormiga": 1,
 		"arana": 2,
 		"topo": 0,
-		"lechuza": 3
+		"lechuza": 0
 	}
 
 },	{
@@ -406,7 +406,7 @@
 		"hormiga": 10,
 		"arana": 2,
 		"topo": 0,
-		"lechuza": 3
+		"lechuza": 1
 	}
 
 }
