@@ -21,7 +21,7 @@ public class CreditosEvenHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(javafx.scene.input.MouseEvent mouseEvent) {
-        popUpMenu1.setTitle("Como Jugar");
+        popUpMenu1.setTitle("Creditos");
         popUpMenu1.getIcons().add(icon);
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
 

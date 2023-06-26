@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
 import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
+import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
+import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import javafx.event.EventHandler;
@@ -59,14 +61,27 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
             defensaBoton.setGraphic(vistaBoton);
             defensaBoton.setStyle(color);
             defensaBoton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 16px";
                     try {
                         this.juego.agregarDefensa(defensa, coordenadas);
-                    } catch (Exception exception) {
-                        String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 16px";
+                    } catch (ParcelaNoPuedeUbicarError exception) {
                         Stage casoError = new Stage();
                         casoError.initModality(Modality.WINDOW_MODAL);
                         casoError.initOwner(ventanaDefensas);
                         var label = new Label("No se puede agregar " + defensa.getNombre() + " en  esta ubicacion.");
+                        label.setStyle(loginStyle);
+                        label.setPadding(new Insets(0, 0, 0, 20));
+                        StackPane stack = new StackPane(label);
+                        stack.setStyle("-fx-background-color: #070d26;");
+                        Scene scene = new Scene(stack, 450, 100);
+                        casoError.setScene(scene);
+                        casoError.setTitle("OOPS");
+                        casoError.showAndWait();
+                    } catch (CreditosInsuficientesError exception) {
+                        Stage casoError = new Stage();
+                        casoError.initModality(Modality.WINDOW_MODAL);
+                        casoError.initOwner(ventanaDefensas);
+                        var label = new Label("Creditos Insuficientes para " + defensa.getNombre());
                         label.setStyle(loginStyle);
                         label.setPadding(new Insets(0, 0, 0, 20));
                         StackPane stack = new StackPane(label);
