@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
     public void handle(MouseEvent aE) {
         String color = "-fx-background-color: #F4C2C2;";
         Stage ventanaDefensas = new Stage();
+        ventanaDefensas.initModality(Modality.WINDOW_MODAL);
+        ventanaDefensas.initOwner(stage);
 
         ArrayList<Defensa> defensas = new ArrayList<>();
         defensas.add(new TorreBlanca());

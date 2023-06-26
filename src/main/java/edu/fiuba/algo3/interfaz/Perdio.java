@@ -54,7 +54,7 @@ public class Perdio implements EventHandler<ActionEvent> {
         botonMusica.setStyle(musicStyle);
 
         //titulo perdiste!
-        Label titulo = new Label(nombre.getText() + " PERDISTE!");
+        Label titulo = new Label(nombre.getText() + "!, PERDISTE!");
         titulo.setStyle("-fx-font-size: 30px; -fx-text-fill: #ffffff");
         titulo.setEffect(shadow);
 

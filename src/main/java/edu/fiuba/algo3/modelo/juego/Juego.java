@@ -17,6 +17,7 @@ public class Juego {
     private final Jugador jugador;
     private final Mapa mapa;
     private final Turnos turnos;
+    private Boolean empezo = false;
 
     public Juego(Jugador jugador, Lector lector, String rutaMapa, String rutaTurnos) {
         this.jugador = jugador;
@@ -53,7 +54,12 @@ public class Juego {
     }
 
     public void juegoEmpezar() {
+        this.empezo = true;
         this.turnoEnemigos();
+    }
+
+    public boolean empezo() {
+        return this.empezo;
     }
 
     public boolean gano() {

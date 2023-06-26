@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -28,8 +29,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Main implements EventHandler<ActionEvent> {
@@ -42,6 +45,8 @@ public class Main implements EventHandler<ActionEvent> {
     private ArrayList<StackPane> coordenadas;
     private ArrayList<StackPane> coordenadas2;
 
+    private final Image icono;
+
     public Main(Stage stage, TextField nombre, Button botonMusica, Button botonInformacion, MediaPlayer music) {
         this.stage = stage;
         this.nombre = nombre;
@@ -50,10 +55,14 @@ public class Main implements EventHandler<ActionEvent> {
         this.botonInformacion = botonInformacion;
         this.coordenadas = new ArrayList<>();
         this.coordenadas2 = new ArrayList<>();
+        this.icono = new Image(String.valueOf(new File("src/main/java/edu/fiuba/algo3/resources/imagenes/windowIcon.png").toURI().toString()));
+
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        stage.setTitle("Tower Defense");
+        stage.getIcons().add(icono);
         StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
         String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigos.json";
@@ -77,9 +86,7 @@ public class Main implements EventHandler<ActionEvent> {
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         Button fullScreen = new Button("FULLSCREEN");
         fullScreen.setStyle(loginStyle);
-        fullScreen.setOnAction(event -> {
-            stage.setFullScreen(!stage.isFullScreen());
-        });
+        fullScreen.setOnAction(event -> stage.setFullScreen(!stage.isFullScreen()));
 
         VBox informacion = datos.generarDatos(juego, nombre, pasarTurno);
         VBox botones = new VBox(botonMusica, fullScreen, this.botonInformacion);
@@ -93,12 +100,17 @@ public class Main implements EventHandler<ActionEvent> {
         HBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 5));
         HBox.setMargin(fullScreen, new Insets(5, 5, 5, 5));
 
+        double buttonWidth = 115;
+        double buttonHeight = 30;
+        fullScreen.setPrefSize(buttonWidth, buttonHeight);
+        botonInformacion.setPrefSize(buttonWidth, buttonHeight);
+
         // Main juego pre pasar turno
         todo.setStyle("-fx-background-color: #070d26;");
         Scene escena = new Scene(todo);
         stage.setScene(escena);
         stage.setMaximized(true);
-        stage.setTitle("Tower Defense");
+
         stage.show();
     }
 
@@ -122,6 +134,64 @@ public class Main implements EventHandler<ActionEvent> {
             music.pause();
             Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
             perdiste.handle(new ActionEvent());
+        } else if (juego.gano() && juego.empezo()) {
+            Stage primaryStage = new Stage();
+            primaryStage.initModality(Modality.WINDOW_MODAL);
+            primaryStage.initOwner(stage);
+            primaryStage.getIcons().add(this.icono);
+            primaryStage.setTitle("Tower Defense");
+            String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 20px";
+            DropShadow shadow = new DropShadow();
+
+
+            //titulo ganaste!
+            Label titulo = new Label(nombre.getText() + ", GANASTE!");
+            titulo.setStyle("-fx-font-size: 30px; -fx-text-fill: #ffffff");
+            titulo.setEffect(shadow);
+
+            // Boton Reiniciar
+            Button reiniciarBoton = new Button("Reiniciar");
+            reiniciarBoton.setStyle(loginStyle);
+            reiniciarBoton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> reiniciarBoton.setEffect(shadow));
+            reiniciarBoton.addEventHandler(MouseEvent.MOUSE_EXITED, e -> reiniciarBoton.setEffect(null));
+            reiniciarBoton.setOnAction(event -> {
+                Main iniciarEvent = new Main(primaryStage, nombre, botonMusica, botonInformacion, this.music);
+                iniciarEvent.handle(event);
+            });
+
+            //Boton exit
+            Button exit = new Button("EXIT");
+            exit.setStyle(loginStyle);
+            exit.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> exit.setEffect(shadow));
+            exit.addEventHandler(MouseEvent.MOUSE_EXITED, e -> exit.setEffect(null));
+            exit.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> System.exit(0));
+
+            double buttonWidth = 325;
+            double buttonHeight = 50;
+            reiniciarBoton.setPrefSize(buttonWidth, buttonHeight);
+            exit.setPrefSize(buttonWidth, buttonHeight);
+            titulo.setPrefSize(buttonWidth, buttonHeight);
+
+            // Crear el diseño del formulario
+            GridPane gridPane = new GridPane();
+            gridPane.setAlignment(Pos.CENTER); // Centrar el GridPane en medio de la pantalla
+            gridPane.setPadding(new Insets(10));
+            gridPane.setHgap(10);
+            gridPane.setVgap(10);
+
+            // Agregar los controles al diseño
+            gridPane.add(titulo, 0, 1);
+            gridPane.add(reiniciarBoton, 0, 2);
+            gridPane.add(exit, 0, 3);
+
+            StackPane stackPane = new StackPane(gridPane); // Apilar el video y el formulario
+            stackPane.setStyle("-fx-background-color: #070d26;");
+            // Crear la escena y mostrarla en el escenario
+            Scene scene = new Scene(stackPane);
+            primaryStage.setScene(scene);
+            primaryStage.setMaxHeight(300);
+            primaryStage.setMaxWidth(400);
+            primaryStage.show();
         }
 
         StackPane ventana = new StackPane();
@@ -140,9 +210,7 @@ public class Main implements EventHandler<ActionEvent> {
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         Button fullScreen = new Button("FULLSCREEN");
         fullScreen.setStyle(loginStyle);
-        fullScreen.setOnAction(event -> {
-            stage.setFullScreen(!stage.isFullScreen());
-        });
+        fullScreen.setOnAction(event -> stage.setFullScreen(!stage.isFullScreen()));
 
         VBox informacion = new Datos().generarDatos(juego, nombre, pasarTurno);
         VBox botones = new VBox(botonMusica, fullScreen, this.botonInformacion);
@@ -155,11 +223,18 @@ public class Main implements EventHandler<ActionEvent> {
         HBox.setMargin(this.botonMusica, new Insets(5, 5, 5, 5));
         HBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 5));
         HBox.setMargin(fullScreen, new Insets(5, 5, 5, 5));
+
+        double buttonWidth = 115;
+        double buttonHeight = 30;
+        fullScreen.setPrefSize(buttonWidth, buttonHeight);
+        botonInformacion.setPrefSize(buttonWidth, buttonHeight);
+
         todo.setStyle("-fx-background-color: #070d26;");
         return todo;
     }
 
-    public void tratarError(String mensaje) {
+    //no se usa
+   /* public void tratarError(String mensaje) {
         Stage casoError = new Stage();
         var label = new Label(mensaje);
         label.setPadding(new Insets(0, 0, 0, 20));
@@ -167,7 +242,7 @@ public class Main implements EventHandler<ActionEvent> {
         casoError.setScene(scene);
         casoError.setTitle("Error");
         casoError.showAndWait();
-    }
+    }*/
 
     public Image enemigos(Enemigo enemigo) {
         return Input.getInstance().imagenEnemigo(enemigo.getNombre()).getImage();
@@ -214,7 +289,7 @@ public class Main implements EventHandler<ActionEvent> {
         return tablero;
     }
 
-    public class escribir implements EventHandler<ActionEvent> {
+    public static class escribir implements EventHandler<ActionEvent> {
         public void handle(ActionEvent actionEvent) {
             System.out.println("No se puede...");
         }

@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.MotionBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -51,6 +52,7 @@ public class Login extends Application {
 
         // Boton Musica
         Button botonMusica = new Button();
+        botonMusica.setEffect(shadow);
         ImageView musicaOff = Input.getInstance().media("musicOff");
         ImageView musicaOn = Input.getInstance().media("musicOn");
         musicaOn.setFitHeight(20);
@@ -62,6 +64,7 @@ public class Login extends Application {
         // Information button
         Button informacion = new Button("INFORMACION");
         informacion.setStyle(loginStyle);
+        informacion.setEffect(shadow);
         Stage popUpMenu = new Stage();
         popUpMenu.initModality(Modality.WINDOW_MODAL);
         popUpMenu.initOwner(primaryStage);
@@ -71,9 +74,8 @@ public class Login extends Application {
         // FullScreen button
         Button fullScreen = new Button("FULLSCREEN");
         fullScreen.setStyle(loginStyle);
-        fullScreen.setOnAction(event -> {
-            primaryStage.setFullScreen(!primaryStage.isFullScreen());
-        });
+        fullScreen.setEffect(shadow);
+        fullScreen.setOnAction(event -> primaryStage.setFullScreen(!primaryStage.isFullScreen()));
 
         // Crear controles
         //Titulo
@@ -144,8 +146,12 @@ public class Login extends Application {
         gridPane.add(empezarButton, 0, 3);
 
         MediaView mediaView = new MediaView(mediaPlayer);
-        StackPane stackPane = new StackPane(mediaView, gridPane); // Apilar el video y el formulario
 
+        MotionBlur motionBlur = new MotionBlur(4, 4);
+        gridPane.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> mediaView.setEffect(motionBlur));
+        gridPane.addEventHandler(MouseEvent.MOUSE_EXITED, e -> mediaView.setEffect(null));
+
+        StackPane stackPane = new StackPane(mediaView, gridPane); // Apilar el video y el formulario
         StackPane.setAlignment(botonMusica, Pos.TOP_RIGHT);
         StackPane.setAlignment(informacion, Pos.TOP_LEFT);
         StackPane.setAlignment(fullScreen, Pos.BOTTOM_RIGHT);
@@ -184,5 +190,6 @@ public class Login extends Application {
         stage.setX(centerX);
         stage.setY(centerY);
     }
+
 }
 

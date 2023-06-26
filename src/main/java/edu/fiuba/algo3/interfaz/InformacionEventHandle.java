@@ -1,29 +1,19 @@
 package edu.fiuba.algo3.interfaz;
 
-import edu.fiuba.algo3.modelo.defensa.Defensa;
-import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
-import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
-import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
-import edu.fiuba.algo3.modelo.enemigos.*;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+import javafx.scene.effect.InnerShadow;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
-
-import java.util.ArrayList;
 
 public class InformacionEventHandle implements EventHandler<MouseEvent> {
 
@@ -38,10 +28,11 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
     }
 
     @Override
-    public void handle(MouseEvent aE){
-        Stage popUpMenu1 = new Stage();
+    public void handle(MouseEvent aE) {
         popUpMenu.getIcons().add(icon);
-        popUpMenu1.setTitle("Juego Informacion");
+        popUpMenu.setTitle("Info");
+        InnerShadow innerShadow = new InnerShadow();
+        Stage popUpMenu1 = new Stage();
 
         popUpMenu1.initModality(Modality.WINDOW_MODAL);
         popUpMenu1.initOwner(popUpMenu);
@@ -56,6 +47,11 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         Button enemigos = new Button("ENEMIGOS");
         Button acercaDe = new Button("ACERCA DE");
         Button creditos = new Button("CREDITOS");
+
+        effect(innerShadow, comoJugar, defensas);
+        effect(innerShadow, enemigos, acercaDe);
+        creditos.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> creditos.setEffect(innerShadow));
+        creditos.addEventHandler(MouseEvent.MOUSE_EXITED, e -> creditos.setEffect(null));
 
         comoJugar.setStyle(loginStyle);
         defensas.setStyle(loginStyle);
@@ -81,19 +77,26 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         gridMenu.add(enemigos, 0, 2);
         gridMenu.add(acercaDe, 0, 3);
         gridMenu.add(creditos, 0, 4);
-        gridMenu.setHgrow(comoJugar, Priority.ALWAYS);
-        gridMenu.setHalignment(comoJugar, HPos.CENTER);
-        gridMenu.setHalignment(defensas, HPos.CENTER);
-        gridMenu.setHalignment(enemigos, HPos.CENTER);
-        gridMenu.setHalignment(acercaDe, HPos.CENTER);
-        gridMenu.setHalignment(creditos, HPos.CENTER);
+        GridPane.setHgrow(comoJugar, Priority.ALWAYS);
+        GridPane.setHalignment(comoJugar, HPos.CENTER);
+        GridPane.setHalignment(defensas, HPos.CENTER);
+        GridPane.setHalignment(enemigos, HPos.CENTER);
+        GridPane.setHalignment(acercaDe, HPos.CENTER);
+        GridPane.setHalignment(creditos, HPos.CENTER);
 
 
         StackPane stackPane1 = new StackPane(gridMenu);
-        stackPane1.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, null, null))); // Establecer el fondo
+        stackPane1.setStyle("-fx-background-color: #070d26;");
 
-        Scene scene1 = new Scene(stackPane1, 190, 250);
+        Scene scene1 = new Scene(stackPane1, 195, 250);
         popUpMenu.setScene(scene1);
         popUpMenu.show();
+    }
+
+    private void effect(InnerShadow innerShadow, Button enemigos, Button acercaDe) {
+        enemigos.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> enemigos.setEffect(innerShadow));
+        enemigos.addEventHandler(MouseEvent.MOUSE_EXITED, e -> enemigos.setEffect(null));
+        acercaDe.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> acercaDe.setEffect(innerShadow));
+        acercaDe.addEventHandler(MouseEvent.MOUSE_EXITED, e -> acercaDe.setEffect(null));
     }
 }

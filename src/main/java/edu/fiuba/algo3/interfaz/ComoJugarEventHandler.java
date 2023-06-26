@@ -8,10 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-
-import java.awt.*;
 
 public class ComoJugarEventHandler implements EventHandler<MouseEvent> {
     private final Stage popUpMenu1;
