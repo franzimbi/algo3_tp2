@@ -39,6 +39,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
     public void handle(javafx.scene.input.MouseEvent mouseEvent){
         popUpMenu1.getIcons().add(icon);
         popUpMenu1.setTitle("Enemigos Informacion");
+        String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
 
         GridPane enemigosMenu = new GridPane();
         enemigosMenu.setAlignment(Pos.CENTER);
@@ -55,10 +56,15 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
 
             Text nombre = new Text(enemigo.getNombre());
             nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
+            nombre.setStyle(loginStyle);
             Text velocidad = new Text("Velocidad: " + Input.getInstance().informacion(enemigo.getNombre(), "Velocidad"));
+            velocidad.setStyle(loginStyle);
             Text vida = new Text("Energia: " + Input.getInstance().informacion(enemigo.getNombre(), "Energia"));
+            vida.setStyle(loginStyle);
             Text recompensa = new Text("Recompensa: " + Input.getInstance().informacion(enemigo.getNombre(), "Recompensa"));
+            recompensa.setStyle(loginStyle);
             Text info = new Text(Input.getInstance().informacion(enemigo.getNombre(), "Info"));
+            info.setStyle(loginStyle);
 
             cajaVertical.getChildren().addAll(enemigoBoton, nombre, velocidad, vida, info);
 
@@ -74,6 +80,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
         }
 
         StackPane stackPane = new StackPane(enemigosMenu);
+        stackPane.setStyle("-fx-background-color: #070d26;");
         Scene scene = new Scene(stackPane, 435,315);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();

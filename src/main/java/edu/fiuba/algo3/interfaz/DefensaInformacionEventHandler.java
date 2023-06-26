@@ -43,6 +43,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
         popUpMenu1.setTitle("Defensas Informacion");
         GridPane enemigosMenu = new GridPane();
         enemigosMenu.setGridLinesVisible(true);
+        String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         int columna = 0;
 
         for (Defensa defensa: defensas) {
@@ -55,10 +56,15 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
 
             Text nombre = new Text(defensa.getNombre());
             nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
+            nombre.setStyle(loginStyle);
             Text costo = new Text("Costo: " + Input.getInstance().informacion(defensa.getNombre(), "Costo"));
+            costo.setStyle(loginStyle);
             Text danio = new Text("Danio: " + Input.getInstance().informacion(defensa.getNombre(), "Danio"));
+            danio.setStyle(loginStyle);
             Text rango = new Text("Rango: " + Input.getInstance().informacion(defensa.getNombre(), "Rango"));
+            rango.setStyle(loginStyle);
             Text operativa = new Text("Operativa En: " + Input.getInstance().informacion(defensa.getNombre() , "OperativaEn"));
+            operativa.setStyle(loginStyle);
 
             Button parcelaBoton = new Button();
             ImageView vistaParcela = Input.getInstance().imagenParcela(Input.getInstance().informacion(defensa.getNombre(), "UbicarEn"));
@@ -87,6 +93,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
         }
 
         StackPane stackPane = new StackPane(enemigosMenu);
+        stackPane.setStyle("-fx-background-color: #070d26;");
         Scene scene = new Scene(stackPane, 458, 270);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();

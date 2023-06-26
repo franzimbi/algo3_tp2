@@ -86,7 +86,7 @@ public class Login extends Application {
         Label usernameLabel = new Label();
         usernameLabel.setStyle("-fx-background-color: white;");
         TextField usernameField = new TextField();
-        usernameField.setPromptText("Maximo 6 digitos.");
+        usernameField.setPromptText("Minimo 6 digitos.");
         usernameField.setStyle(infoStyle);
         usernameField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> usernameField.setEffect(shadow));
         usernameField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> usernameField.setEffect(null));

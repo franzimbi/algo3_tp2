@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz;
 
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -45,6 +46,7 @@ public class Input {
         this.mediaPlayer.put("loginMusic", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/theHorde.mp3").toURI().toString())));
         this.mediaPlayer.put("loginVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/towerDefense.mp4").toURI().toString())));
         this.mediaPlayer.put("perdioVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/disney.mp4").toURI().toString())));
+        this.mediaPlayer.put("ganoVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/gano.mp4").toURI().toString())));
 
         this.informacion = new HashMap<>();
         Map lechuza = new HashMap<String, String>();

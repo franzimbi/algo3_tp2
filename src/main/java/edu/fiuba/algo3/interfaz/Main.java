@@ -92,8 +92,8 @@ public class Main implements EventHandler<ActionEvent> {
         VBox botones = new VBox(botonMusica, fullScreen, this.botonInformacion);
         botones.setAlignment(Pos.CENTER_RIGHT);
         VBox.setMargin(this.botonMusica, new Insets(5, 5, 220, 155));
-        VBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 155));
-        VBox.setMargin(fullScreen, new Insets(400, 5, 5, 155));
+        VBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 95));
+        VBox.setMargin(fullScreen, new Insets(400, 5, 5, 95));
 
         HBox todo = new HBox(ventana, informacion, botones);
         HBox.setMargin(this.botonMusica, new Insets(5, 5, 5, 5));
@@ -135,63 +135,10 @@ public class Main implements EventHandler<ActionEvent> {
             Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
             perdiste.handle(new ActionEvent());
         } else if (juego.gano() && juego.empezo()) {
-            Stage primaryStage = new Stage();
-            primaryStage.initModality(Modality.WINDOW_MODAL);
-            primaryStage.initOwner(stage);
-            primaryStage.getIcons().add(this.icono);
-            primaryStage.setTitle("Tower Defense");
-            String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 20px";
-            DropShadow shadow = new DropShadow();
-
-
-            //titulo ganaste!
-            Label titulo = new Label(nombre.getText() + ", GANASTE!");
-            titulo.setStyle("-fx-font-size: 30px; -fx-text-fill: #ffffff");
-            titulo.setEffect(shadow);
-
-            // Boton Reiniciar
-            Button reiniciarBoton = new Button("Reiniciar");
-            reiniciarBoton.setStyle(loginStyle);
-            reiniciarBoton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> reiniciarBoton.setEffect(shadow));
-            reiniciarBoton.addEventHandler(MouseEvent.MOUSE_EXITED, e -> reiniciarBoton.setEffect(null));
-            reiniciarBoton.setOnAction(event -> {
-                Main iniciarEvent = new Main(primaryStage, nombre, botonMusica, botonInformacion, this.music);
-                iniciarEvent.handle(event);
-            });
-
-            //Boton exit
-            Button exit = new Button("EXIT");
-            exit.setStyle(loginStyle);
-            exit.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> exit.setEffect(shadow));
-            exit.addEventHandler(MouseEvent.MOUSE_EXITED, e -> exit.setEffect(null));
-            exit.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> System.exit(0));
-
-            double buttonWidth = 325;
-            double buttonHeight = 50;
-            reiniciarBoton.setPrefSize(buttonWidth, buttonHeight);
-            exit.setPrefSize(buttonWidth, buttonHeight);
-            titulo.setPrefSize(buttonWidth, buttonHeight);
-
-            // Crear el diseño del formulario
-            GridPane gridPane = new GridPane();
-            gridPane.setAlignment(Pos.CENTER); // Centrar el GridPane en medio de la pantalla
-            gridPane.setPadding(new Insets(10));
-            gridPane.setHgap(10);
-            gridPane.setVgap(10);
-
-            // Agregar los controles al diseño
-            gridPane.add(titulo, 0, 1);
-            gridPane.add(reiniciarBoton, 0, 2);
-            gridPane.add(exit, 0, 3);
-
-            StackPane stackPane = new StackPane(gridPane); // Apilar el video y el formulario
-            stackPane.setStyle("-fx-background-color: #070d26;");
-            // Crear la escena y mostrarla en el escenario
-            Scene scene = new Scene(stackPane);
-            primaryStage.setScene(scene);
-            primaryStage.setMaxHeight(300);
-            primaryStage.setMaxWidth(400);
-            primaryStage.show();
+            // aca va el gano
+            music.pause();
+            Gano gano = new Gano(stage, nombre, botonInformacion);
+            gano.handle(new ActionEvent());
         }
 
         StackPane ventana = new StackPane();
@@ -216,8 +163,8 @@ public class Main implements EventHandler<ActionEvent> {
         VBox botones = new VBox(botonMusica, fullScreen, this.botonInformacion);
         botones.setAlignment(Pos.CENTER_RIGHT);
         VBox.setMargin(this.botonMusica, new Insets(5, 5, 220, 155));
-        VBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 155));
-        VBox.setMargin(fullScreen, new Insets(400, 5, 5, 155));
+        VBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 95));
+        VBox.setMargin(fullScreen, new Insets(400, 5, 5, 95));
 
         HBox todo = new HBox(ventana, informacion, botones);
         HBox.setMargin(this.botonMusica, new Insets(5, 5, 5, 5));
@@ -294,7 +241,6 @@ public class Main implements EventHandler<ActionEvent> {
             System.out.println("No se puede...");
         }
     }
-
 
 }
 
