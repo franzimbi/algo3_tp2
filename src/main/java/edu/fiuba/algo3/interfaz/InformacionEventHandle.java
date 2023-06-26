@@ -70,6 +70,7 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         comoJugar.addEventHandler(MouseEvent.MOUSE_CLICKED, new ComoJugarEventHandler(popUpMenu1, icon));
         enemigos.addEventHandler(MouseEvent.MOUSE_CLICKED, new EnemigoInformacionEventHandler(popUpMenu1, icon));
         defensas.addEventHandler(MouseEvent.MOUSE_CLICKED, new DefensaInformacionEventHandler(popUpMenu1, icon));
+        creditos.addEventHandler(MouseEvent.MOUSE_CLICKED, new CreditosEvenHandler(popUpMenu1, icon));
 
         //botones primer popUp
         gridMenu.add(comoJugar, 0, 0);

@@ -35,7 +35,7 @@ public class Perdio implements EventHandler<ActionEvent> {
         Image icon = new Image(String.valueOf(new File("src/main/java/edu/fiuba/algo3/resources/imagenes/windowIcon.png").toURI().toString()));
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("Tower Defense");
-        String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 20px";
+        String loginStyle = "-fx-background-color: rgba(0,0,128,0.76); -fx-text-fill: #ffffff; -fx-font-size: 20px";
         String musicStyle = "-fx-background-color: #333333; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         DropShadow shadow = new DropShadow();
 
@@ -54,7 +54,7 @@ public class Perdio implements EventHandler<ActionEvent> {
         botonMusica.setStyle(musicStyle);
 
         //titulo perdiste!
-        Label titulo = new Label(nombre.getText() + "!, PERDISTE!");
+        Label titulo = new Label(nombre.getText() + "! PERDISTE!");
         titulo.setStyle("-fx-font-size: 30px; -fx-text-fill: #ffffff");
         titulo.setEffect(shadow);
 

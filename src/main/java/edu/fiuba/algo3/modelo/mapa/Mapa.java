@@ -46,6 +46,7 @@ public class Mapa {
                     Logger.getInstancia().info("no se pudo ubicar un " +
                             defensa.getNombre() + " en (" + posicion.getX() + "," +
                             posicion.getY() + ")");
+                    throw e;
                 }
             }
         }

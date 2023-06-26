@@ -110,7 +110,6 @@ public class Main implements EventHandler<ActionEvent> {
         Scene escena = new Scene(todo);
         stage.setScene(escena);
         stage.setMaximized(true);
-
         stage.show();
     }
 
@@ -122,6 +121,7 @@ public class Main implements EventHandler<ActionEvent> {
             Image img = (Input.getInstance()).imagenParcela(p.getNombre()).getImage();
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
+
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, new ParcelaEventHandler(stage, p.getUbicacion(), juego, this));
             Text text = new Text();
             gameBoard.add(new StackPane(tile, text), p.getUbicacion().getX(), p.getUbicacion().getY());
@@ -134,8 +134,8 @@ public class Main implements EventHandler<ActionEvent> {
             music.pause();
             Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
             perdiste.handle(new ActionEvent());
-        } else if (juego.gano() && juego.empezo()) {
-            // aca va el gano
+        }
+        if (juego.gano() && juego.empezo()) {
             music.pause();
             Gano gano = new Gano(stage, nombre, botonInformacion);
             gano.handle(new ActionEvent());
@@ -180,16 +180,6 @@ public class Main implements EventHandler<ActionEvent> {
         return todo;
     }
 
-    //no se usa
-   /* public void tratarError(String mensaje) {
-        Stage casoError = new Stage();
-        var label = new Label(mensaje);
-        label.setPadding(new Insets(0, 0, 0, 20));
-        Scene scene = new Scene(label, 200, 100);
-        casoError.setScene(scene);
-        casoError.setTitle("Error");
-        casoError.showAndWait();
-    }*/
 
     public Image enemigos(Enemigo enemigo) {
         return Input.getInstance().imagenEnemigo(enemigo.getNombre()).getImage();
@@ -238,10 +228,9 @@ public class Main implements EventHandler<ActionEvent> {
 
     public static class escribir implements EventHandler<ActionEvent> {
         public void handle(ActionEvent actionEvent) {
-            System.out.println("No se puede...");
+            System.out.println("No se puede agregar defensas en parcelas con enemigos");
         }
     }
-
 }
 
 

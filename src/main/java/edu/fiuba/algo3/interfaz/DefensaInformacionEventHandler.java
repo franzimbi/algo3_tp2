@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 
@@ -54,16 +55,16 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
             vistaEnemigo.setPreserveRatio(true);
             enemigoBoton.setGraphic(vistaEnemigo);
 
-            Text nombre = new Text(defensa.getNombre());
+            Label nombre = new Label(defensa.getNombre());
             nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             nombre.setStyle(loginStyle);
-            Text costo = new Text("Costo: " + Input.getInstance().informacion(defensa.getNombre(), "Costo"));
+            Label costo = new Label("Costo: " + Input.getInstance().informacion(defensa.getNombre(), "Costo"));
             costo.setStyle(loginStyle);
-            Text danio = new Text("Danio: " + Input.getInstance().informacion(defensa.getNombre(), "Danio"));
+            Label danio = new Label("Danio: " + Input.getInstance().informacion(defensa.getNombre(), "Danio"));
             danio.setStyle(loginStyle);
-            Text rango = new Text("Rango: " + Input.getInstance().informacion(defensa.getNombre(), "Rango"));
+            Label rango = new Label("Rango: " + Input.getInstance().informacion(defensa.getNombre(), "Rango"));
             rango.setStyle(loginStyle);
-            Text operativa = new Text("Operativa En: " + Input.getInstance().informacion(defensa.getNombre() , "OperativaEn"));
+            Label operativa = new Label("Operativa En: " + Input.getInstance().informacion(defensa.getNombre() , "OperativaEn"));
             operativa.setStyle(loginStyle);
 
             Button parcelaBoton = new Button();
@@ -72,7 +73,8 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
             vistaParcela.setPreserveRatio(true);
             parcelaBoton.setGraphic(vistaParcela);
 
-            Text ubicacion = new Text("Ubicar En: ");
+            Label ubicacion = new Label("Ubicar En: ");
+            ubicacion.setStyle(loginStyle);
 
             HBox cajaUbicacion = new HBox(ubicacion, parcelaBoton);
             HBox.setMargin(ubicacion, new Insets(5, 5, 5, 5));
@@ -94,7 +96,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
 
         StackPane stackPane = new StackPane(enemigosMenu);
         stackPane.setStyle("-fx-background-color: #070d26;");
-        Scene scene = new Scene(stackPane, 458, 270);
+        Scene scene = new Scene(stackPane, 458, 307);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }

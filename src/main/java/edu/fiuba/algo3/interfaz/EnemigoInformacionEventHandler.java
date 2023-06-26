@@ -14,6 +14,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -54,16 +55,16 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
             vistaEnemigo.setPreserveRatio(true);
             enemigoBoton.setGraphic(vistaEnemigo);
 
-            Text nombre = new Text(enemigo.getNombre());
+            Label nombre = new Label(enemigo.getNombre());
             nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
             nombre.setStyle(loginStyle);
-            Text velocidad = new Text("Velocidad: " + Input.getInstance().informacion(enemigo.getNombre(), "Velocidad"));
+            Label velocidad = new Label("Velocidad: " + Input.getInstance().informacion(enemigo.getNombre(), "Velocidad"));
             velocidad.setStyle(loginStyle);
-            Text vida = new Text("Energia: " + Input.getInstance().informacion(enemigo.getNombre(), "Energia"));
+            Label vida = new Label("Energia: " + Input.getInstance().informacion(enemigo.getNombre(), "Energia"));
             vida.setStyle(loginStyle);
-            Text recompensa = new Text("Recompensa: " + Input.getInstance().informacion(enemigo.getNombre(), "Recompensa"));
+            Label recompensa = new Label("Recompensa: " + Input.getInstance().informacion(enemigo.getNombre(), "Recompensa"));
             recompensa.setStyle(loginStyle);
-            Text info = new Text(Input.getInstance().informacion(enemigo.getNombre(), "Info"));
+            Label info = new Label(Input.getInstance().informacion(enemigo.getNombre(), "Info"));
             info.setStyle(loginStyle);
 
             cajaVertical.getChildren().addAll(enemigoBoton, nombre, velocidad, vida, info);
@@ -81,7 +82,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
 
         StackPane stackPane = new StackPane(enemigosMenu);
         stackPane.setStyle("-fx-background-color: #070d26;");
-        Scene scene = new Scene(stackPane, 435,315);
+        Scene scene = new Scene(stackPane, 500,415);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }

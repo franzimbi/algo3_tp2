@@ -43,6 +43,7 @@ public class Juego {
     }
 
     public void pasarTurno() {
+        this.empezo = true;
         Logger.getInstancia().info("\nNUEVO TURNO:\n\n");
         this.jugador.atacarEnemigos(this.mapa);
         this.jugador.recolectarDefensas();
@@ -54,7 +55,6 @@ public class Juego {
     }
 
     public void juegoEmpezar() {
-        this.empezo = true;
         this.turnoEnemigos();
     }
 
