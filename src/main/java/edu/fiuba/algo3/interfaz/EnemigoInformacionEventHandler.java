@@ -23,8 +23,11 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
     private final ArrayList<Enemigo> enemigosArray;
     private Stage popUpMenu1;
 
-    public EnemigoInformacionEventHandler(Stage popUpMenu1) {
+    private javafx.scene.image.Image icon;
+
+    public EnemigoInformacionEventHandler(Stage popUpMenu1, javafx.scene.image.Image icon) {
         this.popUpMenu1 = popUpMenu1;
+        this.icon = icon;
         this.enemigosArray = new ArrayList<>();
         enemigosArray.add(new Arania());
         enemigosArray.add(new Hormiga());
@@ -34,6 +37,9 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
 
     @Override
     public void handle(javafx.scene.input.MouseEvent mouseEvent){
+        popUpMenu1.getIcons().add(icon);
+        popUpMenu1.setTitle("Enemigos Informacion");
+
         GridPane enemigosMenu = new GridPane();
         enemigosMenu.setAlignment(Pos.CENTER);
         enemigosMenu.setGridLinesVisible(true);

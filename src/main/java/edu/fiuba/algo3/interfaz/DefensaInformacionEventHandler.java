@@ -26,9 +26,11 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
 
     private ArrayList<Defensa> defensas;
     private Stage popUpMenu1;
+    private javafx.scene.image.Image icon;
 
-    public DefensaInformacionEventHandler(Stage popUpMenu2) {
+    public DefensaInformacionEventHandler(Stage popUpMenu2, javafx.scene.image.Image icon) {
         this.popUpMenu1 = popUpMenu2;
+        this.icon = icon;
         this.defensas = new ArrayList<>();
         defensas.add(new TorreBlanca());
         defensas.add(new TorrePlateada());
@@ -37,6 +39,8 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
 
     @Override
     public void handle(javafx.scene.input.MouseEvent mouseEvent){
+        popUpMenu1.getIcons().add(icon);
+        popUpMenu1.setTitle("Defensas Informacion");
         GridPane enemigosMenu = new GridPane();
         enemigosMenu.setGridLinesVisible(true);
         int columna = 0;

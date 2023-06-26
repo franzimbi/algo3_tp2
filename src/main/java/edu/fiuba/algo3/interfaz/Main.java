@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.mapa.parcelas.Parcela;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,6 +23,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -33,16 +35,17 @@ import java.util.ArrayList;
 public class Main implements EventHandler<ActionEvent> {
     private final TextField nombre;
     private final Stage stage;
+    private final MediaPlayer music;
     private final Button botonMusica;
     private final Button botonInformacion;
-
     private Parent tablero;
     private ArrayList<StackPane> coordenadas;
     private ArrayList<StackPane> coordenadas2;
 
-    public Main(Stage stage, TextField nombre, Button botonMusica, Button botonInformacion) {
+    public Main(Stage stage, TextField nombre, Button botonMusica, Button botonInformacion, MediaPlayer music) {
         this.stage = stage;
         this.nombre = nombre;
+        this.music = music;
         this.botonMusica = botonMusica;
         this.botonInformacion = botonInformacion;
         this.coordenadas = new ArrayList<>();
@@ -69,12 +72,26 @@ public class Main implements EventHandler<ActionEvent> {
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage, juego, this));
 
-        VBox informacion = datos.generarDatos(juego, nombre, pasarTurno, stage);
-        HBox botones = new HBox(this.botonMusica, this.botonInformacion);
+
+        // Fullscreen Button
+        String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
+        Button fullScreen = new Button("FULLSCREEN");
+        fullScreen.setStyle(loginStyle);
+        fullScreen.setOnAction(event -> {
+            stage.setFullScreen(!stage.isFullScreen());
+        });
+
+        VBox informacion = datos.generarDatos(juego, nombre, pasarTurno);
+        VBox botones = new VBox(botonMusica, fullScreen, this.botonInformacion);
+        botones.setAlignment(Pos.CENTER_RIGHT);
+        VBox.setMargin(this.botonMusica, new Insets(5, 5, 220, 155));
+        VBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 155));
+        VBox.setMargin(fullScreen, new Insets(400, 5, 5, 155));
+
         HBox todo = new HBox(ventana, informacion, botones);
-        HBox.setMargin(botones, new Insets(5, 5, 5, 100));
         HBox.setMargin(this.botonMusica, new Insets(5, 5, 5, 5));
         HBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 5));
+        HBox.setMargin(fullScreen, new Insets(5, 5, 5, 5));
 
         // Main juego pre pasar turno
         todo.setStyle("-fx-background-color: #070d26;");
@@ -101,6 +118,12 @@ public class Main implements EventHandler<ActionEvent> {
     }
 
     public Parent actualizar(Juego juego, Stage stage) {
+        if (juego.perdio()) {
+            music.pause();
+            Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
+            perdiste.handle(new ActionEvent());
+        }
+
         StackPane ventana = new StackPane();
         ventana.getChildren().add(actualizarTablero(juego, (GridPane) this.tablero));
         ventana.setPadding(new Insets(20, 0, 0, 50));
@@ -113,14 +136,26 @@ public class Main implements EventHandler<ActionEvent> {
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage, juego, this));
 
-        VBox informacion = new Datos().generarDatos(juego, nombre, pasarTurno, stage);
-        HBox botones = new HBox(this.botonMusica, this.botonInformacion);
+        // Fullscreen Button
+        String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
+        Button fullScreen = new Button("FULLSCREEN");
+        fullScreen.setStyle(loginStyle);
+        fullScreen.setOnAction(event -> {
+            stage.setFullScreen(!stage.isFullScreen());
+        });
+
+        VBox informacion = new Datos().generarDatos(juego, nombre, pasarTurno);
+        VBox botones = new VBox(botonMusica, fullScreen, this.botonInformacion);
+        botones.setAlignment(Pos.CENTER_RIGHT);
+        VBox.setMargin(this.botonMusica, new Insets(5, 5, 220, 155));
+        VBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 155));
+        VBox.setMargin(fullScreen, new Insets(400, 5, 5, 155));
+
         HBox todo = new HBox(ventana, informacion, botones);
-        HBox.setMargin(botones, new Insets(5, 5, 5, 100));
         HBox.setMargin(this.botonMusica, new Insets(5, 5, 5, 5));
         HBox.setMargin(this.botonInformacion, new Insets(5, 5, 5, 5));
+        HBox.setMargin(fullScreen, new Insets(5, 5, 5, 5));
         todo.setStyle("-fx-background-color: #070d26;");
-
         return todo;
     }
 

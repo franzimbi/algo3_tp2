@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.interfaz;
 
 import javafx.application.Application;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -13,15 +12,15 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.util.Stack;
 
 public class Login extends Application {
 
@@ -52,30 +51,29 @@ public class Login extends Application {
 
         // Boton Musica
         Button botonMusica = new Button();
-        botonMusica.setStyle(musicStyle);
+        ImageView musicaOff = Input.getInstance().media("musicOff");
         ImageView musicaOn = Input.getInstance().media("musicOn");
         musicaOn.setFitHeight(20);
         musicaOn.setPreserveRatio(true);
         botonMusica.setGraphic(musicaOn);
-        ImageView musicaOff = Input.getInstance().media("musicOff");
-        musicaOff.setFitHeight(20);
-        musicaOff.setPreserveRatio(true);
-        botonMusica.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            if (music.getStatus() == MediaPlayer.Status.PLAYING) {
-                music.pause();
-                botonMusica.setGraphic(musicaOff);
-            } else {
-                music.play();
-                botonMusica.setGraphic(musicaOn);
-            }
-        });
+        botonMusica.setOnAction(new BotonMusicaEventHandler(music, botonMusica, musicaOn, musicaOff));
+        botonMusica.setStyle(musicStyle);
 
         // Information button
         Button informacion = new Button("INFORMACION");
         informacion.setStyle(loginStyle);
         Stage popUpMenu = new Stage();
+        popUpMenu.initModality(Modality.WINDOW_MODAL);
+        popUpMenu.initOwner(primaryStage);
         popUpMenu.getIcons().add(icon);
         informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu));
+
+        // FullScreen button
+        Button fullScreen = new Button("FULLSCREEN");
+        fullScreen.setStyle(loginStyle);
+        fullScreen.setOnAction(event -> {
+            primaryStage.setFullScreen(!primaryStage.isFullScreen());
+        });
 
         // Crear controles
         //Titulo
@@ -86,7 +84,7 @@ public class Login extends Application {
         Label usernameLabel = new Label();
         usernameLabel.setStyle("-fx-background-color: white;");
         TextField usernameField = new TextField();
-        usernameField.setPromptText("Max 6 digitos.");
+        usernameField.setPromptText("Maximo 6 digitos.");
         usernameField.setStyle(infoStyle);
         usernameField.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> usernameField.setEffect(shadow));
         usernameField.addEventHandler(MouseEvent.MOUSE_EXITED, e -> usernameField.setEffect(null));
@@ -103,24 +101,34 @@ public class Login extends Application {
             if (authenticate(username)) {
                 // Credenciales válidas, mostrar otra pantalla o realizar alguna acción
                 System.out.println("Login successful");
-                Main iniciarEvent = new Main(primaryStage,new TextField(username), botonMusica, informacion);
+                Main iniciarEvent = new Main(primaryStage, new TextField(username), botonMusica, informacion, music);
                 iniciarEvent.handle(event);
             } else {
                 // Credenciales inválidas, mostrar mensaje de error o realizar alguna acción
                 System.out.println("Login failed");
                 Stage casoError = new Stage();
-                var label = new Label("El nombre debe ser mayor a 0 y menor a 6 digitos.");
-                StackPane layout = new StackPane(label);
-                Scene scene = new Scene(layout, 200, 100);
+                casoError.initModality(Modality.WINDOW_MODAL);
+                casoError.initOwner(primaryStage);
+                casoError.getIcons().add(icon);
+                var label = new Label("El nombre de usuario ingresado es invalido.");
+                var label2 = new Label("Ingrese minimo 6 digitos, maximo 10 digitos.");
+                GridPane gridPane1 = new GridPane();
+                gridPane1.setAlignment(Pos.CENTER);
+                gridPane1.setPadding(new Insets(5));
+                gridPane1.setHgap(5);
+                gridPane1.setVgap(5);
+                gridPane1.add(label, 0, 0);
+                gridPane1.add(label2, 0, 1);
+                label2.setStyle(loginStyle);
+                label.setStyle(loginStyle);
+                StackPane layout = new StackPane(gridPane1);
+                layout.setStyle("-fx-background-color: #070d26;");
+                Scene scene = new Scene(layout, 320, 60);
                 casoError.setScene(scene);
                 casoError.setTitle("Error");
                 casoError.showAndWait();
             }
         });
-
-
-
-
 
         // Crear el diseño del formulario
         GridPane gridPane = new GridPane();
@@ -136,12 +144,15 @@ public class Login extends Application {
         gridPane.add(empezarButton, 0, 3);
 
         MediaView mediaView = new MediaView(mediaPlayer);
-        StackPane stackPane = new StackPane(mediaView, new MediaView(music), gridPane); // Apilar el video y el formulario
+        StackPane stackPane = new StackPane(mediaView, gridPane); // Apilar el video y el formulario
 
         StackPane.setAlignment(botonMusica, Pos.TOP_RIGHT);
         StackPane.setAlignment(informacion, Pos.TOP_LEFT);
+        StackPane.setAlignment(fullScreen, Pos.BOTTOM_RIGHT);
         stackPane.getChildren().add(botonMusica);
         stackPane.getChildren().add(informacion);
+        stackPane.getChildren().add(fullScreen);
+        StackPane.setMargin(fullScreen, new Insets(5));
         StackPane.setMargin(informacion, new Insets(5));
         StackPane.setMargin(botonMusica, new Insets(5));
 
@@ -157,7 +168,7 @@ public class Login extends Application {
 
     private boolean authenticate(String username) {
         // Devuelve true si 6 < username < 10
-        return (username.length() > 0 && username.length() < 6);
+        return (username.length() > 6 && username.length() < 10);
     }
 
     // Centrar la ventana

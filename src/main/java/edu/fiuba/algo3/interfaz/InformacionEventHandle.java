@@ -19,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
@@ -30,19 +31,20 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
     private final String loginStyle;
     private final Stage popUpMenu;
 
-
     public InformacionEventHandle(Image icon, String loginStyle, Stage popUpMenu) {
         this.icon = icon;
         this.loginStyle = loginStyle;
         this.popUpMenu = popUpMenu;
-
     }
 
     @Override
     public void handle(MouseEvent aE){
         Stage popUpMenu1 = new Stage();
-        popUpMenu1.getIcons().add(icon);
+        popUpMenu.getIcons().add(icon);
+        popUpMenu1.setTitle("Juego Informacion");
 
+        popUpMenu1.initModality(Modality.WINDOW_MODAL);
+        popUpMenu1.initOwner(popUpMenu);
         GridPane gridMenu = new GridPane();
         gridMenu.setAlignment(Pos.CENTER);
         gridMenu.setPadding(new Insets(10));
@@ -69,8 +71,9 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         acercaDe.setPrefSize(buttonWidth, buttonHeight);
         creditos.setPrefSize(buttonWidth, buttonHeight);
 
-        enemigos.addEventHandler(MouseEvent.MOUSE_CLICKED, new EnemigoInformacionEventHandler(popUpMenu1));
-        defensas.addEventHandler(MouseEvent.MOUSE_CLICKED, new DefensaInformacionEventHandler(popUpMenu1));
+        comoJugar.addEventHandler(MouseEvent.MOUSE_CLICKED, new ComoJugarEventHandler(popUpMenu1, icon));
+        enemigos.addEventHandler(MouseEvent.MOUSE_CLICKED, new EnemigoInformacionEventHandler(popUpMenu1, icon));
+        defensas.addEventHandler(MouseEvent.MOUSE_CLICKED, new DefensaInformacionEventHandler(popUpMenu1, icon));
 
         //botones primer popUp
         gridMenu.add(comoJugar, 0, 0);

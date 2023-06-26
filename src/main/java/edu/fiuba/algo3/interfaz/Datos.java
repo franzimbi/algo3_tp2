@@ -24,41 +24,23 @@ import java.io.FileNotFoundException;
 
 
 public class Datos {
-    public VBox generarDatos(Juego juego, TextField nombre, Button pasarTurno, Stage stage) {
-        Font font = new Font("Minecraftia", 22);
-        String infoStyle = "-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;";
+    private  Font font = new Font("Minecraftia", 22);
+    private String infoStyle = "-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 2px; -fx-border-radius: 5px;";
 
+    public VBox generarDatos(Juego juego, TextField nombre, Button pasarTurno) {
 
-        if (juego.perdio()) {
-            stage.close();
-            Perdio perdio = new Perdio(nombre.getText());
-            perdio.handle(new ActionEvent());
-        }
 
         //informacion del menu
-        Label labelNombre = new Label("Jugador: " + nombre.getText());
-        labelNombre.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 40px;");
-        labelNombre.setFont(font);
-        TextField vida = new TextField("Vida: " + juego.vidaJugador());
-        vida.setStyle(infoStyle);
-        vida.setFont(font);
-        vida.setFocusTraversable(false);
-        vida.setEditable(false);
-        TextField creditos = new TextField("Creditos: " + juego.creditosJugador());
-        creditos.setStyle(infoStyle);
-        creditos.setFont(font);
-        creditos.setFocusTraversable(false);
-        creditos.setEditable(false);
-        TextField cantEnemigos = new TextField("Enemigos: " + juego.cantidadEnemigos());
-        cantEnemigos.setStyle(infoStyle);
-        cantEnemigos.setFont(font);
-        cantEnemigos.setFocusTraversable(false);
-        cantEnemigos.setEditable(false);
-        TextField cantTurnos = new TextField("Turnos: " + juego.cantidadDeTurnos());
-        cantTurnos.setStyle(infoStyle);
-        cantTurnos.setFont(font);
-        cantTurnos.setFocusTraversable(false);
-        cantTurnos.setEditable(false);
+        Label labelNombre = generarLabel("Jugador: " , nombre.getText());
+
+        TextField vida = generarTextField("Vida: " , juego.vidaJugador());
+
+        TextField creditos = generarTextField("Creditos: " , juego.creditosJugador());
+
+        TextField cantEnemigos = generarTextField("Enemigos: " , juego.cantidadEnemigos());
+
+        TextField cantTurnos = generarTextField("Turnos: " , juego.cantidadDeTurnos());
+
 
         VBox informacion = new VBox( labelNombre, vida, creditos, cantEnemigos, cantTurnos, pasarTurno);
         VBox.setMargin(labelNombre, new Insets(30, 0, 0, 50));
@@ -69,6 +51,23 @@ public class Datos {
         VBox.setMargin(pasarTurno, new Insets(50, 0, 0, 50));
 
         return informacion;
+    }
+
+    public TextField generarTextField(String nombreCampo, int valor) {
+        TextField texto = new TextField(nombreCampo + valor);
+        texto.setStyle(infoStyle);
+        texto.setFont(font);
+        texto.setFocusTraversable(false);
+        texto.setEditable(false);
+
+        return texto;
+    }
+
+    private Label generarLabel(String nombre, String texto) {
+        Label label = new Label(nombre + texto);
+        label.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 40px;");
+        label.setFont(font);
+        return label;
     }
 
 }
