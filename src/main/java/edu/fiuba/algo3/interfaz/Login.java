@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz;
 
 import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -69,7 +70,8 @@ public class Login extends Application {
         popUpMenu.initModality(Modality.WINDOW_MODAL);
         popUpMenu.initOwner(primaryStage);
         popUpMenu.getIcons().add(icon);
-        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu));
+        HostServices service = getHostServices();
+        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu, service));
 
         // FullScreen button
         Button fullScreen = new Button("FULLSCREEN");

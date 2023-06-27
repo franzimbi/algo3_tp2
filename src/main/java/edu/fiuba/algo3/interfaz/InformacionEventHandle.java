@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.interfaz;
 
+import javafx.application.HostServices;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -20,11 +22,13 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
     private final Image icon;
     private final String loginStyle;
     private final Stage popUpMenu;
+    private final HostServices service;
 
-    public InformacionEventHandle(Image icon, String loginStyle, Stage popUpMenu) {
+    public InformacionEventHandle(Image icon, String loginStyle, Stage popUpMenu, HostServices service) {
         this.icon = icon;
         this.loginStyle = loginStyle;
         this.popUpMenu = popUpMenu;
+        this.service = service;
     }
 
     @Override
@@ -46,10 +50,25 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         Button defensas = new Button("DEFENSAS");
         Button enemigos = new Button("ENEMIGOS");
         Button acercaDe = new Button("ACERCA DE");
+        //Hyperlink acercaDe = new Hyperlink("ACERCA DE");
         Button creditos = new Button("CREDITOS");
 
-        effect(innerShadow, comoJugar, defensas);
-        effect(innerShadow, enemigos, acercaDe);
+        // hyperlink acerca de
+        acercaDe.setOnAction(event -> {
+            this.service.showDocument("https://github.com/franzimbi/algo3_tp2");
+        });
+        acercaDe.setStyle(loginStyle);
+        acercaDe.setBorder(null);
+        acercaDe.setUnderline(false);
+
+        comoJugar.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> comoJugar.setEffect(innerShadow));
+        comoJugar.addEventHandler(MouseEvent.MOUSE_EXITED, e -> comoJugar.setEffect(null));
+        defensas.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> defensas.setEffect(innerShadow));
+        defensas.addEventHandler(MouseEvent.MOUSE_EXITED, e -> defensas.setEffect(null));
+        enemigos.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> enemigos.setEffect(innerShadow));
+        enemigos.addEventHandler(MouseEvent.MOUSE_EXITED, e -> enemigos.setEffect(null));
+        acercaDe.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> acercaDe.setEffect(innerShadow));
+        acercaDe.addEventHandler(MouseEvent.MOUSE_EXITED, e -> acercaDe.setEffect(null));
         creditos.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> creditos.setEffect(innerShadow));
         creditos.addEventHandler(MouseEvent.MOUSE_EXITED, e -> creditos.setEffect(null));
 
@@ -70,7 +89,7 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         comoJugar.addEventHandler(MouseEvent.MOUSE_CLICKED, new ComoJugarEventHandler(popUpMenu1, icon));
         enemigos.addEventHandler(MouseEvent.MOUSE_CLICKED, new EnemigoInformacionEventHandler(popUpMenu1, icon));
         defensas.addEventHandler(MouseEvent.MOUSE_CLICKED, new DefensaInformacionEventHandler(popUpMenu1, icon));
-        creditos.addEventHandler(MouseEvent.MOUSE_CLICKED, new CreditosEvenHandler(popUpMenu1, icon));
+        creditos.addEventHandler(MouseEvent.MOUSE_CLICKED, new CreditosEvenHandler(popUpMenu1, service,  icon));
 
         //botones primer popUp
         gridMenu.add(comoJugar, 0, 0);
@@ -94,10 +113,4 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         popUpMenu.show();
     }
 
-    private void effect(InnerShadow innerShadow, Button enemigos, Button acercaDe) {
-        enemigos.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> enemigos.setEffect(innerShadow));
-        enemigos.addEventHandler(MouseEvent.MOUSE_EXITED, e -> enemigos.setEffect(null));
-        acercaDe.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> acercaDe.setEffect(innerShadow));
-        acercaDe.addEventHandler(MouseEvent.MOUSE_EXITED, e -> acercaDe.setEffect(null));
-    }
 }

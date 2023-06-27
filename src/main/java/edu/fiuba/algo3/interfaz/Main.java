@@ -122,7 +122,7 @@ public class Main implements EventHandler<ActionEvent> {
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
 
-            tile.addEventHandler(MouseEvent.MOUSE_CLICKED, new ParcelaEventHandler(stage, p.getUbicacion(), juego, this));
+            tile.addEventHandler(MouseEvent.MOUSE_CLICKED, new ParcelaEventHandler(stage, p.getUbicacion(), juego, this, icono));
             Text text = new Text();
             gameBoard.add(new StackPane(tile, text), p.getUbicacion().getX(), p.getUbicacion().getY());
         }

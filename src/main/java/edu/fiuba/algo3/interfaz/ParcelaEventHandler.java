@@ -21,20 +21,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class ParcelaEventHandler implements EventHandler<MouseEvent> {
     private final Stage stage;
     private final Coordenadas coordenadas;
     private final Juego juego;
     private final Main main;
+    private final javafx.scene.image.Image icono;
 
 
-    public ParcelaEventHandler(Stage stage, Coordenadas coordenadas, Juego juego, Main main) {
+    public ParcelaEventHandler(Stage stage, Coordenadas coordenadas, Juego juego, Main main, javafx.scene.image.Image icono) {
         this.stage = stage;
         this.coordenadas = coordenadas;
         this.juego = juego;
         this.main = main;
+        this.icono = icono;
 
     }
 
@@ -42,6 +43,8 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
     public void handle(MouseEvent aE) {
         String color = "-fx-background-color: #F4C2C2;";
         Stage ventanaDefensas = new Stage();
+        ventanaDefensas.getIcons().add(icono);
+        ventanaDefensas.setTitle("Defensas");
         ventanaDefensas.initModality(Modality.WINDOW_MODAL);
         ventanaDefensas.initOwner(stage);
 
@@ -62,35 +65,35 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
             defensaBoton.setStyle(color);
             defensaBoton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
                 String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 16px";
-                    try {
-                        this.juego.agregarDefensa(defensa, coordenadas);
-                    } catch (ParcelaNoPuedeUbicarError exception) {
-                        Stage casoError = new Stage();
-                        casoError.initModality(Modality.WINDOW_MODAL);
-                        casoError.initOwner(ventanaDefensas);
-                        var label = new Label("No se puede agregar " + defensa.getNombre() + " en  esta ubicacion.");
-                        label.setStyle(loginStyle);
-                        label.setPadding(new Insets(0, 0, 0, 20));
-                        StackPane stack = new StackPane(label);
-                        stack.setStyle("-fx-background-color: #070d26;");
-                        Scene scene = new Scene(stack, 450, 100);
-                        casoError.setScene(scene);
-                        casoError.setTitle("OOPS");
-                        casoError.showAndWait();
-                    } catch (CreditosInsuficientesError exception) {
-                        Stage casoError = new Stage();
-                        casoError.initModality(Modality.WINDOW_MODAL);
-                        casoError.initOwner(ventanaDefensas);
-                        var label = new Label("Creditos Insuficientes para " + defensa.getNombre());
-                        label.setStyle(loginStyle);
-                        label.setPadding(new Insets(0, 0, 0, 20));
-                        StackPane stack = new StackPane(label);
-                        stack.setStyle("-fx-background-color: #070d26;");
-                        Scene scene = new Scene(stack, 450, 100);
-                        casoError.setScene(scene);
-                        casoError.setTitle("OOPS");
-                        casoError.showAndWait();
-                    }
+                try {
+                    this.juego.agregarDefensa(defensa, coordenadas);
+                } catch (ParcelaNoPuedeUbicarError exception) {
+                    Stage casoError = new Stage();
+                    casoError.initModality(Modality.WINDOW_MODAL);
+                    casoError.initOwner(ventanaDefensas);
+                    var label = new Label("No se puede agregar " + defensa.getNombre() + " en  esta ubicacion.");
+                    label.setStyle(loginStyle);
+                    label.setPadding(new Insets(0, 0, 0, 20));
+                    StackPane stack = new StackPane(label);
+                    stack.setStyle("-fx-background-color: #070d26;");
+                    Scene scene = new Scene(stack, 450, 100);
+                    casoError.setScene(scene);
+                    casoError.setTitle("OOPS");
+                    casoError.showAndWait();
+                } catch (CreditosInsuficientesError exception) {
+                    Stage casoError = new Stage();
+                    casoError.initModality(Modality.WINDOW_MODAL);
+                    casoError.initOwner(ventanaDefensas);
+                    var label = new Label("Creditos Insuficientes para " + defensa.getNombre());
+                    label.setStyle(loginStyle);
+                    label.setPadding(new Insets(0, 0, 0, 20));
+                    StackPane stack = new StackPane(label);
+                    stack.setStyle("-fx-background-color: #070d26;");
+                    Scene scene = new Scene(stack, 450, 100);
+                    casoError.setScene(scene);
+                    casoError.setTitle("OOPS");
+                    casoError.showAndWait();
+                }
                 stage.getScene().setRoot(this.main.actualizar(this.juego, this.stage));
                 ventanaDefensas.close();
                 stage.getScene().setRoot(this.main.actualizar(this.juego, this.stage));

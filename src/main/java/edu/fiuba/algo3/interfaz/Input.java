@@ -35,7 +35,7 @@ public class Input {
         this.defensas = new HashMap<>();
         defensas.put("Torre Blanca", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TorreBlanca.png").toURI().toString())));
         defensas.put("Torre Plateada", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TorrePlateada.png").toURI().toString())));
-        defensas.put("Trampa De Arena", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TrampaArena.png").toURI().toString())));
+        defensas.put("Trampa De Arena", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TrampaArena.jpg").toURI().toString())));
 
         this.mediaView = new HashMap<>();
         this.mediaView.put("musicOff", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/musicOff.png")).toURI().toString()));

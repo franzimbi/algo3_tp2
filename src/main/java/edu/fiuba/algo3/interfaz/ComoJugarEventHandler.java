@@ -25,9 +25,9 @@ public class ComoJugarEventHandler implements EventHandler<MouseEvent> {
         popUpMenu1.getIcons().add(icon);
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
 
-        var label = new Label("Tower Defense consiste en defender la base de los enemigos.\n para ganar se debe soobrevivir a todas las oleadas de enemigos");
+        var label = new Label("Tower Defense consiste en defender la base de los ataques de los\nenemigos. para ganar se debe soobrevivir a todas las oleadas de\nenemigos");
         var label1 = new Label("1) El juegador comienza con 100 creditos, 20 de vida y\n0 oleadas pasadas en la cual se podra comprar defensas.");
-        var label2 = new Label("2) Para jugar se debe clickear una parcela y ubicar una defensa,\nen tierra (para las torres) o el camino para la trampa de arena.");
+        var label2 = new Label("2) Para jugar se debe clickear en una parcela y ubicar una defensa,\nen tierra (para las torres) o el camino para la trampa de arena.");
         var label3 = new Label("3) El numero de enemigos aparece en el menu a la\n derecha del mapa ya que en una parcela puede haber varios enemigos");
         var label4 = new Label("4) Al matar enemigos se obtienen creditos necesarios\npara comprar los distintos tipos de defensas habilitados.");
         var label5 = new Label("5) Al perder/ganar el juego se podra reiniciar o salir del juego.");
@@ -54,7 +54,7 @@ public class ComoJugarEventHandler implements EventHandler<MouseEvent> {
 
         StackPane layout = new StackPane(gridPane1);
         layout.setStyle("-fx-background-color: #070d26;");
-        Scene scene = new Scene(layout, 400, 300);
+        Scene scene = new Scene(layout, 457, 290);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }
