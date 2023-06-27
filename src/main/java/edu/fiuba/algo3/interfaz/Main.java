@@ -23,7 +23,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -31,6 +30,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Main implements EventHandler<ActionEvent> {
     private final TextField nombre;
@@ -110,17 +110,28 @@ public class Main implements EventHandler<ActionEvent> {
     }
 
     public Parent createBoard(ArrayList<Parcela> parcelas, Juego juego) {
+        InnerShadow shadow = new InnerShadow();
         GridPane gameBoard = new GridPane();
         gameBoard.setPrefSize(500, 500);
         for (Parcela p : parcelas) {
             Rectangle tile = new Rectangle(45, 45);
-            Image img = (Input.getInstance()).imagenParcela(p.getNombre()).getImage();
+            Image img;
+            if (Objects.equals(p.getNombre(), "meta")) {
+                img = (Input.getInstance()).imagenParcela("meta").getImage();
+            } else {
+                img = (Input.getInstance()).imagenParcela(p.getNombre()).getImage();
+            }
             tile.setFill(new ImagePattern(img));
-            tile.setStroke(Color.BLACK);
 
+            //tile.setStroke(Color.BLACK);
+            tile.setStrokeWidth(0);
+            tile.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> tile.setEffect(shadow));
+            tile.addEventHandler(MouseEvent.MOUSE_EXITED, e -> tile.setEffect(null));
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, new ParcelaEventHandler(stage, p.getUbicacion(), juego, this, icono));
             Text text = new Text();
-            gameBoard.add(new StackPane(tile, text), p.getUbicacion().getX(), p.getUbicacion().getY());
+            StackPane stack = new StackPane(tile, text);
+            stack.setStyle("-fx-background-color: #446bff;");
+            gameBoard.add(stack, p.getUbicacion().getX(), p.getUbicacion().getY());
         }
         return gameBoard;
     }
@@ -195,9 +206,8 @@ public class Main implements EventHandler<ActionEvent> {
         this.coordenadas2 = new ArrayList<>();
 
         for (Defensa e : juego.getDefensasJugador()) {
-            Rectangle tile = new Rectangle(45, 45);
+            Rectangle tile = new Rectangle(44, 44);
             Image img;
-
             // si ves esto es porque estoy durmiendo
             if (e.estaOperativa()) {
                 img = (Input.getInstance().imagenDefensa(e.getNombre())).getImage();
@@ -205,7 +215,7 @@ public class Main implements EventHandler<ActionEvent> {
                 img = (Input.getInstance().imagenDefensa("noOperativa")).getImage();
             }
             tile.setFill(new ImagePattern(img));
-            tile.setStroke(Color.BLACK);
+            //tile.setStroke(Color.BLACK);
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, e1 -> System.out.println("No se puede..."));
             Text text = new Text();
             Coordenadas coordenadasDefensa = e.getUbicacion();
@@ -215,10 +225,10 @@ public class Main implements EventHandler<ActionEvent> {
         }
 
         for (Enemigo e : juego.getEnemigosMapa()) {
-            Rectangle tile = new Rectangle(45, 45);
+            Rectangle tile = new Rectangle(44, 44);
             Image img = Input.getInstance().imagenEnemigo(e.getNombre()).getImage();
             tile.setFill(new ImagePattern(img));
-            tile.setStroke(Color.BLACK);
+            //tile.setStroke(Color.BLACK);
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, e1 -> System.out.println("No se puede..."));
             Text text = new Text();
             Coordenadas coordenadasEnemigo = e.getUbicacion();

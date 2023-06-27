@@ -23,6 +23,8 @@ public class Input {
         mapa.put("tierra", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/tierra.jpg")).toURI().toString()));
         mapa.put("rocoso", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/rocoso.jpg").toURI().toString())));
         mapa.put("pasarela", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/camino.jpg").toURI().toString())));
+        mapa.put("meta", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/castillo.png").toURI().toString())));
+
 
         this.enemigos = new HashMap<>();
         this.enemigos.put("Arania", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/arana.png").toURI().toString())));
