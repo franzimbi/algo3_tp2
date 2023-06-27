@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.interfaz;
 
-import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -36,6 +34,7 @@ public class Input {
         defensas.put("Torre Blanca", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TorreBlanca.png").toURI().toString())));
         defensas.put("Torre Plateada", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TorrePlateada.png").toURI().toString())));
         defensas.put("Trampa De Arena", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/TrampaArena.jpg").toURI().toString())));
+        defensas.put("noOperativa", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/noOperativa.png").toURI().toString())));
 
         this.mediaView = new HashMap<>();
         this.mediaView.put("musicOff", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/musicOff.png")).toURI().toString()));
@@ -54,28 +53,28 @@ public class Input {
         lechuza.put("Velocidad", "5");
         lechuza.put("Recompensa", "0");
         lechuza.put("Info", "information:\nLa lechuza al perder\nel 50% de vida\nse mueve en\ndiagonal y\n baja la primera\ntorre del jugador");
-        this.informacion.put("Lechuza",lechuza);
+        this.informacion.put("Lechuza", lechuza);
 
         Map topo = new HashMap<String, String>();
         topo.put("Energia", "Inmune");
         topo.put("Velocidad", "1/2/3");
         topo.put("Recompensa", "0");
         topo.put("Info", "Informacion:\naumenta su\n velocidad en 1\ncada 5 turnos\n hasta un maximo\nde 3, inmune a las\ntorres y eldanio\ndependiendo de si\nel turnos es\npar/impar (5/2)");
-        this.informacion.put("Topo",topo);
+        this.informacion.put("Topo", topo);
 
         Map hormiga = new HashMap<String, String>();
         hormiga.put("Energia", "1");
         hormiga.put("Velocidad", "1");
         hormiga.put("Recompensa", "1");
         hormiga.put("Info", "Informacion:\nenemigo estandar");
-        this.informacion.put("Hormiga",hormiga);
+        this.informacion.put("Hormiga", hormiga);
 
         Map arania = new HashMap<String, String>();
         arania.put("Energia", "2");
         arania.put("Velocidad", "2");
         arania.put("Recompensa", "Random");
         arania.put("Info", "Informacion:\nenemigo estandar\nsu recompensa es\nentre 0 y 10\n creditos");
-        this.informacion.put("Arania",arania);
+        this.informacion.put("Arania", arania);
 
         Map torreBlanca = new HashMap<String, String>();
         torreBlanca.put("Costo", "10");
@@ -84,7 +83,7 @@ public class Input {
         torreBlanca.put("OperativaEn", "1 turno");
         torreBlanca.put("UbicarEn", "tierra");
         torreBlanca.put("Info", "Informacion:\nelimina al primer\nenemigo en rango");
-        this.informacion.put("Torre Blanca",torreBlanca);
+        this.informacion.put("Torre Blanca", torreBlanca);
 
         Map torrePlateada = new HashMap<String, String>();
         torrePlateada.put("Costo", "20");
@@ -93,7 +92,7 @@ public class Input {
         torrePlateada.put("OperativaEn", "2 turnos");
         torrePlateada.put("UbicarEn", "tierra");
         torrePlateada.put("Info", "Informacion:\nelimina al primer\nenemigo en rango");
-        this.informacion.put("Torre Plateada",torrePlateada);
+        this.informacion.put("Torre Plateada", torrePlateada);
 
         Map trampaDeArena = new HashMap<String, String>();
         trampaDeArena.put("Costo", "25");
@@ -102,7 +101,7 @@ public class Input {
         trampaDeArena.put("UbicarEn", "pasarela");
         trampaDeArena.put("OperativaEn", "0");
         trampaDeArena.put("Info", "Informacion:\ndura 3 turnos\ny reduce la velocidad\nde los enemigos\nen 1 mientras\nesten en su\n rango");
-        this.informacion.put("Trampa De Arena",trampaDeArena);
+        this.informacion.put("Trampa De Arena", trampaDeArena);
     }
 
     public static Input getInstance() {

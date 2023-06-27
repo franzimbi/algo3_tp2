@@ -14,9 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -29,7 +27,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -41,11 +38,10 @@ public class Main implements EventHandler<ActionEvent> {
     private final MediaPlayer music;
     private final Button botonMusica;
     private final Button botonInformacion;
+    private final Image icono;
     private Parent tablero;
     private ArrayList<StackPane> coordenadas;
     private ArrayList<StackPane> coordenadas2;
-
-    private final Image icono;
 
     public Main(Stage stage, TextField nombre, Button botonMusica, Button botonInformacion, MediaPlayer music) {
         this.stage = stage;
@@ -200,7 +196,14 @@ public class Main implements EventHandler<ActionEvent> {
 
         for (Defensa e : juego.getDefensasJugador()) {
             Rectangle tile = new Rectangle(45, 45);
-            Image img = (Input.getInstance().imagenDefensa(e.getNombre())).getImage();
+            Image img;
+
+            // si ves esto es porque estoy durmiendo
+            if (e.estaOperativa()) {
+                img = (Input.getInstance().imagenDefensa(e.getNombre())).getImage();
+            } else {
+                img = (Input.getInstance().imagenDefensa("noOperativa")).getImage();
+            }
             tile.setFill(new ImagePattern(img));
             tile.setStroke(Color.BLACK);
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, e1 -> System.out.println("No se puede..."));
