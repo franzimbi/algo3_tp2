@@ -139,13 +139,17 @@ public class Main implements EventHandler<ActionEvent> {
     public Parent actualizar(Juego juego, Stage stage) {
         if (juego.perdio()) {
             music.pause();
-            Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
-            perdiste.handle(new ActionEvent());
+            FinJuego finJuego = new FinJuego(stage, nombre, botonInformacion, "perdioVideo", "! PERDISTE!");
+            finJuego.handle(new ActionEvent());
+//            Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
+//            perdiste.handle(new ActionEvent());
         }
-        if (juego.gano() && juego.empezo()) {
+        if (juego.gano()) { //&& juego.empezo()
             music.pause();
-            Gano gano = new Gano(stage, nombre, botonInformacion);
-            gano.handle(new ActionEvent());
+            FinJuego finJuego = new FinJuego(stage, nombre, botonInformacion, "ganoVideo", "! GANASTE!");
+            finJuego.handle(new ActionEvent());
+//            Gano gano = new Gano(stage, nombre, botonInformacion);
+//            gano.handle(new ActionEvent());
         }
 
         StackPane ventana = new StackPane();
@@ -159,6 +163,7 @@ public class Main implements EventHandler<ActionEvent> {
         pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> pasarTurno.setEffect(shadow));
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage, juego, this));
+
 
         // Fullscreen Button
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";

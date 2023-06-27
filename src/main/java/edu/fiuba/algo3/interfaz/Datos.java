@@ -42,6 +42,7 @@ public class Datos {
         TextField cantTurnos = generarTextField("Turnos: " , juego.cantidadDeTurnos());
 
 
+
         VBox informacion = new VBox( labelNombre, vida, creditos, cantEnemigos, cantTurnos, pasarTurno);
         VBox.setMargin(labelNombre, new Insets(30, 0, 0, 50));
         VBox.setMargin(vida, new Insets(50, 0, 0, 50));

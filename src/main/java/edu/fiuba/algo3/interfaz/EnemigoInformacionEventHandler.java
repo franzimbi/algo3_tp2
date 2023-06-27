@@ -6,10 +6,13 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -49,11 +52,10 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
 
         for (Enemigo enemigo: enemigosArray) {
             VBox cajaVertical = new VBox();
-            Button enemigoBoton = new Button();
-            ImageView vistaEnemigo = Input.getInstance().imagenEnemigo(enemigo.getNombre());
-            vistaEnemigo.setFitHeight(50);
-            vistaEnemigo.setPreserveRatio(true);
-            enemigoBoton.setGraphic(vistaEnemigo);
+
+            Rectangle enemigoImagen = new Rectangle(50, 50);
+            Image img = Input.getInstance().imagenEnemigo(enemigo.getNombre()).getImage();
+            enemigoImagen.setFill(new ImagePattern(img));
 
             Label nombre = new Label(enemigo.getNombre());
             nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
@@ -67,9 +69,9 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
             Label info = new Label(Input.getInstance().informacion(enemigo.getNombre(), "Info"));
             info.setStyle(loginStyle);
 
-            cajaVertical.getChildren().addAll(enemigoBoton, nombre, velocidad, vida, info);
+            cajaVertical.getChildren().addAll(enemigoImagen, nombre, velocidad, vida, info);
 
-            VBox.setMargin(enemigoBoton, new Insets(5, 5, 5, 5));
+            VBox.setMargin(enemigoImagen, new Insets(5, 5, 5, 5));
             VBox.setMargin(nombre, new Insets(5, 5, 5, 5));
             VBox.setMargin(velocidad, new Insets(5, 5, 5, 5));
             VBox.setMargin(vida, new Insets(5, 5, 5, 5));

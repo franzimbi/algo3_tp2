@@ -71,7 +71,7 @@ public class Login extends Application {
         popUpMenu.initOwner(primaryStage);
         popUpMenu.getIcons().add(icon);
         HostServices service = getHostServices();
-        informacion.addEventHandler(MouseEvent.MOUSE_ENTERED, new InformacionEventHandle(icon, loginStyle, popUpMenu, service));
+        informacion.addEventHandler(MouseEvent.MOUSE_CLICKED, new InformacionEventHandle(icon, loginStyle, popUpMenu, service));
 
         // FullScreen button
         Button fullScreen = new Button("FULLSCREEN");

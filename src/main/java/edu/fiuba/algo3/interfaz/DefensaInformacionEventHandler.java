@@ -15,6 +15,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -42,18 +44,17 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
     public void handle(javafx.scene.input.MouseEvent mouseEvent){
         popUpMenu1.getIcons().add(icon);
         popUpMenu1.setTitle("Defensas Informacion");
-        GridPane enemigosMenu = new GridPane();
-        enemigosMenu.setGridLinesVisible(true);
+        GridPane defensaMenu = new GridPane();
+        defensaMenu.setGridLinesVisible(true);
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         int columna = 0;
 
         for (Defensa defensa: defensas) {
             VBox cajaVertical = new VBox();
-            Button enemigoBoton = new Button();
-            ImageView vistaEnemigo = Input.getInstance().imagenDefensa(defensa.getNombre());
-            vistaEnemigo.setFitHeight(50);
-            vistaEnemigo.setPreserveRatio(true);
-            enemigoBoton.setGraphic(vistaEnemigo);
+            Rectangle defensaImagen = new Rectangle(50, 50);
+            Image img = Input.getInstance().imagenDefensa(defensa.getNombre()).getImage();
+            defensaImagen.setFill(new ImagePattern(img));
+
 
             Label nombre = new Label(defensa.getNombre());
             nombre.setFont(Font.font("Verdana", FontWeight.BOLD, 10));
@@ -67,22 +68,20 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
             Label operativa = new Label("Operativa En: " + Input.getInstance().informacion(defensa.getNombre() , "OperativaEn"));
             operativa.setStyle(loginStyle);
 
-            Button parcelaBoton = new Button();
-            ImageView vistaParcela = Input.getInstance().imagenParcela(Input.getInstance().informacion(defensa.getNombre(), "UbicarEn"));
-            vistaParcela.setFitHeight(50);
-            vistaParcela.setPreserveRatio(true);
-            parcelaBoton.setGraphic(vistaParcela);
+            Rectangle parcelaImagen = new Rectangle(50, 50);
+            Image imgParcela = Input.getInstance().imagenParcela(Input.getInstance().informacion(defensa.getNombre(), "UbicarEn")).getImage();
+            parcelaImagen.setFill(new ImagePattern(imgParcela));
 
             Label ubicacion = new Label("Ubicar En: ");
             ubicacion.setStyle(loginStyle);
 
-            HBox cajaUbicacion = new HBox(ubicacion, parcelaBoton);
+            HBox cajaUbicacion = new HBox(ubicacion, parcelaImagen);
             HBox.setMargin(ubicacion, new Insets(5, 5, 5, 5));
-            HBox.setMargin(parcelaBoton, new Insets(5, 5, 5, 5));
+            HBox.setMargin(parcelaImagen, new Insets(5, 5, 5, 5));
 
-            cajaVertical.getChildren().addAll(enemigoBoton, nombre, costo, danio, rango, operativa, cajaUbicacion);
+            cajaVertical.getChildren().addAll(defensaImagen, nombre, costo, danio, rango, operativa, cajaUbicacion);
 
-            VBox.setMargin(enemigoBoton, new Insets(5, 5, 5, 5));
+            VBox.setMargin(defensaImagen, new Insets(5, 5, 5, 5));
             VBox.setMargin(nombre, new Insets(5, 5, 5, 5));
             VBox.setMargin(costo, new Insets(5, 5, 5, 5));
             VBox.setMargin(danio, new Insets(5, 5, 5, 5));
@@ -90,13 +89,27 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
             VBox.setMargin(operativa, new Insets(5, 5, 5, 5));
             VBox.setMargin(cajaUbicacion, new Insets(5, 5, 5, 5));
 
-            enemigosMenu.add(cajaVertical, columna, 0);
+            defensaMenu.add(cajaVertical, columna, 0);
             columna++;
         }
 
-        StackPane stackPane = new StackPane(enemigosMenu);
+        VBox cajaVertical2 = new VBox();
+        Rectangle noOpImg = new Rectangle(50, 50);
+        Image imgNoOp = Input.getInstance().imagenDefensa("noOperativa").getImage();
+        noOpImg.setFill(new ImagePattern(imgNoOp));
+
+        Label noOperativa = new Label("La defensa no esta\n operativa ");
+        noOperativa.setStyle(loginStyle);
+
+        defensaMenu.add(cajaVertical2, columna, 0);
+
+        cajaVertical2.getChildren().addAll(noOpImg, noOperativa);
+        VBox.setMargin(noOpImg, new Insets(5, 5, 5, 5));
+        VBox.setMargin(noOperativa, new Insets(5, 5, 5, 5));
+
+        StackPane stackPane = new StackPane(defensaMenu);
         stackPane.setStyle("-fx-background-color: #070d26;");
-        Scene scene = new Scene(stackPane, 485, 290);
+        Scene scene = new Scene(stackPane, 570, 290);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }
