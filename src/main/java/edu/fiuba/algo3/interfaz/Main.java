@@ -144,7 +144,7 @@ public class Main implements EventHandler<ActionEvent> {
 //            Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
 //            perdiste.handle(new ActionEvent());
         }
-        if (juego.gano()) { //&& juego.empezo()
+        if (juego.gano() && juego.empezo()) {
             music.pause();
             FinJuego finJuego = new FinJuego(stage, nombre, botonInformacion, "ganoVideo", "! GANASTE!");
             finJuego.handle(new ActionEvent());
