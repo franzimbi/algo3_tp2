@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.unitTest.mapaTest;
 
+import edu.fiuba.algo3.modelo.defensa.Defensa;
+import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
@@ -24,10 +26,7 @@ public class MapaTest {
         LectorJSON lector = new LectorJSON();
         Mapa mapa = lector.leerMapa("src/main/test/testResources/mapaValido.json");
         Jugador jugador = new Jugador(1, 100, "Jugador");
-        Tierra tierra = new Tierra(new Coordenadas(0, 0));
-//        Defensa defensa = new TorrePlateada();
-//        assertDoesNotThrow(() -> mapa.agregarParcela(tierra));
-//        assertDoesNotThrow(() -> mapa.agregarDefensa(defensa, new Coordenadas(2, 2), jugador));
-//        assert !mapa.agregarDefensa(defensa, new Coordenadas(4, 4), jugador);
+        Defensa defensa = new TorrePlateada();
+        assertDoesNotThrow(() -> mapa.ubicar(defensa, new Coordenadas(2, 2), jugador));
     }
 }

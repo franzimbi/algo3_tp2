@@ -134,6 +134,7 @@ public class Entrega1Test {
         Mapa mapa = new Mapa();
         Jugador jugador = new Jugador(10, 1, "Julian");
         Enemigo hormiga = new Hormiga();
+        Enemigo arania = new Arania();
 
         Pasarela p1 = new Pasarela(new Coordenadas(0, 0));
         Pasarela p2 = new Pasarela(new Coordenadas(0, 1));
@@ -146,9 +147,9 @@ public class Entrega1Test {
         mapa.agregarParcela(p2);
         mapa.agregarParcela(p3);
         hormiga.mover(p1, jugador, mapa);
-        //arania.mover(p1, jugador, mapa);
-        //assert hormiga.getUbicacion().equals(new Coordenadas(0, 1));
-        //assert arania.getUbicacion().equals(new Coordenadas(0, 2));
+        arania.mover(p1, jugador, mapa);
+        assert hormiga.getUbicacion().equals(new Coordenadas(0, 1));
+        assert arania.getUbicacion().equals(new Coordenadas(0, 2));
     }
 
     //Verificar que al eliminar todas la unidades enemigas el jugador gana el juego
