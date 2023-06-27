@@ -7,9 +7,8 @@ import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -19,17 +18,15 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 
 public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> {
 
-    private ArrayList<Defensa> defensas;
-    private Stage popUpMenu1;
-    private javafx.scene.image.Image icon;
+    private final ArrayList<Defensa> defensas;
+    private final Stage popUpMenu1;
+    private final javafx.scene.image.Image icon;
 
     public DefensaInformacionEventHandler(Stage popUpMenu2, javafx.scene.image.Image icon) {
         this.popUpMenu1 = popUpMenu2;
@@ -41,7 +38,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
     }
 
     @Override
-    public void handle(javafx.scene.input.MouseEvent mouseEvent){
+    public void handle(javafx.scene.input.MouseEvent mouseEvent) {
         popUpMenu1.getIcons().add(icon);
         popUpMenu1.setTitle("Defensas Informacion");
         GridPane defensaMenu = new GridPane();
@@ -49,7 +46,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
         int columna = 0;
 
-        for (Defensa defensa: defensas) {
+        for (Defensa defensa : defensas) {
             VBox cajaVertical = new VBox();
             Rectangle defensaImagen = new Rectangle(50, 50);
             Image img = Input.getInstance().imagenDefensa(defensa.getNombre()).getImage();
@@ -65,7 +62,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
             danio.setStyle(loginStyle);
             Label rango = new Label("Rango: " + Input.getInstance().informacion(defensa.getNombre(), "Rango"));
             rango.setStyle(loginStyle);
-            Label operativa = new Label("Operativa En: " + Input.getInstance().informacion(defensa.getNombre() , "OperativaEn"));
+            Label operativa = new Label("Operativa En: " + Input.getInstance().informacion(defensa.getNombre(), "OperativaEn"));
             operativa.setStyle(loginStyle);
 
             Rectangle parcelaImagen = new Rectangle(50, 50);

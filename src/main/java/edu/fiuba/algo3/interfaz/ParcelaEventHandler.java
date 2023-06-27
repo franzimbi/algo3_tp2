@@ -65,33 +65,32 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
             defensaBoton.setStyle(color);
             defensaBoton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
                 String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 16px";
+                Stage casoError = new Stage();
+                casoError.getIcons().add(icono);
+                casoError.initModality(Modality.WINDOW_MODAL);
+                casoError.initOwner(ventanaDefensas);
+                Label label;
+                StackPane stack;
+                Scene scene;
                 try {
                     this.juego.agregarDefensa(defensa, coordenadas);
                 } catch (ParcelaNoPuedeUbicarError exception) {
-                    Stage casoError = new Stage();
-                    casoError.getIcons().add(icono);
-                    casoError.initModality(Modality.WINDOW_MODAL);
-                    casoError.initOwner(ventanaDefensas);
-                    var label = new Label("No se puede agregar " + defensa.getNombre() + " en  esta ubicacion.");
+                    label = new Label("No se puede agregar " + defensa.getNombre() + " en  esta ubicacion.");
                     label.setStyle(loginStyle);
                     label.setPadding(new Insets(0, 0, 0, 20));
-                    StackPane stack = new StackPane(label);
+                    stack = new StackPane(label);
                     stack.setStyle("-fx-background-color: #070d26;");
-                    Scene scene = new Scene(stack, 450, 100);
+                    scene = new Scene(stack, 450, 100);
                     casoError.setScene(scene);
                     casoError.setTitle("OOPS");
                     casoError.showAndWait();
                 } catch (CreditosInsuficientesError exception) {
-                    Stage casoError = new Stage();
-                    casoError.getIcons().add(icono);
-                    casoError.initModality(Modality.WINDOW_MODAL);
-                    casoError.initOwner(ventanaDefensas);
-                    var label = new Label("Creditos Insuficientes para " + defensa.getNombre());
+                    label = new Label("Creditos Insuficientes para " + defensa.getNombre());
                     label.setStyle(loginStyle);
                     label.setPadding(new Insets(0, 0, 0, 20));
-                    StackPane stack = new StackPane(label);
+                    stack = new StackPane(label);
                     stack.setStyle("-fx-background-color: #070d26;");
-                    Scene scene = new Scene(stack, 450, 100);
+                    scene = new Scene(stack, 450, 100);
                     casoError.setScene(scene);
                     casoError.setTitle("OOPS");
                     casoError.showAndWait();
@@ -109,7 +108,6 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
         ventana.setStyle("-fx-background-color: rgba(228,0,0,0.49);");
         boton.setPadding(new Insets(10, 10, 10, 10));
         Scene scene = new Scene(ventana);
-
         ventanaDefensas.setScene(scene);
         ventanaDefensas.showAndWait();
     }

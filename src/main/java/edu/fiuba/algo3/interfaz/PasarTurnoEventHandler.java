@@ -6,11 +6,9 @@ import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
 public class PasarTurnoEventHandler implements EventHandler<ActionEvent> {
-
     private final Juego juego;
     private final Stage stage;
     private final Main main;
-
 
     public PasarTurnoEventHandler(Stage stage, Juego juego, Main main) {
         this.stage = stage;

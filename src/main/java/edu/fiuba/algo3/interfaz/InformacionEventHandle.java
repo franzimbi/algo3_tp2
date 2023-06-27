@@ -7,7 +7,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -18,7 +17,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class InformacionEventHandle implements EventHandler<MouseEvent> {
-
     private final Image icon;
     private final String loginStyle;
     private final Stage popUpMenu;
@@ -54,9 +52,7 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         Button creditos = new Button("CREDITOS");
 
         // hyperlink acerca de
-        acercaDe.setOnAction(event -> {
-            this.service.showDocument("https://github.com/franzimbi/algo3_tp2");
-        });
+        acercaDe.setOnAction(event -> this.service.showDocument("https://github.com/franzimbi/algo3_tp2"));
         acercaDe.setStyle(loginStyle);
         acercaDe.setBorder(null);
         acercaDe.setUnderline(false);
@@ -89,7 +85,7 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         comoJugar.addEventHandler(MouseEvent.MOUSE_CLICKED, new ComoJugarEventHandler(popUpMenu1, icon));
         enemigos.addEventHandler(MouseEvent.MOUSE_CLICKED, new EnemigoInformacionEventHandler(popUpMenu1, icon));
         defensas.addEventHandler(MouseEvent.MOUSE_CLICKED, new DefensaInformacionEventHandler(popUpMenu1, icon));
-        creditos.addEventHandler(MouseEvent.MOUSE_CLICKED, new CreditosEvenHandler(popUpMenu1, service,  icon));
+        creditos.addEventHandler(MouseEvent.MOUSE_CLICKED, new CreditosEvenHandler(popUpMenu1, service, icon));
 
         //botones primer popUp
         gridMenu.add(comoJugar, 0, 0);
@@ -103,7 +99,6 @@ public class InformacionEventHandle implements EventHandler<MouseEvent> {
         GridPane.setHalignment(enemigos, HPos.CENTER);
         GridPane.setHalignment(acercaDe, HPos.CENTER);
         GridPane.setHalignment(creditos, HPos.CENTER);
-
 
         StackPane stackPane1 = new StackPane(gridMenu);
         stackPane1.setStyle("-fx-background-color: #070d26;");

@@ -20,17 +20,14 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.File;
 
 public class FinJuego implements EventHandler<ActionEvent> {
     private final Stage primaryStage;
     private final TextField nombre;
     private final Button botonInformacion;
-
-    private String estado;
-
-    private String texto;
+    private final String estado;
+    private final String texto;
 
     public FinJuego(Stage stage, TextField nombre, Button botonInformacion, String estado, String textoFinal) {
         this.nombre = nombre;

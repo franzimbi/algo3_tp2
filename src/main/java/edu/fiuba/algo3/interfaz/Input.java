@@ -25,7 +25,6 @@ public class Input {
         mapa.put("pasarela", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/camino.jpg").toURI().toString())));
         mapa.put("meta", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/castillo.png").toURI().toString())));
 
-
         this.enemigos = new HashMap<>();
         this.enemigos.put("Arania", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/arana.png").toURI().toString())));
         this.enemigos.put("Hormiga", new ImageView((new File("src/main/java/edu/fiuba/algo3/resources/imagenes/hormiga.png").toURI().toString())));
@@ -102,7 +101,7 @@ public class Input {
         trampaDeArena.put("Rango", "0");
         trampaDeArena.put("UbicarEn", "pasarela");
         trampaDeArena.put("OperativaEn", "0");
-        trampaDeArena.put("Info", "Informacion:\ndura 3 turnos\ny reduce la velocidad\nde los enemigo.puml\nen 1 mientras\nesten en su\n rango");
+        trampaDeArena.put("Info", "Informacion:\ndura 3 turnos\ny reduce la velocidad\nde los enemigos\nen 1 mientras\nesten en su\n rango");
         this.informacion.put("Trampa De Arena", trampaDeArena);
     }
 

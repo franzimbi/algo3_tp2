@@ -61,7 +61,7 @@ public class Main implements EventHandler<ActionEvent> {
         stage.getIcons().add(icono);
         StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
-        String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigo.puml.json";
+        String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigos.json";
         Jugador jugador = new Jugador(20, 100, nombre.getText());
         Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
         Parent tablero = createBoard(juego.getParcelasMapa(), juego);
@@ -123,7 +123,6 @@ public class Main implements EventHandler<ActionEvent> {
             }
             tile.setFill(new ImagePattern(img));
 
-            //tile.setStroke(Color.BLACK);
             tile.setStrokeWidth(0);
             tile.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> tile.setEffect(shadow));
             tile.addEventHandler(MouseEvent.MOUSE_EXITED, e -> tile.setEffect(null));
@@ -141,15 +140,11 @@ public class Main implements EventHandler<ActionEvent> {
             music.pause();
             FinJuego finJuego = new FinJuego(stage, nombre, botonInformacion, "perdioVideo", "! PERDISTE!");
             finJuego.handle(new ActionEvent());
-//            Perdio perdiste = new Perdio(stage, nombre, botonInformacion);
-//            perdiste.handle(new ActionEvent());
         }
         if (juego.gano() && juego.empezo()) {
             music.pause();
             FinJuego finJuego = new FinJuego(stage, nombre, botonInformacion, "ganoVideo", "! GANASTE!");
             finJuego.handle(new ActionEvent());
-//            Gano gano = new Gano(stage, nombre, botonInformacion);
-//            gano.handle(new ActionEvent());
         }
 
         StackPane ventana = new StackPane();
@@ -163,7 +158,6 @@ public class Main implements EventHandler<ActionEvent> {
         pasarTurno.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_ENTERED, e -> pasarTurno.setEffect(shadow));
         pasarTurno.addEventHandler(MouseEvent.MOUSE_EXITED, e -> pasarTurno.setEffect(null));
         pasarTurno.setOnAction(new PasarTurnoEventHandler(stage, juego, this));
-
 
         // Fullscreen Button
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
@@ -213,14 +207,12 @@ public class Main implements EventHandler<ActionEvent> {
         for (Defensa e : juego.getDefensasJugador()) {
             Rectangle tile = new Rectangle(44, 44);
             Image img;
-            // si ves esto es porque estoy durmiendo
             if (e.estaOperativa()) {
                 img = (Input.getInstance().imagenDefensa(e.getNombre())).getImage();
             } else {
                 img = (Input.getInstance().imagenDefensa("noOperativa")).getImage();
             }
             tile.setFill(new ImagePattern(img));
-            //tile.setStroke(Color.BLACK);
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, e1 -> System.out.println("No se puede..."));
             Text text = new Text();
             Coordenadas coordenadasDefensa = e.getUbicacion();
@@ -233,7 +225,6 @@ public class Main implements EventHandler<ActionEvent> {
             Rectangle tile = new Rectangle(44, 44);
             Image img = Input.getInstance().imagenEnemigo(e.getNombre()).getImage();
             tile.setFill(new ImagePattern(img));
-            //tile.setStroke(Color.BLACK);
             tile.addEventHandler(MouseEvent.MOUSE_CLICKED, e1 -> System.out.println("No se puede..."));
             Text text = new Text();
             Coordenadas coordenadasEnemigo = e.getUbicacion();
@@ -246,7 +237,7 @@ public class Main implements EventHandler<ActionEvent> {
 
     public static class escribir implements EventHandler<ActionEvent> {
         public void handle(ActionEvent actionEvent) {
-            System.out.println("No se puede agregar defensa.puml en parcelas con enemigo.puml");
+            System.out.println("No se puede agregar defensa en parcelas con enemigos");
         }
     }
 }
