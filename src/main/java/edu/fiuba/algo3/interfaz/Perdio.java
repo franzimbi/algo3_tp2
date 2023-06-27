@@ -67,6 +67,8 @@ public class Perdio implements EventHandler<ActionEvent> {
             mediaPlayer.stop();
             Main iniciarEvent = new Main(primaryStage,nombre, botonMusica, botonInformacion, musicaLogin);
             iniciarEvent.handle(event);
+            musicaLogin.play();
+            mediaPlayer.setAutoPlay(false);
         });
 
         // exit
