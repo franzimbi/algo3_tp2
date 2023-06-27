@@ -1,0 +1,49 @@
+@startuml
+
+top to bottom direction
+skinparam linetype ortho
+
+package "enemigos"{
+package "movimiento"{
+    interface Movimiento << interface >>
+    class MovimientoCamino
+    class MovimientoDiagonal
+    class MovimientoHorizontal
+    class MovimientoVertical
+}
+
+package "recompensa"{
+    interface Recompensa << interface >>
+    class RecompensaRandom
+    class RecompensaSimple
+}
+
+package "tipoDeAtaque"{
+    abstract Danio
+    class DanioLechuzal
+    class DanioSimple
+    class DanioTopal
+}
+
+package "velocidad"{
+    class Velocidad
+    }
+class Arania
+abstract Enemigo
+class Hormiga
+class Lechuza
+class Topo
+}
+
+Arania --|>  Enemigo
+DanioLechuzal --|>  Danio
+DanioSimple --|>  Danio
+DanioTopal --|>  Danio
+Enemigo *--> Danio
+Enemigo *--> "movimiento"
+Enemigo *--> "recompensa"
+Enemigo *--> "velocidad"
+Hormiga --|>  Enemigo
+Lechuza --|>  Enemigo
+Topo --|>  Enemigo
+@enduml

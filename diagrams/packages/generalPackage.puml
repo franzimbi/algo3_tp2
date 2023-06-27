@@ -1,0 +1,66 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+package "defensa"{
+}
+
+package "enemigos"{
+    package "movimiento"{}
+    package "recompensa"{}
+    package "tipoDeAtaque"{}
+    package "velocidad"{}
+'abstract Enemigo
+}
+
+package "excepciones"{}
+
+package "factory"{}
+
+package "juego"{
+'    class Juego
+}
+
+package "jugador"{
+'    class Jugador
+    package "score"{}
+}
+
+package "lector"{}
+
+package "mapa"{
+    package "direcciones"{}
+    package "parcelas"{}
+'    class Coordenadas
+'    class Mapa
+}
+
+package "turno"{
+'   class Turnos
+}
+
+'Enemigo --|>  "tipoDeAtaque"
+'Enemigo --|>  "velocidad"
+'Enemigo --|>  "movimiento"
+'Enemigo --|> "recompensa"
+
+"mapa" --|>  "enemigos"
+' "defensa" --|> "mapa"
+
+"factory" --|> "enemigos"
+"factory" --|> "mapa"
+"factory" ---|> "excepciones"
+
+"juego" --|> "jugador"
+"juego" --|> "mapa"
+"juego" --|> "turno"
+"juego" ---|> "excepciones"
+
+"jugador" ---|> "excepciones"
+"jugador" --|> "defensa"
+'Jugador --|> "score"
+
+"lector" --|>  "mapa"
+"lector" --|> "excepciones"
+"lector" --|> "turno"
+@enduml
