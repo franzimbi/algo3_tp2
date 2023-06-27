@@ -48,35 +48,35 @@ public class Input {
         this.mediaPlayer.put("ganoVideo", new MediaPlayer(new Media(new File("src/main/java/edu/fiuba/algo3/resources/musica/gano.mp4").toURI().toString())));
 
         this.informacion = new HashMap<>();
-        Map lechuza = new HashMap<String, String>();
+        Map<String, String> lechuza = new HashMap<>();
         lechuza.put("Energia", "5");
         lechuza.put("Velocidad", "5");
         lechuza.put("Recompensa", "0");
         lechuza.put("Info", "information:\nLa lechuza al perder\nel 50% de vida\nse mueve en\ndiagonal y\n baja la primera\ntorre del jugador");
         this.informacion.put("Lechuza", lechuza);
 
-        Map topo = new HashMap<String, String>();
+        Map<String, String> topo = new HashMap<>();
         topo.put("Energia", "Inmune");
         topo.put("Velocidad", "1/2/3");
         topo.put("Recompensa", "0");
         topo.put("Info", "Informacion:\naumenta su\n velocidad en 1\ncada 5 turnos\n hasta un maximo\nde 3, inmune a las\ntorres y eldanio\ndependiendo de si\nel turnos es\npar/impar (5/2)");
         this.informacion.put("Topo", topo);
 
-        Map hormiga = new HashMap<String, String>();
+        Map<String, String> hormiga = new HashMap<>();
         hormiga.put("Energia", "1");
         hormiga.put("Velocidad", "1");
         hormiga.put("Recompensa", "1");
         hormiga.put("Info", "Informacion:\nenemigo estandar");
         this.informacion.put("Hormiga", hormiga);
 
-        Map arania = new HashMap<String, String>();
+        Map<String, String> arania = new HashMap<>();
         arania.put("Energia", "2");
         arania.put("Velocidad", "2");
         arania.put("Recompensa", "Random");
         arania.put("Info", "Informacion:\nenemigo estandar\nsu recompensa es\nentre 0 y 10\n creditos");
         this.informacion.put("Arania", arania);
 
-        Map torreBlanca = new HashMap<String, String>();
+        Map<String, String> torreBlanca = new HashMap<>();
         torreBlanca.put("Costo", "10");
         torreBlanca.put("Danio", "1");
         torreBlanca.put("Rango", "3");
@@ -85,7 +85,7 @@ public class Input {
         torreBlanca.put("Info", "Informacion:\nelimina al primer\nenemigo en rango");
         this.informacion.put("Torre Blanca", torreBlanca);
 
-        Map torrePlateada = new HashMap<String, String>();
+        Map<String, String> torrePlateada = new HashMap<>();
         torrePlateada.put("Costo", "20");
         torrePlateada.put("Danio", "2");
         torrePlateada.put("Rango", "5");
@@ -94,7 +94,7 @@ public class Input {
         torrePlateada.put("Info", "Informacion:\nelimina al primer\nenemigo en rango");
         this.informacion.put("Torre Plateada", torrePlateada);
 
-        Map trampaDeArena = new HashMap<String, String>();
+        Map<String, String> trampaDeArena = new HashMap<>();
         trampaDeArena.put("Costo", "25");
         trampaDeArena.put("Danio", "1");
         trampaDeArena.put("Rango", "0");
