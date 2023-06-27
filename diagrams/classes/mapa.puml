@@ -1,0 +1,57 @@
+@startuml
+class Coordenadas {
+  + coordenadasMovidasEn(int, int): Coordenadas
+  + chequearXY(Coordenadas): void
+  + distancia(Coordenadas): int
+  + equals(Coordenadas): boolean
+  -x: int
+  -y: int
+}
+class Mapa {
+
+  + removerEnemigo(Enemigo): void
+  + spawnear(Enemigo): void
+  + estaEnEjeYConMeta(int): boolean
+  + enemigosAtacados(Defensa): void
+  + ubicar(Defensa, Coordenadas, Jugador): void
+  + mover(Jugador): void
+  + agregarParcela(Parcela): void
+  + encontrarParcela(Coordenadas): Parcela
+  + ubicar(Enemigo, Coordenadas, Jugador): void
+  + sinEnemigos(): boolean
+  + cantidadEnemigos(): int
+  + recolectarEnemigos(Jugador): void
+  + estaEnMeta(Coordenadas): boolean
+  - agregarEnemigo(Enemigo): void
+  - meta: Coordenadas
+  - enemigos: ArrayList<Enemigo>
+}
+class Meta {
+  + moverASiguiente(Enemigo, Jugador, Mapa): void
+}
+abstract Parcela {
+  + ubicacion(Coordenadas): boolean
+  + ubicar(Enemigo): void
+}
+class Pasarela {
+  + ubicar(Enemigo): void
+  + moverASiguiente(Enemigo, Jugador, Mapa): void
+  + ubicar(Defensa): void
+  - siguiente: Direccion
+}
+class Rocoso {
+  + ubicar(Enemigo): void
+  + ubicar(Defensa): void
+}
+class Tierra {
+  + ubicar(Defensa): void
+  + ubicar(Enemigo): void
+}
+
+Meta         -|>  Pasarela
+Pasarela     --|>  Parcela
+Rocoso       --|>  Parcela
+Tierra       -|>  Parcela
+Mapa o---> "0..* "Parcela
+Parcela *--> "1 " Coordenadas
+@enduml

@@ -61,10 +61,6 @@ public abstract class Enemigo {
         return velocidad.obtenerVelocidad();
     }
 
-    public int getEnergia() {
-        return this.energia;
-    }
-
 
     public Coordenadas getUbicacion() {
         return this.ubicacion;

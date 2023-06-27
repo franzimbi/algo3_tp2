@@ -102,7 +102,7 @@ public class Input {
         trampaDeArena.put("Rango", "0");
         trampaDeArena.put("UbicarEn", "pasarela");
         trampaDeArena.put("OperativaEn", "0");
-        trampaDeArena.put("Info", "Informacion:\ndura 3 turnos\ny reduce la velocidad\nde los enemigos\nen 1 mientras\nesten en su\n rango");
+        trampaDeArena.put("Info", "Informacion:\ndura 3 turnos\ny reduce la velocidad\nde los enemigo.puml\nen 1 mientras\nesten en su\n rango");
         this.informacion.put("Trampa De Arena", trampaDeArena);
     }
 

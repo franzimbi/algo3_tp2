@@ -51,7 +51,7 @@ public class Entrega1Test {
         assertThrows(CreditosInsuficientesError.class, () -> torre.asignarAJugador(jugador));
     }
 
-    //Verificar solo se pueda construir defensas sobre tierra (y verificar lo contrario)
+    //Verificar solo se pueda construir defensa.puml sobre tierra (y verificar lo contrario)
     @Test
     public void Test04SoloSePuedeConstruirDefensasSobreTierra() {
         Defensa defensa = new TorreBlanca();
@@ -65,7 +65,7 @@ public class Entrega1Test {
         assertThrows(ParcelaNoPuedeUbicarError.class, () -> pasarela.ubicar(defensa));
     }
 
-    //Verificar que las defensas ataquen dentro del rango esperado (y verificar lo contrario)
+    //Verificar que las defensa.puml ataquen dentro del rango esperado (y verificar lo contrario)
     @Test
     public void Test05LasDefensasAtacanDentroDelRangoEsperado() {
         //Jugador jugador = new Jugador(20, 100, "a");

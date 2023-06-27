@@ -1,0 +1,18 @@
+@startuml
+
+interface Recompensa << interface >> {
+  + otorgarRecompensa(Jugador): void
+  + duplicarRecompensa(): void
+}
+class RecompensaRandom {
+  + duplicarRecompensa(): void
+  + otorgarRecompensa(Jugador): void
+}
+class RecompensaSimple {
+  + otorgarRecompensa(Jugador): void
+  + duplicarRecompensa(): void
+}
+
+RecompensaRandom  ..|>  Recompensa
+RecompensaSimple  ..|>  Recompensa
+@enduml

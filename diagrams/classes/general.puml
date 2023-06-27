@@ -1,0 +1,80 @@
+@startuml
+
+abstract Defensa {
+  + atacarEnemigo(Enemigo): void
+  + asignarAJugador(Jugador): void
+  + ubicarDefensa(Parcela): void
+  + ubicarEn(Coordenadas): void
+}
+abstract Enemigo {
+  + reducirVelocidad(float): void
+  + estaMuerto(): boolean
+  + recibirDanio(int): void
+  + atacarEnemigo(Defensa): void
+  + ubicarEn(Coordenadas): void
+  + mover(Parcela, Jugador, Mapa): void
+  + recompensar(Jugador): void
+  # direccion: Movimiento
+  # recompensa: Recompensa
+  # velocidad: int
+}
+class Juego {
+  + agregarDefensa(Defensa, Coordenadas): void
+  + gano(): boolean
+  + turnoEnemigos(): void
+  + juegoEmpezar(): void
+  + pasarTurno(): void
+  + perdio(): boolean
+}
+class Jugador {
+  + sacarCreditos(int): void
+  + estaMuerto(): boolean
+  + recibirDefensa(Defensa): void
+  + recibirCreditos(int): void
+  + destruirPrimeraDefensa(): void
+  + recibirAtaque(int): void
+  + atacarEnemigos(Mapa): void
+  + recibirMuerto(Enemigo): void
+  # vida: int
+  # creditos: int
+}
+class Mapa {
+  + removerEnemigo(Enemigo): void
+  + spawnear(Enemigo): void
+  + estaEnEjeYConMeta(int): boolean
+  + enemigosAtacados(Defensa): void
+  + ubicar(Defensa, Coordenadas, Jugador): void
+  + mover(Jugador): void
+  + agregarParcela(Parcela): void
+  + encontrarParcela(Coordenadas): Parcela
+  + ubicar(Enemigo, Coordenadas, Jugador): void
+  + dejarEnRango(Coordenadas): void
+  + recolectarEnemigos(Jugador): void
+  + estaEnMeta(Coordenadas): boolean
+  # meta: Coordenadas
+}
+abstract Parcela {
+  + tieneUbicacion(Coordenadas): boolean
+  + ubicar(Enemigo): void
+  + ubicar(Defensa): void
+}
+class Turnos {
+  + generarEnemigos(Mapa): void
+  + sumarTurnos(): void
+  + agregarEnemigoATurno(int, Enemigo): void
+  + moverEnemigos(Jugador, Mapa): void
+  - cantidadDeTurnos: int
+  }
+class Coordenadas{
+}
+
+Juego o--> Jugador
+Juego *--> Mapa
+Juego *--> Turnos
+Jugador o--> Defensa
+Mapa o--> Enemigo
+Mapa o--> Parcela
+Enemigo *--> Coordenadas
+Defensa *--> Coordenadas
+Parcela *--> Coordenadas
+@enduml

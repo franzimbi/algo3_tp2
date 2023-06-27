@@ -29,7 +29,7 @@ public class Turnos {
 
     public void generarEnemigos(Mapa mapa) {
         if (oleadas.size() == 0) {
-            Logger.getInstancia().info("no se spawnearon mas enemigos porque no hay mas oleadas");
+            Logger.getInstancia().info("no se spawnearon mas enemigo.puml porque no hay mas oleadas");
             return;
         }
         ArrayList<Enemigo> enemigosDelTurno = this.oleadas.get(0);

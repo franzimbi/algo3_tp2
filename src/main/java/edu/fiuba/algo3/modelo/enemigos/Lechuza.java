@@ -36,7 +36,6 @@ public class Lechuza extends Enemigo {
 
     }
 
-
     @Override
     public void atacar(Jugador jugador, int cantidadDeTurnos) {
         jugador.destruirPrimeraDefensa();

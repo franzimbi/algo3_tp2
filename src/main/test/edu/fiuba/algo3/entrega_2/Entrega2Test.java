@@ -44,7 +44,7 @@ public class Entrega2Test {
         mapa.agregarParcela(new Pasarela(new Coordenadas(0, 1)));
         mapa.agregarParcela(new Pasarela(new Coordenadas(0, 2)));
 
-        assertEquals(0, mapa.cantidadEnemigos()); // no debe tener enemigos en el camino
+        assertEquals(0, mapa.cantidadEnemigos()); // no debe tener enemigo.puml en el camino
         turnos.generarEnemigos(mapa); // spawneo en el camino 2 veces
         assertEquals(1, mapa.cantidadEnemigos());
         turnos.generarEnemigos(mapa);

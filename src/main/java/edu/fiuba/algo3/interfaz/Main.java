@@ -61,7 +61,7 @@ public class Main implements EventHandler<ActionEvent> {
         stage.getIcons().add(icono);
         StackPane ventana = new StackPane();
         String mapa = "src/main/java/edu/fiuba/algo3/resources/mapa.json";
-        String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigos.json";
+        String turnos = "src/main/java/edu/fiuba/algo3/resources/enemigo.puml.json";
         Jugador jugador = new Jugador(20, 100, nombre.getText());
         Juego juego = new Juego(jugador, new LectorJSON(), mapa, turnos);
         Parent tablero = createBoard(juego.getParcelasMapa(), juego);
@@ -246,7 +246,7 @@ public class Main implements EventHandler<ActionEvent> {
 
     public static class escribir implements EventHandler<ActionEvent> {
         public void handle(ActionEvent actionEvent) {
-            System.out.println("No se puede agregar defensas en parcelas con enemigos");
+            System.out.println("No se puede agregar defensa.puml en parcelas con enemigo.puml");
         }
     }
 }
