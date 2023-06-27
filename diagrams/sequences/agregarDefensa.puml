@@ -28,7 +28,4 @@ create ":parcela"
 
 ":mapa" -> "d: TorreBlanca": asignarAJugador(this.jugador)
 
-
-
-
 @enduml
