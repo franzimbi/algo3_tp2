@@ -58,7 +58,7 @@ public class Gano implements EventHandler<ActionEvent> {
         botonMusica.setStyle(musicStyle);
 
         //titulo perdiste!
-        Label titulo = new Label(nombre.getText() + "! FIESTA! GANASTE!");
+        Label titulo = new Label(nombre.getText() + " ganaste!");
         titulo.setStyle("-fx-font-size: 30px; -fx-text-fill: #ffffff");
         titulo.setEffect(shadow);
 
