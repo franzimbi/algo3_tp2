@@ -12,7 +12,7 @@ loop recorro todas las defensas
     participant "d: TorreBlanca"
 
     loop recorro todos los enemigos
-        note over mapa: se busca el enemigo mas cercano
+        note over "m: Mapa": se busca el enemigo mas cercano
     end
     participant "e :Hormiga"
     "m: Mapa"->"d: TorreBlanca": atacarEnemigo(e)
