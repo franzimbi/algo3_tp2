@@ -69,6 +69,7 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
                     this.juego.agregarDefensa(defensa, coordenadas);
                 } catch (ParcelaNoPuedeUbicarError exception) {
                     Stage casoError = new Stage();
+                    casoError.getIcons().add(icono);
                     casoError.initModality(Modality.WINDOW_MODAL);
                     casoError.initOwner(ventanaDefensas);
                     var label = new Label("No se puede agregar " + defensa.getNombre() + " en  esta ubicacion.");
@@ -82,6 +83,7 @@ public class ParcelaEventHandler implements EventHandler<MouseEvent> {
                     casoError.showAndWait();
                 } catch (CreditosInsuficientesError exception) {
                     Stage casoError = new Stage();
+                    casoError.getIcons().add(icono);
                     casoError.initModality(Modality.WINDOW_MODAL);
                     casoError.initOwner(ventanaDefensas);
                     var label = new Label("Creditos Insuficientes para " + defensa.getNombre());
