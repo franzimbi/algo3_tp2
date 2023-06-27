@@ -1,5 +1,5 @@
 @startuml
-
+top to bottom direction
 
 class Jugador {
   + recibirMuerto(Enemigo): void

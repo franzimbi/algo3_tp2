@@ -1,4 +1,6 @@
 @startuml
+top to bottom direction
+skinparam linetype ortho
 
 interface Recompensa << interface >> {
   + otorgarRecompensa(Jugador): void
