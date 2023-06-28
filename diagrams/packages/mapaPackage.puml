@@ -24,7 +24,7 @@ Derecha --|>  Direccion
 Mapa o-- "*" Parcela
 Meta --|>  Pasarela
 Parcela *-- "1 " Coordenadas
-Pasarela *- "1" "direcciones"
+Pasarela *- "1" Direccion
 Pasarela --|>  Parcela
 Rocoso --|>  Parcela
 Tierra --|>  Parcela

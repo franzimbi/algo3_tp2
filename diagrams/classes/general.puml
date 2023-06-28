@@ -29,7 +29,10 @@ interface Lector{
     +leerMapa(String): Mapa
     +leerEnemigos(String): Turnos
 }
-class LectorJson
+class LectorJson{
+    +leerMapa(String): Mapa
+    +leerEnemigos(String): Turnos
+    }
 
 Juego ..> Lector
 Lector <|.. LectorJson
