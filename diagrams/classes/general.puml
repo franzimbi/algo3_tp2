@@ -70,13 +70,13 @@ class Turnos {
 class Coordenadas{
 }
 
-Juego o--> Jugador
-Juego *--> Mapa
-Juego *--> Turnos
-Jugador o--> Defensa
-Mapa o--> Enemigo
-Mapa o--> Parcela
-Enemigo *--> Coordenadas
-Defensa *--> Coordenadas
-Parcela *--> Coordenadas
+Juego o-- "1" Jugador
+Juego *-- "1" Mapa
+Juego *-- "1" Turnos
+Jugador o-- "0..*"Defensa
+Mapa o-- "0..*" Enemigo
+Mapa o-- "0..*" Parcela
+Enemigo *-- "1" Coordenadas
+Defensa *-- "1" Coordenadas
+Parcela *-- "1" Coordenadas
 @enduml

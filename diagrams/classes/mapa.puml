@@ -1,5 +1,7 @@
 @startuml
+
 top to bottom direction
+skinparam linetype ortho
 
 
 class Coordenadas {
@@ -51,10 +53,10 @@ class Tierra {
   + ubicar(Enemigo): void
 }
 
-Meta         -|>  Pasarela
-Pasarela     --|>  Parcela
-Rocoso       --|>  Parcela
-Tierra       -|>  Parcela
-Mapa o---> "0..* "Parcela
-Parcela *--> "1 " Coordenadas
+Meta -|>  Pasarela
+Pasarela -|>  Parcela
+Rocoso --|>  Parcela
+Tierra --|>  Parcela
+Mapa o--- "0..* "Parcela
+Parcela *-- "1 " Coordenadas
 @enduml

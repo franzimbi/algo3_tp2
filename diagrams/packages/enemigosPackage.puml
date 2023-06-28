@@ -1,6 +1,6 @@
 @startuml
 
-top to bottom direction
+left to right direction
 skinparam linetype ortho
 
 package "enemigos"{
@@ -39,10 +39,10 @@ Arania --|>  Enemigo
 DanioLechuzal --|>  Danio
 DanioSimple --|>  Danio
 DanioTopal --|>  Danio
-Enemigo *--> Danio
-Enemigo *--> "movimiento"
-Enemigo *--> "recompensa"
-Enemigo *--> "velocidad"
+Enemigo *-- "1" Danio
+Enemigo *-- "1" "movimiento"
+Enemigo *-- "1" "recompensa"
+Enemigo *-- "1" "velocidad"
 Hormiga --|>  Enemigo
 Lechuza --|>  Enemigo
 Topo --|>  Enemigo

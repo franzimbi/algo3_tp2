@@ -36,6 +36,6 @@ class TrampaArenosa {
 }
 
 TorreBlanca    --|>  Defensa
-TorrePlateada  --|>  Defensa
+TorrePlateada  ---|>  Defensa
 TrampaArenosa  --|>  Defensa
 @enduml

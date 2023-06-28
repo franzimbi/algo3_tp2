@@ -21,10 +21,10 @@ class Mapa
 }
 Abajo --|>  Direccion
 Derecha --|>  Direccion
-Mapa o--> "*" Parcela
+Mapa o-- "*" Parcela
 Meta --|>  Pasarela
-Parcela *--> "1 " Coordenadas
-Pasarela *-> "1" "direcciones"
+Parcela *-- "1 " Coordenadas
+Pasarela *- "1" "direcciones"
 Pasarela --|>  Parcela
 Rocoso --|>  Parcela
 Tierra --|>  Parcela

@@ -17,6 +17,6 @@ class DanioTopal {
 }
 
 DanioLechuzal  --|>  Danio
-DanioSimple    --|>  Danio
+DanioSimple    ---|>  Danio
 DanioTopal     --|>  Danio
 @enduml
