@@ -166,8 +166,7 @@ public class Login extends Application {
 
         // Crear la escena y mostrarla en el escenario
         Scene scene = new Scene(stackPane);
-        primaryStage.setScene(scene);
-        primaryStage.setFullScreen(false);
+        primaryStage.setScene(scene);        primaryStage.setFullScreen(false);
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(1024);
         centerStageOnScreen(primaryStage);

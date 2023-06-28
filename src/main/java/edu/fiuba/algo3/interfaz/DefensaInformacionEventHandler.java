@@ -106,7 +106,7 @@ public class DefensaInformacionEventHandler implements EventHandler<MouseEvent> 
 
         StackPane stackPane = new StackPane(defensaMenu);
         stackPane.setStyle("-fx-background-color: #070d26;");
-        Scene scene = new Scene(stackPane, 570, 290);
+        Scene scene = new Scene(stackPane, 570, 280);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }

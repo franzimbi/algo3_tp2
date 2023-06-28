@@ -84,7 +84,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
 
         StackPane stackPane = new StackPane(enemigosMenu);
         stackPane.setStyle("-fx-background-color: #070d26;");
-        Scene scene = new Scene(stackPane, 510,370);
+        Scene scene = new Scene(stackPane, 510,360);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }
