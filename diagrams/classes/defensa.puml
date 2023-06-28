@@ -2,7 +2,7 @@
 top to bottom direction
 skinparam linetype ortho
 
-class Defensa {
+abstract Defensa {
   # ubicacion: Coordenadas
   # vidaUtil: int
   # turnosRestantes: int

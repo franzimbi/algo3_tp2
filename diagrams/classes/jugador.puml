@@ -4,7 +4,6 @@ top to bottom direction
 class Jugador {
   + recibirMuerto(Enemigo): void
   + recibirDefensa(Defensa): void
-  + nombre(): String
   + sacarCreditos(int): void
   + recolectarDefensas(): void
   + recibirAtaque(int): void
@@ -14,10 +13,11 @@ class Jugador {
   + recibirCreditos(int): void
    -vida: int
    -creditos: int
-   -defensas: ArrayList<Defensa>
 }
 class Score {
   + agregarMuerto(Enemigo): void
 }
-    Jugador *--> "1 " Score
+abstract Defensa
+    Jugador *-- "1 " Score
+    Jugador o-- "0..*" Defensa
 @enduml

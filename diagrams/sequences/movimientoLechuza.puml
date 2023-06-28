@@ -2,19 +2,21 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-"m: Mapa" -> "m: Mapa": this.encontrarParcela(e)
-loop recorre todos las parcelas
-note over "m: Mapa": se busca la parcela en la que esta el enemigo
-end
-"p: Pasarela" --> "m: Mapa":
-
-"m: Mapa" -> "e: Hormiga": mover(p, jugador, this)
+entity Sistema
+Sistema ->"e: Lechuza": mover(p, nico, m)
+"e: Lechuza" -> "e: Lechuza": estaMuerto()
+"e: Lechuza" <-- "e: Lechuza": false
 loop velocidad veces
-"e: Hormiga" -> "mov: MovimientoCamino": mover(this,nico,m)
-"mov: MovimientoCamino" -> "p: Pasarela": moverASiguiente(e,nico,m)
-"p: Pasarela" -> "d: Abajo": direccionParaCoordenada(this.ubicacion)
-"d: Abajo" --> "p: Pasarela": c: Coordenadas
-"p: Pasarela"-> "m: Mapa": ubicar(e,c,nico)
+"e: Lechuza" -> "mov: MovimientoVertical": mover(this,nico,m)
+"mov: MovimientoVertical" -> "e: Lechuza": getUbicacion()
+"mov: MovimientoVertical" <-- "e: Lechuza": [posicion: Cooredenadas]
+create "a: Abajo"
+"mov: MovimientoVertical" -> "a: Abajo": Abajo()
+"mov: MovimientoVertical" -> "a: Abajo": direccionParaCoordenada(posicion)
+"mov: MovimientoVertical" <-- "a: Abajo": [nuevasCoordenadas: Cooredenadas]
+"mov: MovimientoVertical" -> "e: Lechuza": ubicarEn(nuevasCoordenadas)
+"mov: MovimientoVertical" -> "m: Mapa": dejarEnRango(nuevasCoordenadas)
+
 end
 
 

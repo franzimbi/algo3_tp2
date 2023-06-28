@@ -19,7 +19,7 @@ class MovimientoVertical {
   + mover(Enemigo, Jugador, Mapa): void
 }
 
-MovimientoCamino      ..|>  Movimiento
+MovimientoCamino      .|>  Movimiento
 MovimientoDiagonal    ..|>  Movimiento
 MovimientoHorizontal  ..|>  Movimiento
 MovimientoVertical    ..|>  Movimiento

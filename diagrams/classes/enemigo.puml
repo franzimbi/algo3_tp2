@@ -41,5 +41,5 @@ class Topo {
 Arania   --|>  Enemigo
 Hormiga  --|>  Enemigo
 Lechuza  --|>  Enemigo
-Topo     --|>  Enemigo
+Topo     -|>  Enemigo
 @enduml
