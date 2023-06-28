@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+scale 350 width
+hide empty description
+
+[*] --> empezarJuego
+
+state Jugador{
+    state jugadorVivo
+    state jugadorMuerto
+}
+
+state faseDeInsertarDefensas{
+    state agregarDefensas
+    state pasarDeTurno
+}
+jugadorVivo-> faseDeInsertarDefensas
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+entity Sistema
+participant "j: Jugador"
+participant "m: Mapa"
+Sistema -> "j: Jugador":atacarEnemigos(m)
+loop recorro todas las defensas
+    "j: Jugador" -> "m: Mapa": enemigosAtacados(d)
+    participant "d: TorreBlanca"
+
+    loop recorro todos los enemigos
+        note over "m: Mapa": se busca el enemigo mas cercano
+    end
+    participant "e :Hormiga"
+    "m: Mapa"->"d: TorreBlanca": atacarEnemigo(e)
+    "d: TorreBlanca" -> "e :Hormiga": distancia(this.ubicacion)
+    "e :Hormiga" --> "d: TorreBlanca": 1
+    "d: TorreBlanca" -> "d: TorreBlanca": atacar(e, 1)
+    "d: TorreBlanca" -> "d: TorreBlanca": estaEnRango(1)
+    "d: TorreBlanca" --> "d: TorreBlanca": True
+    "d: TorreBlanca" -> "e :Hormiga": recibirDanio(this.danio)
+end
+"j: Jugador" <-- "m: Mapa"
+
+@enduml
