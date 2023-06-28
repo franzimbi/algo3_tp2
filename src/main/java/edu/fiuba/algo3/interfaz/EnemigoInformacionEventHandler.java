@@ -5,9 +5,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -15,19 +14,16 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
 
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene.input.MouseEvent> {
 
     private final ArrayList<Enemigo> enemigosArray;
-    private Stage popUpMenu1;
+    private final Stage popUpMenu1;
 
-    private javafx.scene.image.Image icon;
+    private final javafx.scene.image.Image icon;
 
     public EnemigoInformacionEventHandler(Stage popUpMenu1, javafx.scene.image.Image icon) {
         this.popUpMenu1 = popUpMenu1;
@@ -40,7 +36,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
     }
 
     @Override
-    public void handle(javafx.scene.input.MouseEvent mouseEvent){
+    public void handle(javafx.scene.input.MouseEvent mouseEvent) {
         popUpMenu1.getIcons().add(icon);
         popUpMenu1.setTitle("Enemigos Informacion");
         String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 14px";
@@ -50,7 +46,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
         enemigosMenu.setGridLinesVisible(true);
         int columna = 0;
 
-        for (Enemigo enemigo: enemigosArray) {
+        for (Enemigo enemigo : enemigosArray) {
             VBox cajaVertical = new VBox();
 
             Rectangle enemigoImagen = new Rectangle(50, 50);
@@ -84,7 +80,7 @@ public class EnemigoInformacionEventHandler implements EventHandler<javafx.scene
 
         StackPane stackPane = new StackPane(enemigosMenu);
         stackPane.setStyle("-fx-background-color: #070d26;");
-        Scene scene = new Scene(stackPane, 510,360);
+        Scene scene = new Scene(stackPane, 510, 360);
         popUpMenu1.setScene(scene);
         popUpMenu1.show();
     }
