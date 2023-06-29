@@ -1,0 +1,31 @@
+@startuml
+
+top to bottom direction
+skinparam linetype ortho
+
+package "mapa"{
+package "direcciones"{
+    abstract Direccion
+    class Abajo
+    class Derecha
+}
+package "parcelas"{
+    abstract Parcela
+    class Meta
+    class Pasarela
+    class Rocoso
+    class Tierra
+}
+class Coordenadas
+class Mapa
+}
+Abajo --|>  Direccion
+Derecha --|>  Direccion
+Mapa o-- "*" Parcela
+Meta --|>  Pasarela
+Parcela *-- "1 " Coordenadas
+Pasarela *- "1" Direccion
+Pasarela --|>  Parcela
+Rocoso --|>  Parcela
+Tierra --|>  Parcela
+@enduml

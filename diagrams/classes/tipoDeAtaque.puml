@@ -1,0 +1,22 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+abstract Danio {
+  + atacar(Jugador, int): void
+}
+class DanioLechuzal {
+  + atacar(Jugador, int): void
+}
+class DanioSimple {
+  + atacar(Jugador, int): void
+}
+class DanioTopal {
+  - atacarDanioSegunTurno(Jugador, int): void
+  + atacar(Jugador, int): void
+}
+
+DanioLechuzal  --|>  Danio
+DanioSimple    ---|>  Danio
+DanioTopal     --|>  Danio
+@enduml

@@ -1,81 +1,114 @@
 package edu.fiuba.algo3.interfaz;
 
+import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TorreBlanca;
 import edu.fiuba.algo3.modelo.defensa.TorrePlateada;
 import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
+import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
+import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.media.MediaPlayer;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ParcelaEventHandler implements EventHandler<MouseEvent> {
-    private Stage stage;
-    private Coordenadas coordenadas;
-    private Juego juego;
-    private Main main;
+import java.util.ArrayList;
 
-    public ParcelaEventHandler(Stage stage, Coordenadas coordenadas, Juego juego, Main main){
+public class ParcelaEventHandler implements EventHandler<MouseEvent> {
+    private final Stage stage;
+    private final Coordenadas coordenadas;
+    private final Juego juego;
+    private final Main main;
+    private final javafx.scene.image.Image icono;
+
+
+    public ParcelaEventHandler(Stage stage, Coordenadas coordenadas, Juego juego, Main main, javafx.scene.image.Image icono) {
         this.stage = stage;
         this.coordenadas = coordenadas;
         this.juego = juego;
         this.main = main;
+        this.icono = icono;
+
     }
 
     @Override
-    public void handle(MouseEvent aE){
-        Stage casoError = new Stage();
-        var label = new Label("fiesta");
-        Button torreBlanca= new Button("Torre Blanca");
-        torreBlanca.setStyle("-fx-background-color: green; -fx-text-fill: black;");
-        torreBlanca.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            this.juego.agregarDefensa(new TorreBlanca(), coordenadas);
-            stage.getScene().setRoot(this.main.actualizar(this.juego,this.stage));
-            casoError.close();
-            stage.getScene().setRoot(this.main.actualizar(this.juego,this.stage));
-        });
-        Button torrePlateada= new Button("Torre Plateada");
-        torrePlateada.setStyle("-fx-background-color: green; -fx-text-fill: black;");
-        torrePlateada.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            this.juego.agregarDefensa(new TorrePlateada(),coordenadas);
-            casoError.close();
-            stage.getScene().setRoot(this.main.actualizar(this.juego,this.stage));
-        });
+    public void handle(MouseEvent aE) {
+        String color = "-fx-background-color: #F4C2C2;";
+        Stage ventanaDefensas = new Stage();
+        ventanaDefensas.getIcons().add(icono);
+        ventanaDefensas.setTitle("Defensas");
+        ventanaDefensas.initModality(Modality.WINDOW_MODAL);
+        ventanaDefensas.initOwner(stage);
 
-        Button trampaArena= new Button("Trampa de Arena");
-        trampaArena.setStyle("-fx-background-color: green; -fx-text-fill: black;");
-        trampaArena.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            this.juego.agregarDefensa(new TrampaArenosa(),coordenadas);
-            casoError.close();
-            stage.getScene().setRoot(this.main.actualizar(this.juego,this.stage));
-        });
-//        botonSeleccionarDefensa.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-//            if (media.getStatus() == MediaPlayer.Status.PLAYING) {
-//                media.stop();
-//                botonSeleccionarDefensa.setText("UNMUTE");
-//                botonSeleccionarDefensa.setStyle("-fx-background-color: #ff8000; -fx-text-fill: #131313;");
-//            } else {
-//                media.play();
-//                botonSeleccionarDefensa.setText("MUTE");
-//                botonSeleccionarDefensa.setStyle("-fx-background-color: green; -fx-text-fill: black;");
-//            }
-//        } );
-        VBox boton = new VBox(torreBlanca,torrePlateada,trampaArena);
+
+        ArrayList<Defensa> defensas = new ArrayList<>();
+        defensas.add(new TorreBlanca());
+        defensas.add(new TorrePlateada());
+        defensas.add(new TrampaArenosa());
+
+        HBox boton = new HBox();
+
+        for (Defensa defensa : defensas) {
+            Button defensaBoton = new Button();
+            ImageView vistaBoton = Input.getInstance().imagenDefensa(defensa.getNombre());
+            vistaBoton.setFitHeight(50);
+            vistaBoton.setPreserveRatio(true);
+            defensaBoton.setGraphic(vistaBoton);
+            defensaBoton.setStyle(color);
+            defensaBoton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+                String loginStyle = "-fx-background-color: #000080; -fx-text-fill: #ffffff; -fx-font-size: 16px";
+                Stage casoError = new Stage();
+                casoError.getIcons().add(icono);
+                casoError.initModality(Modality.WINDOW_MODAL);
+                casoError.initOwner(ventanaDefensas);
+                Label label;
+                StackPane stack;
+                Scene scene;
+                try {
+                    this.juego.agregarDefensa(defensa, coordenadas);
+                } catch (ParcelaNoPuedeUbicarError exception) {
+                    label = new Label("No se puede agregar " + defensa.getNombre() + " en  esta ubicacion.");
+                    label.setStyle(loginStyle);
+                    label.setPadding(new Insets(0, 0, 0, 20));
+                    stack = new StackPane(label);
+                    stack.setStyle("-fx-background-color: #070d26;");
+                    scene = new Scene(stack, 450, 100);
+                    casoError.setScene(scene);
+                    casoError.setTitle("OOPS");
+                    casoError.showAndWait();
+                } catch (CreditosInsuficientesError exception) {
+                    label = new Label("Creditos Insuficientes para " + defensa.getNombre());
+                    label.setStyle(loginStyle);
+                    label.setPadding(new Insets(0, 0, 0, 20));
+                    stack = new StackPane(label);
+                    stack.setStyle("-fx-background-color: #070d26;");
+                    scene = new Scene(stack, 450, 100);
+                    casoError.setScene(scene);
+                    casoError.setTitle("OOPS");
+                    casoError.showAndWait();
+                }
+                stage.getScene().setRoot(this.main.actualizar(this.juego, this.stage));
+                ventanaDefensas.close();
+                stage.getScene().setRoot(this.main.actualizar(this.juego, this.stage));
+            });
+            boton.getChildren().add(defensaBoton);
+            HBox.setMargin(defensaBoton, new Insets(5, 5, 5, 5));
+        }
+
         StackPane ventana = new StackPane();
-        HBox caja = new HBox(ventana,boton);
-        label.setPadding(new Insets(0,0,0,150));
-        Scene scene = new Scene(caja);
-
-        casoError.setScene(scene);
-        casoError.showAndWait();
+        ventana.getChildren().add(boton);
+        ventana.setStyle("-fx-background-color: rgba(228,0,0,0.49);");
+        boton.setPadding(new Insets(10, 10, 10, 10));
+        Scene scene = new Scene(ventana);
+        ventanaDefensas.setScene(scene);
+        ventanaDefensas.showAndWait();
     }
 }

@@ -1,0 +1,17 @@
+@startuml
+autonumber
+
+entity Mapa
+create ":Defensa"
+
+Mapa -> ":Defensa": asignarJugador(jugador)
+
+":Defensa" -> "jugador: Jugador": sacarCreditos(this.coste)
+":Defensa" -> "jugador: Jugador": recibirDefensa(this)
+
+
+
+
+
+
+@enduml

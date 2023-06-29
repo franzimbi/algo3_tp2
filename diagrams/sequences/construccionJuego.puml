@@ -1,0 +1,55 @@
+@startuml
+
+autonumber
+
+actor casoDeUso
+
+create "nico: Jugador"
+casoDeUso -> "nico: Jugador": Jugador(20, 100, "Nicolas")
+
+create ":Score"
+"nico: Jugador" -> ":Score" : Score()
+
+create "lector: LectorJSON"
+casoDeUso -> "lector: LectorJSON": LectorJSON()
+
+create "juego: Juego"
+casoDeUso -> "juego: Juego": Juego(nico, lector, "/../mapa", "/../enemigos")
+
+"juego: Juego" -> "lector: LectorJSON" : leerMapa("/../mapa")
+
+create "m: Mapa"
+"lector: LectorJSON" -> "m: Mapa": Mapa()
+
+loop hasta leer todo el Json de mapa
+"lector: LectorJSON" -> ParcelaFactory: crearParcela("StringParcela", x, y)
+
+create "p: Parcela"
+ParcelaFactory -> "p: Parcela": Parcela(x,y)
+
+"lector: LectorJSON" -> "m: Mapa": agregarParcela(p)
+end
+
+"lector: LectorJSON" <-- "m: Mapa"
+"lector: LectorJSON" --> "juego: Juego" : m
+
+
+"juego: Juego" -> "lector: LectorJSON" : leerEnemigos("/../enemigos")
+
+create "t: Turnos"
+"lector: LectorJSON" -> "t: Turnos": Turnos()
+
+loop hasta leer todo el Json de enemigos
+"lector: LectorJSON" -> EnemigosFactory: crearEnemigo("StringEnemigo")
+
+create "e: Enemigo"
+EnemigosFactory -> "e: Enemigo": Enemigo()
+"lector: LectorJSON" -> "t: Turnos": agregarEnemigoATurno(e, nroTurno)
+end
+
+"lector: LectorJSON" <-- "t: Turnos"
+"lector: LectorJSON" --> "juego: Juego" : t
+
+"juego: Juego" --> casoDeUso
+
+@enduml

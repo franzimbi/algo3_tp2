@@ -56,7 +56,6 @@ public class LechuzaTest {
         Meta meta = new Meta(new Coordenadas(6, 6));
         mapa.setMeta(meta);
         mapa.spawnear(lechuza);
-
         assert lechuza.getUbicacion().equals(new Coordenadas(0, 0));
 
         mapa.mover(jugador);
@@ -92,4 +91,37 @@ public class LechuzaTest {
         mapa.mover(jugador);
         assert lechuza.getUbicacion().equals(new Coordenadas(15, 15));
     }
+
+    @Test
+    public void TestLechuzaDiagonalFalopa() {
+        Mapa mapa = new Mapa();
+        Jugador jugador = new Jugador(10, 1, "Julian");
+
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                mapa.agregarParcela(new Pasarela(new Coordenadas(i, j)));
+            }
+        }
+
+        mapa.setMeta(new Pasarela(new Coordenadas(15, 15)));
+
+        Enemigo lechuza = new Lechuza();
+        mapa.spawnear(lechuza);
+
+        assert lechuza.getUbicacion().equals(new Coordenadas(0, 0));
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(0, 5));
+
+        lechuza.recibirDanio(3);
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(5, 10));
+
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(10, 12));
+
+        mapa.mover(jugador);
+        assert lechuza.getUbicacion().equals(new Coordenadas(15, 15));
+
+    }
+
 }

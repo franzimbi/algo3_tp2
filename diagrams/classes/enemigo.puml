@@ -1,0 +1,45 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+class Arania {
+}
+abstract Enemigo {
+  # energia: int
+  # danio: int
+  # recompensa: Recompensa
+  # ubicacion: Coordenadas
+  # movimiento: Movimiento
+  # velocidad: Velocidad
+
+  + ubicarEn(Coordenadas): void
+  + atacarEnemigo(Defensa): void
+  + mover(Parcela, Jugador, Mapa): void
+  + recompensar(Jugador): void
+  + atacar(Jugador, int): void
+  + estaMuerto(): boolean
+  + recibirDanio(int): void
+  + ubicacion(Parcela): boolean
+  + reducirVelocidad(float): void
+  + distancia(Defensa): int
+}
+class Hormiga {
+  + cambiarRecompensa(): void
+}
+class Lechuza {
+  + recibirDanio(int): void
+  + reducirVelocidad(float): void
+  + atacar(Jugador, int): void
+}
+class Topo {
+  + atacarEnemigo(Defensa): void
+  + mover(Parcela, Jugador, Mapa): void
+
+  - actualizarVelocidad(): void
+}
+
+Arania   --|>  Enemigo
+Hormiga  --|>  Enemigo
+Lechuza  --|>  Enemigo
+Topo     -|>  Enemigo
+@enduml

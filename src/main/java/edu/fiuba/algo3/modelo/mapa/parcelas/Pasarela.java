@@ -49,7 +49,7 @@ public class Pasarela extends Parcela {
     }
 
     public void moverASiguiente(Enemigo enemigo, Jugador jugador, Mapa mapa) {
-        mapa.ubicar(enemigo, this.direccion.siguiente(this.ubicacion), jugador);
+        mapa.ubicar(enemigo, this.direccion.direccionParaCoordenada(this.ubicacion), jugador);
     }
 
     public String getNombre() {

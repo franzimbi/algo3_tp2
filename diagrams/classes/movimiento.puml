@@ -1,0 +1,26 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+interface Movimiento << interface >> {
+  + mover(Enemigo, Jugador, Mapa): void
+}
+class MovimientoCamino {
+  + mover(Enemigo, Jugador, Mapa): void
+}
+class MovimientoDiagonal {
+  + mover(Enemigo, Jugador, Mapa): void
+  - lozanoAlgorithm(Mapa, Enemigo): Coordenadas
+}
+class MovimientoHorizontal {
+  + mover(Enemigo, Jugador, Mapa): void
+}
+class MovimientoVertical {
+  + mover(Enemigo, Jugador, Mapa): void
+}
+
+MovimientoCamino      .|>  Movimiento
+MovimientoDiagonal    ..|>  Movimiento
+MovimientoHorizontal  ..|>  Movimiento
+MovimientoVertical    ..|>  Movimiento
+@enduml

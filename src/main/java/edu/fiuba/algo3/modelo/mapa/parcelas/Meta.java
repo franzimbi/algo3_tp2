@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.mapa.parcelas;
 
 import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
-import edu.fiuba.algo3.modelo.excepciones.LlegoAMetaException;
 import edu.fiuba.algo3.modelo.excepciones.ParcelaNoPuedeUbicarError;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
 import edu.fiuba.algo3.modelo.logger.Logger;
@@ -26,10 +25,15 @@ public class Meta extends Pasarela {
         mapa.removerEnemigo(enemigo);
         Logger.getInstancia().info(enemigo.getNombre()
                 + " llego a la meta. jugador quedo con " + jugador.getVida() + " de vida");
-        throw new LlegoAMetaException();
+        //throw new LlegoAMetaException();
     }
 
     public void ubicar(TrampaArenosa trampa) {
         throw new ParcelaNoPuedeUbicarError();
+    }
+
+    @Override
+    public String getNombre() {
+        return "meta";
     }
 }

@@ -11,23 +11,18 @@ public class TrampaArenosa extends Defensa {
         super();
         this.coste = 25;
         this.turnosRestantes = 0;
-        this.vidaUtil = 3;
+        this.vidaUtil = 4;
         this.multiplicador = 0.5f;
     }
 
     public String getNombre() {
         return "Trampa De Arena";
     }
-    @Override
-    public boolean estaOperativa() {
-        return this.vidaUtil > 0;
-    }
 
     @Override
     public void atacarEnemigo(Enemigo enemigo) {
         if (this.estaOperativa()) {
             enemigo.atacarEnemigo(this);
-            this.vidaUtil--;
         }
     }
 

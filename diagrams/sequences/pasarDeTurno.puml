@@ -1,0 +1,28 @@
+@startuml
+
+autonumber
+
+entity Sistema
+
+participant ": Juego"
+Sistema -> ": Juego": pasarDeTurno()
+
+participant "nico: Jugador"
+": Juego" -> "nico: Jugador": atacarEnemigos(m)
+": Juego" -> "nico: Jugador": recolectarDefensas()
+
+participant "m: Mapa"
+": Juego" -> "m: Mapa": recolectarEnemigos(nico)
+
+": Juego" -> ": Juego": turnoEnemigos()
+
+participant "t: Turnos"
+": Juego" -> "t: Turnos": moverEnemigos(nico, m)
+": Juego" -> "t: Turnos": generarEnemigos(m)
+": Juego" -> "t: Turnos": sumarTurnos()
+
+
+
+
+
+@enduml

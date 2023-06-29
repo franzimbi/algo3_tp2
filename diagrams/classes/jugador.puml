@@ -1,0 +1,23 @@
+@startuml
+top to bottom direction
+
+class Jugador {
+  + recibirMuerto(Enemigo): void
+  + recibirDefensa(Defensa): void
+  + sacarCreditos(int): void
+  + recolectarDefensas(): void
+  + recibirAtaque(int): void
+  + atacarEnemigos(Mapa): void
+  + estaMuerto(): boolean
+  + destruirPrimeraDefensa(): void
+  + recibirCreditos(int): void
+   -vida: int
+   -creditos: int
+}
+class Score {
+  + agregarMuerto(Enemigo): void
+}
+abstract Defensa
+    Jugador *-- "1 " Score
+    Jugador o-- "0..*" Defensa
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+entity Turnos
+Turnos -> "m: Mapa": mover(nico)
+participant "nico: Jugador"
+
+"m: Mapa" -> "m: Mapa": this.encontrarParcela(e)
+loop recorre todos las parcelas
+note over "m: Mapa": se busca la parcela en la que esta el enemigo
+end
+"p: Pasarela" --> "m: Mapa":
+
+"m: Mapa" -> "e: Hormiga": mover(p, jugador, this)
+loop velocidad veces
+"e: Hormiga" -> "mov: MovimientoCamino": mover(this,nico,m)
+"mov: MovimientoCamino" -> "p: Pasarela": moverASiguiente(e,nico,m)
+"p: Pasarela" -> "d: Abajo": direccionParaCoordenada(this.ubicacion)
+"d: Abajo" --> "p: Pasarela": c: Coordenadas
+"p: Pasarela"-> "m: Mapa": ubicar(e,c,nico)
+end
+
+
+@enduml

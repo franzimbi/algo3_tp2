@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+entity Sistema
+create "c: Coordenadas"
+Sistema -> "c: Coordenadas": Coordenadas(1,1)
+
+
+create "d: TorreBlanca"
+Sistema -> "d: TorreBlanca": TorreBlanca()
+
+create ": Juego"
+Sistema -> ": Juego": agregarDefensa(d, c)
+
+create ":mapa"
+": Juego" -> ":mapa": ubicar(d, c, this.jugador)
+
+loop hasta encontrar la parcela
+":mapa" -> ":mapa": parcelaTieneUbicacion(c)
+":mapa" --> ":mapa": True
+end
+
+create ":parcela"
+":mapa" -> ":parcela": ubicar(d)
+":mapa" <-- ":parcela"
+
+":mapa" -> "d: TorreBlanca": asignarAJugador(this.jugador)
+
+@enduml

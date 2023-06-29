@@ -8,5 +8,5 @@ import edu.fiuba.algo3.modelo.enemigos.velocidad.Velocidad;
 import edu.fiuba.algo3.modelo.turno.Turnos;
 
 public interface Movimiento {
-    public void mover(Velocidad velocidad, Enemigo enemigo, Parcela actual, Jugador jugador, Mapa mapa);
+    public void mover(Enemigo enemigo, Jugador jugador, Mapa mapa);
 }

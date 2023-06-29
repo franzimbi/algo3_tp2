@@ -50,7 +50,7 @@ public class TopoTest {
         }
 
         Topo topo = new Topo();
-        mapa.ubicar(topo, new Coordenadas(0, 0), jugador);
+        mapa.spawnear(topo);
 
         assert topo.getVelocidad() == 1;
 

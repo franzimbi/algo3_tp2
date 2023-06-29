@@ -46,6 +46,7 @@ public class Mapa {
                     Logger.getInstancia().info("no se pudo ubicar un " +
                             defensa.getNombre() + " en (" + posicion.getX() + "," +
                             posicion.getY() + ")");
+                    throw e;
                 }
             }
         }
@@ -63,9 +64,6 @@ public class Mapa {
     public void mover(Jugador jugador) {
         List<Enemigo> enemigosCopia = new ArrayList<>(this.enemigos);
         for (Enemigo enemigo : enemigosCopia) {
-            if (enemigo.estaMuerto()) {
-                continue;
-            }
             enemigo.mover(this.encontrarParcela(enemigo), jugador, this);
         }
     }

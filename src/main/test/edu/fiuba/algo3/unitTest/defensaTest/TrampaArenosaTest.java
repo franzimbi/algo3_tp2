@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.unitTest.defensaTest;
 
+import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.defensa.TrampaArenosa;
 import edu.fiuba.algo3.modelo.enemigos.*;
+import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.jugador.Jugador;
+import edu.fiuba.algo3.modelo.lector.LectorJSON;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import org.junit.jupiter.api.Test;
 
@@ -64,16 +67,27 @@ public class TrampaArenosaTest {
 
     @Test
     public void Test07TrampaDeArenaDuraSolo3Turnos() {
-        TrampaArenosa trampa = new TrampaArenosa();
+        LectorJSON lector = new LectorJSON();
+        String mapa = "src/main/test/testResources/mapaValido.json";
+        String turnos = "src/main/test/testResources/enemigosValidos.json";
+        Jugador jugador = new Jugador(200, 300, "Cristiano Ronaldo");
+        Juego juego = new Juego(jugador, lector, mapa, turnos);
 
-        Enemigo hormiga = new Hormiga();
-        Enemigo arania = new Arania();
-        Enemigo topo = new Topo();
+        Defensa trampa = new TrampaArenosa();
+        juego.agregarDefensa(trampa, new Coordenadas(0, 1));
 
-        trampa.atacarEnemigo(hormiga);
-        trampa.atacarEnemigo(arania);
-        trampa.atacarEnemigo(topo);
+        juego.juegoEmpezar();
+        juego.pasarTurno();
+        assert trampa.vidaUtil();
+        juego.pasarTurno();
+        assert trampa.vidaUtil();
+        juego.pasarTurno();
+        assert trampa.vidaUtil();
+        juego.pasarTurno();
+        assert !trampa.vidaUtil();
+        assert jugador.cantidadDefensas() == 0;
 
-        assert !trampa.estaOperativa();
+
     }
+
 }

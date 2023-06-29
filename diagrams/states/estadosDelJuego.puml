@@ -1,0 +1,40 @@
+@startuml
+
+scale 1000 height
+scale 900 width
+top to bottom direction
+skinparam linetype ortho
+hide empty description
+
+[*] --> EmpezarJuego
+
+state queHacer <<choice>>
+EmpezarJuego -->queHacer: que hace el jugador
+state PasarDeTurno
+
+queHacer--> AgregarDefensa
+queHacer --> PasarDeTurno
+AgregarDefensa --> PasarDeTurno
+
+state ComoEstaElJugador <<choice>>
+PasarDeTurno --> ComoEstaElJugador: Estado del jugador
+
+ComoEstaElJugador --> NoEstaVivo
+NoEstaVivo --> [*]: perdio
+ComoEstaElJugador --> SigueVivo
+state todaviaSigue <<choice>>
+SigueVivo --> todaviaSigue
+todaviaSigue --> HayMasEnemigos
+todaviaSigue --> NoHayMasEnemigos
+NoHayMasEnemigos --> [*]: gano
+HayMasEnemigos --> queHacer: sigue el juego
+
+
+'Turnos --> JugadorMuerto
+
+'JugadorVivo --> Gano
+'Gano --> finDelJuego <<end>>
+'Gano --> todaviaNoTermino
+'todaviaNoTermino --> Turnos
+
+@enduml

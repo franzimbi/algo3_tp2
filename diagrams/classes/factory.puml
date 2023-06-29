@@ -1,0 +1,13 @@
+@startuml
+
+top to bottom direction
+skinparam linetype ortho
+
+class EnemigosFactory {
+  + crearEnemigo(String): Enemigo
+}
+class ParcelasFactory {
+  + crearParcela(String, int, int): Parcela
+}
+
+@enduml

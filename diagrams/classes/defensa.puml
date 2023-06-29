@@ -1,0 +1,41 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+abstract Defensa {
+  # ubicacion: Coordenadas
+  # vidaUtil: int
+  # turnosRestantes: int
+  # coste: int
+  # rango: int
+  # danio: int
+
+  + estaOperativa(): boolean
+  + atacarEnemigo(Enemigo): void
+  + asignarAJugador(Jugador): void
+  + vidaUtil(): boolean
+  + estaEnRango(int): boolean
+  + reducirVidaUtil(): void
+  + actualizar(Jugador): void
+  + ubicarDefensa(Parcela): void
+  + atacar(Enemigo, int): void
+  + ubicarEn(Coordenadas): void
+}
+class TorreBlanca {
+  + atacarEnemigo(Enemigo): void
+  + reducirVidaUtil(): void
+}
+class TorrePlateada {
+  + atacarEnemigo(Enemigo): void
+  + reducirVidaUtil(): void
+}
+class TrampaArenosa {
+  + ubicarDefensa(Parcela): void
+  + atacarEnemigo(Enemigo): void
+  + atacar(Enemigo, int): void
+}
+
+TorreBlanca    --|>  Defensa
+TorrePlateada  ---|>  Defensa
+TrampaArenosa  --|>  Defensa
+@enduml

@@ -3,17 +3,17 @@ package edu.fiuba.algo3.modelo.jugador;
 import edu.fiuba.algo3.modelo.defensa.Defensa;
 import edu.fiuba.algo3.modelo.enemigos.Enemigo;
 import edu.fiuba.algo3.modelo.excepciones.CreditosInsuficientesError;
+import edu.fiuba.algo3.modelo.jugador.score.Score;
 import edu.fiuba.algo3.modelo.logger.Logger;
 import edu.fiuba.algo3.modelo.mapa.Mapa;
-import edu.fiuba.algo3.modelo.jugador.score.Score;
 
 import java.util.ArrayList;
 
 public class Jugador {
     private final String nombre;
-    private int creditos;
     private final Score score;
     private final ArrayList<Defensa> defensas;
+    private int creditos;
     private int vida;
 
     public Jugador(int vida, int creditos, String nombre) {
@@ -36,7 +36,7 @@ public class Jugador {
 
     public void recibirAtaque(int danio) {
         this.vida -= danio;
-        if (this.vida<=0){
+        if (this.vida <= 0) {
             this.vida = 0;
         }
     }
@@ -92,6 +92,17 @@ public class Jugador {
 
     public ArrayList<Defensa> getDefensas() {
         return this.defensas;
+    }
+
+    public void recolectarDefensas() {
+        for (int i = 0; i < this.defensas.size(); i++) {
+            this.defensas.get(i).actualizar(this);
+        }
+    }
+
+    public void destruirDefensa(Defensa defensa) {
+        Logger.getInstancia().info("Se elimino una " + defensa.getNombre() + " del jugador.");
+        this.defensas.remove(defensa);
     }
 }
 

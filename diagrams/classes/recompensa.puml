@@ -1,0 +1,20 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+interface Recompensa << interface >> {
+  + otorgarRecompensa(Jugador): void
+  + duplicarRecompensa(): void
+}
+class RecompensaRandom {
+  + duplicarRecompensa(): void
+  + otorgarRecompensa(Jugador): void
+}
+class RecompensaSimple {
+  + otorgarRecompensa(Jugador): void
+  + duplicarRecompensa(): void
+}
+
+RecompensaRandom  ..|>  Recompensa
+RecompensaSimple  ..|>  Recompensa
+@enduml

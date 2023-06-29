@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+entity Sistema
+Sistema ->"e: Lechuza": mover(p, nico, m)
+"e: Lechuza" -> "e: Lechuza": estaMuerto()
+"e: Lechuza" <-- "e: Lechuza": false
+loop velocidad veces
+"e: Lechuza" -> "mov: MovimientoVertical": mover(this,nico,m)
+"mov: MovimientoVertical" -> "e: Lechuza": getUbicacion()
+"mov: MovimientoVertical" <-- "e: Lechuza": [posicion: Cooredenadas]
+create "a: Abajo"
+"mov: MovimientoVertical" -> "a: Abajo": Abajo()
+"mov: MovimientoVertical" -> "a: Abajo": direccionParaCoordenada(posicion)
+"mov: MovimientoVertical" <-- "a: Abajo": [nuevasCoordenadas: Cooredenadas]
+"mov: MovimientoVertical" -> "e: Lechuza": ubicarEn(nuevasCoordenadas)
+"mov: MovimientoVertical" -> "m: Mapa": dejarEnRango(nuevasCoordenadas)
+
+end
+
+
+@enduml

@@ -1,0 +1,48 @@
+@startuml
+top to bottom direction
+skinparam linetype ortho
+
+abstract Defensa {
+}
+abstract Enemigo {
+}
+class Juego {
+  + Juego(Jugador, Lector, rutaMapa: String, rutaTurnos: String)
+  + agregarDefensa(Defensa, Coordenadas): void
+  + gano(): boolean
+  + turnoEnemigos(): void
+  + juegoEmpezar(): void
+  + pasarTurno(): void
+  + perdio(): boolean
+}
+class Jugador {
+}
+class Mapa {
+}
+abstract Parcela {
+}
+class Turnos {
+  }
+class Coordenadas{
+}
+interface Lector{
+    +leerMapa(String): Mapa
+    +leerEnemigos(String): Turnos
+}
+class LectorJson{
+    +leerMapa(String): Mapa
+    +leerEnemigos(String): Turnos
+    }
+
+Juego ..> Lector
+Lector <|.. LectorJson
+Juego o-- "1" Jugador
+Juego *-- "1" Mapa
+Juego *-- "1" Turnos
+Jugador o-- "0..*"Defensa
+Mapa o-- "0..*" Enemigo
+Mapa o-- "0..*" Parcela
+Enemigo *-- "1" Coordenadas
+Defensa *-- "1" Coordenadas
+Parcela *-- "1" Coordenadas
+@enduml

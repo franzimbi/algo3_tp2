@@ -17,6 +17,7 @@ public class Juego {
     private final Jugador jugador;
     private final Mapa mapa;
     private final Turnos turnos;
+    private Boolean empezo = false;
 
     public Juego(Jugador jugador, Lector lector, String rutaMapa, String rutaTurnos) {
         this.jugador = jugador;
@@ -42,8 +43,10 @@ public class Juego {
     }
 
     public void pasarTurno() {
+        this.empezo = true;
         Logger.getInstancia().info("\nNUEVO TURNO:\n\n");
         this.jugador.atacarEnemigos(this.mapa);
+        this.jugador.recolectarDefensas();
         this.mapa.recolectarEnemigos(this.jugador);
         this.turnoEnemigos();
         if (this.gano()) {
@@ -53,6 +56,10 @@ public class Juego {
 
     public void juegoEmpezar() {
         this.turnoEnemigos();
+    }
+
+    public boolean empezo() {
+        return this.empezo;
     }
 
     public boolean gano() {
