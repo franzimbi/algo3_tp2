@@ -5,3 +5,4 @@ ignore:
   - "src/main/java/edu/fiuba/algo3/Main.java"
   - "src/main/java/edu/fiuba/algo3/SystemInfo.java"
   - "src/main/java/edu/fiuba/algo3/interfaz"
+  - "src/main/java/edu/fiuba/algo3/modelo/logger"
