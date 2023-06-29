@@ -115,7 +115,7 @@ public class Login extends Application {
                 casoError.initOwner(primaryStage);
                 casoError.getIcons().add(icon);
                 var label = new Label("El nombre de usuario ingresado es invalido.");
-                var label2 = new Label("Ingrese minimo 6 digitos, maximo 10 digitos.");
+                var label2 = new Label("Ingrese minimo 6 caracteres, maximo 10 caracteres.");
                 GridPane gridPane1 = new GridPane();
                 gridPane1.setAlignment(Pos.CENTER);
                 gridPane1.setPadding(new Insets(5));
@@ -175,7 +175,7 @@ public class Login extends Application {
 
     private boolean authenticate(String username) {
         // Devuelve true si 6 < username < 10
-        return (username.length() > 6 && username.length() < 10);
+        return (username.length() >= 6 && username.length() < 10);
     }
 
     // Centrar la ventana
