@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.unitTest.factory;
 
-import edu.fiuba.algo3.modelo.enemigos.Arania;
+import edu.fiuba.algo3.modelo.enemigos.*;
 import edu.fiuba.algo3.modelo.enemigos.Hormiga;
 import edu.fiuba.algo3.modelo.enemigos.Topo;
 import edu.fiuba.algo3.modelo.excepciones.EnemigoInvalidoError;
@@ -17,13 +17,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class EnemigosFactoryTest {
     @Test
     public void Test01PruebaTiposDevueltosValidos() {
-
         assert EnemigosFactory.crearEnemigo("hormiga") instanceof Hormiga;
         assert EnemigosFactory.crearEnemigo("topo") instanceof Topo;
         assert EnemigosFactory.crearEnemigo("arana") instanceof Arania;
+        assert EnemigosFactory.crearEnemigo("lechuza") instanceof Lechuza;
     }
+
     @Test
     public void Test02PruebaTiposInvalidos() {
-        assertThrows(EnemigoInvalidoError.class, () -> EnemigosFactory.crearEnemigo("messi"));
+        EnemigosFactory ene = new EnemigosFactory();
+        assertThrows(EnemigoInvalidoError.class, () -> ene.crearEnemigo("messi"));
     }
 }
