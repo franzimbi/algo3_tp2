@@ -41,9 +41,12 @@ public class JuegoTest {
         Jugador jugador = new Jugador(2, 300, "Cristiano Ronaldo");
         Juego juego = new Juego(jugador, lector, mapa, turnos);
 
+        assert juego.tamanoMapa() == 9;
+        assert juego.cantidadDeOleadas() == 2;
         juego.juegoEmpezar();
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(1, 0));
         juego.pasarTurno();
+        assert juego.empezo();
         juego.agregarDefensa(new TorreBlanca(), new Coordenadas(2, 2));
         assert !juego.perdio();
         juego.pasarTurno();
@@ -69,5 +72,22 @@ public class JuegoTest {
         assert !juego.gano();
         juego.pasarTurno();
         assert juego.gano();
+    }
+
+    @Test
+    public void Test04GettersAndan() {
+        LectorJSON lector = new LectorJSON();
+        String mapa = "src/main/test/testResources/mapaValido.json";
+        String turnos = "src/main/test/testResources/enemigosValidos.json";
+        Jugador jugador = new Jugador(200, 300, "Cristiano Ronaldo");
+        Juego juego = new Juego(jugador, lector, mapa, turnos);
+
+        assert juego.cantidadEnemigos() ==0;
+        assert juego.getParcelasMapa().size() == 9;
+        assert juego.getEnemigosMapa().size() == 0;
+        assert juego.getDefensasJugador().size() == 0;
+        assert juego.vidaJugador() == 200;
+        assert juego.creditosJugador() == 300;
+        assert juego.cantidadDeTurnos() == 0;
     }
 }

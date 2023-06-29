@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.unitTest.mapaTest;
 
+import com.sun.scenario.effect.impl.state.AccessHelper;
 import edu.fiuba.algo3.modelo.mapa.Coordenadas;
 import org.junit.jupiter.api.Test;
 
@@ -17,5 +18,14 @@ public class CoordenadasTest {
         Coordenadas coordenada = new Coordenadas(2, 3);
         Coordenadas otraCoordenada = new Coordenadas(5, 1);
         assert coordenada.distancia(otraCoordenada) == 5;
+    }
+    @Test
+    public void Test03ChequearXYFuncionaCorrectamente() {
+        Coordenadas co1= new Coordenadas(1,1);
+        Coordenadas co2= new Coordenadas(2,2);
+
+        co2.chequearXY(co1);
+        assert co2.equals(co1);
+
     }
 }

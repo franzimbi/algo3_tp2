@@ -29,4 +29,18 @@ public class MapaTest {
         Defensa defensa = new TorrePlateada();
         assertDoesNotThrow(() -> mapa.ubicar(defensa, new Coordenadas(2, 2), jugador));
     }
+    @Test
+    public void Test04GetParcelaTieneLasParcelas() {
+        Mapa map = new Mapa();
+        map.agregarParcela(new Tierra(new Coordenadas(1,1)));
+        assert map.getParcelas().size() == 1;
+        assert map.encontrarParcela(new Coordenadas(0,0)) == null;
+
+    }
+    @Test
+    public void Test05GetEnemigosTieneLosEnemigos() {
+        Mapa map = new Mapa();
+        assert map.getEnemigos().size() == 0;
+        assert map.cantidadEnemigos() == 0;
+    }
 }

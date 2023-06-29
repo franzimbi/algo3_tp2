@@ -93,7 +93,7 @@ public class LechuzaTest {
     }
 
     @Test
-    public void TestLechuzaDiagonalFalopa() {
+    public void Test06LechuzaDiagonalFalopa() {
         Mapa mapa = new Mapa();
         Jugador jugador = new Jugador(10, 1, "Julian");
 
@@ -124,4 +124,11 @@ public class LechuzaTest {
 
     }
 
+    @Test
+    public void Test07LechuzaNoBajaSuVelocidad() {
+        Lechuza lechuza = new Lechuza();
+
+        lechuza.reducirVelocidad(0.2f);
+        assert lechuza.getVelocidad() == 5;
+    }
 }
